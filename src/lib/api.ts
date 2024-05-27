@@ -1,5 +1,5 @@
-import { PostResponse } from "@/interfaces/graphql-res";
-import { Post } from "@/interfaces/post";
+import { PostResponse } from "@/interface/graphql-res";
+import { Post } from "@/interface/post";
 import fs from "fs";
 import request from "graphql-request";
 import matter from "gray-matter";
@@ -7,11 +7,7 @@ import { join } from "path";
 
 const postsDirectory = join(process.cwd(), "content");
 
-// export function getPostSlugs() {
-//   return fs.readdirSync(postsDirectory);
-// }
-
-export function getPostSlugs(): string[] {
+export const getPostSlugs = (): string[] => {
   const fileNames = getPostFilePaths(postsDirectory);
   return fileNames.map((fileName) => {
     const slug = fileName
@@ -22,7 +18,7 @@ export function getPostSlugs(): string[] {
   });
 }
 
-function getPostFilePaths(directory: string): string[] {
+const getPostFilePaths = (directory: string): string[] => {
   const fileNames = fs.readdirSync(directory);
   const filePaths: string[] = [];
 
@@ -41,7 +37,7 @@ function getPostFilePaths(directory: string): string[] {
   return filePaths;
 }
 
-export function getPostBySlug(slug: string) {
+export const getPostBySlug = (slug: string): Post => {
   // const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
@@ -50,14 +46,14 @@ export function getPostBySlug(slug: string) {
   return { ...data, slug, content } as Post;
 }
 
-export function getAllPosts(): Post[] {
+export const getAllPosts = (): Post[] => {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug))
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
-}
+};
 
 export const getGqlPost = async (
   query: string

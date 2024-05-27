@@ -2,7 +2,7 @@ import Container from "@/app/_components/container";
 import { HeroPost } from "@/app/_components/hero-post";
 import { Intro } from "@/app/_components/intro";
 import { MoreStories } from "@/app/_components/more-stories";
-import { Post } from "@/interfaces/post";
+import { Post } from "@/interface/post";
 import { getGqlPost } from "@/lib/api";
 import { gql } from "graphql-request";
 
