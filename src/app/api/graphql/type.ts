@@ -2,6 +2,7 @@ export const typeDefs = /* GraphQL */ `
   type Url {
     url: String!
   }
+
   type Post {
     title: String!
     date: String!
@@ -13,6 +14,13 @@ export const typeDefs = /* GraphQL */ `
     excerpt: String!
     ogImage: Url!
     preview: Boolean
+    folders: [String!]!
+  }
+
+  type Folder {
+    name: String!
+    path: String!
+    posts: [Post!]!
   }
 
   type Author {
@@ -21,7 +29,8 @@ export const typeDefs = /* GraphQL */ `
   }
 
   type Query {
-    posts: [Post!]!
+    posts(prefix: String!): [Post!]!
     post(slug: String!): Post
+    folders: [Folder!]!
   }
 `;
