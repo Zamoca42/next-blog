@@ -12,7 +12,13 @@ export const resolvers = {
     },
     // post: (slug: string) => getPostBySlug(slug),
     post: (_: unknown, { slug }: { slug: string }) => getPostBySlug(slug),
-    folders: () => getTopLevelFolders(),
+    folders: (_: unknown, { path }: { path?: string }) => {
+      const allFolders = getTopLevelFolders();
+      if (path) {
+        return allFolders.filter((folder) => folder.path === path);
+      }
+      return allFolders;
+    },
   },
   Folder: {
     posts: (folder: Folder) => {

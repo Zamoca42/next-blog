@@ -1,8 +1,6 @@
 import { Folder } from "@/interface/folder";
-import { PostResponse } from "@/interface/graphql-res";
 import { Post } from "@/interface/post";
 import fs from "fs";
-import request from "graphql-request";
 import matter from "gray-matter";
 import { join } from "path";
 
@@ -59,8 +57,8 @@ export const getAllPosts = (): Post[] => {
   return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
 };
 
-export const getTopLevelFolders = (): Folder[] => {
-  const folders: Folder[] = [];
+export const getTopLevelFolders = (): Omit<Folder, "posts">[] => {
+  const folders: Omit<Folder, "posts">[] = [];
   const fileNames = fs.readdirSync(postsDirectory);
 
   fileNames.forEach((fileName) => {
@@ -76,19 +74,4 @@ export const getTopLevelFolders = (): Folder[] => {
   });
 
   return folders;
-};
-
-export const getGqlPost = async (
-  query: string
-): Promise<PostResponse<Post>> => {
-  const res: PostResponse<Post> = await request(
-    "http://localhost:3000/api/graphql",
-    query
-  );
-
-  if (res.errors) {
-    throw new Error(res.errors[0].message);
-  }
-
-  return res;
 };

@@ -3,12 +3,12 @@ import { HeroPost } from "@/app/_components/hero-post";
 import { Intro } from "@/app/_components/intro";
 import { MoreStories } from "@/app/_components/more-stories";
 import { Post } from "@/interface/post";
-import { getGqlPost } from "@/lib/api";
+import { fetchGraphQL } from "@/app/api/action";
 import { gql } from "graphql-request";
 
 export default async function Index() {
-  const getAllPosts = await getGqlPost(gql`
-    {
+  const getAllPosts = await fetchGraphQL<{ posts: Post[] }>(gql`
+    query {
       posts {
         title
         slug
@@ -24,7 +24,7 @@ export default async function Index() {
     }
   `);
 
-  const allPosts = getAllPosts.posts as Post[];
+  const allPosts = getAllPosts.posts;
 
   const heroPost = allPosts[0];
 

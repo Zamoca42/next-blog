@@ -29,8 +29,8 @@ export const typeDefs = /* GraphQL */ `
   }
 
   type Query {
-    posts(prefix: String!): [Post!]!
+    posts(prefix: String): [Post!]!
     post(slug: String!): Post
-    folders: [Folder!]!
+    folders(path: String): [Folder!]!
   }
 `;

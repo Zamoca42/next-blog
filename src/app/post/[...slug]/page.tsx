@@ -1,36 +1,38 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllPosts, getGqlPost, getPostBySlug } from "@/lib/api";
+import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { CMS_NAME } from "@/lib/constants";
 import markdownToHtml from "@/lib/markdownToHtml";
 import Alert from "@/app/_components/alert";
 import Container from "@/app/_components/container";
-import Header from "@/app/_components/header";
 import { PostBody } from "@/app/_components/post-body";
 import { PostHeader } from "@/app/_components/post-header";
+import { type Post } from "@/interface/post";
+import { fetchGraphQL } from "@/app/api/action";
 import { gql } from "graphql-request";
+import Header from "@/app/_components/header";
 
 export default async function Post({ params }: Params) {
   const postSlug = params.slug.join("/");
-  const getPostBySlug = await getGqlPost(gql`
-  {
-  post(slug: "${postSlug}") {
-    title
-    content
-    date
-    preview
-    coverImage
-    author {
-      name
-      picture
+  const getPostBySlug = await fetchGraphQL<{ post: Post }>(gql`
+  query{
+    post(slug: "${postSlug}") {
+        title
+        content
+        date
+        preview
+        coverImage
+        author {
+          name
+          picture
+        }
+        ogImage {
+          url
+        }
+      }
     }
-    ogImage {
-      url
-    }
-  }
-}`);
+  `);
   const post = getPostBySlug.post;
-  // const post = getPostBySlug(params.slug);
 
   if (!post) {
     return notFound();
@@ -40,13 +42,11 @@ export default async function Post({ params }: Params) {
 
   return (
     <main>
-      <Alert preview={post.preview ?? false} />
       <Container>
-        <Header />
-        <article className="mb-32">
+        <article className="my-28">
           <PostHeader
             title={post.title}
-            coverImage={post.coverImage}
+            coverImage={post.coverImage ?? "/asset/blog/preview/cover.jpg"}
             date={post.date}
             author={post.author}
           />
