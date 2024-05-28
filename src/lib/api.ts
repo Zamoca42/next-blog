@@ -3,6 +3,7 @@ import { Post } from "@/interface/post";
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
+import { capitalize } from "@/lib/util";
 
 const postsDirectory = join(process.cwd(), "content");
 
@@ -67,7 +68,7 @@ export const getTopLevelFolders = (): Omit<Folder, "posts">[] => {
 
     if (stat.isDirectory()) {
       folders.push({
-        name: fileName.toUpperCase(),
+        name: capitalize(fileName),
         path: fileName,
       });
     }

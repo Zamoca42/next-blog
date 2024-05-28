@@ -5,6 +5,7 @@ import { MoreStories } from "@/app/_components/more-stories";
 import { Post } from "@/interface/post";
 import { fetchGraphQL } from "@/app/api/action";
 import { gql } from "graphql-request";
+import Footer from "@/app/_components/footer";
 
 export default async function Index() {
   const getAllPosts = await fetchGraphQL<{ posts: Post[] }>(gql`
@@ -31,19 +32,22 @@ export default async function Index() {
   const morePosts = allPosts.slice(1);
 
   return (
-    <main>
-      <Container>
-        <Intro />
-        <HeroPost
-          title={heroPost.title}
-          coverImage={heroPost.coverImage || "/placeholder-image.jpg"}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
-        />
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-      </Container>
-    </main>
+    <div>
+      <main>
+        <Container>
+          <Intro />
+          <HeroPost
+            title={heroPost.title}
+            coverImage={heroPost.coverImage || "/placeholder-image.jpg"}
+            date={heroPost.date}
+            author={heroPost.author}
+            slug={heroPost.slug}
+            excerpt={heroPost.excerpt}
+          />
+          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+        </Container>
+      </main>
+      <Footer />
+    </div>
   );
 }

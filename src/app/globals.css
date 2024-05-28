@@ -27,3 +27,9 @@
   width: 100%;
   left: 0;
 }
+
+@layer components {
+  .btn:hover {
+    background-color: rgba(236, 233, 233, 0.3);
+  }
+}

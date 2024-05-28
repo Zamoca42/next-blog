@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/app/globals.css";
 import { NavBar } from "@/component/nav-bar";
+import { SideBarProvider } from "@/component/provider";
+import { SideBar } from "@/component/side-bar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -56,9 +58,10 @@ export default function RootLayout({
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
       <body className={inter.className}>
-        <NavBar />
-        <div className="min-h-screen">{children}</div>
-        <Footer />
+        <SideBarProvider>
+          <NavBar />
+          {children}
+        </SideBarProvider>
       </body>
     </html>
   );

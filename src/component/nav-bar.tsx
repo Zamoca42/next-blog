@@ -5,12 +5,13 @@ import { fetchGraphQL } from "@/app/api/action";
 import { gql } from "graphql-request";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { NavContainer } from "@/component/nav-container";
+import { NavLink } from "@/component/nav-link";
 import { usePathname } from "next/navigation";
+import { useSideBar } from "@/component/provider";
 
 export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [folders, setFolders] = useState<Folder[]>([]);
+  const { folders, setFolders } = useSideBar();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -48,18 +49,18 @@ export const NavBar = () => {
         <div className="hidden md:flex gap-4 *:h-full">
           <Link
             href="/"
-            className={`${
-              pathname === "/" ? "active-link" : "nav-underline"
-            }`}
+            className={`${pathname === "/" ? "active-link" : "nav-underline"}`}
           >
             Home
           </Link>
-          {folders.map((folder) => (
+          {folders.map((folder, index) => (
             <Link
               href={`/post/${folder.posts[0].slug}`}
-              key={folder.path}
+              key={index}
               className={`${
-                pathname.startsWith(`/post/${folder.path}`) ? "active-link" : "nav-underline"
+                pathname.startsWith(`/post/${folder.path}`)
+                  ? "active-link"
+                  : "nav-underline"
               }`}
             >
               {folder.name}
@@ -86,11 +87,11 @@ export const NavBar = () => {
         </div>
       </nav>
       <div
-        className={`absolute md:hidden top-16 h-full w-full bg-white transition-opacity duration-300 ease-in-out z-0 ${
+        className={`absolute md:hidden top-16 h-full w-full bg-white transition-opacity duration-200 ease-in-out z-0 ${
           isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
-        <NavContainer folders={folders} toggleMenu={toggleMenu} />
+        <NavLink folders={folders} toggleMenu={toggleMenu} />
       </div>
     </>
   );
