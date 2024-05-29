@@ -4,7 +4,6 @@ import { typeDefs } from "@/app/api/graphql/type";
 import { resolvers } from "@/app/api/graphql/resolver";
 
 const { handleRequest } = createYoga({
-  graphiql: process.env.NODE_ENV === "development",
   schema: createSchema({
     typeDefs,
     resolvers,

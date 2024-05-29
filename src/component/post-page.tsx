@@ -17,23 +17,21 @@ export const PostPage = ({
 
   return (
     <div
-      className={`flex-1 transition-margin duration-200 ease-in-out ${
-        isOpen ? "md:pl-80" : "pl-0 lg:pl-80"
-      }`}
+      className={`transition-margin duration-200 ease-in-out ${
+        isOpen ? "md:pl-[21rem]" : "pl-2"
+      } lg:pl-[20rem]`}
     >
-      <main>
-        <Container>
-          <article className="my-28">
-            <PostHeader
-              title={post.title}
-              coverImage={post.coverImage ?? "/asset/blog/preview/cover.jpg"}
-              date={post.date}
-              author={post.author}
-            />
-            <PostBody content={content} />
-          </article>
-        </Container>
-      </main>
+      <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16 pr-2">
+        <article className="my-28">
+          <PostHeader
+            title={post.title}
+            coverImage={post.coverImage ?? "/asset/blog/preview/cover.jpg"}
+            date={post.date}
+            author={post.author}
+          />
+          <PostBody content={content} />
+        </article>
+      </div>
     </div>
   );
 };

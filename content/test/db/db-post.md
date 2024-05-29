@@ -1,6 +1,6 @@
 ---
-title: "[Prisma] 설치 및 사용법"
-excerpt: "Test"
+title: "this-post"
+excerpt: "test"
 date: "2020-03-16T05:35:07.322Z"
 author:
   name: JJ Kasper

@@ -32,4 +32,10 @@
   .btn:hover {
     background-color: rgba(236, 233, 233, 0.3);
   }
+  
+  .fixed-mobile {
+    @apply fixed lg:relative lg:top-auto lg:left-auto;
+  }
 }
+
+

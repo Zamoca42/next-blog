@@ -32,7 +32,7 @@ export default async function Index() {
   const morePosts = allPosts.slice(1);
 
   return (
-    <div>
+    <div className="flex flex-col">
       <main>
         <Container>
           <Intro />

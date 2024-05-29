@@ -1,40 +1,84 @@
 "use client";
 
-import { Folder } from "@/interface/folder";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { blogConfig } from "@/blog.config";
+import { usePathname, useRouter } from "next/navigation";
+import { useSideBar } from "@/component/provider";
+import { fetchGraphQL } from "@/app/api/action";
+import { Post } from "@/interface/post";
+import { gql } from "graphql-request";
+import { Fragment } from "react";
 
 interface Props {
-  folders: Folder[];
-  toggleMenu: () => void;
+  toggleMenu?: () => void;
+  divider?: boolean;
+  matchedPathClass?: string;
+  notMatchedPathClass?: string;
 }
 
-export const NavLink = ({ folders, toggleMenu }: Props) => {
+export const NavLink = ({
+  toggleMenu,
+  divider = false,
+  matchedPathClass = "text-grass font-semibold",
+  notMatchedPathClass = "",
+}: Props) => {
   const pathname = usePathname();
+  const router = useRouter();
+  const { setPostList } = useSideBar();
+  const { postLink } = blogConfig;
+
+  const handleRouter = (path: string) => {
+    router.push(path);
+
+    if (toggleMenu) {
+      toggleMenu();
+    }
+  };
+
+  const handlePostRouter = async (path: string) => {
+    const response = await fetchGraphQL<{ posts: Post[] }>(gql`
+    query {
+      posts(prefix: "${path}") {
+        title
+        slug
+        folders
+      }
+    }
+  `);
+    const postList = response?.posts;
+    router.push(`/post/${postList[0].slug}`);
+    
+    setPostList(postList);
+
+    if (toggleMenu) {
+      toggleMenu();
+    }
+  };
+
   return (
-    <div className="flex flex-col justify-center items-center space-y-4 p-4 m-10">
-      <Link
-        href="/"
-        className={`${pathname === "/" ? "text-grass" : ""}`}
-        onClick={toggleMenu}
+    <ul className="space-x-2">
+      <button
+        className={`${
+          pathname === "/" ? matchedPathClass : notMatchedPathClass
+        }`}
+        onClick={() => handleRouter("/")}
       >
         Home
-      </Link>
-      {folders.map((folder) => (
-        <>
-          <hr className="border-gray-200 min-w-72" />
-          <Link
-            href={`/post/${folder.posts[0].slug}`}
-            key={folder.path}
+      </button>
+      {postLink.map((folder) => (
+        <Fragment key={folder.path}>
+          {divider && <hr className="border-gray-200 min-w-72" />}
+          <button
             className={`${
-              pathname.startsWith(`/post/${folder.path}`) ? "text-grass" : ""
+              pathname.startsWith(`/post/${folder.path}`)
+                ? matchedPathClass
+                : notMatchedPathClass
             }`}
-            onClick={toggleMenu}
+            onClick={() => handlePostRouter(folder.path)}
           >
             {folder.name}
-          </Link>
-        </>
+          </button>
+        </Fragment>
       ))}
-    </div>
+    </ul>
   );
 };

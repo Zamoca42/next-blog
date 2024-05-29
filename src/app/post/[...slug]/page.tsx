@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
-import { CMS_NAME } from "@/lib/constants";
 import { type Post } from "@/interface/post";
 import { fetchGraphQL } from "@/app/api/action";
 import { gql } from "graphql-request";
@@ -38,7 +37,7 @@ export default async function Post({ params }: Params) {
   const content = await markdownToHtml(post.content || "");
 
   return (
-    <div className="min-h-screen flex">
+    <div>
       <SideBar />
       <PostPage post={post} content={content} />
     </div>
@@ -51,7 +50,7 @@ type Params = {
   };
 };
 
-export function generateMetadata({ params }: Params): Metadata {
+export const generateMetadata = ({ params }: Params): Metadata => {
   const postSlug = params.slug.join("/");
   const post = getPostBySlug(postSlug);
 
@@ -59,7 +58,7 @@ export function generateMetadata({ params }: Params): Metadata {
     return notFound();
   }
 
-  const title = `${post.title} | Next.js Blog Example with ${CMS_NAME}`;
+  const title = `${post.title} | Next.js Blog`;
 
   return {
     title,
@@ -68,11 +67,11 @@ export function generateMetadata({ params }: Params): Metadata {
       images: [post.ogImage.url],
     },
   };
-}
+};
 
-export async function generateStaticParams() {
+export const generateStaticParams = () => {
   const posts = getAllPosts();
   return posts.map((post) => ({
-    slug: post.slug.split("/"),
+    slug: post.slug.split("/").filter(Boolean),
   }));
-}
+};
