@@ -7,6 +7,7 @@ import { gql } from "graphql-request";
 import { SideBar } from "@/component/side-bar";
 import { PostPage } from "@/component/post-page";
 import markdownToHtml from "@/lib/markdown-to-html";
+import { delay } from "@/lib/util";
 
 export default async function Post({ params }: Params) {
   const postSlug = params.slug.join("/");
@@ -50,7 +51,9 @@ type Params = {
   };
 };
 
-export const generateMetadata = ({ params }: Params): Metadata => {
+export const generateMetadata = ({
+  params,
+}: Params): Metadata => {
   const postSlug = params.slug.join("/");
   const post = getPostBySlug(postSlug);
 
@@ -64,13 +67,13 @@ export const generateMetadata = ({ params }: Params): Metadata => {
     title,
     openGraph: {
       title,
-      images: [post.ogImage.url],
     },
   };
 };
 
-export const generateStaticParams = () => {
+export const generateStaticParams = async () => {
   const posts = getAllPosts();
+  await delay(1000);
   return posts.map((post) => ({
     slug: post.slug.split("/").filter(Boolean),
   }));

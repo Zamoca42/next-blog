@@ -12,7 +12,7 @@ type TOCProps = {
 export const TOC = ({ toc }: TOCProps) => {
   return (
     <Tree className="w-full max-h-screen bg-background" indicator={true}>
-      {toc.map((element, _) => (
+      {toc.map((element) => (
         <TreeItem key={element.id} elements={[element]} />
       ))}
       <CollapseButton elements={toc} expandAll={true} />

@@ -13,7 +13,7 @@
   }
   
   .active-link {
-    @apply underline-offset-8 underline decoration-4 decoration-grass;
+    @apply underline-offset-8 underline decoration-4 decoration-grass-6;
   }
   
   .nav-underline {
@@ -22,7 +22,7 @@
   }
   
   .nav-underline::after {
-    @apply bg-grass;
+    @apply bg-grass-6;
     content: '';
     position: absolute;
     left: 50%;

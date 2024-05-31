@@ -1,4 +1,8 @@
+"use client";
+
 import { File, Folder, TreeViewElement } from "@/component/tree-view-api";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type TreeItemProps = {
   elements: TreeViewElement[];
@@ -25,11 +29,17 @@ export const TreeItem = ({ elements }: TreeItemProps) => {
           ) : (
             <File
               key={element.id}
-              value={element.id}
+              value={element.path}
               isSelectable={element.isSelectable}
-              className={"px-1"}
+              className={`px-1`}
+              fileIcon=""
             >
-              <span className="ml-1 text-sm md:text-base text-left">{element?.name}</span>
+              <Link
+                href={`/post/${element.path}`}
+                className={`px-2 text-sm text-left py-1`}
+              >
+                {element.name ?? element.path}
+              </Link>
             </File>
           )}
         </li>

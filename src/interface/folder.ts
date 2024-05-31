@@ -1,7 +1,6 @@
-import { Post } from "@/interface/post";
-
-export type Folder = {
+export type ContentFolder = {
+  id: string;
   name: string;
   path: string;
-  posts: Post[];
+  children: ContentFolder[];
 };

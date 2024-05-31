@@ -26,9 +26,11 @@ const config: Config = {
         "accent-1": "#FAFAFA",
         "accent-2": "#EAEAEA",
         "accent-7": "#333",
+        "grass-6": "#B2DDB5",
+        "grass-7": "#94CE9A",
+        "grass-8": "#65BA74",
         success: "#0070f3",
         cyan: "#79FFE1",
-        grass: "#B2DDB5",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -62,6 +64,7 @@ const config: Config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        
       },
       spacing: {
         28: "7rem",

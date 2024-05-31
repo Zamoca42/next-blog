@@ -1,24 +1,23 @@
 "use client";
 
-import { Post } from "@/interface/post";
 import { createContext, useContext, useState } from "react";
 
 interface SideBarContextProps {
-  postList: Post[];
+  path: string;
   isOpen: boolean;
   isLinkOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   setIsLinkOpen: (isLinkOpen: boolean) => void;
-  setPostList: (folders: Post[]) => void;
+  setPath: (path: string) => void;
 }
 
 const SideBarContext = createContext<SideBarContextProps>({
-  postList: [],
+  path: "",
   isOpen: true,
   isLinkOpen: false,
   setIsOpen: () => {},
   setIsLinkOpen: () => {},
-  setPostList: () => {},
+  setPath: () => {},
 });
 
 export const SideBarProvider = ({
@@ -26,19 +25,19 @@ export const SideBarProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [postList, setPostList] = useState<Post[]>([]);
+  const [path, setPath] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
 
   return (
     <SideBarContext.Provider
       value={{
-        postList,
+        path,
         isOpen,
         isLinkOpen,
         setIsOpen,
         setIsLinkOpen,
-        setPostList,
+        setPath,
       }}
     >
       {children}

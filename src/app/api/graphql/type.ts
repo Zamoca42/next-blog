@@ -14,14 +14,14 @@ export const typeDefs = /* GraphQL */ `
     excerpt: String!
     ogImage: Url!
     preview: Boolean
-    folders: [String!]!
   }
 
-  # type Folder {
-  #   name: String!
-  #   path: String!
-  #   posts: [Post!]!
-  # }
+  type Folder {
+    id: ID!
+    name: String!
+    path: String!
+    children: [Folder]
+  }
 
   type Author {
     name: String!
@@ -31,6 +31,6 @@ export const typeDefs = /* GraphQL */ `
   type Query {
     posts(prefix: String): [Post!]!
     post(slug: String!): Post
-    # folders(path: String): [Folder!]!
+    folders(path: String): [Folder]
   }
 `;

@@ -6,7 +6,7 @@ import { useSideBar } from "@/component/provider";
 import { fetchGraphQL } from "@/app/api/action";
 import { Post } from "@/interface/post";
 import { gql } from "graphql-request";
-import { Fragment } from "react";
+import { Fragment, useCallback } from "react";
 
 interface Props {
   toggleMenu?: () => void;
@@ -18,12 +18,12 @@ interface Props {
 export const NavLink = ({
   toggleMenu,
   divider = false,
-  matchedPathClass = "text-grass font-semibold",
+  matchedPathClass = "text-grass-6 font-semibold",
   notMatchedPathClass = "",
 }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
-  const { setPostList } = useSideBar();
+  const { setPath } = useSideBar();
   const { postLink } = blogConfig;
 
   const handleRouter = (path: string) => {
@@ -34,25 +34,24 @@ export const NavLink = ({
     }
   };
 
-  const handlePostRouter = async (path: string) => {
+  const handlePostRouter = useCallback(async (path: string) => {
     const response = await fetchGraphQL<{ posts: Post[] }>(gql`
     query {
       posts(prefix: "${path}") {
         title
         slug
-        folders
       }
     }
   `);
     const postList = response?.posts;
     router.push(`/post/${postList[0].slug}`);
-    
-    setPostList(postList);
+
+    setPath(path);
 
     if (toggleMenu) {
       toggleMenu();
     }
-  };
+  }, [pathname]);
 
   return (
     <ul className="space-x-2">

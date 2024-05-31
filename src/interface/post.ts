@@ -1,6 +1,7 @@
 import { type Author } from "./author";
 
 export type Post = {
+  id: string;
   slug: string;
   title: string;
   date: string;
@@ -12,5 +13,4 @@ export type Post = {
   };
   content: string;
   preview?: boolean;
-  folders: string[];
 };

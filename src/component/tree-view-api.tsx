@@ -13,10 +13,14 @@ import React, {
   useState,
 } from "react";
 import { Button } from "@/component/ui/button";
+import { Post } from "@/interface/post";
+import { ContentFolder } from "@/interface/folder";
+import { usePathname } from "next/navigation";
 
 type TreeViewElement = {
   id: string;
-  name: string;
+  name: ContentFolder["path"] | Post["title"];
+  path: ContentFolder["path"] | Post["slug"];
   isSelectable?: boolean;
   children?: TreeViewElement[];
 };
@@ -244,7 +248,7 @@ const Folder = forwardRef<
       >
         <AccordionPrimitive.Trigger
           className={cn(
-            `flex items-center gap-1 text-sm md:text-base rounded-md`,
+            `flex items-center gap-1 text-sm rounded-md`,
             className,
             {
               "bg-muted rounded-md": isSelect && isSelectable,
@@ -307,6 +311,8 @@ const File = forwardRef<
   ) => {
     const { direction, selectedId, selectItem } = useTree();
     const isSelected = isSelect ?? selectedId === value;
+    const pathname = usePathname();
+
     return (
       <AccordionPrimitive.Item value={value} className="relative">
         <AccordionPrimitive.Trigger
@@ -316,11 +322,14 @@ const File = forwardRef<
           disabled={!isSelectable}
           aria-label="File"
           className={cn(
-            "flex items-center gap-1 cursor-pointer text-sm pr-1 rtl:pl-1 rtl:pr-0 rounded-md duration-200 ease-in-out hover:bg-muted",
+            "flex items-center gap-1 cursor-pointer text-sm pr-1 rtl:pl-1 rtl:pr-0 rounded-md duration-200 ease-in-out ",
             {
               "bg-muted": isSelected && isSelectable,
             },
             isSelectable ? "cursor-pointer" : "opacity-50 cursor-not-allowed",
+            pathname.startsWith(`/post${value}`)
+              ? "bg-grass-6/15 text-grass-7 font-semibold"
+              : "hover:bg-muted",
             className
           )}
           onClick={() => selectItem(value)}
@@ -361,11 +370,10 @@ const CollapseButton = forwardRef<
   }, []);
 
   useEffect(() => {
-    console.log(expandAll);
     if (expandAll) {
       expendAllTree(elements);
     }
-  }, [expandAll]);
+  }, [expandAll, elements]);
 
   return (
     <Button
