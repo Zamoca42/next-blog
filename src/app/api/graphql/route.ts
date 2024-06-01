@@ -9,6 +9,8 @@ const { handleRequest } = createYoga({
     resolvers,
   }),
 
+  cors: false,
+
   // While using Next.js file convention for routing, we need to configure Yoga to use the correct endpoint
   graphqlEndpoint: "/api/graphql",
 
