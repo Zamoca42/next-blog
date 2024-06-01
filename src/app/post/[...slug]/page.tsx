@@ -70,7 +70,7 @@ export const generateMetadata = ({ params }: Params): Metadata => {
 
 export const generateStaticParams = async () => {
   const posts = getAllPosts();
-  await delay(1000);
+  await delay(2000);
   return posts.map((post) => ({
     slug: post.slug.split("/").filter(Boolean),
   }));
