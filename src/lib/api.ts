@@ -7,45 +7,47 @@ import { capitalize } from "./util";
 
 const postsDirectory = join(process.cwd(), "content");
 
-const getSlugFromFilePath = (filePath: string): string => {
-  return filePath
-    .replace(postsDirectory, "")
-    .replace(/\\/g, "/")
-    .replace(/\.md$/, "");
+export const getAllPosts = (): Post[] => {
+  const postMap = createIndex(postsDirectory);
+  const posts = getPostsFromIndex(postMap);
+
+  return posts.sort(
+    (post1, post2) => post2.createdAt.getTime() - post1.createdAt.getTime()
+  );
 };
 
-export const getPostBySlug = (slug: string): Post => {
-  const fullPath = join(postsDirectory, `${slug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-
-  return {
-    ...data,
-    slug,
-    content,
-  } as Post;
+export const getAllTreeNode = (): ContentFolder[] => {
+  const folders = getTreeNode(postsDirectory);
+  return folders;
 };
 
-const getOnlyPosts = (directory: string, folders: string[] = []): Post[] => {
-  const fileNames = fs.readdirSync(directory);
-  const postList: Post[] = [];
+const createIndex = (directory: string): Map<string, Post> => {
+  const postMap = new Map<string, Post>();
+  const stack: string[] = [directory];
 
-  fileNames.forEach((fileName) => {
-    const filePath = join(directory, fileName);
-    const stat = fs.statSync(filePath);
+  while (stack.length > 0) {
+    const currentDirectory = stack.pop()!;
+    const fileNames = fs.readdirSync(currentDirectory);
 
-    if (stat.isDirectory()) {
-      const subFolders = [...folders, fileName];
-      const subPosts = getOnlyPosts(filePath, subFolders);
-      postList.push(...subPosts);
-    } else if (fileName.endsWith(".md")) {
-      const slug = getSlugFromFilePath(filePath);
-      const post = getPostBySlug(slug);
-      postList.push(post);
+    for (const fileName of fileNames) {
+      const filePath = join(currentDirectory, fileName);
+      const stat = fs.statSync(filePath);
+
+      if (stat.isDirectory()) {
+        stack.push(filePath);
+      } else if (fileName.endsWith(".md")) {
+        const slug = getSlugFromFilePath(filePath);
+        const post = getPostBySlug(slug);
+        postMap.set(slug, post);
+      }
     }
-  });
+  }
 
-  return postList;
+  return postMap;
+};
+
+const getPostsFromIndex = (postMap: Map<string, Post>): Post[] => {
+  return Array.from(postMap.values());
 };
 
 const getTreeNode = (
@@ -84,12 +86,24 @@ const getTreeNode = (
   return folderList;
 };
 
-export const getAllPosts = (): Post[] => {
-  const posts = getOnlyPosts(postsDirectory);
-  return posts.sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
+const getSlugFromFilePath = (filePath: string): string => {
+  return filePath
+    .replace(postsDirectory, "")
+    .replace(/\\/g, "/")
+    .replace(/\.md$/, "");
 };
 
-export const getAllTreeNode = (): ContentFolder[] => {
-  const folders = getTreeNode(postsDirectory);
-  return folders;
+export const getPostBySlug = (slug: string): Post => {
+  const fullPath = join(postsDirectory, `${slug}.md`);
+  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const { data, content } = matter(fileContents);
+  const stat = fs.statSync(fullPath);
+
+  return {
+    ...data,
+    slug,
+    content,
+    createdAt: stat.birthtime,
+    updatedAt: stat.mtime,
+  } as Post;
 };

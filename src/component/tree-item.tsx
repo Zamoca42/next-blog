@@ -31,13 +31,10 @@ export const TreeItem = ({ elements }: TreeItemProps) => {
               key={element.id}
               value={element.path}
               isSelectable={element.isSelectable}
-              className={`px-1`}
+              className={`px-1 w-full`}
               fileIcon=""
             >
-              <Link
-                href={`/post/${element.path}`}
-                className={`px-2 text-sm text-left py-1`}
-              >
+              <Link href={`/post/${element.path}`} className={`p-2 text-sm text-left w-full`}>
                 {element.name ?? element.path}
               </Link>
             </File>

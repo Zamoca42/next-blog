@@ -36,14 +36,14 @@ export default async function Index() {
       <main>
         <Container>
           <Intro />
-          <HeroPost
+          {/* <HeroPost
             title={heroPost.title}
             coverImage={heroPost.coverImage || "/placeholder-image.jpg"}
             date={heroPost.date}
             author={heroPost.author}
             slug={heroPost.slug}
             excerpt={heroPost.excerpt}
-          />
+          /> */}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </main>
