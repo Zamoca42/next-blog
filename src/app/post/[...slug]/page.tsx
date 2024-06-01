@@ -2,17 +2,18 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { type Post } from "@/interface/post";
-import { fetchGraphQL } from "@/app/api/action";
 import { gql } from "graphql-request";
 import { SideBar } from "@/component/side-bar";
 import { PostPage } from "@/component/post-page";
 import markdownToHtml from "@/lib/markdown-to-html";
 import { delay } from "@/lib/util";
 import { blogConfig } from "@/blog.config";
+import graphQlClient from "@/lib/graphql-request";
+import { parseQuery } from "@/app/api/action";
 
 export default async function Post({ params }: Params) {
   const postSlug = params.slug.join("/");
-  const getPostBySlug = await fetchGraphQL<{ post: Post }>(gql`
+  const query = parseQuery<{ post: Post }>(gql`
   query{
     post(slug: "${postSlug}") {
         title
@@ -22,6 +23,9 @@ export default async function Post({ params }: Params) {
       }
     }
   `);
+  const getPostBySlug = await graphQlClient.request<{ post: Post }>({
+    document: query,
+  });
   const post = getPostBySlug.post;
 
   if (!post) {
@@ -53,8 +57,7 @@ export const generateMetadata = ({ params }: Params): Metadata => {
   }
 
   const title = `${post.title} | Next.js Blog`;
-  const keywords =
-    !post.tags ? ["Next.js", "blog", "react"] : post.tags;
+  const keywords = !post.tags ? ["Next.js", "blog", "react"] : post.tags;
   const applicationName = blogConfig.name ?? "Blog";
 
   return {

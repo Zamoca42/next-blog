@@ -2,11 +2,12 @@
 
 import { useSideBar } from "@/component/provider";
 import { TOC } from "@/component/toc";
-import { fetchGraphQL } from "@/app/api/action";
 import { ContentFolder } from "@/interface/folder";
 import { gql } from "graphql-request";
 import { useEffect, useState } from "react";
 import { TreeViewElement } from "./tree-view-api";
+import graphQlClient from "@/lib/graphql-request";
+import { parseQuery } from "@/app/api/action";
 
 export const SideBar = () => {
   const { path, isOpen, setIsOpen } = useSideBar();
@@ -14,32 +15,33 @@ export const SideBar = () => {
 
   useEffect(() => {
     const fetchFolders = async () => {
-      const res = await fetchGraphQL<{
+      const query = parseQuery<{
         folders: ContentFolder[];
-      }>(
-        gql`
-        fragment TreeNode on Folder {
-          id
-          name
-          path
-        }
-  
-        query {
-          folders(path: "${path}") {
+      }>(gql`
+      fragment TreeNode on Folder {
+        id
+        name
+        path
+      }
+
+      query {
+        folders(path: "${path}") {
+          ...TreeNode
+          children {
             ...TreeNode
             children {
               ...TreeNode
               children {
                 ...TreeNode
-                children {
-                  ...TreeNode
-                }
               }
             }
           }
         }
-      `
-      );
+      }
+    `);
+      const res = await graphQlClient.request({
+        document: query,
+      });
 
       setElements(res.folders);
     };

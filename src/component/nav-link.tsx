@@ -3,10 +3,11 @@
 import { blogConfig } from "@/blog.config";
 import { usePathname, useRouter } from "next/navigation";
 import { useSideBar } from "@/component/provider";
-import { fetchGraphQL } from "@/app/api/action";
 import { Post } from "@/interface/post";
 import { gql } from "graphql-request";
 import { Fragment, useCallback } from "react";
+import graphQlClient from "@/lib/graphql-request";
+import { parseQuery } from "@/app/api/action";
 
 interface Props {
   toggleMenu?: () => void;
@@ -36,14 +37,17 @@ export const NavLink = ({
 
   const handlePostRouter = useCallback(
     async (path: string) => {
-      const response = await fetchGraphQL<{ posts: Post[] }>(gql`
-    query {
-      posts(prefix: "${path}") {
-        title
-        slug
+      const query = parseQuery<{ posts: Post[] }>(gql`
+      query {
+        posts(prefix: "${path}") {
+          title
+          slug
+        }
       }
-    }
-  `);
+    `);
+      const response = await graphQlClient.request({
+        document: query,
+      });
       const postList = response?.posts;
       router.push(`/post/${postList[0].slug}`);
 
