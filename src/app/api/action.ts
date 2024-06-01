@@ -6,7 +6,8 @@ import type { TypedDocumentNode } from "@graphql-typed-document-node/core";
 
 export const fetchGraphQL = async <T>(query: string): Promise<T> => {
   const parsedQuery: TypedDocumentNode<T, Record<any, never>> = parse(query);
-  const endpoint = process.env.NEXT_PUBLIC_URL;
+  const endpoint = process.env.NEXT_PUBLIC_SITE_URL;
+  console.log(endpoint)
 
   if (!endpoint) {
     throw new Error("GraphQL endpoint is not defined");
