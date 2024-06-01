@@ -24,7 +24,7 @@ export const NavLink = ({
   const pathname = usePathname();
   const router = useRouter();
   const { setPath } = useSideBar();
-  const { postLink } = blogConfig;
+  const { navLink } = blogConfig;
 
   const handleRouter = (path: string) => {
     router.push(path);
@@ -34,8 +34,9 @@ export const NavLink = ({
     }
   };
 
-  const handlePostRouter = useCallback(async (path: string) => {
-    const response = await fetchGraphQL<{ posts: Post[] }>(gql`
+  const handlePostRouter = useCallback(
+    async (path: string) => {
+      const response = await fetchGraphQL<{ posts: Post[] }>(gql`
     query {
       posts(prefix: "${path}") {
         title
@@ -43,15 +44,17 @@ export const NavLink = ({
       }
     }
   `);
-    const postList = response?.posts;
-    router.push(`/post/${postList[0].slug}`);
+      const postList = response?.posts;
+      router.push(`/post/${postList[0].slug}`);
 
-    setPath(path);
+      setPath(path);
 
-    if (toggleMenu) {
-      toggleMenu();
-    }
-  }, [pathname]);
+      if (toggleMenu) {
+        toggleMenu();
+      }
+    },
+    [pathname]
+  );
 
   return (
     <ul className="space-x-2">
@@ -63,7 +66,7 @@ export const NavLink = ({
       >
         Home
       </button>
-      {postLink.map((folder) => (
+      {navLink.map((folder) => (
         <Fragment key={folder.path}>
           {divider && <hr className="border-gray-200 min-w-72" />}
           <button

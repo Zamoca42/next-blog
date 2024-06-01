@@ -8,6 +8,7 @@ import { SideBar } from "@/component/side-bar";
 import { PostPage } from "@/component/post-page";
 import markdownToHtml from "@/lib/markdown-to-html";
 import { delay } from "@/lib/util";
+import { blogConfig } from "@/blog.config";
 
 export default async function Post({ params }: Params) {
   const postSlug = params.slug.join("/");
@@ -16,16 +17,8 @@ export default async function Post({ params }: Params) {
     post(slug: "${postSlug}") {
         title
         content
-        date
-        preview
-        coverImage
-        author {
-          name
-          picture
-        }
-        ogImage {
-          url
-        }
+        description
+
       }
     }
   `);
@@ -51,9 +44,7 @@ type Params = {
   };
 };
 
-export const generateMetadata = ({
-  params,
-}: Params): Metadata => {
+export const generateMetadata = ({ params }: Params): Metadata => {
   const postSlug = params.slug.join("/");
   const post = getPostBySlug(postSlug);
 
@@ -62,12 +53,18 @@ export const generateMetadata = ({
   }
 
   const title = `${post.title} | Next.js Blog`;
+  const keywords =
+    post.tags.length === 0 ? ["Next.js", "blog", "react"] : post.tags;
+  const applicationName = blogConfig.name ?? "Blog";
 
   return {
+    // metadataBase, //favicon
     title,
-    openGraph: {
-      title,
-    },
+    description: post.description,
+    authors: blogConfig.blog?.author,
+    keywords,
+    applicationName,
+    generator: "Next.js",
   };
 };
 

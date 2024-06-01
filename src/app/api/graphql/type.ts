@@ -1,19 +1,13 @@
 export const typeDefs = /* GraphQL */ `
-  type Url {
-    url: String!
-  }
-
   type Post {
     title: String!
-    date: String!
+    createdAt: DateTime!
+    updatedAt: DateTime!
     tags: [String!]!
+    category: String!
     slug: String!
     content: String!
-    coverImage: String
-    author: Author!
-    excerpt: String!
-    ogImage: Url!
-    preview: Boolean
+    description: String!
   }
 
   type Folder {
@@ -21,11 +15,6 @@ export const typeDefs = /* GraphQL */ `
     name: String!
     path: String!
     children: [Folder]
-  }
-
-  type Author {
-    name: String!
-    picture: String!
   }
 
   type Query {

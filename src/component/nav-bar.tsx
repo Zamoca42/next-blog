@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 import { NavLink } from "@/component/nav-link";
 import { useSideBar } from "@/component/provider";
-import { usePathname } from "next/navigation";
+import { blogConfig } from "@/blog.config";
 
 export const NavBar = () => {
   const { isOpen, setIsOpen, isLinkOpen, setIsLinkOpen } = useSideBar();
@@ -60,7 +60,7 @@ export const NavBar = () => {
             </div>
             <div className="items-center space-x-4 ">
               <Link href="/" className="text-xl font-semibold hidden md:flex">
-                Zamoca Space
+                {blogConfig.name ?? "Blog"}
               </Link>
             </div>
             <div className="hidden md:flex ml-auto">

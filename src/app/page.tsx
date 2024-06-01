@@ -1,11 +1,11 @@
-import Container from "@/app/_components/container";
-import { HeroPost } from "@/app/_components/hero-post";
-import { Intro } from "@/app/_components/intro";
-import { MoreStories } from "@/app/_components/more-stories";
+import Container from "@/_components/container";
+import { HeroPost } from "@/_components/hero-post";
+import { Intro } from "@/_components/intro";
+import { MoreStories } from "@/_components/more-stories";
 import { Post } from "@/interface/post";
 import { fetchGraphQL } from "@/app/api/action";
 import { gql } from "graphql-request";
-import Footer from "@/app/_components/footer";
+import Footer from "@/_components/footer";
 
 export default async function Index() {
   const getAllPosts = await fetchGraphQL<{ posts: Post[] }>(gql`
