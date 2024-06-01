@@ -2,7 +2,6 @@
 
 import { File, Folder, TreeViewElement } from "@/component/tree-view-api";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 type TreeItemProps = {
   elements: TreeViewElement[];
@@ -16,7 +15,7 @@ export const TreeItem = ({ elements }: TreeItemProps) => {
           {element.children && element.children?.length > 0 ? (
             <Folder
               element={element.name}
-              value={element.id}
+              value={element.path}
               isSelectable={element.isSelectable}
               className="px-px pr-1"
             >
@@ -34,7 +33,10 @@ export const TreeItem = ({ elements }: TreeItemProps) => {
               className={`px-1 w-full`}
               fileIcon=""
             >
-              <Link href={`/post/${element.path}`} className={`p-2 text-sm text-left w-full`}>
+              <Link
+                href={`/post/${element.path}`}
+                className={`px-2 ml-2 text-sm text-left w-full py-1 break-all`}
+              >
                 {element.name ?? element.path}
               </Link>
             </File>

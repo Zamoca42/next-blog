@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect } from "react";
 import { NavLink } from "@/component/nav-link";
 import { useSideBar } from "@/component/provider";
@@ -58,9 +59,18 @@ export const NavBar = () => {
                 </svg>
               </button>
             </div>
-            <div className="items-center space-x-4 ">
-              <Link href="/" className="text-xl font-semibold hidden md:flex">
-                {blogConfig.name ?? "Blog"}
+            <div className="items-center">
+              <Link
+                href="/"
+                className="text-xl font-semibold flex flex-row items-center space-x-4 ml-3"
+              >
+                <Image
+                  src="/favicon/android-chrome-512x512.png"
+                  width={32}
+                  height={32}
+                  alt="logo"
+                />
+                <span className="hidden md:flex">{blogConfig.name ?? "Blog"}</span>
               </Link>
             </div>
             <div className="hidden md:flex ml-auto">

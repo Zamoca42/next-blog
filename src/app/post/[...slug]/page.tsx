@@ -54,7 +54,7 @@ export const generateMetadata = ({ params }: Params): Metadata => {
 
   const title = `${post.title} | Next.js Blog`;
   const keywords =
-    post.tags.length === 0 ? ["Next.js", "blog", "react"] : post.tags;
+    !post.tags ? ["Next.js", "blog", "react"] : post.tags;
   const applicationName = blogConfig.name ?? "Blog";
 
   return {

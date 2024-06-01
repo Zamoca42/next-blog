@@ -5,9 +5,9 @@ export interface BlogConfig {
     name: string;
     path: string;
   }[];
-  blog?: {
+  blog: {
     author: Author;
-    media: {
+    media?: {
       gitHub: string;
       email: string;
       gmail: string;

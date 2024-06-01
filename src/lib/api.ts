@@ -4,6 +4,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 import { capitalize } from "./util";
+import { formatISO, parseISO } from "date-fns";
 
 const postsDirectory = join(process.cwd(), "content");
 
@@ -11,9 +12,11 @@ export const getAllPosts = (): Post[] => {
   const postMap = createIndex(postsDirectory);
   const posts = getPostsFromIndex(postMap);
 
-  return posts.sort(
-    (post1, post2) => post2.createdAt.getTime() - post1.createdAt.getTime()
-  );
+  return posts.sort((post1, post2) => {
+    const date1 = parseISO(post1.createdAt);
+    const date2 = parseISO(post2.createdAt);
+    return date2.getTime() - date1.getTime();
+  });
 };
 
 export const getAllTreeNode = (): ContentFolder[] => {
@@ -103,7 +106,9 @@ export const getPostBySlug = (slug: string): Post => {
     ...data,
     slug,
     content,
-    createdAt: stat.birthtime,
-    updatedAt: stat.mtime,
+    tags: data.tags ?? [],
+    category: data.category ?? [],
+    createdAt: formatISO(stat.birthtime),
+    updatedAt: formatISO(stat.mtime),
   } as Post;
 };

@@ -158,7 +158,7 @@ const Tree = forwardRef<HTMLDivElement, TreeViewProps>(
         <div className={cn("size-full", className)}>
           <ScrollArea
             ref={ref}
-            className="h-full relative px-2"
+            className="h-full relative px-2 py-8"
             dir={dir as Direction}
           >
             <AccordionPrimitive.Root
@@ -327,7 +327,7 @@ const File = forwardRef<
               "bg-muted": isSelected && isSelectable,
             },
             isSelectable ? "cursor-pointer" : "opacity-50 cursor-not-allowed",
-            pathname.startsWith(`/post${value}`)
+            pathname === `/post${value}`
               ? "bg-grass-6/15 text-grass-7 font-semibold"
               : "hover:bg-muted",
             className

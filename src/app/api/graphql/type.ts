@@ -1,13 +1,13 @@
 export const typeDefs = /* GraphQL */ `
   type Post {
     title: String!
-    createdAt: DateTime!
-    updatedAt: DateTime!
+    createdAt: String!
+    updatedAt: String!
     tags: [String!]!
-    category: String!
+    category: [String!]!
     slug: String!
     content: String!
-    description: String!
+    description: String
   }
 
   type Folder {
