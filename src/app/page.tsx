@@ -1,30 +1,48 @@
-import Container from "@/app/_components/container";
-import { HeroPost } from "@/app/_components/hero-post";
-import { Intro } from "@/app/_components/intro";
-import { MoreStories } from "@/app/_components/more-stories";
-import { getAllPosts } from "@/lib/api";
+import Container from "@/component/ui/container";
+import { HeroPost } from "@/component/ui/hero-post";
+import { Intro } from "@/component/ui/intro";
+import { MoreStories } from "@/component/ui/more-stories";
+import { Post } from "@/interface/post";
+import { gql } from "graphql-request";
+import Footer from "@/component/ui/footer";
+import { graphQlClient, parseQuery } from "@/lib/graphql-request";
 
-export default function Index() {
-  const allPosts = getAllPosts();
+export default async function Index() {
+  const query = parseQuery<{ posts: Post[] }>(gql`
+    query {
+      posts {
+        title
+        slug
+        createdAt
+        description
+      }
+    }
+  `);
+  const getAllPosts = await graphQlClient.request({
+    document: query,
+  });
+
+  const allPosts = getAllPosts.posts;
 
   const heroPost = allPosts[0];
 
   const morePosts = allPosts.slice(1);
 
   return (
-    <main>
-      <Container>
-        <Intro />
-        <HeroPost
-          title={heroPost.title}
-          coverImage={heroPost.coverImage}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
-        />
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-      </Container>
-    </main>
+    <div className="flex flex-col">
+      <main>
+        <Container>
+          <Intro />
+          <HeroPost
+            title={heroPost.title}
+            date={heroPost.createdAt}
+            slug={heroPost.slug}
+            description={heroPost.description}
+          />
+          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+        </Container>
+      </main>
+      <Footer />
+    </div>
   );
 }
