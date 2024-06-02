@@ -6,8 +6,7 @@ import { ContentFolder } from "@/interface/folder";
 import { gql } from "graphql-request";
 import { useEffect, useState } from "react";
 import { TreeViewElement } from "./tree-view-api";
-import graphQlClient from "@/lib/graphql-request";
-import { parseQuery } from "@/app/api/action";
+import { graphQlClient, parseQuery } from "@/lib/graphql-request";
 
 export const SideBar = () => {
   const { path, isOpen, setIsOpen } = useSideBar();

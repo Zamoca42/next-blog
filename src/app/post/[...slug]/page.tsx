@@ -8,8 +8,7 @@ import { PostPage } from "@/component/post-page";
 import markdownToHtml from "@/lib/markdown-to-html";
 import { delay } from "@/lib/util";
 import { blogConfig } from "@/blog.config";
-import graphQlClient from "@/lib/graphql-request";
-import { parseQuery } from "@/app/api/action";
+import { graphQlClient, parseQuery } from "@/lib/graphql-request";
 
 export default async function Post({ params }: Params) {
   const postSlug = params.slug.join("/");

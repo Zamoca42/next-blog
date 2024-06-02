@@ -6,8 +6,7 @@ import { useSideBar } from "@/component/provider";
 import { Post } from "@/interface/post";
 import { gql } from "graphql-request";
 import { Fragment, useCallback } from "react";
-import graphQlClient from "@/lib/graphql-request";
-import { parseQuery } from "@/app/api/action";
+import { graphQlClient, parseQuery } from "@/lib/graphql-request";
 
 interface Props {
   toggleMenu?: () => void;

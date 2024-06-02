@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "vercel:deploy": "vercel build && vercel deploy --prebuilt"
   },
   "dependencies": {
     "@graphql-tools/load-files": "^7.0.0",

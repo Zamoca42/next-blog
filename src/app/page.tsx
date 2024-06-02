@@ -5,8 +5,7 @@ import { MoreStories } from "@/component/ui/more-stories";
 import { Post } from "@/interface/post";
 import { gql } from "graphql-request";
 import Footer from "@/component/ui/footer";
-import graphQlClient from "@/lib/graphql-request";
-import { parseQuery } from "@/app/api/action";
+import { graphQlClient, parseQuery } from "@/lib/graphql-request";
 
 export default async function Index() {
   const query = parseQuery<{ posts: Post[] }>(gql`
