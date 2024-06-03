@@ -5,7 +5,6 @@ import { type Post } from "@/interface/post";
 import { gql } from "graphql-request";
 import { SideBar } from "@/component/side-bar";
 import { PostPage } from "@/component/post-page";
-import markdownToHtml from "@/lib/markdown-to-html";
 import { delay } from "@/lib/util";
 import { blogConfig } from "@/blog.config";
 import { graphQlClient, parseQuery } from "@/lib/graphql-request";
@@ -31,12 +30,10 @@ export default async function Post({ params }: Params) {
     return notFound();
   }
 
-  const content = await markdownToHtml(post.content || "");
-
   return (
     <div>
       <SideBar />
-      <PostPage post={post} content={content} />
+      <PostPage post={post} content={post.content} />
     </div>
   );
 }

@@ -20,7 +20,7 @@ export const PostPage = ({
         isOpen ? "md:pl-[22rem]" : "pl-2"
       } lg:pl-80`}
     >
-      <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16 md:pr-6">
+      <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] pr-4">
         <article className="my-10 px-2">
           <PostHeader title={post.title} date={post.createdAt} />
           <PostBody content={content} />
