@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllPosts, getPostBySlug } from "@/lib/api";
+import { getAllPosts, getPostBySlug } from "@/app/api/action";
 import { type Post } from "@/interface/post";
 import { SideBar } from "@/component/side-bar";
-import { PostPage } from "@/component/post-page";
+import { PostPage } from "@/component/post/post-page";
 import { delay } from "@/lib/util";
 import { blogConfig } from "@/blog.config";
 

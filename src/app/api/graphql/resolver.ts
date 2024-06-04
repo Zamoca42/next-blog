@@ -1,4 +1,4 @@
-import { getAllPosts, getAllTreeNode, getPostBySlug } from "@/lib/api";
+import { getAllPosts, getAllTreeNode, getPostBySlug } from "@/app/api/action";
 
 export const resolvers = {
   Query: {

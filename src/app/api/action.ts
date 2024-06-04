@@ -5,7 +5,7 @@ import { Post } from "@/interface/post";
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
-import { capitalize } from "./util";
+import { capitalize } from "../../lib/util";
 import { formatISO, parseISO } from "date-fns";
 
 const postsDirectory = join(process.cwd(), "content");

@@ -1,7 +1,7 @@
 "use client";
 
 import { ContentFolder } from "@/interface/folder";
-import { getAllTreeNode } from "@/lib/api";
+import { getAllTreeNode } from "@/app/api/action";
 import { createContext, useContext, useEffect, useState } from "react";
 
 interface SideBarContextProps {
@@ -33,7 +33,6 @@ export const SideBarProvider = ({
   const [isOpen, setIsOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
   const [folders, setFolders] = useState<ContentFolder[]>([]);
-
 
   useEffect(() => {
     const fetchFolders = async () => {

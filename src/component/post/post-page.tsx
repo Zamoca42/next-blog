@@ -1,7 +1,7 @@
 "use client";
 
-import { PostBody } from "@/component/ui/post-body";
-import { PostHeader } from "@/component/ui/post-header";
+import { PostBody } from "@/component/post/post-body";
+import { PostHeader } from "@/component/post/post-header";
 import { useSideBar } from "@/component/provider";
 import { Post } from "@/interface/post";
 

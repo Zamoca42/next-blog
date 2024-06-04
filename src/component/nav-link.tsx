@@ -4,7 +4,7 @@ import { blogConfig } from "@/blog.config";
 import { usePathname, useRouter } from "next/navigation";
 import { useSideBar } from "@/component/provider";
 import { Fragment } from "react";
-import { getAllPosts } from "@/lib/api";
+import { getAllPosts } from "@/app/api/action";
 
 interface Props {
   toggleMenu?: () => void;
