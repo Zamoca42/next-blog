@@ -21,7 +21,7 @@ const CodeTitle: React.FC<CodeTitleProps> = (props) => {
 
   return match ? (
     <div className={clsx(className)} title={title} {...rest}>
-      <div className="flex flex-row items-center justify-between px-4 py-1">
+      <div className="flex flex-row items-center justify-between px-4 pt-1">
         <div></div>
         <div className="remark-code-title">{title}</div>
         <div className="remark-code-language">{language}</div>

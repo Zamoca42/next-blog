@@ -9,7 +9,7 @@ import { blogConfig } from "@/blog.config";
 
 export default async function Post({ params }: Params) {
   const postSlug = params.slug.join("/");
-  const post = getPostBySlug(postSlug);
+  const post = await getPostBySlug(postSlug);
 
   if (!post) {
     return notFound();
@@ -29,9 +29,11 @@ type Params = {
   };
 };
 
-export const generateMetadata = ({ params }: Params): Metadata => {
+export const generateMetadata = async ({
+  params,
+}: Params): Promise<Metadata> => {
   const postSlug = params.slug.join("/");
-  const post = getPostBySlug(postSlug);
+  const post = await getPostBySlug(postSlug);
 
   if (!post) {
     return notFound();
@@ -53,7 +55,7 @@ export const generateMetadata = ({ params }: Params): Metadata => {
 };
 
 export const generateStaticParams = async () => {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   await delay(2000);
   return posts.map((post) => ({
     slug: post.slug.split("/").filter(Boolean),

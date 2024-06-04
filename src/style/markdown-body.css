@@ -464,7 +464,7 @@
   margin-top: 0;
   margin-bottom: 0;
   font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
-  font-size: 12px;
+  font-size: 10px;
   word-wrap: normal;
 }
 
@@ -830,7 +830,7 @@
 }
 
 .markdown-body pre code {
-  font-size: 100%;
+  font-size: 90%;
 }
 
 .markdown-body pre>code {
@@ -853,7 +853,7 @@
 
 .markdown-body .highlight pre,
 .markdown-body pre {
-  padding: 16px;
+  padding: 8px;
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;

@@ -6,22 +6,7 @@ import Footer from "@/component/ui/footer";
 import { getAllPosts } from "@/lib/api";
 
 export default async function Index() {
-  // const query = parseQuery<{ posts: Post[] }>(gql`
-  //   query {
-  //     posts {
-  //       title
-  //       slug
-  //       createdAt
-  //       description
-  //     }
-  //   }
-  // `);
-  // const getAllPosts = await graphQlClient.request({
-  //   document: query,
-  // });
-
-  // const allPosts = getAllPosts.posts;
-  const allPosts = getAllPosts();
+  const allPosts = await getAllPosts();
 
   const heroPost = allPosts[0];
 
