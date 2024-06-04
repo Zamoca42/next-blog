@@ -6,7 +6,7 @@ tag:
   - SQL
 ---
 
-> <https://youtu.be/lwmwlA2WhFc?si=Szgl3bDlly7CF266>
+> https://youtu.be/lwmwlA2WhFc?si=Szgl3bDlly7CF266
 
 서브쿼리(subquery)란 nested query 또는 inner query 라고 불리며
 SELECT, INSERT, UPDATE, DELETE 쿼리문에 포함된 쿼리를 말한다.
@@ -60,8 +60,8 @@ SELECT id, name, birth_date FROM employee WHERE birth_date < '1992-08-04';
 서브쿼리를 사용하지 않으면 두 개의 쿼리를 순차적으로 실행해서 결과를 찾아야한다.
 
 ```sql
-SELECT id, name, birth_date 
-FROM employee 
+SELECT id, name, birth_date
+FROM employee
 WHERE birth_date < (
   SELECT birth_date FROM employee WHERE id = 14
   );

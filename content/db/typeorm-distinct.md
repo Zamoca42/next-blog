@@ -63,7 +63,7 @@ take, skip을 사용했을 때 DISTINCT가 발생한다고 의심할 수 밖에 
 
 > 참고링크
 >
-> :pushpin: <https://github.com/typeorm/typeorm/issues/4998>
+> :pushpin: https://github.com/typeorm/typeorm/issues/4998
 
 TypeORM 이슈를 보면 skip과 take를 사용했을 때 DISTINCT를 사용해서 중복을 제거하고,
 데이터베이스 캐시로 웜업해서 쿼리 속도를 빠르게 하려고 한다는 것으로 이해했다.

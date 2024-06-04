@@ -1,43 +1,66 @@
 "use client";
 
-// import markdownStyles from "@/component/markdown-styles.module.css";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import remarkDirective from "remark-directive";
-import "github-markdown-css/github-markdown.css";
-import { customRehypePrism } from "@/lib/rehype-prism";
-// import "prism-theme-night-owl";
-import "@/style/rehype-prism.css";
+import "@/style/markdown-body.css";
 import "@/style/prism.css";
+import Markdown from "react-markdown";
+import gfm from "remark-gfm";
+import remarkDirective from "remark-directive";
+import customRehypePrism from "@/lib/rehype-prism";
+import remarkToc from "remark-flexible-toc";
+import remarkCodeTitles from "remark-flexible-code-titles";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import remarkStringify from "remark-stringify";
+import { PluggableList } from "unified";
+import CodeTitle from "@/component/md/code-title";
+import CodeBlock from "../md/code-block";
 
 type Props = {
   content: string;
 };
 
 export function PostBody({ content }: Props) {
+  const remarkPlugins: PluggableList = [
+    gfm,
+    remarkDirective,
+    [
+      remarkCodeTitles,
+      {
+        title: false,
+        containerProperties: (language: string, title: string) => ({
+          ["data-language"]: language,
+          title,
+        }),
+      },
+    ],
+    remarkToc,
+    remarkParse,
+    remarkRehype,
+    remarkStringify,
+  ];
+  const rehypePlugins: PluggableList = [
+    [
+      customRehypePrism,
+      {
+        showLineNumbers: true,
+        ignoreMissing: true,
+        defaultLanguage: "txt",
+      },
+    ],
+  ];
   return (
-    <div className="max-w-2xl mx-auto">
-      {/* <div
-        className={markdownStyles["markdown"]}
-        dangerouslySetInnerHTML={{ __html: content }}
-      /> */}
-      <ReactMarkdown
+    <div className="markdown-body">
+      <Markdown
         className="markdown-body"
-        // className={markdownStyles["markdown"]}
-        remarkPlugins={[remarkGfm, remarkDirective]}
-        rehypePlugins={[
-          [
-            customRehypePrism,
-            {
-              showLineNumbers: true,
-              ignoreMissing: true,
-              defaultLanguage: "txt",
-            },
-          ],
-        ]}
+        remarkPlugins={remarkPlugins}
+        rehypePlugins={rehypePlugins}
+        components={{
+          pre: (props) => <CodeBlock {...props} />,
+          div: (props) => <CodeTitle {...props} />,
+        }}
       >
         {content}
-      </ReactMarkdown>
+      </Markdown>
     </div>
   );
 }

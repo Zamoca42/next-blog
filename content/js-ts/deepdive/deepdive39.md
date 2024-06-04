@@ -1,6 +1,6 @@
 ---
 title: 39. DOM
-category: 
+category:
   - JS & TS
 tag:
   - JavaScript
@@ -288,28 +288,50 @@ CSS 선택자는 스타일을 적용하고자 하는 HTML 요소를 특정할 �
 
 ```css
 /* 전체 선택자: 모든 요소를 선택 */
-* { ... }
+* {
+  ...;
+}
 /* 태그 선택자: 모든 p 태그 요소를 모두 선택 */
-p { ... }
+p {
+  ...;
+}
 /* id 선택자: id 값이 'foo'인 요소를 모두 선택 */
-#foo { ... }
+#foo {
+  ...;
+}
 /* class 선택자: class 값이 'foo'인 요소를 모두 선택 */
-.foo { ... }
+.foo {
+  ...;
+}
 /* 어트리뷰트 선택자: input 요소 중에 type 어트리뷰트 값이 'text'인 요소를 모두 선택 */
-input[type=text] { ... }
+input[type="text"] {
+  ...;
+}
 /* 후손 선택자: div 요소의 후손 요소 중 p 요소를 모두 선택 */
-div p { ... }
+div p {
+  ...;
+}
 /* 자식 선택자: div 요소의 자식 요소 중 p 요소를 모두 선택 */
-div > p { ... }
+div > p {
+  ...;
+}
 /* 인접 형제 선택자: p 요소의 형제 요소 중에 p 요소 바로 뒤에 위치하는 ul 요소를 선택 */
-p + ul { ... }
+p + ul {
+  ...;
+}
 /* 일반 형제 선택자: p 요소의 형제 요소 중에 p 요소 뒤에 위치하는 ul 요소를 모두 선택 */
-p ~ ul { ... }
+p ~ ul {
+  ...;
+}
 /* 가상 클래스 선택자: hover 상태인 a 요소를 모두 선택 */
-a:hover { ... }
+a:hover {
+  ...;
+}
 /* 가상 요소 선택자: p 요소의 콘텐츠의 앞에 위치하는 공간을 선택
    일반적으로 content 프로퍼티와 함께 사용된다. */
-p::before { ... }
+p::before {
+  ...;
+}
 ```
 
 ### 2.6. HTMLCollection과 NodeList
@@ -588,7 +610,7 @@ Node.prototype.textContent 프로퍼티는 setter와 getter 모두 존재하는 
     // #foo 요소 노드의 자식 노드인 텍스트 노드의 값을 취득한다.
     console.log(document.getElementById("foo").firstChild.nodeValue); // Hello
     // span 요소 노드의 자식 노드인 텍스트 노드의 값을 취득한다.
-    console.log(document.getElementById("foo").lastChild.firstChild.nodeValue); 
+    console.log(document.getElementById("foo").lastChild.firstChild.nodeValue);
     // world!
   </script>
 </html>
@@ -756,7 +778,7 @@ attributes 프로퍼티는 getter만 존재하는 읽기 전용 접근자 프로
       // 요소 노드의 attribute 프로퍼티는 요소 노드의 모든 어트리뷰트 노드의 참조가 담긴 NamedNodeMap 객체를 반환한다.
       const { attributes } = document.getElementById("user");
       console.log(attributes);
-      // NamedNodeMap 
+      // NamedNodeMap
       //{0: id, 1: type, 2: value, id: id, type: type, value: value, length: 3}
 
       // 어트리뷰트 값 취득
@@ -890,9 +912,9 @@ HTML 요소의 class 어트리뷰트 값을 변경하여 HTML 요소의 스타�
 
 DOM은 현재 다음과 같이 4개의 버전이 있다.
 
-| 레벨        | 표준 문서 URL                            |
-| :---------- | :--------------------------------------- |
-| DOM Level 1 | <https://www.w3.org/TR/REC-DOM-Level-1>  |
-| DOM Level 2 | <https://www.w3.org/TR/DOM-Level-2-Core> |
-| DOM Level 3 | <https://www.w3.org/TR/DOM-Level-3-Core> |
-| DOM Level 4 | <https://dom.spec.whatwg.org>            |
+| 레벨        | 표준 문서 URL                          |
+| :---------- | :------------------------------------- |
+| DOM Level 1 | https://www.w3.org/TR/REC-DOM-Level-1  |
+| DOM Level 2 | https://www.w3.org/TR/DOM-Level-2-Core |
+| DOM Level 3 | https://www.w3.org/TR/DOM-Level-3-Core |
+| DOM Level 4 | https://dom.spec.whatwg.org            |

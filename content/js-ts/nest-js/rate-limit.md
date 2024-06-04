@@ -152,6 +152,6 @@ const loginLimiter = rateLimit({
 
 ## 참고링크
 
-:pushpin: <https://docs.nestjs.com/security/rate-limiting>
-:pushpin: <https://trend21c.tistory.com/2295>
-:pushpin: <https://inpa.tistory.com/entry/NODE-%F0%9F%93%9A-API-%EC%82%AC%EC%9A%A9%EB%9F%89-%EC%A0%9C%ED%95%9C%ED%95%98%EA%B8%B0>
+:pushpin: https://docs.nestjs.com/security/rate-limiting
+:pushpin: https://trend21c.tistory.com/2295
+:pushpin: https://inpa.tistory.com/entry/NODE-%F0%9F%93%9A-API-%EC%82%AC%EC%9A%A9%EB%9F%89-%EC%A0%9C%ED%95%9C%ED%95%98%EA%B8%B0

@@ -24,5 +24,8 @@ const prisma = (arg: unknown) => {
 prisma.displayName = "prisma";
 
 refractor.register(prisma);
-export const customRehypePrism = rehypePrismGenerator(refractor);
+
+const customRehypePrism = rehypePrismGenerator(refractor);
+
+export default customRehypePrism
 

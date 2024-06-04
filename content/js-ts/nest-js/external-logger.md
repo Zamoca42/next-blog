@@ -308,8 +308,8 @@ Sentry로 로그가 보내지면 등록한 이메일로 알림을 확인할 수 
 
 :pushpin: NestJS로 배우는 백엔드 프로그래밍 - 한용재
 
-:pushpin: <https://jojoldu.tistory.com/712>
+:pushpin: https://jojoldu.tistory.com/712
 
-:pushpin: <https://github.com/ericjeker/nestjs-sentry-example>
+:pushpin: https://github.com/ericjeker/nestjs-sentry-example
 
 [winston-daily-rotate-file]: https://github.com/winstonjs/winston-daily-rotate-file

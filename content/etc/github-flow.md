@@ -33,7 +33,7 @@ tag:
 
 ## 참고 링크
 
-- <http://scottchacon.com/2011/08/31/github-flow.html>
-- <https://techblog.woowahan.com/2553/>
-- <https://nvie.com/posts/a-successful-git-branching-model/>
-- <https://inpa.tistory.com/entry/GIT-⚡%EF%B8%8F-github-flow-git-flow-📈-브랜치-전략#github-flow_전략>
+- http://scottchacon.com/2011/08/31/github-flow.html
+- https://techblog.woowahan.com/2553/
+- https://nvie.com/posts/a-successful-git-branching-model/
+- https://inpa.tistory.com/entry/GIT-⚡%EF%B8%8F-github-flow-git-flow-📈-브랜치-전략#github-flow_전략

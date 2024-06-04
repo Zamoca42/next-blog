@@ -4,48 +4,52 @@ import { useSideBar } from "@/component/provider";
 import { TOC } from "@/component/toc";
 import { ContentFolder } from "@/interface/folder";
 import { gql } from "graphql-request";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TreeViewElement } from "./tree-view-api";
 import { graphQlClient, parseQuery } from "@/lib/graphql-request";
 
 export const SideBar = () => {
   const { path, isOpen, setIsOpen } = useSideBar();
   const [elements, setElements] = useState<TreeViewElement[]>([]);
+  const prevPathRef = useRef("");
 
   useEffect(() => {
-    const fetchFolders = async () => {
-      const query = parseQuery<{
-        folders: ContentFolder[];
-      }>(gql`
-      fragment TreeNode on Folder {
-        id
-        name
-        path
-      }
+    if (prevPathRef.current !== path) {
+      const fetchFolders = async () => {
+        const query = parseQuery<{
+          folders: ContentFolder[];
+        }>(gql`
+          fragment TreeNode on Folder {
+            id
+            name
+            path
+          }
 
-      query {
-        folders(path: "${path}") {
-          ...TreeNode
-          children {
-            ...TreeNode
-            children {
+          query {
+            folders(path: "${path}") {
               ...TreeNode
               children {
                 ...TreeNode
+                children {
+                  ...TreeNode
+                  children {
+                    ...TreeNode
+                  }
+                }
               }
             }
           }
-        }
-      }
-    `);
-      const res = await graphQlClient.request({
-        document: query,
-      });
+        `);
+        const res = await graphQlClient.request({
+          document: query,
+        });
 
-      setElements(res.folders);
-    };
+        setElements(res.folders);
+      };
 
-    fetchFolders();
+      fetchFolders();
+      prevPathRef.current = path;
+    }
   }, [path]);
 
   return (

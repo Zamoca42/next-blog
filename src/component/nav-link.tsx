@@ -34,9 +34,8 @@ export const NavLink = ({
     }
   };
 
-  const handlePostRouter = useCallback(
-    async (path: string) => {
-      const query = parseQuery<{ posts: Post[] }>(gql`
+  const handlePostRouter = async (path: string) => {
+    const query = parseQuery<{ posts: Post[] }>(gql`
       query {
         posts(prefix: "${path}") {
           title
@@ -44,20 +43,18 @@ export const NavLink = ({
         }
       }
     `);
-      const response = await graphQlClient.request({
-        document: query,
-      });
-      const postList = response?.posts;
-      router.push(`/post/${postList[0].slug}`);
+    const response = await graphQlClient.request({
+      document: query,
+    });
+    const postList = response?.posts;
+    router.push(`/post/${postList[0].slug}`);
 
-      setPath(path);
+    setPath(path);
 
-      if (toggleMenu) {
-        toggleMenu();
-      }
-    },
-    [pathname]
-  );
+    if (toggleMenu) {
+      toggleMenu();
+    }
+  };
 
   return (
     <ul className="space-x-2">

@@ -52,5 +52,5 @@ git-flow는 브랜치를 5가지 종류로 구분하여 개발하는 전략이�
 
 ## 참고 링크
 
-- <https://blog.programster.org/git-workflows>
-- <https://github.com/nvie/gitflow>
+- https://blog.programster.org/git-workflows
+- https://github.com/nvie/gitflow

@@ -18,10 +18,10 @@ export const PostPage = ({
     <div
       className={`transition-margin duration-200 ease-in-out ${
         isOpen ? "md:pl-[22rem]" : "pl-2"
-      } lg:pl-80`}
+      } lg:pl-[22rem]`}
     >
       <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] pr-4">
-        <article className="my-10 px-2">
+        <article className="my-10 px-2 md:ml-8">
           <PostHeader title={post.title} date={post.createdAt} />
           <PostBody content={content} />
         </article>

@@ -23,7 +23,7 @@ HTTP 명세에서는 URI를 더 일반화된 개념의 리소스 식별자로 �
 하지만 실제로 HTTP 애플리케이션은 URL을 URI의 한 부분으로 취급한다.
 HTTP 완벽 가이드에서는 URI와 URL을 번갈아 사용할 것이지만 대부분 URL을 가리키는 것으로 보면된다.
 
-<http://www.joes-hardware.com/seasonal/index-fall.html> 이라는 URL을 불러오고 싶다고 해보자.
+http://www.joes-hardware.com/seasonal/index-fall.html 이라는 URL을 불러오고 싶다고 해보자.
 
 ![그림 2-1. URL이 브라우저, 서버, 서버 파일 시스템의 위치와 어떻게 연결되는지 보여준다.](https://github.com/Zamoca42/blog/assets/96982072/61cbaf07-9aaa-4cfb-a5ae-bb52e0f4244d)
 
@@ -240,11 +240,11 @@ US-ASCII는 만들어진 지 오래된 문자 집합이기 때문에, 적은 수
 안전한 문자 집합을 이용하는 경우 그 표현의 한계를 넘기 위해, URL에 있는 안전하지 않은 문자들을 표현할 수 있는 인코딩 방식이 고안되었다.
 인코딩은 안전하지 않은 문자를 퍼센티지 기호(%)로 시작해, ASCII 코드로 표현되는 두 개의 16진수 숫자로 이루어진 '이스케이프' 문자로 바꾼다.
 
-| 문자    | ASCII 코드 | URL의 예                                               |
-| ------- | ---------- | ------------------------------------------------------ |
-| ~       | 126 (0x7E) | <http://www.joes-hardware.com/%7Ejoe>                  |
-| 빈 문자 | 32 (0x20)  | <http://www.joes-hardware.com/more%20tools.html>       |
-| %       | 37 (0x25)  | <http://www.joes-hardware.com/100%26satisfaction.html> |
+| 문자    | ASCII 코드 | URL의 예                                             |
+| ------- | ---------- | ---------------------------------------------------- |
+| ~       | 126 (0x7E) | http://www.joes-hardware.com/%7Ejoe                  |
+| 빈 문자 | 32 (0x20)  | http://www.joes-hardware.com/more%20tools.html       |
+| %       | 37 (0x25)  | http://www.joes-hardware.com/100%26satisfaction.html |
 
 ### 문자 제한
 
