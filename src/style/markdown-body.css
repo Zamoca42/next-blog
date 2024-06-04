@@ -384,7 +384,7 @@
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-  margin-top: 24px;
+  padding-top: 24px;
   margin-bottom: 16px;
   font-weight: var(--base-text-weight-semibold, 600);
   line-height: 1.25;
@@ -425,9 +425,10 @@
 
 .markdown-body blockquote {
   margin: 0;
-  padding: 0 1em;
+  padding: 0.5em 1em;
   color: var(--color-fg-muted);
-  border-left: .25em solid var(--color-border-default);
+  border-left: .25em solid var(--color-prettylights-syntax-markup-ignored-bg);
+  background-color: var(--color-prettylights-syntax-markup-ignored-text);
 }
 
 .markdown-body ul,
@@ -527,13 +528,12 @@
 
 .markdown-body p,
 .markdown-body blockquote,
-.markdown-body ul,
 .markdown-body ol,
 .markdown-body dl,
 .markdown-body table,
 .markdown-body pre,
 .markdown-body details {
-  margin-top: 0;
+  margin-top: 16px;
   margin-bottom: 16px;
 }
 

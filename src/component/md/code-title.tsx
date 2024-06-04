@@ -1,7 +1,7 @@
 "use client";
 
 import clsx from "clsx";
-import { ClassAttributes, HTMLAttributes, useState } from "react";
+import { ClassAttributes, HTMLAttributes } from "react";
 import { ExtraProps } from "react-markdown";
 
 type CodeTitleProps = ClassAttributes<HTMLDivElement> &

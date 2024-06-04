@@ -23,7 +23,7 @@ pre[class*=language-] {
 }
 
 pre[class*=language-] {
-  padding: 1em;
+  padding: .25em 1em 1em 1em;
   margin: 0;
   overflow-y: auto;
 }

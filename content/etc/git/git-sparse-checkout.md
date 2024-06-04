@@ -9,11 +9,11 @@ order: 3
 
 현재 프로젝트 레포지토리의 디렉터리 구조는 이렇게 되어있다.
 
-> :file_folder: toeic
-> ├─ :file_folder: backend/
-> ├─ :file_folder: frontend/
-> ├─ package-lock.json
-> └─ package.json
+> :file_folder: toeic  
+> ├─ :file_folder: backend/  
+> ├─ :file_folder: frontend/  
+> ├─ package-lock.json  
+> └─ package.json  
 
 GitHub 레포지토리에서 frontend 디렉터리를 제외한 나머지 파일 및 디렉터리를 clone해서 가져오려면 어떻게 해야할까?
 
