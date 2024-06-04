@@ -9,11 +9,11 @@ order: 3
 
 현재 프로젝트 레포지토리의 디렉터리 구조는 이렇게 되어있다.
 
-> :file_folder: toeic
-> ├─ :file_folder: backend/
-> ├─ :file_folder: frontend/
-> ├─ package-lock.json
-> └─ package.json
+> :file_folder: toeic  
+> ├─ :file_folder: backend/  
+> ├─ :file_folder: frontend/  
+> ├─ package-lock.json  
+> └─ package.json  
 
 GitHub 레포지토리에서 frontend 디렉터리를 제외한 나머지 파일 및 디렉터리를 clone해서 가져오려면 어떻게 해야할까?
 
@@ -23,7 +23,7 @@ ec2 인스턴스에 서버의 포함된 패키지와 클라이언트에 포함�
 그래서 frontend 디렉터리를 제외한 나머지만 clone을 해보려고한다.
 git에서는 sparse checkout이라는 기능을 제공해 일부 디렉터리만 clone할 수 있도록 지원하고있다.
 
-> <https://git-scm.com/docs/git-sparse-checkout>
+> https://git-scm.com/docs/git-sparse-checkout
 
 git 버전 2.35이상 부터는 `sparse-checkout`이라는 명령어로 설정할 수 있다.
 `sparse-checkout` 명령어가 나왔을 당시에는 `init`과 `set`을 모두 호출해야했지만

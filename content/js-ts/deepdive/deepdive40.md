@@ -784,7 +784,7 @@ altKey, ctrlKey, shiftKey, metaKey, key, keyCode 같은 고유의 프로퍼티�
 </html>
 ```
 
-입력한 키와 key 프로퍼티 값의 대응 관계는 <https://keycode.info>를 참고하기 바란다.
+입력한 키와 key 프로퍼티 값의 대응 관계는 https://keycode.info를 참고하기 바란다.
 
 input 요소의 입력 필드에 한글을 입력하고 엔터 키를 누르면
 keyup 이벤트 핸들러가 두 번 호출되는 현상이 발생한다.

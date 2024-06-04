@@ -10,7 +10,7 @@ tag:
 
 공공데이터로 맛집 목록을 받아와서 지도에 내 위치 주변 맛집을 보여주는 API를 만들었습니다.
 
-> 해당 프로젝트 링크: <https://github.com/pre-onboarding-backend-G/feed-me-baby>
+> 해당 프로젝트 링크: https://github.com/pre-onboarding-backend-G/feed-me-baby
 
 제가 맡은 부분은 전처리된 데이터를 가져와서 맛집 목록을 지도에 표시할 수 있게 반환하는 부분입니다.
 

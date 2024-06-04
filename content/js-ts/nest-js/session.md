@@ -12,8 +12,8 @@ NestJS에서 [express-session][express-session]으로 세션 인증을 구현해
 ## 세션 동작 과정
 
 - 참고링크:
-  - <https://okky.kr/questions/680128>
-  - <https://inpa.tistory.com/entry/EXPRESS-%F0%9F%93%9A-express-session-%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4>
+  - https://okky.kr/questions/680128
+  - https://inpa.tistory.com/entry/EXPRESS-%F0%9F%93%9A-express-session-%EB%AF%B8%EB%93%A4%EC%9B%A8%EC%96%B4
 
 두 가지 링크를 참고해서 세션 동작과정을 정리했습니다.
 
@@ -289,9 +289,9 @@ export class AppModule {}
 
 ## 참고 링크
 
-- <https://expressjs.com/en/resources/middleware/session.html>
-- <https://forum.freecodecamp.org/t/what-is-the-secret-key-in-express-session/354972>
-- <https://en.wikipedia.org/wiki/HMAC>
+- https://expressjs.com/en/resources/middleware/session.html
+- https://forum.freecodecamp.org/t/what-is-the-secret-key-in-express-session/354972
+- https://en.wikipedia.org/wiki/HMAC
 
 [express-session]: https://www.npmjs.com/package/express-session
 [pg-simple]: https://www.npmjs.com/package/connect-pg-simple

@@ -1,28 +1,12 @@
 import Container from "@/component/ui/container";
-import { HeroPost } from "@/component/ui/hero-post";
-import { Intro } from "@/component/ui/intro";
-import { MoreStories } from "@/component/ui/more-stories";
-import { Post } from "@/interface/post";
-import { gql } from "graphql-request";
-import Footer from "@/component/ui/footer";
-import { graphQlClient, parseQuery } from "@/lib/graphql-request";
+import { HeroPost } from "@/component/home/hero-post";
+import { Intro } from "@/component/home/intro";
+import { MoreStories } from "@/component/home/more-stories";
+import Footer from "@/component/home/footer";
+import { getAllPosts } from "@/app/api/action";
 
 export default async function Index() {
-  const query = parseQuery<{ posts: Post[] }>(gql`
-    query {
-      posts {
-        title
-        slug
-        createdAt
-        description
-      }
-    }
-  `);
-  const getAllPosts = await graphQlClient.request({
-    document: query,
-  });
-
-  const allPosts = getAllPosts.posts;
+  const allPosts = await getAllPosts();
 
   const heroPost = allPosts[0];
 

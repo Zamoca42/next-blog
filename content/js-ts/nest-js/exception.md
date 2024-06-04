@@ -346,15 +346,15 @@ export class AuthController {
 
 ## 참고 링크
 
-- <https://github.com/leosuncin/nest-api-example/blob/master/src/blog/pipes/article.pipe.ts>
+- https://github.com/leosuncin/nest-api-example/blob/master/src/blog/pipes/article.pipe.ts
 
-- <https://github.com/typestack/class-validator?tab=readme-ov-file#using-service-container>
+- https://github.com/typestack/class-validator?tab=readme-ov-file#using-service-container
 
-- <https://docs.nestjs.com/techniques/validation>
+- https://docs.nestjs.com/techniques/validation
 
-- <https://gist.github.com/gsusmonzon/ecd7842495f07594761e40c2758617d0>
+- https://gist.github.com/gsusmonzon/ecd7842495f07594761e40c2758617d0
 
-- <https://docs.nestjs.com/exception-filters>
+- https://docs.nestjs.com/exception-filters
 
 [exception-blog]: https://jojoldu.tistory.com/734
 [this-comment]: https://github.com/nestjs/nest/issues/528#issuecomment-395338798

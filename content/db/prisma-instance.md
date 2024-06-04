@@ -35,7 +35,7 @@ export default prisma;
 
 ## 경고 메시지의 원인
 
-> 참고링크 : <https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles/nextjs-prisma-client-dev-practices>
+> 참고링크 : https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles/nextjs-prisma-client-dev-practices
 
 친절하게 prisma 공식문서에서 다음의 원인이 발생하는 원인과 해결방법에 대해 알 수 있었다.
 next dev와 같이 개발 환경에서 실행 시 Node.js 캐시를 지우게 되고

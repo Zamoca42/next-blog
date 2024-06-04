@@ -1,7 +1,7 @@
 import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constants";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@/app/globals.css";
+import "@/style/globals.css";
 import { NavBar } from "@/component/nav-bar";
 import { SideBarProvider } from "@/component/provider";
 

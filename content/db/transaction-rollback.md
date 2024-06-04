@@ -84,7 +84,7 @@ COMMIT
 트랜잭션(Transaction)의 사전적 의미는 거래이고,
 컴퓨터 과학 분야에서의 트랜잭션(Transaction)은 "더이상 분할이 불가능한 업무처리의 단위"를 의미한다.
 
-출처: <https://inpa.tistory.com/entry/MYSQL-📚-트랜잭션Transaction-이란-💯-정리>
+출처: https://inpa.tistory.com/entry/MYSQL-📚-트랜잭션Transaction-이란-💯-정리
 
 ## 원인
 

@@ -139,7 +139,7 @@ prometheus.yml에서 `static_configs`에서 모니터링 타겟을 `localhost`�
 
 ![connected refused error](https://github.com/Zamoca42/blog/assets/96982072/c0c89e38-74b4-466a-a964-cea06dfe7c14)
 
-- 해당 이슈: <https://stackoverflow.com/questions/54397463/getting-error-get-http-localhost9443-metrics-dial-tcp-127-0-0-19443-conne>
+- 해당 이슈: https://stackoverflow.com/questions/54397463/getting-error-get-http-localhost9443-metrics-dial-tcp-127-0-0-19443-conne
 
 해당 이슈는 docker 컨테이너 내부의 네트워크 호스트를 인지하지 못해서 생기는 이슈인거 같습니다.
 모니터링 타겟을 컨테이너 이미지 이름이나 `docker.host.internal`로 설정하면 해결됩니다.
@@ -174,14 +174,14 @@ admin 레포에서 설정하고 어드민용 인스턴스에 배포한다면 어
 
 - 프로메테우스
 
-  - <https://prometheus.io/docs/guides/cadvisor/>
+  - https://prometheus.io/docs/guides/cadvisor/
 
 - 그라파나
 
-  - <https://grafana.com/docs/grafana/latest/datasources/prometheus/?pg=oss-prom&plcmt=deploy-box-1>
+  - https://grafana.com/docs/grafana/latest/datasources/prometheus/?pg=oss-prom&plcmt=deploy-box-1
 
 - 전체 설정 플로우
-  - <https://karanchuri.medium.com/prometheus-grafana-in-django-92da4d782f8a>
-  - <https://www.devkuma.com/docs/prometheus/docker-compose-install/>
+  - https://karanchuri.medium.com/prometheus-grafana-in-django-92da4d782f8a
+  - https://www.devkuma.com/docs/prometheus/docker-compose-install/
 
 [prometheus-docs]: https://prometheus.io/docs/prometheus/latest/getting_started/

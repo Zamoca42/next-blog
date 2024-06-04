@@ -39,8 +39,7 @@ export AWS_REGION = "us-east-1"
 
 - [로컬에서 DynamoDB 사용하기](https://docs.aws.amazon.com/ko_kr/amazondynamodb/latest/developerguide/DynamoDBLocal.html)
 
-```typescript
-//dynamoose-config.service.ts
+```typescript:dynamoose-config.service.ts
 
 import {
   DynamooseOptionsFactory,

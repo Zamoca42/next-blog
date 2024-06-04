@@ -1,5 +1,5 @@
-import DateFormatter from "./date-formatter";
-import { PostTitle } from "@/component/ui/post-title";
+import DateFormatter from "../ui/date-formatter";
+import { PostTitle } from "@/component/post/post-title";
 
 type Props = {
   title: string;

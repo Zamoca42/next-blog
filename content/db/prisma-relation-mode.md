@@ -103,7 +103,7 @@ Vitess의 궁극적인 목표는 대규모 데이터베이스를 유연하게 �
 
 ## relationMode가 prisma일 때 인덱스 추가의 필요성
 
-> 참고 링크: <https://stackoverflow.com/questions/74769279/prisma-next-auth-planetscale-foreign-key-constraints-are-not-allowed>
+> 참고 링크: https://stackoverflow.com/questions/74769279/prisma-next-auth-planetscale-foreign-key-constraints-are-not-allowed
 
 `relationMode`가 `prisma`로 설정되어 있을 때, Prisma는 관계 필드에 대해 자동으로 인덱스를 생성하지 않는다.
 이로 인해 관계 필드를 쿼리할 때 성능 저하가 발생할 수 있다.

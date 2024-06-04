@@ -3,10 +3,8 @@
 import { blogConfig } from "@/blog.config";
 import { usePathname, useRouter } from "next/navigation";
 import { useSideBar } from "@/component/provider";
-import { Post } from "@/interface/post";
-import { gql } from "graphql-request";
-import { Fragment, useCallback } from "react";
-import { graphQlClient, parseQuery } from "@/lib/graphql-request";
+import { Fragment } from "react";
+import { getAllPosts } from "@/app/api/action";
 
 interface Props {
   toggleMenu?: () => void;
@@ -34,30 +32,19 @@ export const NavLink = ({
     }
   };
 
-  const handlePostRouter = useCallback(
-    async (path: string) => {
-      const query = parseQuery<{ posts: Post[] }>(gql`
-      query {
-        posts(prefix: "${path}") {
-          title
-          slug
-        }
-      }
-    `);
-      const response = await graphQlClient.request({
-        document: query,
-      });
-      const postList = response?.posts;
-      router.push(`/post/${postList[0].slug}`);
+  const handlePostRouter = async (path: string) => {
+    const posts = await getAllPosts();
+    const matchedPosts = posts.filter((post) =>
+      post.slug.split("/").includes(path)
+    );
+    router.push(`/post/${matchedPosts[0].slug}`);
 
-      setPath(path);
+    setPath(path);
 
-      if (toggleMenu) {
-        toggleMenu();
-      }
-    },
-    [pathname]
-  );
+    if (toggleMenu) {
+      toggleMenu();
+    }
+  };
 
   return (
     <ul className="space-x-2">
