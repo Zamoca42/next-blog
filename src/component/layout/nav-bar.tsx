@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { NavLink } from "@/component/layout/nav-link";
 import { useSideBar } from "@/component/provider";
 import { blogConfig } from "@/blog.config";
+import { ModeToggle } from "@/component/ui/mode-toggle";
 
 export const NavBar = () => {
   const { isOpen, setIsOpen, isLinkOpen, setIsLinkOpen } = useSideBar();
@@ -38,10 +39,10 @@ export const NavBar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 w-full backdrop-blur flex-none transition-colors duration-500 bg-white/95 supports-backdrop-blur:bg-white/60 shadow-sm">
+      <nav className="sticky top-0 z-50 w-full backdrop-blur flex-none transition-colors duration-500 shadow-sm">
         <div className="max-w-8xl mx-auto p-4 lg:px-8">
           <div className="relative flex items-center">
-            <div className="md:hidden">
+            <div className="md:hidden mr-auto">
               <button onClick={() => setIsOpen(!isOpen)}>
                 <svg
                   className="w-6 h-6"
@@ -70,14 +71,19 @@ export const NavBar = () => {
                   height={32}
                   alt="logo"
                 />
-                <span className="hidden md:flex">{blogConfig.name ?? "Blog"}</span>
+                <span className="hidden md:flex">
+                  {blogConfig.name ?? "Blog"}
+                </span>
               </Link>
             </div>
-            <div className="hidden md:flex ml-auto">
+            <div className="hidden md:flex mx-auto">
               <NavLink
                 matchedPathClass="active-link"
                 notMatchedPathClass="nav-underline"
               />
+            </div>
+            <div className="hidden md:flex ml-auto">
+              <ModeToggle />
             </div>
             <div className="md:hidden ml-auto">
               <button onClick={toggleMenu}>

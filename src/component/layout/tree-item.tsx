@@ -13,9 +13,9 @@ type TreeItemProps = {
 
 export const TreeItem = ({ elements }: TreeItemProps) => {
   return (
-    <ul className="w-full space-y-1">
+    <ul className="space-y-1">
       {elements.map((element) => (
-        <li key={element.id} className="w-full space-y-2">
+        <li key={element.id} className="space-y-2">
           {element.children && element.children?.length > 0 ? (
             <Folder
               element={element.name}
@@ -34,12 +34,12 @@ export const TreeItem = ({ elements }: TreeItemProps) => {
               key={element.id}
               value={element.path}
               isSelectable={element.isSelectable}
-              className={`px-1 w-full`}
+              className={`px-1`}
               fileIcon=""
             >
               <Link
                 href={`/post/${element.path}`}
-                className={`px-2 ml-2 text-sm text-left w-full py-1 break-all`}
+                className={`px-2 text-sm text-left py-1 text-pretty `}
               >
                 {element.name ?? element.path}
               </Link>

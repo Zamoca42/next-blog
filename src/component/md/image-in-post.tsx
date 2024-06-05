@@ -20,7 +20,7 @@ const ImageInPost: React.FC<CodeTitleProps> = (props) => {
         alt={paredAlt}
         src={parsedSrc}
         {...rest}
-        className="rounded-2xl"
+        className="rounded-xl"
         sizes="(max-width: 768px) 100vw, 33vw"
         quality={80}
         loading="lazy"

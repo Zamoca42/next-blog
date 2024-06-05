@@ -19,7 +19,7 @@ export const MdTOC = ({ toc }: MdTocProps) => {
             <li
               key={item.href}
               style={{ marginLeft: `${(item.depth - 1) * 16}px` }}
-              className="px-2 py-1"
+              className="px-2 py-1 text-sm text-balance"
             >
               <Link href={item.href}>{item.value}</Link>
             </li>

@@ -1,6 +1,5 @@
 "use client";
 
-import "@/style/markdown-body.css";
 import "@/style/prism.css";
 import Markdown from "react-markdown";
 import CodeTitle from "@/component/md/code-title";
@@ -57,9 +56,8 @@ export function PostBody({ content }: Props) {
   ];
 
   return (
-    <div className="markdown-body">
+    <div className="prose">
       <Markdown
-        className="markdown-body"
         remarkPlugins={remarkPlugins}
         rehypePlugins={rehypePlugins}
         components={{

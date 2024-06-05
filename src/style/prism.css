@@ -356,6 +356,7 @@ pre {
 .code-highlight {
   float: left; /* 1 */
   min-width: 100%; /* 2 */
+  padding-left: 2rem;
 }
 
 .code-line {
@@ -376,7 +377,7 @@ pre {
 }
 
 .highlight-line {
-  margin-left: -16px;
+  margin-left: px;
   margin-right: -16px;
   background-color: rgba(55, 65, 81, 0.5); /* Set highlight bg color */
   border-left: 4px solid rgb(59, 130, 246); /* Set highlight accent border color */
@@ -384,10 +385,16 @@ pre {
 
 .line-number::before {
   display: inline-block;
-  width: 1rem;
+  position: absolute;
+  left: 4px;
+  width: 3rem;
   text-align: right;
+  padding-right: 2rem;
+  padding-left: 1rem;
   margin-right: 16px;
   margin-left: -8px;
+  background: #2d2d2d;
+  border-right: 1px solid rgba(156, 163, 175, 0.5);
   color: rgb(156, 163, 175); /* Line number color */
   content: attr(line);
 }
