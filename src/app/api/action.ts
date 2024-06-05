@@ -7,12 +7,13 @@ import matter from "gray-matter";
 import { join } from "path";
 import { capitalize } from "../../lib/util";
 import { formatISO, parseISO } from "date-fns";
+import { exec } from "child_process";
 
 const postsDirectory = join(process.cwd(), "content");
 
 export const getAllPosts = async (): Promise<Post[]> => {
   const postMap = await createIndex(postsDirectory);
-  const posts = await getPostsFromIndex(postMap);
+  const posts = getPostsFromIndex(postMap);
 
   return posts.sort((post1, post2) => {
     const date1 = post1.createdAt ? parseISO(post1.createdAt) : new Date();
@@ -104,7 +105,11 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
   const fullPath = join(postsDirectory, `${slug}.md`);
   const fileContents = await fs.promises.readFile(fullPath, "utf8");
   const { data, content } = matter(fileContents);
-  const stat = await fs.promises.stat(fullPath);
+
+  const { createdAt, updatedAt } =
+    process.env.NODE_ENV === "development"
+      ? await getFileDates(fullPath)
+      : await getGitDates(fullPath);
 
   return {
     ...data,
@@ -112,7 +117,44 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     content,
     tags: data.tags ?? [],
     category: data.category ?? [],
-    createdAt: formatISO(stat.birthtime),
-    updatedAt: formatISO(stat.mtime),
+    createdAt,
+    updatedAt,
   } as Post;
+};
+
+const getFileDates = async (
+  filePath: string
+): Promise<{ createdAt: string; updatedAt: string }> => {
+  const stat = await fs.promises.stat(filePath);
+  const createdAt = formatISO(stat.birthtime);
+  const updatedAt = formatISO(stat.mtime);
+  return { createdAt, updatedAt };
+};
+
+const getGitDates = async (
+  filePath: string
+): Promise<{ createdAt: string; updatedAt: string }> => {
+  const createdAtCommand = `git log --diff-filter=A --follow --format=%aI --reverse -- "${filePath}"`;
+  const updatedAtCommand = `git log -1 --format=%aI -- "${filePath}"`;
+
+  const gitLogFileDate = async (command: string) => {
+    const outputDate = await new Promise<string>((resolve, reject) => {
+      exec(command, (error, stdout, stderr) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(stdout.trim());
+        }
+      });
+    });
+
+    return formatISO(new Date(outputDate));
+  };
+
+  const [createdAt, updatedAt] = await Promise.all([
+    gitLogFileDate(createdAtCommand),
+    gitLogFileDate(updatedAtCommand),
+  ]);
+
+  return { createdAt, updatedAt };
 };
