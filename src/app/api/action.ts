@@ -5,7 +5,7 @@ import { Post } from "@/interface/post";
 import fs from "fs";
 import matter from "gray-matter";
 import { join } from "path";
-import { capitalize } from "../../lib/util";
+import { capitalize } from "@/lib/util";
 import { formatISO, parseISO } from "date-fns";
 import { exec } from "child_process";
 
@@ -16,8 +16,8 @@ export const getAllPosts = async (): Promise<Post[]> => {
   const posts = getPostsFromIndex(postMap);
 
   return posts.sort((post1, post2) => {
-    const date1 = post1.createdAt ? parseISO(post1.createdAt) : new Date();
-    const date2 = post2.createdAt ? parseISO(post2.createdAt) : new Date();
+    const date1 = post1.updatedAt ? parseISO(post1.updatedAt) : new Date();
+    const date2 = post2.updatedAt ? parseISO(post2.updatedAt) : new Date();
     return date2.getTime() - date1.getTime();
   });
 };

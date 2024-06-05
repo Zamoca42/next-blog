@@ -2,7 +2,7 @@ import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constants";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/style/globals.css";
-import { NavBar } from "@/component/nav-bar";
+import { NavBar } from "@/component/layout/nav-bar";
 import { SideBarProvider } from "@/component/provider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -57,8 +57,8 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <SideBarProvider>
-          <NavBar />
-          <div className="max-w-8xl mx-auto">{children}</div>
+            <NavBar />
+            <div className="max-w-8xl mx-auto">{children}</div>
         </SideBarProvider>
       </body>
     </html>

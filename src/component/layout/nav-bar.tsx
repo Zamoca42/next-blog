@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
-import { NavLink } from "@/component/nav-link";
+import { NavLink } from "@/component/layout/nav-link";
 import { useSideBar } from "@/component/provider";
 import { blogConfig } from "@/blog.config";
 
@@ -102,7 +102,7 @@ export const NavBar = () => {
       </nav>
       {!isOpen && (
         <div
-          className={`absolute md:hidden top-16 h-full w-full bg-white transition-opacity duration-200 ease-in-out z-0 ${
+          className={`fixed md:hidden top-16 min-h-screen w-full bg-white transition-opacity duration-200 ease-in-out z-10 ${
             isLinkOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >

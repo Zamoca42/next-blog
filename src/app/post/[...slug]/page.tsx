@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/app/api/action";
 import { type Post } from "@/interface/post";
-import { SideBar } from "@/component/side-bar";
+import { SideBar } from "@/component/layout/side-bar";
 import { PostPage } from "@/component/post/post-page";
 import { delay } from "@/lib/util";
 import { blogConfig } from "@/blog.config";
+import { generateToc } from "@/lib/md-toc";
+import { MdTOC } from "@/component/post/post-toc";
 
 export default async function Post({ params }: Params) {
   const postSlug = params.slug.join("/");
@@ -15,10 +17,13 @@ export default async function Post({ params }: Params) {
     return notFound();
   }
 
+  const toc = await generateToc(post.content);
+
   return (
     <div>
       <SideBar />
       <PostPage post={post} content={post.content} />
+      <MdTOC toc={toc}/>
     </div>
   );
 }

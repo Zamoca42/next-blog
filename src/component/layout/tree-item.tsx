@@ -1,6 +1,10 @@
 "use client";
 
-import { File, Folder, TreeViewElement } from "@/component/tree-view-api";
+import {
+  File,
+  Folder,
+  TreeViewElement,
+} from "@/component/layout/tree-view-api";
 import Link from "next/link";
 
 type TreeItemProps = {
