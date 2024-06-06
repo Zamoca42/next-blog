@@ -3,9 +3,9 @@
 import { blogConfig } from "@/blog.config";
 import { usePathname, useRouter } from "next/navigation";
 import { useSideBar } from "@/component/provider";
-import { Fragment } from "react";
 import { getAllPosts } from "@/app/api/action";
 import clsx from "clsx";
+import { Fragment } from "react";
 
 interface Props {
   toggleMenu?: () => void;
@@ -48,12 +48,12 @@ export const NavLink = ({
   };
 
   return (
-    <ul className="space-x-2 space-y-2">
+    <nav className="space-x-2 space-y-2">
       <button
         className={clsx(
           pathname === "/" ? matchedPathClass : notMatchedPathClass,
           divider ? "hover:text-primary-foreground" : "",
-          `ml-2`
+          "ml-2"
         )}
         onClick={() => handleRouter("/")}
       >
@@ -75,6 +75,6 @@ export const NavLink = ({
           </button>
         </Fragment>
       ))}
-    </ul>
+    </nav>
   );
 };

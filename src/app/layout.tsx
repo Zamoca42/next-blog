@@ -1,4 +1,4 @@
-import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constants";
+import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constant";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/style/globals.css";
@@ -42,7 +42,7 @@ export default function RootLayout({
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
         />
-        <link rel="manifest" href="/favicon/site.webmanifest" />
+        <link rel="/manifest" href="/favicon/site.webmanifest" />
         <link
           rel="mask-icon"
           href="/favicon/safari-pinned-tab.svg"
