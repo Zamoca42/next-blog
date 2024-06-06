@@ -2,10 +2,12 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/app/api/action";
 import { type Post } from "@/interface/post";
-import { SideBar } from "@/component/side-bar";
+import { SideBar } from "@/component/layout/side-bar";
 import { PostPage } from "@/component/post/post-page";
 import { delay } from "@/lib/util";
 import { blogConfig } from "@/blog.config";
+import { generateToc } from "@/lib/md-toc";
+import { PostToc } from "@/component/post/post-toc";
 
 export default async function Post({ params }: Params) {
   const postSlug = params.slug.join("/");
@@ -15,11 +17,21 @@ export default async function Post({ params }: Params) {
     return notFound();
   }
 
+  const toc = await generateToc(post.content);
+
   return (
-    <div>
-      <SideBar />
+    <>
+      <SideBar toc={toc} />
       <PostPage post={post} content={post.content} />
-    </div>
+      <aside className="fixed z-20 top-16 bottom-0 right-[max(0px,calc(50%-45rem))] w-[17rem] py-10 overflow-y-auto hidden xl:block">
+        <div className="px-2 py-10 ltr">
+          <h2 className="font-semibold mb-2 text-accent-foreground">
+            On this page
+          </h2>
+          <PostToc toc={toc} />
+        </div>
+      </aside>
+    </>
   );
 }
 

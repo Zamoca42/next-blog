@@ -13,21 +13,20 @@ const ImageInPost: React.FC<CodeTitleProps> = (props) => {
   const parsedSrc = src ?? "/asset/blog/dynamic-routing/cover.jpg";
   const paredAlt = alt ?? "image";
   return (
-    <span className="flex flex-col items-center justify-center p-4">
+    <span className="flex flex-col items-center justify-center p-1 md:p-4">
       <Image
         width={768}
         height={500}
         alt={paredAlt}
         src={parsedSrc}
         {...rest}
-        className="rounded-2xl"
-        sizes="(max-width: 768px) 100vw, 33vw"
+        className="rounded-xl"
         quality={80}
-        loading="lazy"
+        priority={true}
         unoptimized
       />
       {alt && (
-        <span className="p-2 text-sm text-muted-foreground">{paredAlt}</span>
+        <span className="md:p-2 text-sm text-muted-foreground">{paredAlt}</span>
       )}
     </span>
   );

@@ -13,7 +13,7 @@
   }
   
   .active-link {
-    @apply underline-offset-8 underline decoration-4 decoration-grass-6;
+    @apply underline-offset-8 underline decoration-4 decoration-primary;
   }
   
   .nav-underline {
@@ -22,7 +22,7 @@
   }
   
   .nav-underline::after {
-    @apply bg-grass-6;
+    @apply bg-primary;
     content: '';
     position: absolute;
     left: 50%;
@@ -36,6 +36,76 @@
   .active-link .nav-underline::after {
     width: 100%;
     left: 0;
+  }
+
+  .remark-code-container {
+    position: relative;
+    margin: 1em 0;
+    border: 1px solid #ddd;
+    border-radius: 0.5em;
+    background: #2d2d2d;
+    overflow: hidden;
+  }
+
+  .remark-code-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+    background: #1e1e1e;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .remark-code-title {
+    font-size: 0.875rem;
+    color: #fff;
+  }
+
+  .remark-code-language {
+    font-size: 0.75rem;
+    color: #ccc;
+    text-transform: uppercase;
+  }
+
+  .remark-code-copy-button {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    background: #444;
+    border: none;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+
+  .remark-code-copy-button:hover {
+    background-color: #666;
+  }
+
+  .porse p {
+    @apply text-balance
+  }
+
+  .prose blockquote {
+    @apply bg-muted py-1
+  }
+
+  :not(pre) > code {
+    /* Inline code only */
+    @apply bg-muted;
+    padding: .2em .4em;
+    margin: 0;
+    font-size: 85%;
+    white-space: break-spaces;
+    border-radius: 6px;
+  }
+
+  .prose :not(pre) > code::before,
+  .prose :not(pre) > code::after {
+    content: none;
   }
 }
 
@@ -52,8 +122,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 124 38.7% 78.2%;
+    --primary-foreground: 126 37.2% 69.4%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -75,8 +145,8 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 10%;
+    --foreground: 210 0% 67%;
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -84,8 +154,8 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 126 37.2% 69.4%;
+    --primary-foreground: 124 38.7% 78.2%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;

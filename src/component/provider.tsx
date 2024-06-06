@@ -4,6 +4,7 @@ import { ContentFolder } from "@/interface/folder";
 import { getAllTreeNode } from "@/app/api/action";
 import { createContext, useContext, useEffect, useState } from "react";
 
+
 interface SideBarContextProps {
   path: string;
   isOpen: boolean;

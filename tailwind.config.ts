@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { PluginAPI } from "tailwindcss/types/config";
 
 const config: Config = {
   darkMode: ["class"],
@@ -113,8 +114,50 @@ const config: Config = {
       textUnderlineOffset: {
         8: "8px",
       },
+      typography: (theme: PluginAPI["theme"]) => ({
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": theme("colors.foreground"),
+            "--tw-prose-headings": theme("colors.foreground"),
+            "--tw-prose-lead": theme("colors.foreground"),
+            "--tw-prose-links": theme("colors.primary.DEFAULT"),
+            "--tw-prose-bold": theme("colors.foreground"),
+            "--tw-prose-counters": theme("colors.muted.foreground"),
+            "--tw-prose-bullets": theme("colors.muted.foreground"),
+            "--tw-prose-hr": theme("colors.border"),
+            "--tw-prose-quotes": theme("colors.accent"),
+            "--tw-prose-quote-borders": theme("colors.muted.foreground"),
+            "--tw-prose-captions": theme("colors.muted.foreground"),
+            "--tw-prose-code": theme("colors.foreground"),
+            "--tw-prose-pre-code": theme("colors.foreground"),
+            "--tw-prose-pre-bg": theme("colors.muted.DEFAULT"),
+            "--tw-prose-th-borders": theme("colors.border"),
+            "--tw-prose-td-borders": theme("colors.border"),
+            "--tw-prose-invert-body": theme("colors.background"),
+            "--tw-prose-invert-headings": theme("colors.background"),
+            "--tw-prose-invert-lead": theme("colors.background"),
+            "--tw-prose-invert-links": theme("colors.primary.foreground"),
+            "--tw-prose-invert-bold": theme("colors.background"),
+            "--tw-prose-invert-counters": theme("colors.background"),
+            "--tw-prose-invert-bullets": theme("colors.background"),
+            "--tw-prose-invert-hr": theme("colors.border"),
+            "--tw-prose-invert-quotes": theme("colors.accent"),
+            "--tw-prose-invert-quote-borders": theme("colors.muted.foreground"),
+            "--tw-prose-invert-captions": theme("colors.background"),
+            "--tw-prose-invert-code": theme("colors.background"),
+            "--tw-prose-invert-pre-code": theme("colors.background"),
+            "--tw-prose-invert-pre-bg": "rgb(0 0 0 / 50%)",
+            "--tw-prose-invert-th-borders": theme("colors.border"),
+            "--tw-prose-invert-td-borders": theme("colors.border"),
+          },
+        },
+      }),
     },
   },
-  plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar-hide")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("tailwind-scrollbar-hide"),
+    require("@tailwindcss/typography"),
+  ],
 };
 export default config;
