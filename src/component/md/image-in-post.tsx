@@ -21,9 +21,8 @@ const ImageInPost: React.FC<CodeTitleProps> = (props) => {
         src={parsedSrc}
         {...rest}
         className="rounded-xl"
-        sizes="(max-width: 768px) 100vw, 33vw"
         quality={80}
-        loading="lazy"
+        priority={true}
         unoptimized
       />
       {alt && (

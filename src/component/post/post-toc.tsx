@@ -1,31 +1,72 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { TocItem } from "remark-flexible-toc";
 
-type MdTocProps = {
+type PostTocProps = {
   toc: TocItem[];
 };
 
-export const MdTOC = ({ toc }: MdTocProps) => {
+export const PostToc = ({ toc }: PostTocProps) => {
+  const [activeToc, setActiveToc] = useState("");
+
+  useEffect(() => {
+    const postContent = document.querySelector(".prose");
+
+    if (postContent) {
+      const handleScroll = () => {
+        const elements = postContent.querySelectorAll("h1, h2, h3");
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+
+        elements.forEach((element) => {
+          const elementTop =
+            element.getBoundingClientRect().top + window.scrollY;
+          const elementBottom = elementTop + element.clientHeight;
+
+          if (
+            (elementTop <= scrollPosition + 100 &&
+              elementBottom >= scrollPosition) ||
+            (scrollPosition + windowHeight === documentHeight &&
+              elementBottom >= scrollPosition)
+          ) {
+            const id = element.getAttribute("id");
+            setActiveToc(`#${id}`);
+          }
+        });
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, []);
+
   if (toc.length === 0) {
     return null;
   }
 
   return (
-    <div className="fixed z-20 top-16 bottom-0 right-[max(0px,calc(50%-45rem))] w-[17rem] py-10 overflow-y-auto hidden xl:block">
-      <div className="px-2 py-10">
-        <h2 className="font-semibold">On this page</h2>
-        <ul>
-          {toc.map((item) => (
-            <li
-              key={item.href}
-              style={{ marginLeft: `${(item.depth - 1) * 16}px` }}
-              className="px-2 py-1 text-sm text-balance"
-            >
-              <Link href={item.href}>{item.value}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
+    <ul className="border-s-[1px] pl-1 space-y-2 xl:pl-4">
+      {toc.map((item) => (
+        <li
+          key={item.href}
+          style={{ marginLeft: `${(item.depth - 1) * 8}px` }}
+          className="text-sm text-pretty xl:list-disc relative"
+        >
+          <Link
+            href={item.href}
+            className={`p-1 pr-10 hover:text-primary-foreground w-full ${
+              activeToc === item.href ? "text-primary-foreground" : ""
+            }`}
+          >
+            {item.value}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 };

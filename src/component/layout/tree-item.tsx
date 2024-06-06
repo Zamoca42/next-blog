@@ -6,12 +6,19 @@ import {
   TreeViewElement,
 } from "@/component/layout/tree-view-api";
 import Link from "next/link";
+import { useSideBar } from "@/component/provider";
+import { TocItem } from "remark-flexible-toc";
+import { PostToc } from "../post/post-toc";
+import { usePathname } from "next/navigation";
 
 type TreeItemProps = {
   elements: TreeViewElement[];
+  toc: TocItem[];
 };
 
-export const TreeItem = ({ elements }: TreeItemProps) => {
+export const TreeItem = ({ elements, toc }: TreeItemProps) => {
+  const pathname = usePathname();
+  const { isOpen, setIsOpen } = useSideBar();
   return (
     <ul className="space-y-1">
       {elements.map((element) => (
@@ -27,23 +34,32 @@ export const TreeItem = ({ elements }: TreeItemProps) => {
                 key={element.id}
                 aria-label={`folder ${element.name}`}
                 elements={element.children}
+                toc={toc}
               />
             </Folder>
           ) : (
-            <File
-              key={element.id}
-              value={element.path}
-              isSelectable={element.isSelectable}
-              className={`px-1`}
-              fileIcon=""
-            >
-              <Link
-                href={`/post/${element.path}`}
-                className={`px-2 text-sm text-left py-1 text-pretty `}
+            <>
+              <File
+                key={element.id}
+                value={element.path}
+                isSelectable={element.isSelectable}
+                className={`px-1 w-full`}
+                fileIcon=""
               >
-                {element.name ?? element.path}
-              </Link>
-            </File>
+                <Link
+                  href={`/post/${element.path}`}
+                  className={`px-2 text-sm text-left py-1 text-pretty w-full`}
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  {element.name ?? element.path}
+                </Link>
+              </File>
+              {pathname === `/post${element.path}` && toc && toc.length > 0 && (
+                <div className="ml-2 block xl:hidden">
+                  <PostToc toc={toc} />
+                </div>
+              )}
+            </>
           )}
         </li>
       ))}

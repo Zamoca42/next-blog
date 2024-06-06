@@ -7,9 +7,11 @@ import { NavLink } from "@/component/layout/nav-link";
 import { useSideBar } from "@/component/provider";
 import { blogConfig } from "@/blog.config";
 import { ModeToggle } from "@/component/ui/mode-toggle";
+import { usePathname } from "next/navigation";
 
 export const NavBar = () => {
   const { isOpen, setIsOpen, isLinkOpen, setIsLinkOpen } = useSideBar();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,7 +45,10 @@ export const NavBar = () => {
         <div className="max-w-8xl mx-auto p-4 lg:px-8">
           <div className="relative flex items-center">
             <div className="md:hidden mr-auto">
-              <button onClick={() => setIsOpen(!isOpen)}>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                disabled={pathname === "/"}
+              >
                 <svg
                   className="w-6 h-6"
                   xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +71,7 @@ export const NavBar = () => {
                 className="text-xl font-semibold flex flex-row items-center space-x-4 ml-3"
               >
                 <Image
-                  src="/favicon/android-chrome-512x512.png"
+                  src="/favicon/favicon-32x32.png"
                   width={32}
                   height={32}
                   alt="logo"
@@ -86,7 +91,7 @@ export const NavBar = () => {
               <ModeToggle />
             </div>
             <div className="md:hidden ml-auto">
-              <button onClick={toggleMenu}>
+              <button onClick={toggleMenu} disabled={isOpen}>
                 <svg
                   className="w-6 h-6"
                   xmlns="http://www.w3.org/2000/svg"
@@ -107,15 +112,16 @@ export const NavBar = () => {
         </div>
       </nav>
       {!isOpen && (
-        <div
-          className={`fixed md:hidden top-16 min-h-screen w-full bg-white transition-opacity duration-200 ease-in-out z-10 ${
+        <aside
+          className={`fixed md:hidden top-16 min-h-screen w-full bg-background transition-opacity duration-200 ease-in-out z-10 ${
             isLinkOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >
           <div className="flex flex-col justify-center items-center space-y-4 p-4 m-10">
             <NavLink toggleMenu={toggleMenu} divider />
+            <ModeToggle />
           </div>
-        </div>
+        </aside>
       )}
     </>
   );

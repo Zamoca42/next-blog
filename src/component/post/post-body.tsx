@@ -11,7 +11,6 @@ import remarkDirective from "remark-directive";
 import customRehypePrism from "@/lib/rehype-prism";
 import remarkCodeTitles from "remark-flexible-code-titles";
 import remarkParse from "remark-parse";
-import remarkRehype from "remark-rehype";
 import remarkStringify from "remark-stringify";
 import rehypeSlug from "rehype-slug";
 import { PluggableList } from "unified";
@@ -39,7 +38,6 @@ export function PostBody({ content }: Props) {
     remarkDirective,
     remarkUnwrapImages,
     remarkParse,
-    remarkRehype,
     remarkStringify,
   ];
 
@@ -56,10 +54,12 @@ export function PostBody({ content }: Props) {
   ];
 
   return (
-    <div className="prose">
+    <>
       <Markdown
+        skipHtml
         remarkPlugins={remarkPlugins}
         rehypePlugins={rehypePlugins}
+        className="prose max-w-3xl"
         components={{
           pre: (props) => <CodeBlock {...props} />,
           div: (props) => <CodeTitle {...props} />,
@@ -68,6 +68,6 @@ export function PostBody({ content }: Props) {
       >
         {content}
       </Markdown>
-    </div>
+    </>
   );
 }

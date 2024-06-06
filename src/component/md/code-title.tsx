@@ -1,6 +1,5 @@
 "use client";
 
-import clsx from "clsx";
 import { ClassAttributes, HTMLAttributes } from "react";
 import { ExtraProps } from "react-markdown";
 
@@ -20,14 +19,14 @@ const CodeTitle: React.FC<CodeTitleProps> = (props) => {
   const match = className === "remark-code-container";
 
   return match ? (
-    <div className={clsx(className)} title={title} {...rest}>
+    <section className={className} title={title} {...rest}>
       <div className="flex flex-row items-center justify-between px-4 pt-1">
         <div></div>
         <div className="remark-code-title">{title}</div>
         <div className="remark-code-language">{language}</div>
       </div>
       {children}
-    </div>
+    </section>
   ) : (
     <div className={className} {...rest}>
       {children}

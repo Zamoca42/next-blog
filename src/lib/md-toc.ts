@@ -9,6 +9,7 @@ export async function generateToc(markdown: string) {
   const processor = unified()
     .use(remarkToc, {
       tocRef: toc,
+      maxDepth: 4,
     })
     .use(remarkParse)
     .use(remarkStringify);

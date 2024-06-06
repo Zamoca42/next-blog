@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useSideBar } from "@/component/provider";
 import { Fragment } from "react";
 import { getAllPosts } from "@/app/api/action";
+import clsx from "clsx";
 
 interface Props {
   toggleMenu?: () => void;
@@ -16,7 +17,7 @@ interface Props {
 export const NavLink = ({
   toggleMenu,
   divider = false,
-  matchedPathClass = "text-grass-6 font-semibold",
+  matchedPathClass = "text-primary-foreground font-semibold",
   notMatchedPathClass = "",
 }: Props) => {
   const pathname = usePathname();
@@ -47,11 +48,13 @@ export const NavLink = ({
   };
 
   return (
-    <ul className="space-x-2">
+    <ul className="space-x-2 space-y-2">
       <button
-        className={`${
-          pathname === "/" ? matchedPathClass : notMatchedPathClass
-        }`}
+        className={clsx(
+          pathname === "/" ? matchedPathClass : notMatchedPathClass,
+          divider ? "hover:text-primary-foreground" : "",
+          `ml-2`
+        )}
         onClick={() => handleRouter("/")}
       >
         Home
@@ -60,11 +63,12 @@ export const NavLink = ({
         <Fragment key={folder.path}>
           {divider && <hr className="border-gray-200 min-w-72" />}
           <button
-            className={`${
+            className={clsx(
               pathname.startsWith(`/post/${folder.path}`)
                 ? matchedPathClass
-                : notMatchedPathClass
-            }`}
+                : notMatchedPathClass,
+              divider ? "hover:text-primary-foreground" : ""
+            )}
             onClick={() => handlePostRouter(folder.path)}
           >
             {folder.name}

@@ -328,7 +328,7 @@ const File = forwardRef<
             },
             isSelectable ? "cursor-pointer" : "opacity-50 cursor-not-allowed",
             pathname === `/post${value}`
-              ? "bg-grass-6/15 text-grass-7 font-semibold"
+              ? "bg-primary/15 text-primary-foreground font-semibold"
               : "hover:bg-muted",
             className
           )}
