@@ -1,8 +1,5 @@
-import { type Author } from "@/interface/author";
 import Link from "next/link";
-import Avatar from "../ui/avatar";
-import CoverImage from "../ui/cover-image";
-import DateFormatter from "../ui/date-formatter";
+import DateBox from "@/component/ui/date-box";
 
 type Props = {
   title: string;
@@ -22,8 +19,8 @@ export function PostPreview({ title, date, description, slug }: Props) {
           {title}
         </Link>
       </h3>
-      <div className="text-lg mb-4">
-        <DateFormatter dateString={date} />
+      <div className="flex gap-2 mb-4">
+        <DateBox dateString={date} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{description}</p>
     </div>

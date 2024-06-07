@@ -85,12 +85,19 @@
     background-color: #666;
   }
 
-  .porse p {
-    @apply text-balance
+  .prose img {
+    margin: 1rem 0;
+  }
+
+  .prose h1, 
+  .prose h2 {
+    border-bottom-width: 1px;
+    padding-bottom: 4px;
+    margin-bottom: 12px;
   }
 
   .prose blockquote {
-    @apply bg-muted py-1
+    @apply bg-muted py-1;
   }
 
   :not(pre) > code {

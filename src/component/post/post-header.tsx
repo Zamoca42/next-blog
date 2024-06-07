@@ -1,5 +1,7 @@
-import DateFormatter from "../ui/date-formatter";
 import { PostTitle } from "@/component/post/post-title";
+import User from "@/component/ui/user";
+import { blogConfig } from "@/blog.config";
+import DateBox from "@/component/ui/date-box";
 
 type Props = {
   title: string;
@@ -7,22 +9,13 @@ type Props = {
 };
 
 export function PostHeader({ title, date }: Props) {
+  const author = blogConfig.blog.author;
   return (
     <>
       <PostTitle>{title}</PostTitle>
-      <div className="hidden md:block md:mb-12">
-        {/* <Avatar name={author.name} picture={author.picture} /> */}
-      </div>
-      <div className="mb-8 md:mb-16 sm:mx-0">
-        {/* <CoverImage title={title} src={coverImage} /> */}
-      </div>
-      <div className="max-w-2xl mx-auto">
-        <div className="block md:hidden mb-6">
-          {/* <Avatar name={author.name} picture={author.picture} /> */}
-        </div>
-        <div className="mb-6 text-lg">
-          <DateFormatter dateString={date} />
-        </div>
+      <div className="pb-2 mb-8 flex gap-2 justify-center md:justify-start border-b-[1px]">
+        <User {...author} />
+        <DateBox dateString={date} />
       </div>
     </>
   );
