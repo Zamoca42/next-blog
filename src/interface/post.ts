@@ -7,4 +7,5 @@ export type Post = {
   category: string[];
   createdAt: string;
   updatedAt: string;
+  star: boolean;
 };

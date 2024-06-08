@@ -54,7 +54,7 @@ export function PostBody({ content }: Props) {
   ];
 
   return (
-    <>
+    <div className="mb-12">
       <Markdown
         skipHtml
         remarkPlugins={remarkPlugins}
@@ -68,6 +68,6 @@ export function PostBody({ content }: Props) {
       >
         {content}
       </Markdown>
-    </>
+    </div>
   );
 }

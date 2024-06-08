@@ -6,6 +6,7 @@ import { TreeItem } from "@/component/layout/tree-item";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { TocItem } from "remark-flexible-toc";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 
 export const SideBar = ({ toc }: { toc: TocItem[] }) => {
   const { folders, path, isOpen, setIsOpen } = useSideBar();
@@ -51,7 +52,7 @@ export const SideBar = ({ toc }: { toc: TocItem[] }) => {
           }`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="text-gray-600 text-lg ">{isOpen ? "<" : ">"}</span>
+        {isOpen ? <ChevronLeft /> : <ChevronRight />}
       </button>
     </aside>
   );

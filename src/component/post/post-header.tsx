@@ -2,20 +2,26 @@ import { PostTitle } from "@/component/post/post-title";
 import User from "@/component/ui/user";
 import { blogConfig } from "@/blog.config";
 import DateBox from "@/component/ui/date-box";
+import Tag from "@/component/ui/tag";
+import { Star } from "lucide-react";
 
 type Props = {
   title: string;
   date: string;
+  tags: string[];
+  star: boolean;
 };
 
-export function PostHeader({ title, date }: Props) {
+export function PostHeader({ title, date, tags, star }: Props) {
   const author = blogConfig.blog.author;
   return (
     <>
       <PostTitle>{title}</PostTitle>
-      <div className="pb-2 mb-8 flex gap-2 justify-center md:justify-start border-b-[1px]">
+      <div className="max-w-3xl pb-2 mb-8 flex gap-2 justify-center items-center md:justify-start border-b">
         <User {...author} />
         <DateBox dateString={date} />
+        <Tag tags={tags} />
+        {star && <Star className="w-4 h-4" />}
       </div>
     </>
   );
