@@ -117,7 +117,10 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
   const fullPath = join(postsDirectory, `${slug}.md`);
   const fileContents = await fs.promises.readFile(fullPath, "utf8");
   const fallbackDate = formatISO(new Date());
-  const { data, content } = matter(fileContents);
+  const { data, content, excerpt } = matter(fileContents, {
+    excerpt: true,
+    excerpt_separator: "<!--end-->",
+  });
 
   const gitInfo = readGitInfo();
   const relativeFilePath = relative(process.cwd(), fullPath);
@@ -130,9 +133,9 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     ...data,
     slug,
     content,
+    description: excerpt || data.description,
     tags: data.tag ?? [],
     star: Boolean(data.star),
-    category: data.category ?? [],
     createdAt: createdAt,
     updatedAt: updatedAt,
   } as Post;

@@ -1,8 +1,8 @@
 import { PostTitle } from "@/component/post/post-title";
-import User from "@/component/ui/user";
+import User from "@/component/layout/user";
 import { blogConfig } from "@/blog.config";
-import DateBox from "@/component/ui/date-box";
-import Tag from "@/component/ui/tag";
+import DateBox from "@/component/layout/date-box";
+import Tag from "@/component/layout/tag";
 import { Star } from "lucide-react";
 
 type Props = {

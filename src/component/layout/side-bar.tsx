@@ -1,7 +1,7 @@
 "use client";
 
-import { useSideBar } from "@/component/provider";
-import { Tree, TreeViewElement } from "@/component/layout/tree-view-api";
+import { useSideBar } from "@/component/sidebar-provider";
+import { Tree, TreeViewElement } from "@/component/ui/tree-view-api";
 import { TreeItem } from "@/component/layout/tree-item";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";

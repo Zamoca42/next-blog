@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
 import { NavLink } from "@/component/layout/nav-link";
-import { useSideBar } from "@/component/provider";
+import { useSideBar } from "@/component/sidebar-provider";
 import { blogConfig } from "@/blog.config";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { usePathname } from "next/navigation";

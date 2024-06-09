@@ -1,12 +1,8 @@
 "use client";
 
-import {
-  File,
-  Folder,
-  TreeViewElement,
-} from "@/component/layout/tree-view-api";
+import { File, Folder, TreeViewElement } from "@/component/ui/tree-view-api";
 import Link from "next/link";
-import { useSideBar } from "@/component/provider";
+import { useSideBar } from "@/component/sidebar-provider";
 import { TocItem } from "remark-flexible-toc";
 import { PostToc } from "../post/post-toc";
 import { usePathname } from "next/navigation";

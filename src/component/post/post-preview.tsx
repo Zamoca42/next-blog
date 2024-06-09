@@ -1,6 +1,6 @@
 import Link from "next/link";
-import DateBox from "@/component/ui/date-box";
-import Tag from "@/component/ui/tag";
+import DateBox from "@/component/layout/date-box";
+import Tag from "@/component/layout/tag";
 import { Star } from "lucide-react";
 
 type Props = {

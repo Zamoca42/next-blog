@@ -4,7 +4,6 @@ export type Post = {
   description: string;
   content: string;
   tags: string[];
-  category: string[];
   createdAt: string;
   updatedAt: string;
   star: boolean;

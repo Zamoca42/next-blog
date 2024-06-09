@@ -120,7 +120,7 @@ const config: Config = {
             "--tw-prose-body": theme("colors.foreground"),
             "--tw-prose-headings": theme("colors.foreground"),
             "--tw-prose-lead": theme("colors.foreground"),
-            "--tw-prose-links": theme("colors.primary.DEFAULT"),
+            "--tw-prose-links": theme("colors.primary.foreground"),
             "--tw-prose-bold": theme("colors.foreground"),
             "--tw-prose-counters": theme("colors.muted.foreground"),
             "--tw-prose-bullets": theme("colors.muted.foreground"),
