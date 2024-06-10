@@ -3,10 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
-import { NavLink } from "@/component/layout/nav-link";
+import { PostLink, ExternalLinkWithMode } from "@/component/layout/nav-link";
 import { useSideBar } from "@/component/sidebar-provider";
 import { blogConfig } from "@/blog.config";
-import { ModeToggle } from "@/component/ui/mode-toggle";
 import { usePathname } from "next/navigation";
 
 export const NavBar = () => {
@@ -81,14 +80,14 @@ export const NavBar = () => {
                 </span>
               </Link>
             </div>
-            <div className="hidden md:flex mx-auto">
-              <NavLink
+            <div className="hidden md:flex ml-auto">
+              <PostLink
                 matchedPathClass="active-link"
                 notMatchedPathClass="nav-underline"
               />
             </div>
             <div className="hidden md:flex ml-auto">
-              <ModeToggle />
+              <ExternalLinkWithMode />
             </div>
             <div className="md:hidden ml-auto">
               <button onClick={toggleMenu} disabled={isOpen}>
@@ -118,8 +117,8 @@ export const NavBar = () => {
           }`}
         >
           <div className="flex flex-col justify-center items-center space-y-4 p-4 m-10">
-            <NavLink toggleMenu={toggleMenu} divider />
-            <ModeToggle />
+            <PostLink toggleMenu={toggleMenu} divider />
+            <ExternalLinkWithMode />
           </div>
         </aside>
       )}

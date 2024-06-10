@@ -22,7 +22,7 @@ const ImageInPost: React.FC<CodeTitleProps> = (props) => {
         {...rest}
         className="rounded-xl"
         quality={80}
-        priority={true}
+        priority
         unoptimized
       />
       {alt && (

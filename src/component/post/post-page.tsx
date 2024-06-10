@@ -1,18 +1,17 @@
 "use client";
 
-import { PostBody } from "@/component/post/post-body";
 import { PostHeader } from "@/component/post/post-header";
 import { useSideBar } from "@/component/sidebar-provider";
 import { Post } from "@/interface/post";
 import DateFormatter from "../ui/date-formatter";
+import { MarkdownBody } from "@/component/post/markdown-body";
 
-export const PostPage = ({
-  post,
-  content,
-}: {
+type Props = {
   post: Post;
   content: string;
-}) => {
+};
+
+export const PostPage = ({ post, content }: Props) => {
   const { isOpen } = useSideBar();
 
   return (
@@ -29,7 +28,9 @@ export const PostPage = ({
             tags={post.tags}
             star={post.star}
           />
-          <PostBody content={content} />
+          <div className="mb-12">
+            <MarkdownBody content={content} />
+          </div>
           <div className="max-w-3xl flex justify-end gap-2 text-base pb-4 border-b">
             <span className="text-muted-foreground">Last update: </span>
             <DateFormatter dateString={post.updatedAt} />

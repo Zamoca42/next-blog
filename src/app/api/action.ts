@@ -8,16 +8,12 @@ import { join, relative } from "path";
 import { capitalize } from "@/lib/util";
 import { formatISO, parseISO } from "date-fns";
 import { GIT_HSITORY_FILE_NAME, POST_CONTENT_FOLDER } from "@/lib/constant";
+import { PostHistory } from "@/interface/post-history";
 
 const postsDirectory = join(process.cwd(), POST_CONTENT_FOLDER);
 const gitInfoPath = join(process.cwd(), "public", GIT_HSITORY_FILE_NAME);
 
-interface GitInfo {
-  createdAt: string;
-  updatedAt: string;
-}
-
-const readGitInfo = (): Record<string, GitInfo> => {
+const readGitInfo = (): Record<string, PostHistory> => {
   const gitInfoData = fs.readFileSync(gitInfoPath, "utf8");
   return JSON.parse(gitInfoData);
 };
@@ -133,10 +129,10 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     ...data,
     slug,
     content,
-    description: excerpt || data.description,
+    excerpt,
+    createdAt,
+    updatedAt,
     tags: data.tag ?? [],
     star: Boolean(data.star),
-    createdAt: createdAt,
-    updatedAt: updatedAt,
   } as Post;
 };

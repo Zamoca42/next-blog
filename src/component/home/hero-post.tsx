@@ -1,17 +1,14 @@
 import Link from "next/link";
 import CoverImage from "@/component/ui/cover-image";
-import DateBox from "../layout/date-box";
-import Tag from "../layout/tag";
+import DateBox from "@/component/layout/date-box";
+import Tag from "@/component/layout/tag";
 import { Star } from "lucide-react";
+import { MarkdownBody, previewPlugins } from "@/component/post/markdown-body";
+import { Post } from "@/interface/post";
 
 type Props = {
-  title: string;
   date: string;
-  description: string;
-  slug: string;
-  tags: string[];
-  star: boolean;
-};
+} & Post;
 
 export function HeroPost({
   title,
@@ -20,6 +17,7 @@ export function HeroPost({
   slug,
   tags,
   star,
+  excerpt,
 }: Props) {
   return (
     <section>
@@ -43,8 +41,10 @@ export function HeroPost({
             {star && <Star className="w-4 h-4" />}
           </div>
         </div>
-        <div>
-          <p className="text-lg leading-relaxed mb-4">{description}</p>
+        <div className="mb-4">
+          {description || (
+            <MarkdownBody content={excerpt} remarkPlugins={previewPlugins} />
+          )}
         </div>
       </div>
     </section>

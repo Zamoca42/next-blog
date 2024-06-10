@@ -6,8 +6,8 @@ import { SideBar } from "@/component/layout/side-bar";
 import { PostPage } from "@/component/post/post-page";
 import { delay } from "@/lib/util";
 import { blogConfig } from "@/blog.config";
-import { generateToc } from "@/lib/md-toc";
 import { PostToc } from "@/component/post/post-toc";
+import { generateToc } from "@/lib/unified-plugin";
 
 export default async function Post({ params }: Params) {
   const postSlug = params.slug.join("/");
@@ -58,7 +58,7 @@ export const generateMetadata = async ({
   return {
     // metadataBase, //favicon
     title,
-    description: post.description,
+    description: post.description || post.excerpt,
     authors: blogConfig.blog?.author,
     keywords,
     applicationName,

@@ -8,7 +8,11 @@ import { useEffect, useState } from "react";
 import { TocItem } from "remark-flexible-toc";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 
-export const SideBar = ({ toc }: { toc: TocItem[] }) => {
+type Props = {
+  toc: TocItem[];
+};
+
+export const SideBar = ({ toc }: Props) => {
   const { folders, path, isOpen, setIsOpen } = useSideBar();
   const [elements, setElements] = useState<TreeViewElement[]>([]);
   const pathname = usePathname();
