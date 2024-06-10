@@ -5,6 +5,7 @@ import "@/style/globals.css";
 import { NavBar } from "@/component/layout/nav-bar";
 import { SideBarProvider } from "@/component/sidebar-provider";
 import { ThemeProvider } from "@/component/theme-provider";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -63,6 +64,7 @@ export default function RootLayout({
             <div className="max-w-8xl mx-auto">{children}</div>
           </SideBarProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
