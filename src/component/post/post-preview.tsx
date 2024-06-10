@@ -4,6 +4,14 @@ import Tag from "@/component/layout/tag";
 import { Star } from "lucide-react";
 import { MarkdownBody, previewPlugins } from "@/component/post/markdown-body";
 import { Post } from "@/interface/post";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/component/ui/card";
 
 type Props = {
   date: string;
@@ -19,25 +27,25 @@ export function PostPreview({
   excerpt,
 }: Props) {
   return (
-    <div>
-      <div className="mb-5">
-        {/* <CoverImage slug={slug} title={title} src={coverImage} /> */}
-      </div>
-      <h3 className="text-3xl leading-snug">
-        <Link href={`/post/${slug}`} className="hover:underline">
-          {title}
-        </Link>
-      </h3>
-      <div className="py-6">
-        {description || (
+    <Card>
+      <CardHeader>
+        <CardTitle>
+          <Link href={`/post/${slug}`} className="nav-underline">
+            {title}
+          </Link>
+        </CardTitle>
+        <CardDescription>{description}</CardDescription>
+      </CardHeader>
+      <CardContent className="w-full">
+        {excerpt && (
           <MarkdownBody content={excerpt} remarkPlugins={previewPlugins} />
         )}
-      </div>
-      <div className="flex gap-2 mb-4 items-center">
+      </CardContent>
+      <CardFooter className="flex space-x-2 items-center text-muted-foreground">
         <DateBox dateString={date} />
         <Tag tags={tags} />
         {star && <Star className="w-4 h-4" />}
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   );
 }

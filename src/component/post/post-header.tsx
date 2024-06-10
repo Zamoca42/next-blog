@@ -17,7 +17,7 @@ export function PostHeader({ title, date, tags, star }: Props) {
   return (
     <>
       <PostTitle>{title}</PostTitle>
-      <div className="max-w-3xl pb-2 mb-8 flex gap-2 justify-center items-center md:justify-start border-b">
+      <div className="max-w-3xl pb-2 mb-8 flex gap-2 justify-center items-center md:justify-start border-b  text-muted-foreground">
         <User {...author} />
         <DateBox dateString={date} />
         <Tag tags={tags} />

@@ -11,7 +11,13 @@ const Tag = ({ tags }: Props) => {
       <Tags className="w-4 h-4" />
       <div className="space-x-1">
         {tags.map((name) => (
-          <Badge key={name} variant="outline">{name}</Badge>
+          <Badge
+            key={name}
+            variant="outline"
+            className="text-muted-foreground"
+          >
+            {name}
+          </Badge>
         ))}
       </div>
     </div>

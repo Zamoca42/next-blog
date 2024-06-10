@@ -50,7 +50,7 @@ export const PostToc = ({ toc }: PostTocProps) => {
   }
 
   return (
-    <ul className="border-s pl-1 space-y-2 xl:pl-4">
+    <ul className="border-s pl-1 ml-2 space-y-2 xl:pl-4 text-muted-foreground">
       {toc.map((item) => (
         <li
           key={item.href}

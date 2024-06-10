@@ -15,19 +15,18 @@ const ImageInPost: React.FC<CodeTitleProps> = (props) => {
   return (
     <span className="flex flex-col items-center justify-center">
       <Image
-        width={768}
-        height={500}
+        width="0"
+        height="0"
+        sizes="100vw"
+        className="w-full h-auto rounded-xl p-2"
         alt={paredAlt}
         src={parsedSrc}
         {...rest}
-        className="rounded-xl"
         quality={80}
         priority
         unoptimized
       />
-      {alt && (
-        <span className="text-sm text-muted-foreground">{paredAlt}</span>
-      )}
+      {alt && <span className="text-sm text-muted-foreground">{paredAlt}</span>}
     </span>
   );
 };

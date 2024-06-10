@@ -60,7 +60,7 @@ export function MarkdownBody({
         rehypeSlug,
         ...rehypePlugins,
       ]}
-      className="prose max-w-3xl"
+      className="prose"
       components={{
         pre: (props) => <CodeBlock {...props} />,
         div: (props) => <CodeTitle {...props} />,

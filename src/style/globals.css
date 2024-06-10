@@ -96,8 +96,12 @@
     margin-bottom: 12px;
   }
 
+  .prose blockquote > p {
+    padding: 8px 0;
+  }
+
   .prose blockquote {
-    @apply bg-muted py-1;
+    @apply bg-muted border-secondary-foreground;
   }
 
   :not(pre) > code {
@@ -117,7 +121,6 @@
 }
 
 
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -133,10 +136,10 @@
     --primary-foreground: 126 37.2% 69.4%;
 
     --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-foreground: 215.4 16.3% 46.9%;
 
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 210 0% 50%;
 
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
@@ -152,23 +155,23 @@
   }
 
   .dark {
-    --background: 0 0% 10%;
+    --background: 0 0% 11%;
     --foreground: 210 0% 67%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 13%;
+    --card-foreground: 210 0% 67%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 13%;
+    --popover-foreground: 210 0% 67%;
 
     --primary: 126 37.2% 69.4%;
     --primary-foreground: 124 38.7% 78.2%;
 
     --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 215.4 16.3% 46.9%;
 
     --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted-foreground: 210 0% 45%;
 
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
@@ -176,7 +179,7 @@
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
+    --border: 217.2 32.6% 13%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }

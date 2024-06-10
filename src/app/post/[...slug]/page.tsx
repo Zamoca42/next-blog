@@ -25,7 +25,7 @@ export default async function Post({ params }: Params) {
       <PostPage post={post} content={post.content} />
       <aside className="fixed z-20 top-16 bottom-0 right-[max(0px,calc(50%-45rem))] w-[17rem] py-10 overflow-y-auto hidden xl:block">
         <div className="px-2 py-10 ltr">
-          <h2 className="font-semibold mb-2 text-accent-foreground">
+          <h2 className="font-semibold mb-2 text-secondary-foreground">
             On this page
           </h2>
           <PostToc toc={toc} />

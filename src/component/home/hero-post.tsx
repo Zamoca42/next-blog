@@ -30,12 +30,12 @@ export function HeroPost({
       </div>
       <div className="md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
-          <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
-            <Link href={`/post/${slug}`} className="hover:underline">
+          <h3 className="mb-4 text-4xl lg:text-5xl leading-tight font-semibold">
+            <Link href={`/post/${slug}`} className="nav-underline">
               {title}
             </Link>
           </h3>
-          <div className="mb-4 flex gap-2 items-center">
+          <div className="mb-4 ml-1 flex gap-2 items-center text-muted-foreground">
             <DateBox dateString={date} />
             <Tag tags={tags} />
             {star && <Star className="w-4 h-4" />}

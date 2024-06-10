@@ -39,7 +39,7 @@ export const SideBar = ({ toc }: Props) => {
       >
         <div className={`max-w-full`}>
           <Tree
-            className="w-full max-h-screen bg-background"
+            className="w-full max-h-screen bg-background text-muted-foreground"
             indicator={true}
             initialExpendedItems={pathname.split("/").slice(1)}
           >

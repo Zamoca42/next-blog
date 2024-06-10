@@ -28,12 +28,12 @@ export const PostPage = ({ post, content }: Props) => {
             tags={post.tags}
             star={post.star}
           />
-          <div className="mb-12">
+          <div className="mb-12 max-w-3xl">
             <MarkdownBody content={content} />
           </div>
           <div className="max-w-3xl flex justify-end gap-2 text-base pb-4 border-b">
-            <span className="text-muted-foreground">Last update: </span>
-            <DateFormatter dateString={post.updatedAt} />
+            <span className="text-secondary-foreground">Last update: </span>
+            <DateFormatter className="text-muted-foreground" dateString={post.updatedAt} />
           </div>
         </article>
       </div>

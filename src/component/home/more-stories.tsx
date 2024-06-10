@@ -44,7 +44,10 @@ export function MoreStories({ posts }: Props) {
         </Button>
         <Button
           variant={selectedFilter === "star" ? "secondary" : "ghost"}
-          onClick={() => setSelectedFilter("star")}
+          onClick={() => {
+            setSelectedFilter("star");
+            setCurrentPage(1);
+          }}
           className="space-x-2"
         >
           <span>Star</span>
