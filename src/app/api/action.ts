@@ -23,8 +23,8 @@ export const getAllPosts = async (): Promise<Post[]> => {
   const posts = getPostsFromIndex(postMap);
 
   return posts.sort((post1, post2) => {
-    const date1 = post1.updatedAt ? parseISO(post1.updatedAt) : new Date();
-    const date2 = post2.updatedAt ? parseISO(post2.updatedAt) : new Date();
+    const date1 = post1.createdAt ? parseISO(post1.createdAt) : new Date();
+    const date2 = post2.createdAt ? parseISO(post2.createdAt) : new Date();
     return date2.getTime() - date1.getTime();
   });
 };
@@ -93,6 +93,7 @@ const getTreeNode = async (
       folderList.push({
         id,
         path: post.slug,
+        order: post.order ?? Infinity,
         name: post.title,
         children: [],
       });
@@ -120,6 +121,7 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
 
   const gitInfo = readGitInfo();
   const relativeFilePath = relative(process.cwd(), fullPath);
+  const postDate = data.date ? formatISO(new Date(data.date)) : undefined;
   const { createdAt, updatedAt } = gitInfo[relativeFilePath] || {
     createdAt: fallbackDate,
     updatedAt: fallbackDate,
@@ -130,7 +132,7 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
     slug,
     content,
     excerpt,
-    createdAt,
+    createdAt: postDate || createdAt,
     updatedAt,
     tags: data.tag ?? [],
     star: Boolean(data.star),
