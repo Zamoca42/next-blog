@@ -1,15 +1,16 @@
 ---
 title: SQL - subquery
-category:
-  - DB
 tag:
   - SQL
+date: "2024-02-09"
 ---
 
 > https://youtu.be/lwmwlA2WhFc?si=Szgl3bDlly7CF266
 
 서브쿼리(subquery)란 nested query 또는 inner query 라고 불리며
 SELECT, INSERT, UPDATE, DELETE 쿼리문에 포함된 쿼리를 말한다.
+
+<!--end-->
 
 서브쿼리는 쿼리문 내에서 괄호`()`안에 기술된다.
 

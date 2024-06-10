@@ -1,13 +1,14 @@
 ---
 title: 세션 쿠키 인증/인가
-category:
-  - JS & TS
+date: "2023-11-17"
 tag:
   - NestJS
   - Express
 ---
 
 NestJS에서 [express-session][express-session]으로 세션 인증을 구현해보면서 알게된 점을 정리해보려고 합니다.
+
+<!--end-->
 
 ## 세션 동작 과정
 

@@ -1,13 +1,11 @@
 ---
 title: Prisma - 인스턴스 경고 해결하기
-description: prisma에서 "warn(prisma-client) There are already 10 instances of Prisma Client actively running." 경고를 해결하는 과정을 다룹니다.
-category:
-  - DB
 tag:
   - Prisma
   - MySQL
   - PlanetScale
 star: true
+date: "2024-05-23"
 ---
 
 Next.js에서 Prisma를 사용하여 로컬 개발 환경에서 작업하다 보면, 터미널에 다음과 같은 경고 메시지가 나타나는 경우가 있다.
@@ -17,6 +15,8 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
 ```
 
 이 글에서는 이 경고 메시지가 발생하는 이유와 해결 방법에 대해 알아보려고 한다.
+
+<!--end-->
 
 ## Prisma Client 인스턴스 생성
 

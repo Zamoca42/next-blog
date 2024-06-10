@@ -1,8 +1,7 @@
 ---
 title: DTO (Data Transfer Object)
 order: 3
-category:
-  - JS & TS
+date: "2023-09-28"
 tag:
   - NestJS
 ---
@@ -13,6 +12,8 @@ DTO(Data Transfer Object)는 **계층간 데이터 교환**을 하기 위해 사
 로직을 가지지 않은 객체이고 getter, setter 메서드만 가진 클래스를 의미합니다.
 
 ![Layered 아키텍쳐](https://github.com/Zamoca42/blog/assets/96982072/9460d59f-2b48-445c-85ca-23f9b7021520)
+
+<!--end-->
 
 계층간 데이터 교환은 아키텍쳐에서 레이어 사이에 데이터 교환을 위한 객체를 생성해주는 것으로 이해할 수 있습니다.
 

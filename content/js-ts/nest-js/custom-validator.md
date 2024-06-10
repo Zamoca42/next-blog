@@ -1,13 +1,14 @@
 ---
 title: Custom validation 만들기
 order: 7
-category:
-  - JS & TS
+date: "2023-11-07"
 tag:
   - NestJS
 ---
 
 위도, 경도에 대한 범위를 넣어서 검증하는 validator를 만들어 보겠습니다.
+
+<!--end-->
 
 ```ts
 @ValidatorConstraint({ async: true })

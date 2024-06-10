@@ -1,18 +1,18 @@
 ---
 title: Prisma - relationMode 에러
-description: prisma에서 relationMode를 설정할 때 생기는 에러에 대해 다뤘습니다.
-category:
-  - DB
 tag:
   - Prisma
   - MySQL
   - PlanetScale
 star: true
+date: "2024-05-22"
 ---
 
 이번에는 MySQL 로컬환경에서 PlanetScale 서비스로 넘어가기 위한 설정을 할 때 겪었던 에러에 대해 다루려고 한다.
 
 ![VT10001 외래키 제약 에러 발생](https://github.com/Zamoca42/blog/assets/96982072/e0429b8d-12e9-45c8-9625-6d22189d91c1)
+
+<!--end-->
 
 ## 스키마 일부
 

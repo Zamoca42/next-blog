@@ -1,7 +1,6 @@
 ---
 title: merge
-category:
-  - etc.
+date: "2023-09-28"
 tag:
   - Git
 ---
@@ -15,6 +14,8 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
 예를 들어, `post`라는 브랜치와 `main`이라는 브랜치가 존재
 
 `main`에 `post`를 합치고 싶다면 `main` 브랜치로 이동
+
+<!--end-->
 
 ```bash
 git checkout main

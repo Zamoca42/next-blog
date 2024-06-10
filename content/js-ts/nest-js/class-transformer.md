@@ -1,8 +1,7 @@
 ---
 title: 응답 객체 직렬화하기
 order: 6
-category:
-  - JS & TS
+date: "2023-12-23"
 tag:
   - NestJS
   - Class-Transformer
@@ -13,6 +12,8 @@ star: true
 응답 객체를 인스턴스로 변환하는데 NestJS에서는 `class-transformer`를 사용한다.
 
 한 객체가 변경이 발생하면 해당 객체에 의존하는 다른 객체들도 변경해야 하기 때문에 이들의 변경 범위를 최소화 하기 위해 캡슐화를 사용한다.
+
+<!--end-->
 
 ## class-transformer 설치
 

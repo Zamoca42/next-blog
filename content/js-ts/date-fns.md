@@ -1,7 +1,6 @@
 ---
 title: date-fns로 Date 객체 다루기
-category:
-  - JS & TS
+date: "2024-04-23"
 tag:
   - TypeScript
   - JavaScript
@@ -18,6 +17,8 @@ date-fns의 startOfDay와 endOfDay 함수를 사용하면 Date 객체 기준
 날짜의 시작 시간과 완료 시간을 보여주는데
 
 오늘의 범위를 0시부터 23시 59분 기준으로 생각하고 함수를 사용하면 생각과 다른 결과가 나온다.
+
+<!--end-->
 
 **내가 기대한 것**
 

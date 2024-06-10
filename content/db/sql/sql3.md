@@ -1,10 +1,9 @@
 ---
 title: (SQL 첫걸음) 11 ~ 15강
 order: 3
-category:
-  - DB
 tag:
   - SQL
+date: "2023-10-16"
 ---
 
 > SQL 첫걸음 11 ~ 15강의 내용입니다
@@ -16,6 +15,8 @@ LIMIT 구로 결과 행을 제한하는 방법에 관해 알아보겠습니다.
 ```sql
 SELECT 열명 FROM 테이블명 LIMIT 행수 [OFFSET 시작행]
 ```
+
+<!--end-->
 
 ### **예제용 테이블: sample33**
 

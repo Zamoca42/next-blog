@@ -1,7 +1,6 @@
 ---
 title: 서비스 레이어에서 예외처리 분리하기
-category:
-  - JS & TS
+date: "2024-01-03"
 tag:
   - NestJS
   - TypeORM
@@ -14,6 +13,8 @@ star: true
 소제목 파트인 정상적인 흐름에서 Catch 금지, Layer에 맞는 예외 보고 의문이 들기 시작했다.
 
 ![어디서 많이 본 로직이 보였다.](https://github.com/develop-pix/dump-in-Admin-BE/assets/96982072/ef451050-bdfe-4e59-a4c1-7030c6f181aa)
+
+<!--end-->
 
 TypeORM을 사용하는 프로젝트에서 단건으로 조회할 때 데이터가 없으면 바로 예외처리를 해주는 로직으로 설정하고있었다.
 

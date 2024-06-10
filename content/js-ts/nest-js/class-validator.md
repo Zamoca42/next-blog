@@ -1,8 +1,7 @@
 ---
 title: 요청 객체 역직렬화하기
 order: 5
-category:
-  - JS & TS
+date: "2023-12-23"
 tag:
   - NestJS
   - Class-Validator
@@ -13,6 +12,8 @@ star: true
 
 이 부분은 `class-validator` 패키지가 필요하다.
 [`class-validator`][class-validator]는 데코레이터를 기반으로 Dto들의 검증을 담당한다.
+
+<!--end-->
 
 ## class-validator 설치
 

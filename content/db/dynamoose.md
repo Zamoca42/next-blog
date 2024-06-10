@@ -1,18 +1,19 @@
 ---
 title: DynamoDB 연결하기 with NestJS
 order: 4
-category:
-  - DB
 tag:
   - NestJS
   - DynamoDB
   - Dynamoose
+date: "2023-12-28"
 ---
 
 Nest에서는 TypeORM, Prisma, Mongoose 등 다양한 ORM을 사용할 수 있기 때문에
 SQL이나 NoSQL 데이터베이스 모두 쉽게 연결할 수 있습니다.
 
 이번 주제에서는 AWS의 대표적인 NoSQL 기반 데이터베이스인 DynamoDB를 Dynamoose를 이용해서 연결해보겠습니다.
+
+<!--end-->
 
 ## Dynamoose 설치하기
 

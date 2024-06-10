@@ -1,8 +1,7 @@
 ---
 title: 로그인 구현하기
 order: 2
-category:
-  - JS & TS
+date: "2023-12-28"
 tag:
   - NestJS
 ---
@@ -10,6 +9,8 @@ tag:
 React Admin에서 로그인 페이지를 만들고 Nest의 인증 모듈과 연결했을 때의 화면입니다.
 
 ![로그인 화면](https://github.com/Zamoca42/blog/assets/96982072/9218fafc-bc81-4780-b22b-4274e3f3ec6b)
+
+<!--end-->
 
 공식문서에 나와있는 `passport` 패키지를 사용해보겠습니다.
 `passport`는 node.js에서 가장 인기있는 인증 라이브러리로 다양한 인증 전략을 가지고있습니다.

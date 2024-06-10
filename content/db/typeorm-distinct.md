@@ -1,14 +1,12 @@
 ---
 title: TypeORM - DISTINCT
-description: TypeORM에서 목록 조회시 DISTINCT 쿼리가 생기는 이유에 대해 정리했다.
-category:
-  - DB
 tag:
   - Database
   - TypeORM
   - ORM
   - NestJS
 star: true
+date: "2024-01-26"
 ---
 
 TypeORM을 사용해서 개발하다보면 페이지네이션 처리를 해야하는 경우가 생긴다.
@@ -17,6 +15,8 @@ TypeORM을 사용해서 개발하다보면 페이지네이션 처리를 해야�
 ![유저 목록 조회시 DISTINCT 쿼리가 생기는 것을 볼 수 있다.](https://github.com/Zamoca42/blog/assets/96982072/f109a7a3-0fe3-43da-9d7b-5cc149e79553)
 
 SELECT DISTINCT 쿼리는 왜 생기는지 궁금하여 찾아보다가 나온 정보들을 이번 포스트에서 정리하려고한다.
+
+<!--end-->
 
 ## DISTINCT 쿼리란?
 

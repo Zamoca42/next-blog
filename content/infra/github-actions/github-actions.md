@@ -1,8 +1,7 @@
 ---
 title: GitHub Actions
 order: 2
-category:
-  - Infra.
+date: "2024-02-12"
 tag:
   - CI
   - CD
@@ -14,6 +13,8 @@ Github Actions에 대해 간단히 설명하면 테스트 및 배포 파이프�
 레포지토리에서 push같은 이벤트가 일어날 때, workflow를 통해 작업이 실행되는 자동화 프로세스로 각 작업은 자체 가상머신을 사용하여 실행됩니다.
 
 이번에는 GitHub Actions를 사용해서 AWS EC2에는 서버를 배포하고 S3에는 정적 웹페이지에 배포를 자동화 해보겠습니다.
+
+<!--end-->
 
 ## 워크플로우 정의
 
