@@ -5,9 +5,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPosts();
 
   const postUrls = posts.map((post) => ({
-    url: `${process.env.NEXT_PUBLIC_SITE_URL}/posts${post.slug}`,
+    url: `https://www.zamoca.space/posts${post.slug}`,
     lastModified: post.updatedAt,
   }));
 
-  return [...postUrls];
+  return [{ url: "/", lastModified: new Date() }, ...postUrls];
 }
