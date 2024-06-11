@@ -1,6 +1,6 @@
 import { visit } from "unist-util-visit";
 import { Plugin } from "unified";
-import { Node, Parent } from "unist";
+import { Node, Parent, Literal } from "unist";
 import { unified } from "unified";
 import remarkToc, { TocItem } from "remark-flexible-toc";
 import { refractor } from "refractor/lib/all.js";
@@ -8,11 +8,25 @@ import rehypePrismGenerator from "rehype-prism-plus/generator";
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
 
-
 export const removeHeadings: Plugin = () => {
   return (tree: Node) => {
     visit(tree, "heading", (node, index, parent: Parent | null) => {
       if (parent && typeof index === "number") {
+        parent.children.splice(index, 1);
+      }
+    });
+  };
+};
+
+export const remarkStripHtmlComments: Plugin = () => {
+  return (tree: Node) => {
+    visit(tree, "html", (node: Literal, index, parent: Parent | null) => {
+      if (
+        parent &&
+        typeof index === "number" &&
+        (node.value as string).startsWith("<!--") &&
+        (node.value as string).endsWith("-->")
+      ) {
         parent.children.splice(index, 1);
       }
     });
@@ -60,4 +74,3 @@ prisma.displayName = "prisma";
 refractor.register(prisma);
 
 export const customRehypePrism = rehypePrismGenerator(refractor);
-

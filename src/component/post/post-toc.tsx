@@ -12,37 +12,35 @@ export const PostToc = ({ toc }: PostTocProps) => {
   const [activeToc, setActiveToc] = useState("");
 
   useEffect(() => {
-    const postContent = document.querySelector(".prose");
+    const handleScroll = () => {
+      const article = document.querySelector("article");
+      if (!article) return;
 
-    if (postContent) {
-      const handleScroll = () => {
-        const elements = postContent.querySelectorAll("h1, h2, h3");
-        const scrollPosition = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
+      const elements = article.querySelectorAll("h1, h2, h3, h4");
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
 
-        elements.forEach((element) => {
-          const elementTop =
-            element.getBoundingClientRect().top + window.scrollY;
-          const elementBottom = elementTop + element.clientHeight;
+      elements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top + window.scrollY;
+        const elementBottom = elementTop + element.clientHeight;
 
-          if (
-            (elementTop <= scrollPosition + 100 &&
-              elementBottom >= scrollPosition) ||
-            (scrollPosition + windowHeight === documentHeight &&
-              elementBottom >= scrollPosition)
-          ) {
-            const id = element.getAttribute("id");
-            setActiveToc(`#${id}`);
-          }
-        });
-      };
+        if (
+          (elementTop <= scrollPosition + 100 &&
+            elementBottom >= scrollPosition) ||
+          (scrollPosition + windowHeight === documentHeight &&
+            elementBottom >= scrollPosition)
+        ) {
+          const id = element.getAttribute("id");
+          setActiveToc(`#${id}`);
+        }
+      });
+    };
 
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   if (toc.length === 0) {

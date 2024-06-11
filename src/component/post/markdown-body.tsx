@@ -8,12 +8,18 @@ import ImageInPost from "@/component/md/image-in-post";
 import { PluggableList } from "unified";
 //markdown-plugin
 import gfm from "remark-gfm";
-import remarkDirective from "remark-directive";
 import remarkCodeTitles from "remark-flexible-code-titles";
 import rehypeSlug from "rehype-slug";
 import remarkUnwrapImages from "remark-unwrap-images";
+import remarkDirectiveRehype from "remark-directive-rehype";
+import remarkDirective from "remark-directive";
+
 import emoji from "remark-emoji";
-import { customRehypePrism, removeHeadings } from "@/lib/unified-plugin";
+import {
+  customRehypePrism,
+  removeHeadings,
+  remarkStripHtmlComments,
+} from "@/lib/unified-plugin";
 
 type Props = {
   content: string;
@@ -44,8 +50,10 @@ export function MarkdownBody({
             }),
           },
         ],
-        remarkDirective,
         remarkUnwrapImages,
+        remarkStripHtmlComments,
+        remarkDirective,
+        remarkDirectiveRehype,
         ...remarkPlugins,
       ]}
       rehypePlugins={[
