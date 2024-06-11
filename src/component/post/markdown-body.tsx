@@ -1,7 +1,7 @@
 "use client";
 
 import "@/style/prism.css";
-import Markdown from "react-markdown";
+import Markdown, { Components } from "react-markdown";
 import CodeTitle from "@/component/md/code-title";
 import CodeBlock from "@/component/md/code-block";
 import ImageInPost from "@/component/md/image-in-post";
@@ -13,13 +13,17 @@ import rehypeSlug from "rehype-slug";
 import remarkUnwrapImages from "remark-unwrap-images";
 import remarkDirectiveRehype from "remark-directive-rehype";
 import remarkDirective from "remark-directive";
-
 import emoji from "remark-emoji";
 import {
   customRehypePrism,
   removeHeadings,
   remarkStripHtmlComments,
 } from "@/lib/unified-plugin";
+import {
+  DirectiveDetails,
+  InfoDirective,
+  DirectiveProps,
+} from "@/component/md/directive";
 
 type Props = {
   content: string;
@@ -69,11 +73,15 @@ export function MarkdownBody({
         ...rehypePlugins,
       ]}
       className="prose"
-      components={{
-        pre: (props) => <CodeBlock {...props} />,
-        div: (props) => <CodeTitle {...props} />,
-        img: (props) => <ImageInPost {...props} />,
-      }}
+      components={
+        {
+          pre: (props) => <CodeBlock {...props} />,
+          div: (props) => <CodeTitle {...props} />,
+          img: (props) => <ImageInPost {...props} />,
+          info: (props: DirectiveProps) => <InfoDirective {...props} />,
+          details: (props) => <DirectiveDetails {...props} />,
+        } as Components
+      }
     >
       {content}
     </Markdown>

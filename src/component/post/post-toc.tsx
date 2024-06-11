@@ -16,7 +16,7 @@ export const PostToc = ({ toc }: PostTocProps) => {
       const article = document.querySelector("article");
       if (!article) return;
 
-      const elements = article.querySelectorAll("h1, h2, h3, h4");
+      const elements = article.querySelectorAll("h1, h2");
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;

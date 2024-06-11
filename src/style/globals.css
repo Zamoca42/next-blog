@@ -118,6 +118,23 @@
   .prose :not(pre) > code::after {
     content: none;
   }
+
+  details summary .icon-wrapper {
+    display: inline-flex;
+    transition: transform 0.25s;
+  }
+  
+  details summary .icon-wrapper .icon-open {
+    display: none;
+  }
+  
+  details[open] summary .icon-wrapper .icon-closed {
+    display: none;
+  }
+  
+  details[open] summary .icon-wrapper .icon-open {
+    display: block;
+  }
 }
 
 
