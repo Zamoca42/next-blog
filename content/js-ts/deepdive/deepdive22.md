@@ -237,7 +237,7 @@ const obj = {
 obj.foo();
 ```
 
-::: info setTimeout 함수
+:::info{title="setTimeout 함수"}
 setTimeout 함수는 두 번째 인수로 전달한 시간(ms)만큼 대기한 다음, 첫 번째 인수로 전달한 콜백 함수를 호출하는 타이머함수다.
 위 예제에서는 100ms를 대기한 다음, 콜백 함수를 호출한다.
 

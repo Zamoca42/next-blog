@@ -29,7 +29,7 @@ git config --global core.autocrlf input #for Mac
 git config --global commit.template .gitmessage.txt
 ```
 
-::: details 커밋 템플릿 예시
+:::details{title="커밋 템플릿 예시"}
 
 .gitmessage.txt
 

@@ -122,7 +122,7 @@ console.log(circle1.getDiameter()); // 10
 console.log(circle2.getDiameter()); // 20
 ```
 
-:::info this
+:::info{title="this"}
 `this`는 객체 자신의 프로퍼티나 메서드를 참조하기 위한 자기 참조 변수(self-referencing variable)다.
 `this`가 가리키는 값은 함수 호출 방식에 따라 동적으로 결정된다.
 
@@ -193,7 +193,7 @@ new 연산자와 함께 생성자 함수를 호출하면 다음과 같은 과정
 
 암묵적으로 빈 객체가 생성된다. 빈 객체는 `this`에 바인딩 된다. 이 처리는 런타임 이전에 실행된다.
 
-:::info 바인딩(name binding)
+:::info{title="바인딩(name binding)"}
 바인딩이란 식별자와 값을 연결하는 과정을 의미한다. 예를 들어, 변수 선언은 변수 이름(식별자)과 확보된 메모리 공간의 주소를 바인딩하는 것이다.
 `this` 바인딩은 `this`와 `this`가 가리킬 객체를 바인딩하는 것이다.
 :::

@@ -172,7 +172,7 @@ try {
 }
 ```
 
-:::info try...catch...finally 문
+:::info{title="try...catch...finally 문"}
 
 에러 처리를 구현하는 방법이다. try...catch...finally 문을 실행하면 먼저 try 코드 블록이 실행된다.
 이때 try 코드 블록에 포함된 문 중에서 에러가 발생하면 해당 에러는 catch 문의 err 변수에 전달되고
@@ -654,8 +654,9 @@ const promise = fetch(url, [, options]);
 fetch 함수는 HTTP 응답을 나타내는 Response 객체를 래핑한 Promise 객체를 반환한다.
 
 ```js
-fetch('https://jsonplaceholder.typicode.com/todos/1')
-  .then(response => console.log(response));
+fetch("https://jsonplaceholder.typicode.com/todos/1").then((response) =>
+  console.log(response)
+);
 ```
 
 ![그림 45-4. Response 객체][4]

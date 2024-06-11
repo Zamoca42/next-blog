@@ -84,7 +84,8 @@ MySQL 환경에서 PlanetScale로 전환할 때
 `relationMode`를 `prisma`로 변경한 이유는 PlanetScale의 서비스 특징 때문이다.
 PlanetScale 또한 MySQL을 사용하지만 PlanetScale은 Vitess를 기반으로 하는 데이터베이스 서비스다.
 
-:::info
+:::info{title="Vitess"}
+
 [Vitess](https://vitess.io/)란?
 
 Vitess는 대규모 MySQL 데이터베이스를 확장하고 관리하기 위해 YouTube에서 개발된 오픈 소스 데이터베이스 솔루션이다.

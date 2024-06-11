@@ -135,7 +135,7 @@ console.log(multiply(1, 2, 3)); // 2
 arguments 객체의 callee 프로퍼티는 호출되어 arguments 객체를 생성한 함수,
 즉 함수 자신을 가리키고 arguments 객체의 length 프로퍼티는 인수의 개수를 가리킨다.
 
-::: info arguments 객체의 Symbol(Symbol.iterator) 프로퍼티
+:::info{title="arguments 객체의 Symbol(Symbol.iterator) 프로퍼티"}
 
 arguments 객체의 Symbol프로퍼티는 arguments 객체를 순회 가능한 자료구조인 이터러블로 만들기 위한 프로퍼티다.
 `Symbol.iterator`를 프로퍼티 키로 사용한 메서드를 구현하는 것에 의해 이터러블이 된다.
@@ -184,7 +184,7 @@ console.log(sum(1, 2, 3)); // 6
 arguments 객체는 유사 배열 객체다(array-like object)다.
 유사 배열 객체란 length 프로퍼티를 가진 객체로 for 문으로 순회할 수 있는 객체를 말한다.
 
-:::info 유사 배열 객체와 이터러블
+:::info{title="유사 배열 객체와 이터러블"}
 ES6에서 도입된 이터레이션 프로토콜을 준수하면 순회 가능한 자료구조인 이터러블이 된다.
 이터러블의 개념이 없었던 ES5에서 arguments 객체는 유사 배열 객체로 구분되었다.
 하지만 이터러블이 도입된 ES6부터 arguments 객체는 유사 배열 객체이면서 동시에 이터러블이다.
@@ -280,7 +280,7 @@ console.log(obj.hasOwnProperty("a")); // true
 console.log(obj.hasOwnProperty("__proto__")); // false
 ```
 
-:::info hasOwnProperty 메서드
+:::info{title="hasOwnProperty 메서드"}
 메서드 이름에서 알 수 있듯이 인수로 전달받은 프로퍼티 키가 객체 고유의 프로퍼티 키인 경우에만 `true`를 반환하고 상속받은 프로토타입의 프로퍼티 키인 경우 `false`를 반환한다
 :::
 

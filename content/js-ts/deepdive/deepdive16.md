@@ -176,7 +176,7 @@ console.log(Object.getOwnPropertyDescriptor(person, "fullName"));
 
 4. 접근자 프로퍼티 `fullName`의 프로퍼티 어트리뷰트 `[[Get]]`을 호출하여 결과 반환
 
-:::info 프로토타입(prototype)
+:::info{title="프로토타입(prototype)"}
 
 > :pushpin: [프로토타입 설명 영상 - 코딩애플](https://youtu.be/wUgmzvExL_E?si=LPjjWjA5Hb3iA4wr)
 

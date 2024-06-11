@@ -10,7 +10,7 @@ tag:
 
 <!--end-->
 
-:::info 클래스(class)
+:::info{title="클래스(class)"}
 ES6에서 클래스가 도입되었다. 하지만 ES6의 클래스가 기존 프로토타입 기반 객체지향 모델을 폐지하고 새로운 객체지향 모델을 제공하는 것은 아니다.
 사실 클래스도 함수이며, 기존 프로토타입 기반 패턴의 문법적 설탕이라고 볼 수 있다.
 
@@ -227,7 +227,7 @@ console.log(Object.getOwnPropertyDescriptor(Object.prototype, "__proto__"));
 console.log({}.__proto__ === Object.prototype); // true
 ```
 
-::: info Object.prototype
+:::info{title="Object.prototype"}
 모든 객체는 프로토타입의 계층 구조인 프로토타입 체인에 묶여 있다.
 자바스크립트 엔진은 객체의 프로퍼티에 접근하려고 할 때 해당 객체에 접근하려는 프로퍼티가 없다면
 `__proto__` 접근자 프로퍼티가 가리키는 참조를 따라 자신의 부모 역할을 하는 프로토타입의 프로퍼티를 순차적으로 검색한다.
@@ -448,7 +448,7 @@ ECMAScript 사양을 살펴보자. Object 생성자 함수는 다음과 같이 �
 2에서 Object 생성자 함수에 인수를 전달하지 않거나 `undefined` 또는 `null`을 인수로 전달하면서 호출하면 내부적으로는
 추상 연산 `OrdinaryObjectCreate`를 호출하여 `Object.prototype`을 프로토타입으로 갖는 빈 객체를 생성한다.
 
-:::info 추상 연산(abstract operation)
+:::info{title="추상 연산(abstract operation)"}
 추상 연산은 ECMAScript 사양에서 내부 동작의 구현 알고리즘을 표현한 것이다. ECMAScript 사양에서 설명을 위해 사용되는 함수와 유사한 의사코드라고 이해하자.
 :::
 
@@ -513,7 +513,7 @@ console.log(foo.constructor === Function); // true
 리터럴 표기법에 의해 생성된 객체도 생성자 함수와 연결되는 것을 살펴보았다.
 객체는 리터럴 표기법 또는 생성자 함수에 의해 생성되므로 결국 모든 객체는 생성자 함수와 연결되어 있다.
 
-:::info Object.create 메서드와 클래스에 의한 객체 생성
+:::info{title="Object.create 메서드와 클래스에 의한 객체 생성"}
 아직 살펴보지 않았지만 Object.create 메서드와 클래스로 객체를 생성하는 방법도 있다.
 Object.create 메서드와 클래스로 생성한 객체도 생성자 함수와 연결되어 있다.
 이에 대해서는 19.11.1절 "Object.create"에 의한 직접 상속"과 25장 "클래스"에서 살펴보도록 하자.
@@ -569,7 +569,7 @@ Object, String, Number, Function, Array 등과 같은 빌트인 생성자 함수
 
 ![그림 19-13. Object 생성자 함수와 프로토타입](https://github.com/Zamoca42/blog/assets/96982072/d619b6f5-b231-42c7-99ed-bb4239d0dd38)
 
-:::info 전역 객체(global object)
+:::info{title="전역 객체(global object)"}
 전역 객체는 코드가 실행되기 이전 단계에 자바스크립트 엔진에 의해 생성되는 특수한 객체다.
 전역 객체는 클라이언트 사이드 환경(브라우저)에서 window, 서버 사이드 환경(Node.js)에서는 global 객체를 의미한다.
 
@@ -770,7 +770,7 @@ me.hasOwnProperty("name"); // -> true
 Object.prototype.hasOwnProperty.call(me, "name");
 ```
 
-::: info call 메서드
+:::info{title="call 메서드"}
 call 메서드는 this로 사용할 객체를 전달하면서 함수를 호출한다.
 
 이에 대해서는 22.2.4절 "Function.prototype.apply/call/bind 메서드에 의한 간접 호출"에서 자세히 살펴볼 것이다.
@@ -843,7 +843,7 @@ me.sayHello(); // Hey! My name is Lee
 이때 인스턴스 메서드 `sayHello`는 프로토타입 메서드 `sayHello`를 오버라이딩했고 프로토타입 메서드 `sayHello`는 가려진다.
 이처럼 상속 관계에 의해 프로퍼티가 가려지는 현상을 프로퍼티 섀도잉(property shadowing)이라 한다.
 
-:::info 오버라이딩(overriding)과 오버로딩(overloading)
+:::info{title="오버라이딩(overriding)과 오버로딩(overloading)"}
 
 오버라이딩은 상위 클래스가 가지고 있는 메서드를 하위 클래스가 재정의하여 사용하는 방식이다.
 
