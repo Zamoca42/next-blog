@@ -1,7 +1,6 @@
 ---
 title: 38. 브라우저의 렌더링 과정
-category:
-  - JS & TS
+date: "2023-11-05"
 tag:
   - JavaScript
 ---

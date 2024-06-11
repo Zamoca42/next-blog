@@ -11,7 +11,7 @@ export const typeDefs = /* GraphQL */ `
   }
 
   type Folder {
-    id: ID!
+    id: String!
     name: String!
     path: String!
     children: [Folder]

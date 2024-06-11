@@ -1,5 +1,8 @@
 ---
 title: 18. 함수와 일급 객체
+date: "2023-10-04"
+tag:
+  - JavaScript
 ---
 
 ## 1. 일급 객체
@@ -15,6 +18,8 @@ title: 18. 함수와 일급 객체
 4. 함수의 반환값으로 사용할 수 있다.
 
 자바스크립트의 함수는 위의 조건을 모두 만족하므로 일급 객체다.
+
+<!-- end -->
 
 ```js
 // 1. 함수는 무명의 리터럴로 생성할 수 있다.
@@ -107,7 +112,8 @@ console.log(Object.getOwnPropertyDescriptor(Object.prototype, "__proto__"));
 
 ### 2.1. arguments 프로퍼티
 
-함수 객체의 arguments 프로퍼티 값은 arguments 객체다. arguments 객체는 함수 호출 시 전달된 인수들의 정보를 담고 있는 순회 가능한 유사 배열 객체이며, 함수 내부에서 지역 변수처럼 사용된다.
+함수 객체의 arguments 프로퍼티 값은 arguments 객체다.
+arguments 객체는 함수 호출 시 전달된 인수들의 정보를 담고 있는 순회 가능한 유사 배열 객체이며, 함수 내부에서 지역 변수처럼 사용된다.
 
 ```js
 function multiply(x, y) {
@@ -121,15 +127,18 @@ console.log(multiply(1, 2)); // 2
 console.log(multiply(1, 2, 3)); // 2
 ```
 
-선언된 매개변수의 개수보다 인수를 적게 전달했을 경우 인수가 전달되지 않은 매개변수는 `undefined`로 초기화된 상태를 유지한다. 매개변수의 개수보다 인수를 더 많이 전달한 경우 초과된 인수는 무시된다.
+선언된 매개변수의 개수보다 인수를 적게 전달했을 경우 인수가 전달되지 않은 매개변수는 `undefined`로 초기화된 상태를 유지한다.
+매개변수의 개수보다 인수를 더 많이 전달한 경우 초과된 인수는 무시된다.
 
 ![그림 18-2. arguments 객체의 프로퍼티](https://github.com/Zamoca42/blog/assets/96982072/8b4077ee-1e71-43db-a787-dffc51993881)
 
-arguments 객체의 callee 프로퍼티는 호출되어 arguments 객체를 생성한 함수, 즉 함수 자신을 가리키고 arguments 객체의 length 프로퍼티는 인수의 개수를 가리킨다.
+arguments 객체의 callee 프로퍼티는 호출되어 arguments 객체를 생성한 함수,
+즉 함수 자신을 가리키고 arguments 객체의 length 프로퍼티는 인수의 개수를 가리킨다.
 
-::: info arguments 객체의 Symbol(Symbol.iterator) 프로퍼티
+:::info{title="arguments 객체의 Symbol(Symbol.iterator) 프로퍼티"}
 
-arguments 객체의 Symbol프로퍼티는 arguments 객체를 순회 가능한 자료구조인 이터러블로 만들기 위한 프로퍼티다. `Symbol.iterator`를 프로퍼티 키로 사용한 메서드를 구현하는 것에 의해 이터러블이 된다.
+arguments 객체의 Symbol프로퍼티는 arguments 객체를 순회 가능한 자료구조인 이터러블로 만들기 위한 프로퍼티다.
+`Symbol.iterator`를 프로퍼티 키로 사용한 메서드를 구현하는 것에 의해 이터러블이 된다.
 
 ```js
 function multiply(x, y) {
@@ -151,7 +160,8 @@ multiply(1, 2, 3);
 이에 대해서는 34장 "이터러블"에서 자세히 살펴보기로 하자.
 :::
 
-선언된 매개변수의 개수와 함수를 호출할 때 전달하는 인수의 개수를 확인하지 않는 자바스크립트 특성 때문에 함수가 호출되면 인수 개수를 확인하고 이에 따라 함수의 동작을 달리 정의할 필요가 있을 수 있다.
+선언된 매개변수의 개수와 함수를 호출할 때 전달하는 인수의 개수를 확인하지 않는 자바스크립트 특성 때문에 함수가 호출되면
+인수 개수를 확인하고 이에 따라 함수의 동작을 달리 정의할 필요가 있을 수 있다.
 arguments 객체는 매개변수 개수를 확정할 수 없는 **가변 인자 함수**를 구현할 때 유용하다.
 
 ```js
@@ -174,7 +184,7 @@ console.log(sum(1, 2, 3)); // 6
 arguments 객체는 유사 배열 객체다(array-like object)다.
 유사 배열 객체란 length 프로퍼티를 가진 객체로 for 문으로 순회할 수 있는 객체를 말한다.
 
-:::info 유사 배열 객체와 이터러블
+:::info{title="유사 배열 객체와 이터러블"}
 ES6에서 도입된 이터레이션 프로토콜을 준수하면 순회 가능한 자료구조인 이터러블이 된다.
 이터러블의 개념이 없었던 ES5에서 arguments 객체는 유사 배열 객체로 구분되었다.
 하지만 이터러블이 도입된 ES6부터 arguments 객체는 유사 배열 객체이면서 동시에 이터러블이다.
@@ -270,7 +280,7 @@ console.log(obj.hasOwnProperty("a")); // true
 console.log(obj.hasOwnProperty("__proto__")); // false
 ```
 
-:::info hasOwnProperty 메서드
+:::info{title="hasOwnProperty 메서드"}
 메서드 이름에서 알 수 있듯이 인수로 전달받은 프로퍼티 키가 객체 고유의 프로퍼티 키인 경우에만 `true`를 반환하고 상속받은 프로토타입의 프로퍼티 키인 경우 `false`를 반환한다
 :::
 

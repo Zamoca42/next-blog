@@ -1,11 +1,10 @@
 ---
 title: 맛집 목록 가져와서 지도에 표시하기
-category:
-  - DB
 tag:
   - NestJS
   - PostgreSQL
   - TypeORM
+date: "2023-12-28"
 ---
 
 공공데이터로 맛집 목록을 받아와서 지도에 내 위치 주변 맛집을 보여주는 API를 만들었습니다.
@@ -15,6 +14,8 @@ tag:
 제가 맡은 부분은 전처리된 데이터를 가져와서 맛집 목록을 지도에 표시할 수 있게 반환하는 부분입니다.
 
 여러 방법이 있겠지만 처음에는 맛집 목록을 내 위치 기준으로 범위만큼 위도나 경도를 빼거나 더해서 가져왔습니다.
+
+<!-- end -->
 
 **restaurant-guide.repository.ts (findRestaurantsInRange) 메서드**
 

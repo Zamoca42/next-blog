@@ -1,7 +1,6 @@
 ---
 title: 우분투에 node & npm 설치
-category:
-  - Infra.
+date: "2024-03-05"
 tag:
   - Node
   - NPM
@@ -17,6 +16,8 @@ NestJS로 구성된 서버를 실행하려면 node와 npm이 있어야 패키지
 그래서 aws에서 ec2 인스턴스를 만들 때 기본 제공되는 unbuntu 이미지에 Node.js와 npm 설치하고
 git clone으로 레포지토리까지 설정을 한 다음,
 초기 설정한 볼륨을 이미지(AMI)로 만들어서 자동으로 생성된 인스턴스에 초기설정이 필요없게 만들려고 한다.
+
+<!-- end -->
 
 ## Node.js 18버전 설치하기
 

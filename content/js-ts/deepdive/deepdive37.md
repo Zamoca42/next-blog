@@ -1,5 +1,8 @@
 ---
 title: 37. Set과 Map
+date: "2023-11-15"
+tag:
+  - JavaScript
 ---
 
 ## 1. Set

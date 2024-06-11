@@ -1,11 +1,8 @@
 ---
 title: (SQL 첫걸음) 1 ~ 5강
-order: 1
-category:
-  - DB
 tag:
   - SQL
-prev: false
+date: "2023-09-28"
 ---
 
 > SQL 첫걸음 1 ~ 5강의 내용입니다
@@ -21,6 +18,8 @@ prev: false
   - PostgreSQL
   - MySQL
   - SQLite
+
+<!-- end -->
 
 ## SQL 명령의 종류
 

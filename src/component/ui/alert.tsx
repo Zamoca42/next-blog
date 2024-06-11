@@ -1,5 +1,5 @@
 import Container from "@/component/ui/container";
-import { EXAMPLE_PATH } from "@/lib/constants";
+import { EXAMPLE_PATH } from "@/lib/constant";
 import cn from "classnames";
 
 type Props = {

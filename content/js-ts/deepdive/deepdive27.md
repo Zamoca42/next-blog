@@ -1,5 +1,8 @@
 ---
 title: 27. 배열
+date: "2023-10-30"
+tag:
+  - JavaScript
 ---
 
 ## 1. 배열이란?
@@ -369,7 +372,7 @@ Array.from({ length: 3 }); // -> [undefined, undefined, undefined]
 Array.from({ length: 3 }, (_, i) => i); // -> [0, 1, 2]
 ```
 
-:::info 유사 배열 객체와 이터러블 객체
+:::info{title="유사 배열 객체와 이터러블 객체"}
 유사 배열 객체는 마치 배열처럼 인덱스로 프로퍼티 값에 접근할 수 있고 length 프로퍼티를 갖는 객체를 말한다. 유사 배열 객체는 마치 배열처럼 for 문으로 순회할 수도 있다.
 
 ```js
@@ -1094,7 +1097,7 @@ console.log(_todos === todos); // false
 console.log(_todos[0] === todos[0]); // true
 ```
 
-::: info 얕은 복사와 깊은 복사
+:::info{title="얕은 복사와 깊은 복사"}
 객체를 프로퍼티 값으로 갖는 객체의 경우 얕은 복사는 한 단계까지만 복사하는 것을 말하고
 
 깊은 복사는 객체에 중첩되어 있는 객체까지 모두 복사하는 것을 말한다.
@@ -1354,7 +1357,7 @@ console.log(todos);
 */
 ```
 
-:::info sort 메서드의 정렬 알고리즘
+:::info{title="sort 메서드의 정렬 알고리즘"}
 sort 메서드는 quicksort 알고리즘을 사용했었다. quicksort 알고리즘은 동일한 값의 요소가 중복되어 있을 때 초기 순서와 변경될 수 있는 불안정한 정렬 알고리즘으로 알려져 있다. ECMAScript 2019(ES10)에서는 timesort 알고리즘을 사용하도록 바뀌었다.
 :::
 

@@ -1,7 +1,6 @@
 ---
 title: 서버 상태 모니터링하기
-category:
-  - JS & TS
+date: "2023-12-30"
 tag:
   - NestJS
   - Sentry
@@ -9,6 +8,8 @@ tag:
 
 [외부 로거 도입](./external-logger.md)해서 Sentry로 error 레벨의 로그를 알림을 받도록 했었다.
 Sentry의 기능 중에 크론 모니터링 기능이 있어서 NestJS가 지원하는 스케쥴러로 주기적으로 서버 상태를 모니터링하려고 했다.
+
+<!-- end -->
 
 ## 헬스 체크
 

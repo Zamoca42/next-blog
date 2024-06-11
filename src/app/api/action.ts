@@ -4,20 +4,39 @@ import { ContentFolder } from "@/interface/folder";
 import { Post } from "@/interface/post";
 import fs from "fs";
 import matter from "gray-matter";
-import { join } from "path";
+import { join, relative } from "path";
 import { capitalize } from "@/lib/util";
 import { formatISO, parseISO } from "date-fns";
-import { exec } from "child_process";
+import { GIT_HSITORY_FILE_NAME, POST_CONTENT_FOLDER } from "@/lib/constant";
+import { PostHistory } from "@/interface/post-history";
 
-const postsDirectory = join(process.cwd(), "content");
+const postsDirectory = join(process.cwd(), POST_CONTENT_FOLDER);
+const gitInfoPath = join(process.cwd(), "public", GIT_HSITORY_FILE_NAME);
+
+const readGitInfo = (): Record<string, PostHistory> => {
+  const gitInfoData = fs.readFileSync(gitInfoPath, "utf8");
+  return JSON.parse(gitInfoData);
+};
 
 export const getAllPosts = async (): Promise<Post[]> => {
-  const postMap = await createIndex(postsDirectory);
-  const posts = getPostsFromIndex(postMap);
+  const fileNames = await fs.promises.readdir(postsDirectory, {
+    recursive: true,
+  });
+
+  const posts: Post[] = [];
+
+  for (const fileName of fileNames) {
+    if (fileName.endsWith(".md")) {
+      const filePath = join(postsDirectory, fileName);
+      const slug = getSlugFromFilePath(filePath);
+      const post = await getPostBySlug(slug);
+      posts.push(post);
+    }
+  }
 
   return posts.sort((post1, post2) => {
-    const date1 = post1.updatedAt ? parseISO(post1.updatedAt) : new Date();
-    const date2 = post2.updatedAt ? parseISO(post2.updatedAt) : new Date();
+    const date1 = post1.createdAt ? parseISO(post1.createdAt) : new Date();
+    const date2 = post2.createdAt ? parseISO(post2.createdAt) : new Date();
     return date2.getTime() - date1.getTime();
   });
 };
@@ -27,35 +46,6 @@ export const getAllTreeNode = async (): Promise<ContentFolder[]> => {
   return folders;
 };
 
-const createIndex = async (directory: string): Promise<Map<string, Post>> => {
-  const postMap = new Map<string, Post>();
-  const stack: string[] = [directory];
-
-  while (stack.length > 0) {
-    const currentDirectory = stack.pop()!;
-    const fileNames = await fs.promises.readdir(currentDirectory);
-
-    for (const fileName of fileNames) {
-      const filePath = join(currentDirectory, fileName);
-      const stat = await fs.promises.stat(filePath);
-
-      if (stat.isDirectory()) {
-        stack.push(filePath);
-      } else if (fileName.endsWith(".md")) {
-        const slug = getSlugFromFilePath(filePath);
-        const post = await getPostBySlug(slug);
-        postMap.set(slug, post);
-      }
-    }
-  }
-
-  return postMap;
-};
-
-const getPostsFromIndex = (postMap: Map<string, Post>): Post[] => {
-  return Array.from(postMap.values());
-};
-
 const getTreeNode = async (
   directory: string,
   parentId: string = ""
@@ -63,14 +53,17 @@ const getTreeNode = async (
   const fileNames = await fs.promises.readdir(directory);
   const folderList: ContentFolder[] = [];
 
-  const entries = Array.from(fileNames.entries());
-  for (let i = 0; i < entries.length; i++) {
-    const [index, fileName] = entries[i];
+  const sortedFileNames = fileNames.sort((a, b) =>
+    a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
+  );
+
+  for (let i = 0; i < sortedFileNames.length; i++) {
+    const fileName = sortedFileNames[i];
     const filePath = join(directory, fileName);
     const stat = await fs.promises.stat(filePath);
 
     if (stat.isDirectory()) {
-      const id = `${parentId}${index + 1}`;
+      const id = `${parentId}${i + 1}`;
       const children = await getTreeNode(filePath, id);
       folderList.push({
         id,
@@ -79,12 +72,13 @@ const getTreeNode = async (
         children,
       });
     } else if (fileName.endsWith(".md")) {
-      const id = `${parentId}${index + 1}`;
+      const id = `${parentId}${i + 1}`;
       const slug = getSlugFromFilePath(filePath);
       const post = await getPostBySlug(slug);
       folderList.push({
         id,
         path: post.slug,
+        order: post.order ?? Infinity,
         name: post.title,
         children: [],
       });
@@ -104,57 +98,28 @@ const getSlugFromFilePath = (filePath: string): string => {
 export const getPostBySlug = async (slug: string): Promise<Post> => {
   const fullPath = join(postsDirectory, `${slug}.md`);
   const fileContents = await fs.promises.readFile(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
+  const fallbackDate = formatISO(new Date());
+  const { data, content, excerpt } = matter(fileContents, {
+    excerpt: true,
+    excerpt_separator: "<!-- end -->",
+  });
 
-  const { createdAt, updatedAt } =
-    process.env.NODE_ENV === "development"
-      ? await getFileDates(fullPath)
-      : await getGitDates(fullPath);
+  const gitInfo = readGitInfo();
+  const relativeFilePath = relative(process.cwd(), fullPath);
+  const postDate = data.date ? formatISO(new Date(data.date)) : undefined;
+  const { createdAt, updatedAt } = gitInfo[relativeFilePath] || {
+    createdAt: fallbackDate,
+    updatedAt: fallbackDate,
+  };
 
   return {
     ...data,
     slug,
     content,
-    tags: data.tags ?? [],
-    category: data.category ?? [],
-    createdAt,
+    excerpt,
+    createdAt: postDate || createdAt,
     updatedAt,
+    tags: data.tag ?? [],
+    star: Boolean(data.star),
   } as Post;
-};
-
-const getFileDates = async (
-  filePath: string
-): Promise<{ createdAt: string; updatedAt: string }> => {
-  const stat = await fs.promises.stat(filePath);
-  const createdAt = formatISO(stat.birthtime);
-  const updatedAt = formatISO(stat.mtime);
-  return { createdAt, updatedAt };
-};
-
-const getGitDates = async (
-  filePath: string
-): Promise<{ createdAt: string; updatedAt: string }> => {
-  const createdAtCommand = `git log --diff-filter=A --follow --format=%aI --reverse -- "${filePath}"`;
-  const updatedAtCommand = `git log -1 --format=%aI -- "${filePath}"`;
-
-  const gitLogFileDate = async (command: string) => {
-    const outputDate = await new Promise<string>((resolve, reject) => {
-      exec(command, (error, stdout, stderr) => {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(stdout.trim());
-        }
-      });
-    });
-
-    return formatISO(new Date(outputDate));
-  };
-
-  const [createdAt, updatedAt] = await Promise.all([
-    gitLogFileDate(createdAtCommand),
-    gitLogFileDate(updatedAtCommand),
-  ]);
-
-  return { createdAt, updatedAt };
 };

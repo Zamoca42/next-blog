@@ -1,7 +1,6 @@
 ---
 title: 9. 타입 변환과 단축 평가
-category:
-  - JS & TS
+date: "2023-09-28"
 tag:
   - JavaScript
 ---
@@ -32,6 +31,8 @@ console.log(typeof str, str); //string 10
 
 console.log(typeof x, x); //number 10
 ```
+
+<!-- end -->
 
 ## 2. 암묵적 타입 변환
 

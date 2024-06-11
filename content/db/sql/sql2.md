@@ -1,10 +1,9 @@
 ---
 title: (SQL 첫걸음) 6 ~ 10강
 order: 2
-category:
-  - DB
 tag:
   - SQL
+date: "2023-09-28"
 ---
 
 > SQL 첫걸음 6 ~ 10강의 내용입니다
@@ -16,6 +15,8 @@ tag:
 ```sql
 SELECT 열1, 열2 FROM 테이블명 WHERE 조건식
 ```
+
+<!-- end -->
 
 ### **예제용 테이블: sample21**
 

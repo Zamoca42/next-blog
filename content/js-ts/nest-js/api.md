@@ -1,8 +1,7 @@
 ---
 title: 고객정보 API 만들기
 order: 8
-category:
-  - JS & TS
+date: "2023-09-28"
 tag:
   - NestJS
   - Project
@@ -21,6 +20,8 @@ tag:
   "businessItem": "사업"
 }
 ```
+
+<!-- end -->
 
 클라이언트에 이런 API로 보내줘야합니다.
 

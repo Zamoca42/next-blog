@@ -1,7 +1,6 @@
 ---
 title: Stub을 이용한 단위 테스트 적용하기
-category:
-  - JS & TS
+date: "2023-12-27"
 tag:
   - NestJS
   - Test

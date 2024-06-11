@@ -1,7 +1,6 @@
 ---
 title: 성격유형 검사하기 - Python
-category: 
-	- etc.
+date: "2023-09-28"
 tag:
   - Codingtest
   - Programmers
@@ -27,6 +26,8 @@ tag:
 |  약간 동의  |             어피치형 1점              |
 |    동의     |             어피치형 2점              |
 |  매우 동의  |             어피치형 3점              |
+
+<!-- end -->
 
 **제한사항**
 

@@ -1,7 +1,6 @@
 ---
 title: 자주 사용하는 git 명령어 모음
-category:
-  - etc.
+date: "2024-04-03"
 tag:
   - Git
 star: true
@@ -14,6 +13,8 @@ star: true
 ```shell
 git config --global core.editor "code --wait"
 ```
+
+<!-- end -->
 
 **CRLF 설정**
 
@@ -28,7 +29,7 @@ git config --global core.autocrlf input #for Mac
 git config --global commit.template .gitmessage.txt
 ```
 
-::: details 커밋 템플릿 예시
+:::details{title="커밋 템플릿 예시"}
 
 .gitmessage.txt
 

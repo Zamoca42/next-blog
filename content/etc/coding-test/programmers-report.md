@@ -1,13 +1,14 @@
 ---
 title: 신고 결과 받기 - Python
-category:
-  - etc.
+date: "2023-09-28"
 tag:
   - Codingtest
   - Programmers
 ---
 
 프로그래머스 [신고 결과 받기][report] 문제입니다
+
+<!-- end -->
 
 ```python
 def solution(id_list, report, k):

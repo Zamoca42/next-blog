@@ -1,7 +1,6 @@
 ---
 title: 47. 에러처리
-category:
-  - JS & TS
+date: "2023-11-25"
 tag:
   - JavaScript
 ---

@@ -4,11 +4,11 @@ import clsx from "clsx";
 import { ClassAttributes, HTMLAttributes, useState } from "react";
 import { ExtraProps } from "react-markdown";
 
-type CodeTitleProps = ClassAttributes<HTMLPreElement> &
+type CodeBlockProps = ClassAttributes<HTMLPreElement> &
   HTMLAttributes<HTMLPreElement> &
   ExtraProps;
 
-const CodeBlock: React.FC<CodeTitleProps> = (props) => {
+const CodeBlock: React.FC<CodeBlockProps> = (props) => {
   const { node, className, children, ...rest } = props;
   const match = className?.startsWith("language-");
   const [copied, setCopied] = useState(false);

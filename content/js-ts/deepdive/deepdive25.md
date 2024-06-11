@@ -1,5 +1,8 @@
 ---
 title: 25. 클래스
+date: "2023-10-23"
+tag:
+  - JavaScript
 ---
 
 ## 1. 클래스는 프로토타입의 문법적 설탕인가?
@@ -198,7 +201,7 @@ const you = new MyClass(); // ReferenceError: MyClass is not defined
 
 클래스 몸체에는 0개 이상의 메서드만 선언. 클래스 몸체에서 정의할 수 있는 메서드는 constructor(생성자), 프로토타입 메서드, 정적 메서드의 세 가지가 있다.
 
-::: info 클래스 정의에 대한 새로운 제안 사양
+:::info{title="클래스 정의에 대한 새로운 제안 사양"}
 ECMAScript 사양(ES11/ECMAScript 2020)에 따르면 인스턴스 프로퍼티는 반드시 constructor 내부에서 정의해야 한다. 하지만 2021년 1월 현재, 클래스 몸체에 메서드뿐만이 아니라 프로퍼티를 직접 정의할 수 있는 새로운 표준 사양이 제안되어 있다. 이 제안 사양에 의해 머지않아 클래스 몸체에서 메서드뿐만 아니라 프로퍼티도 정의할 수 있게 될 것으로 보인다. 이에 대해서는 25.7.3절 "클래스 필드 정의 제안"에서 살펴볼 것이다.
 :::
 
@@ -260,13 +263,14 @@ function Person(name) {
 
 흥미로운 것은 클래스가 평가되어 생성된 함수 객체나 클래스가 생성한 인스턴스 어디에도 constructor 메서드가 보이지 않는다. 이는 클래스 몸체에 정의한 constructor가 단순한 메서드가 아니라 클래스가 평가되어 생성한 함수 객체 코드의 일부가 된다.
 
-::: info 클래스의 constructor 메서드와 프로토타입의 constructor 프로퍼티
+:::info{title"클래스의 constructor 메서드와 프로토타입의 constructor 프로퍼티"}
 클래스의 constructor 메서드와 프로토타입의 constructor 프로퍼티는 이름이 같아 혼동하기 쉽지만 직접적인 관련이 없다. 프로토타입의 constructor 프로퍼티는 모든 프로토타입이 가지고 있는 프로퍼티이며, 생성자 함수를 가리킨다.
 :::
 
 constructor는 생성자 함수와 유사하지만 몇가지 차이가 있다.
 
 - 클래스 내에 최대 한 개만 존재한다. 2개 이상 포함하면 문법 에러가 발생한다.
+
   ```js
   class Person {
   constructor() {}
@@ -274,6 +278,7 @@ constructor는 생성자 함수와 유사하지만 몇가지 차이가 있다.
   }
   // SyntaxError: A class may only have one constructor
   ```
+
 - 생략할 수 있다. 생략하면 빈 constructor가 암묵적으로 정의된다.
 
   ```js
@@ -571,7 +576,7 @@ console.log(me.#name);
 // SyntaxError: Private field '#name' must be declared in an enclosing class
 ```
 
-::: info 타입스크립트
+:::info{title="타입스크립트"}
 C#의 창시자인 덴마크 출신 소프트웨어 엔지니어 아네르스 하일스베르가 개발을 주도한 자바스크립트의 상위 확장인 타입스크립트는 클래스 기반 객체지향 언어가 지원하는 접근 제한자인 public, private, protected를 모두 지원하며, 의미 또한 동일하다.
 :::
 

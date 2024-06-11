@@ -1,5 +1,8 @@
 ---
 title: 26. ES6 함수의 추가 기능
+date: "2023-10-29"
+tag:
+  - JavaScript
 ---
 
 ## 1. 함수의 구분
@@ -32,7 +35,7 @@ foo(); // -> undefined
 new foo(); // -> foo {}
 ```
 
-:::info callable과 constructor/non-constructor
+:::info{title="callable과 constructor/non-constructor"}
 17.2.4절 "내부 메서드 `[[Call]]`과 `[[Construct]]`에서 살펴보았듯이 호출할 수 있는 함수 객체를 callable이라 하며, 인스턴스를 생성할 수 있는 함수 객체를 constructor, 인스턴스를 생성할 수 없는 함수 객체를 non-constructor라고 부른다.
 :::
 
@@ -377,7 +380,7 @@ console.log(prefixer.add(["transition", "user-select"]));
 그런데 Array.prototype.map의 인수로 전달한 콜백 함수의 내부인 2에서 this는 undefined를 가리킨다.
 이는 Array.prototype.map 메서드가 콜백 함수를 일반 함수로서 호출하기 때문이다.
 
-::: info Array.prototype.map 메서드
+:::info{title="Array.prototype.map 메서드"}
 아직 살펴보지 않았지만 Array.prototype.map 메서드는 배열을 순회하며 배열의 각 요소에 대하여 인수로 전달된 콜백함수를 호출한다. 그리고 콜백 함수의 반환값들로 구성된 새로운 배열을 반환한다. 위 예제에서 map 메서드는 매개변수 arr에 전달된 `['transition', 'user-select']`를 순회하며 콜백 함수의 item 매개변수에게 arra의 요소값을 전달하면서 콜백 함수를 arr의 요소 개수만큼 호출한다. 그리고 콜백 함수의 반환값들로 구성된 새로운 배열을 반환한다. 이에 대해서는 27.9.3절 "Array.prototype.map"에서 자세히 살펴볼 것이다. 지금은 일반 함수로서 호출되는 "콜백 함수 내부의 this 문제"에 주목하자
 :::
 
@@ -398,7 +401,7 @@ add(arr) {
 ...
 ```
 
-#### 2. Array.prototype.map의 두 번째 인수로 add 메서드를 호출한 prefixer 객체를 가리키는 this를 전달한다.
+#### 2. Array.prototype.map의 두 번째 인수로 add 메서드를 호출한 prefixer 객체를 가리키는 this를 전달한다
 
 ```js
 ...
@@ -410,7 +413,7 @@ add(arr) {
 ...
 ```
 
-#### 3. Function.prototype.bind 메서드를 사용하여 add 메서드를 호출한 prefixer 객체를 가리키는 this를 바인딩한다.
+#### 3. Function.prototype.bind 메서드를 사용하여 add 메서드를 호출한 prefixer 객체를 가리키는 this를 바인딩한다
 
 ```js
 ...

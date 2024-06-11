@@ -1,7 +1,6 @@
 ---
 title: Git-flow
-category:
-  - etc.
+date: "2023-09-28"
 tag:
   - Git
   - Strategy
@@ -10,6 +9,8 @@ tag:
 ![git flow](https://user-images.githubusercontent.com/96982072/227922966-e7f04bb8-7943-434b-8a8a-cbb4097a0339.png)
 
 git-flow는 브랜치를 5가지 종류로 구분하여 개발하는 전략이다.
+
+<!-- end -->
 
 ## git-flow의 브랜칭 전략
 

@@ -1,5 +1,8 @@
 ---
 title: 24. 클로저
+date: "2023-10-18"
+tag:
+  - JavaScript
 ---
 
 > 중첩 함수 bar는 외부 함수보다 더 오래 유지되고 상위 스코프의 식별자를 참조하므로 클로저다.
@@ -11,7 +14,7 @@ title: 24. 클로저
 
 MDN에서는 클로저에 대해 다음과 같이 정의하고 있다.
 
-::: info
+:::info
 
 클로저는 함수와 그 함수가 선언된 렉시컬 환경의 조합이다.
 
@@ -37,7 +40,8 @@ outerFunc();
 
 중첩 함수 `innerFunc`의 상위 스코프는 외부 함수 `outerFunc`의 스코프다.
 따라서 `innerFunc` 내부에서 자신을 포함하고 있는 외부 함수 `outerFunc`의 x 변수에 접근할 수 있다.
-만약 `innerFunc` 함수가 `outerFunc` 함수의 내부에서 정의된 중첩 함수가 아니라면 `innerFunc` 함수를 `outerFunc` 함수의 내부에서 호출한다 하더라도 `outerFunc` 함수의 변수에 접근할 수 없다.
+만약 `innerFunc` 함수가 `outerFunc` 함수의 내부에서 정의된 중첩 함수가 아니라면
+`innerFunc` 함수를 `outerFunc` 함수의 내부에서 호출한다 하더라도 `outerFunc` 함수의 변수에 접근할 수 없다.
 
 ```js
 const x = 1;
@@ -82,7 +86,8 @@ bar(); // ?
 함수를 어디서 호출하는지는 함수의 상위 스코프 결정에 어떠한 영향도 주지 못한다.
 즉, 함수의 상위 스코프는 함수를 정의한 위치에 의해 정적으로 결정되고 변하지 않는다.
 
-렉시컬 환경의 "외부 렉시컬 환경에 대한 참조"에 저장할 참조값, 즉 상위 스코프에 대한 참조는 함수 정의가 평가되는 시점에 함수가 정의된 환경(위치)에 의해 결정된다. 이것이 바로 렉시컬 스코프다.
+렉시컬 환경의 "외부 렉시컬 환경에 대한 참조"에 저장할 참조값,
+즉 상위 스코프에 대한 참조는 함수 정의가 평가되는 시점에 함수가 정의된 환경(위치)에 의해 결정된다. 이것이 바로 렉시컬 스코프다.
 
 ## 2. 함수 객체의 내부 슬롯 `[[Environment]]`
 
@@ -91,7 +96,8 @@ bar(); // ?
 즉 상위 스코프를 기억해야한다. 이를 위해 함수는 자신의 내부 슬롯 `[[Environment]]`에 자신이 정의된 환경
 즉 상위 스코프의 참조를 저장한다.
 
-함수 객체의 내부 슬롯 `[[Environment]]`에 저장된 현재 실행 중인 실행 컨텍스트의 렉시컬 환경의 참조가 바로 상위 스코프다. 또한 자신이 호출되었을 때 생성될 함수 렉시컬 환경의 "외부 렉시컬 환경에 대한 참조"에 저장될 참조값이다. 함수 객체는 내부 슬롯 `[[Environment]]`에 저장된 렉시컬 환경의 참조, 즉 상위 스코프를 자신이 존재하는 한 기억한다.
+함수 객체의 내부 슬롯 `[[Environment]]`에 저장된 현재 실행 중인 실행 컨텍스트의 렉시컬 환경의 참조가 바로 상위 스코프다.
+또한 자신이 호출되었을 때 생성될 함수 렉시컬 환경의 "외부 렉시컬 환경에 대한 참조"에 저장될 참조값이다. 함수 객체는 내부 슬롯 `[[Environment]]`에 저장된 렉시컬 환경의 참조, 즉 상위 스코프를 자신이 존재하는 한 기억한다.
 
 ```js
 const x = 1;
@@ -474,7 +480,7 @@ console.log(decreaser()); // -2
 ```js
 function Person(name, age) {
   this.name = name; // public
-  let _age = age;   // private
+  let _age = age; // private
 
   // 인스턴스 메서드
   this.sayHi = function () {
@@ -482,19 +488,19 @@ function Person(name, age) {
   };
 }
 
-const me = new Person('Lee', 20);
+const me = new Person("Lee", 20);
 me.sayHi(); // Hi! My name is Lee. I am 20.
 console.log(me.name); // Lee
 console.log(me._age); // undefined
 
-const you = new Person('Kim', 30);
+const you = new Person("Kim", 30);
 you.sayHi(); // Hi! My name is Kim. I am 30.
 console.log(you.name); // Kim
 console.log(you._age); // undefined
 ```
 
 위 예제의 name 프로퍼티는 현재 외부로 공개되어 있어서 자유롭게 참조하거나 변경할 수 있다.
-즉, name 프로퍼티는 public하다. 하지만 _age 변수는 Person 생성자 함수의 지역 변수이므로 Person 생성자 함수 외부에서 참조하거나 변경할  수 없다. 즉, _age 변수는 private하다.
+즉, name 프로퍼티는 public하다. 하지만 \_age 변수는 Person 생성자 함수의 지역 변수이므로 Person 생성자 함수 외부에서 참조하거나 변경할 수 없다. 즉,\_age 변수는 private하다.
 
 하지만 위 예제의 `sayHi` 메서드는 인스턴스 메서드이므로 Person 객체가 생성될 때 마다 중복 생성된다.
 `sayHi` 메서드를 프로토타입 메서드로 변경하여 `sayHi` 메서드의 중복 생성을 방지해보자.
@@ -502,7 +508,7 @@ console.log(you._age); // undefined
 ```js
 function Person(name, age) {
   this.name = name; // public
-  let _age = age;   // private
+  let _age = age; // private
 }
 
 // 프로토타입 메서드
@@ -512,7 +518,7 @@ Person.prototype.sayHi = function () {
 };
 ```
 
-이때 Person.prototype.sayHi 메서드 내에서 Person 생성자 함수의 지역 변수 _age를 참조할 수 없는 문제가 발생한다.
+이때 Person.prototype.sayHi 메서드 내에서 Person 생성자 함수의 지역 변수 \_age를 참조할 수 없는 문제가 발생한다.
 
 ```js
 const Person = (function () {
@@ -531,26 +537,27 @@ const Person = (function () {
 
   // 생성자 함수를 반환
   return Person;
-}());
+})();
 
-const me = new Person('Lee', 20);
+const me = new Person("Lee", 20);
 me.sayHi(); // Hi! My name is Lee. I am 20.
 console.log(me.name); // Lee
 console.log(me._age); // undefined
 
-const you = new Person('Kim', 30);
+const you = new Person("Kim", 30);
 you.sayHi(); // Hi! My name is Kim. I am 30.
 console.log(you.name); // Kim
 console.log(you._age); // undefined
 ```
 
-위 패턴을 사용하면 public, private, protected같은 접근 제한자를 제공하지 않는 자바스크립트에서도 정보 은닉이 가능한 것처럼 보인다. 하지만 위 코드도 문제가 있다. Person 생성자 함수가 여러 개의 인스턴스를 생성할 경우 다음과 같이 _age 변수의 상태가 유지되지 않는다는 것이다.
+위 패턴을 사용하면 public, private, protected같은 접근 제한자를 제공하지 않는 자바스크립트에서도 정보 은닉이 가능한 것처럼 보인다.
+하지만 위 코드도 문제가 있다. Person 생성자 함수가 여러 개의 인스턴스를 생성할 경우 다음과 같이 \_age 변수의 상태가 유지되지 않는다는 것이다.
 
 ```js
-const me = new Person('Lee', 20);
+const me = new Person("Lee", 20);
 me.sayHi(); // Hi! My name is Lee. I am 20.
 
-const you = new Person('Kim', 30);
+const you = new Person("Kim", 30);
 you.sayHi(); // Hi! My name is Kim. I am 30.
 
 // _age 변수 값이 변경된다!
@@ -565,7 +572,9 @@ me.sayHi(); // Hi! My name is Lee. I am 30.
 var funcs = [];
 
 for (var i = 0; i < 3; i++) {
-  funcs[i] = function () { return i; }; // ①
+  funcs[i] = function () {
+    return i;
+  }; // ①
 }
 
 for (var j = 0; j < funcs.length; j++) {
@@ -582,12 +591,13 @@ for (var j = 0; j < funcs.length; j++) {
 ```js
 var funcs = [];
 
-for (var i = 0; i < 3; i++){
-  funcs[i] = (function (id) { // ①
+for (var i = 0; i < 3; i++) {
+  funcs[i] = (function (id) {
+    // ①
     return function () {
       return id;
     };
-  }(i));
+  })(i);
 }
 
 for (var j = 0; j < funcs.length; j++) {
@@ -595,13 +605,16 @@ for (var j = 0; j < funcs.length; j++) {
 }
 ```
 
-위 예제는 자바스크립트의 함수가 함수 레벨 스코프 특성으로 인해 for 문의 변수 선언문에서 var 키워드로 선언한 변수가 전역 변수가 되기 때문에 발생하는 현상이다. ES6의 let 키워드를 사용하면 이 같은 번거로움이 깔끔하게 해결된다.
+위 예제는 자바스크립트의 함수가 함수 레벨 스코프 특성으로 인해 for 문의 변수 선언문에서 var 키워드로 선언한 변수가 전역 변수가 되기 때문에 발생하는 현상이다.
+ES6의 let 키워드를 사용하면 이 같은 번거로움이 깔끔하게 해결된다.
 
 ```js
 const funcs = [];
 
 for (let i = 0; i < 3; i++) {
-  funcs[i] = function () { return i; };
+  funcs[i] = function () {
+    return i;
+  };
 }
 
 for (let i = 0; i < funcs.length; i++) {
@@ -621,7 +634,7 @@ let이나 const를 사용하는 반복문은 코드 블록을 반복 실행할 �
 const funcs = Array.from(new Array(3), (_, i) => () => i); // (3) [ƒ, ƒ, ƒ]
 
 // 배열의 요소로 추가된 함수 들을 순차적으로 호출한다.
-funcs.forEach(f => console.log(f())); // 0 1 2
+funcs.forEach((f) => console.log(f())); // 0 1 2
 ```
 
 Array 생성자 함수와 메서드에 대해서는 27장 "배열"에서 자세히 살펴보도록 하자.

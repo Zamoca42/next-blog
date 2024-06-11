@@ -1,7 +1,6 @@
 ---
 title: 7. 연산자
-category:
-  - JS & TS
+date: "2023-09-28"
 tag:
   - JavaScript
 ---
@@ -31,6 +30,8 @@ typeof "Hi"; //-> string
 ```
 
 연산자는 값으로 평가된 피연산자를 연산해 새로운 값을 만든다.
+
+<!-- end -->
 
 ## 1. 산술 연산자
 

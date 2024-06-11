@@ -4,30 +4,29 @@ import { ClassAttributes, ImgHTMLAttributes } from "react";
 import { ExtraProps } from "react-markdown";
 import Image from "next/image";
 
-type CodeTitleProps = ClassAttributes<HTMLImageElement> &
+type ImageInPostProps = ClassAttributes<HTMLImageElement> &
   ImgHTMLAttributes<HTMLImageElement> &
   ExtraProps;
 
-const ImageInPost: React.FC<CodeTitleProps> = (props) => {
+const ImageInPost: React.FC<ImageInPostProps> = (props) => {
   const { node, alt, width, height, src, ...rest } = props;
   const parsedSrc = src ?? "/asset/blog/dynamic-routing/cover.jpg";
   const paredAlt = alt ?? "image";
   return (
-    <span className="flex flex-col items-center justify-center p-1 md:p-4">
+    <span className="flex flex-col items-center justify-center">
       <Image
-        width={768}
-        height={500}
+        width="0"
+        height="0"
+        sizes="100vw"
+        className="w-full h-auto rounded-xl p-2"
         alt={paredAlt}
         src={parsedSrc}
         {...rest}
-        className="rounded-xl"
         quality={80}
-        priority={true}
+        priority
         unoptimized
       />
-      {alt && (
-        <span className="md:p-2 text-sm text-muted-foreground">{paredAlt}</span>
-      )}
+      {alt && <span className="text-sm text-muted-foreground">{paredAlt}</span>}
     </span>
   );
 };

@@ -1,7 +1,6 @@
 ---
 title: GitHub-flow
-category:
-  - etc.
+date: "2023-09-28"
 tag:
   - Git
   - Strategy
@@ -14,6 +13,8 @@ tag:
 - 수시로 배포가 일어나며, CI와 배포가 자동화된 프로젝트
 - Release Branch가 명확하게 구분되지 않은 시스템
 - Pull Request 기능을 사용
+
+<!-- end -->
 
 ## GitHub-flow의 흐름
 

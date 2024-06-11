@@ -1,11 +1,11 @@
-import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constants";
+import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constant";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/style/globals.css";
 import { NavBar } from "@/component/layout/nav-bar";
-import { SideBarProvider } from "@/component/provider";
+import { SideBarProvider } from "@/component/sidebar-provider";
 import { ThemeProvider } from "@/component/theme-provider";
-import dynamic from "next/dynamic";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,7 +42,7 @@ export default function RootLayout({
           sizes="16x16"
           href="/favicon/favicon-16x16.png"
         />
-        <link rel="manifest" href="/favicon/site.webmanifest" />
+        <link rel="/manifest" href="/favicon/site.webmanifest" />
         <link
           rel="mask-icon"
           href="/favicon/safari-pinned-tab.svg"
@@ -64,6 +64,7 @@ export default function RootLayout({
             <div className="max-w-8xl mx-auto">{children}</div>
           </SideBarProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

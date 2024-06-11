@@ -1,7 +1,6 @@
 ---
 title: 39. DOM
-category:
-  - JS & TS
+date: "2023-11-05"
 tag:
   - JavaScript
 ---
@@ -678,7 +677,7 @@ HTML 마크업이 파싱되어 요소 노드의 자식 노드로 DOM에 반영
 </html>
 ```
 
-:::info HTML sanitization
+:::info{title="HTML sanitization"}
 
 크로스 사이트 스크립팅 공격을 예방하기 위해 잠재적 위험을 제거하는 기능을 말한다.
 DOMPurify 라이브러리를 사용하는 것을 권장한다.

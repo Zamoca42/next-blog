@@ -1,13 +1,18 @@
 "use client";
 
-import { useSideBar } from "@/component/provider";
-import { Tree, TreeViewElement } from "@/component/layout/tree-view-api";
+import { useSideBar } from "@/component/sidebar-provider";
+import { Tree, TreeViewElement } from "@/component/ui/tree-view-api";
 import { TreeItem } from "@/component/layout/tree-item";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { TocItem } from "remark-flexible-toc";
+import { ChevronRight, ChevronLeft } from "lucide-react";
 
-export const SideBar = ({ toc }: { toc: TocItem[] }) => {
+type Props = {
+  toc: TocItem[];
+};
+
+export const SideBar = ({ toc }: Props) => {
   const { folders, path, isOpen, setIsOpen } = useSideBar();
   const [elements, setElements] = useState<TreeViewElement[]>([]);
   const pathname = usePathname();
@@ -34,7 +39,7 @@ export const SideBar = ({ toc }: { toc: TocItem[] }) => {
       >
         <div className={`max-w-full`}>
           <Tree
-            className="w-full max-h-screen bg-background"
+            className="w-full max-h-screen bg-background text-muted-foreground"
             indicator={true}
             initialExpendedItems={pathname.split("/").slice(1)}
           >
@@ -51,7 +56,7 @@ export const SideBar = ({ toc }: { toc: TocItem[] }) => {
           }`}
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="text-gray-600 text-lg ">{isOpen ? "<" : ">"}</span>
+        {isOpen ? <ChevronLeft /> : <ChevronRight />}
       </button>
     </aside>
   );

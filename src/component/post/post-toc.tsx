@@ -12,37 +12,35 @@ export const PostToc = ({ toc }: PostTocProps) => {
   const [activeToc, setActiveToc] = useState("");
 
   useEffect(() => {
-    const postContent = document.querySelector(".prose");
+    const handleScroll = () => {
+      const article = document.querySelector("article");
+      if (!article) return;
 
-    if (postContent) {
-      const handleScroll = () => {
-        const elements = postContent.querySelectorAll("h1, h2, h3");
-        const scrollPosition = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
+      const elements = article.querySelectorAll("h1, h2");
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
 
-        elements.forEach((element) => {
-          const elementTop =
-            element.getBoundingClientRect().top + window.scrollY;
-          const elementBottom = elementTop + element.clientHeight;
+      elements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top + window.scrollY;
+        const elementBottom = elementTop + element.clientHeight;
 
-          if (
-            (elementTop <= scrollPosition + 100 &&
-              elementBottom >= scrollPosition) ||
-            (scrollPosition + windowHeight === documentHeight &&
-              elementBottom >= scrollPosition)
-          ) {
-            const id = element.getAttribute("id");
-            setActiveToc(`#${id}`);
-          }
-        });
-      };
+        if (
+          (elementTop <= scrollPosition + 100 &&
+            elementBottom >= scrollPosition) ||
+          (scrollPosition + windowHeight === documentHeight &&
+            elementBottom >= scrollPosition)
+        ) {
+          const id = element.getAttribute("id");
+          setActiveToc(`#${id}`);
+        }
+      });
+    };
 
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    }
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   if (toc.length === 0) {
@@ -50,7 +48,7 @@ export const PostToc = ({ toc }: PostTocProps) => {
   }
 
   return (
-    <ul className="border-s-[1px] pl-1 space-y-2 xl:pl-4">
+    <ul className="border-s pl-1 ml-2 space-y-2 xl:pl-4 text-muted-foreground">
       {toc.map((item) => (
         <li
           key={item.href}

@@ -1,8 +1,7 @@
 ---
 title: CI/CD란?
 order: 1
-category:
-  - Infra.
+date: "2024-02-12"
 tag:
   - CI
   - CD
@@ -13,6 +12,8 @@ tag:
 CI/CD (Continuous Integration/Continuous Delivery)는 새로운 코드 통합으로 인해 개발 및 운영팀에 발생하는
 통합 지옥(integration hell)을 자동화하여 애플리케이션을 더욱 짧은 주기로 고객에게 제공하는 방법입니다.
 CI/CD의 기본 개념은 지속적인 통합, 지속적인 서비스 제공, 지속적인 배포입니다.
+
+<!-- end -->
 
 ## 1. 지속적 통합(CI)
 

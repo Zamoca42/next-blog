@@ -1,13 +1,14 @@
 ---
 title: EC2에 Django 서버 배포하기
 order: 3
-category:
-  - Infra.
+date: "2024-02-12"
 tag:
   - CD
 ---
 
 이번 글에서는 GitHub Actions에서 AWS CodeDeploy에 전달하고 EC2에 Django 서버를 배포하는 것까지 진행해보겠습니다.
+
+<!-- end -->
 
 ## CodeDeploy
 

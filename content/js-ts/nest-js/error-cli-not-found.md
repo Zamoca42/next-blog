@@ -1,7 +1,6 @@
 ---
 title: sh 1 nest not found 오류
-category:
-  - JS & TS
+date: "2023-12-28"
 tag:
   - NestJS
   - Error
@@ -12,6 +11,8 @@ star: true
 왜 이런 오류가 발생하는지 어떻게 해결했는지 포스트로 기록한다.
 
 ![Render로 배포시 발생한 not found 오류](https://github.com/develop-pix/dump-in-Admin-BE/assets/96982072/bf72345c-c77e-48b3-a173-41d3a702ca19)
+
+<!-- end -->
 
 ## 원인
 

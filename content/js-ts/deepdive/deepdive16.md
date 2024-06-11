@@ -1,5 +1,8 @@
 ---
 title: 16. 프로퍼티 어트리뷰트
+date: "2023-10-01"
+tag:
+  - JavaScript
 ---
 
 ## 1. 내부 슬롯과 내부 메서드
@@ -10,11 +13,15 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
 
 ![그림 16-1. 내부 슬롯과 내부 메서드](https://github.com/Zamoca42/blog/assets/96982072/3f224dcd-f0d8-42f5-a713-7dded3781068)
 
+<!-- end -->
+
 내부 슬롯과 내부 메서드는 ECMAScript 사양에 정의된 대로 구현되어 자바스크립트 엔진에서 실제로 동작하지만
 엔진의 내부 로직이므로 원칙적으로 직접적으로 접근하거나 호출할 수 있는 방법을 제공하지 않는다.
 단, 일부에 한하여 간접적으로 접근할 수 있는 수단을 제공하기는 한다.
 
-예를 들어, 모든 객체는 `[[Prototype]]`이라는 내부 슬롯을 갖는다. 내부 슬롯은 자바스크립트 엔진의 내부 로직이므로 원칙적으로 직접 접근할 수 없지만 `[[Prototype]]` 내부 슬롯의 경우, `__proto__`를 통해 간접적으로 접근할 수 있다.
+예를 들어, 모든 객체는 `[[Prototype]]`이라는 내부 슬롯을 갖는다.
+내부 슬롯은 자바스크립트 엔진의 내부 로직이므로 원칙적으로 직접 접근할 수 없지만
+`[[Prototype]]` 내부 슬롯의 경우, `__proto__`를 통해 간접적으로 접근할 수 있다.
 
 ```js
 const o = {};
@@ -61,9 +68,7 @@ person.age = 20;
 console.log(Object.getOwnPropertyDescriptors(person));
 ```
 
-출력 결과
-
-```
+```js:result
 {
   name: {value: "Lee", writable: true, enumerable: true, configurable: true},
   age: {value: 20, writable: true, enumerable: true, configurable: true}
@@ -171,11 +176,13 @@ console.log(Object.getOwnPropertyDescriptor(person, "fullName"));
 
 4. 접근자 프로퍼티 `fullName`의 프로퍼티 어트리뷰트 `[[Get]]`을 호출하여 결과 반환
 
-:::info 프로토타입(prototype)
+:::info{title="프로토타입(prototype)"}
 
 > :pushpin: [프로토타입 설명 영상 - 코딩애플](https://youtu.be/wUgmzvExL_E?si=LPjjWjA5Hb3iA4wr)
 
-프로토타입은 어떤 객체의 상위(부모)객체 역할을 하는 객체다. 프로토타입은 하위(자식)객체에게 자신의 프로퍼티와 메서드를 상속한다. 프로토타입을 상속받은 하위 객체는 자신의 프로퍼티 또는 메서드인 것처럼 자유롭게 사용할 수 있다.
+프로토타입은 어떤 객체의 상위(부모)객체 역할을 하는 객체다.
+프로토타입은 하위(자식)객체에게 자신의 프로퍼티와 메서드를 상속한다.
+프로토타입을 상속받은 하위 객체는 자신의 프로퍼티 또는 메서드인 것처럼 자유롭게 사용할 수 있다.
 
 프로토타입 체인은 프로토타입 단방향 링크드 리스트 형태로 연결되어 있는 상속 구조를 말한다.
 객체의 프로퍼티나 메서드에 접근하려고 할 때 해당 객체에 접근하려는 프로퍼티 또는 메서드가 없다면 프로토타입 체인을 따라 프로토타입의 프로퍼티나 메서드를 차례대로 검색한다.
@@ -438,7 +445,8 @@ Object.defineProperty(person, "name", { configurable: true });
 
 ### 5.4. 불변 객체
 
-지금까지 살펴본 변경 방지 메서드들은 얕은 변경 방지로 직속 프로퍼티만 변경이 방지되고 중첩 객체까지는 영향을 주지 못한다. 따라서 `Object.freeze` 메서드로 객체를 동결하여도 중첩 객체까지는 동결할 수 없다.
+지금까지 살펴본 변경 방지 메서드들은 얕은 변경 방지로 직속 프로퍼티만 변경이 방지되고 중첩 객체까지는 영향을 주지 못한다.
+따라서 `Object.freeze` 메서드로 객체를 동결하여도 중첩 객체까지는 동결할 수 없다.
 
 ```js
 const person = {
@@ -459,7 +467,8 @@ perosn.address.city = "Busan";
 console.log(person); // {name: "Lee", address: {city: "Busan"}}
 ```
 
-객체의 중첩 객체까지 동결하여 변경이 불가능한 읽기 전용의 불변 객체를 구현하려면 객체를 값으로 갖는 모든 프로퍼티에 대해 재귀적으로 `Object.freeze` 메서드를 호출해야 한다.
+객체의 중첩 객체까지 동결하여 변경이 불가능한 읽기 전용의 불변 객체를 구현하려면
+객체를 값으로 갖는 모든 프로퍼티에 대해 재귀적으로 `Object.freeze` 메서드를 호출해야 한다.
 
 ```js
 function deepFreeze(target) {

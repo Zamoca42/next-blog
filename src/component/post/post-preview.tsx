@@ -1,31 +1,51 @@
-import { type Author } from "@/interface/author";
 import Link from "next/link";
-import Avatar from "../ui/avatar";
-import CoverImage from "../ui/cover-image";
-import DateFormatter from "../ui/date-formatter";
+import DateBox from "@/component/layout/date-box";
+import Tag from "@/component/layout/tag";
+import { Star } from "lucide-react";
+import { MarkdownBody, previewPlugins } from "@/component/post/markdown-body";
+import { Post } from "@/interface/post";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/component/ui/card";
 
 type Props = {
-  title: string;
   date: string;
-  description: string;
-  slug: string;
-};
+} & Post;
 
-export function PostPreview({ title, date, description, slug }: Props) {
+export function PostPreview({
+  title,
+  date,
+  description,
+  slug,
+  tags,
+  star,
+  excerpt,
+}: Props) {
   return (
-    <div>
-      <div className="mb-5">
-        {/* <CoverImage slug={slug} title={title} src={coverImage} /> */}
-      </div>
-      <h3 className="text-3xl mb-3 leading-snug">
-        <Link href={`/post/${slug}`} className="hover:underline">
-          {title}
-        </Link>
-      </h3>
-      <div className="text-lg mb-4">
-        <DateFormatter dateString={date} />
-      </div>
-      <p className="text-lg leading-relaxed mb-4">{description}</p>
-    </div>
+    <Card>
+      <CardHeader>
+        <CardTitle>
+          <Link href={`/post/${slug}`} className="nav-underline">
+            {title}
+          </Link>
+        </CardTitle>
+        <CardDescription>{description}</CardDescription>
+      </CardHeader>
+      <CardContent className="w-full">
+        {excerpt && (
+          <MarkdownBody content={excerpt} remarkPlugins={previewPlugins} />
+        )}
+      </CardContent>
+      <CardFooter className="flex space-x-2 items-center text-muted-foreground">
+        <DateBox dateString={date} />
+        <Tag tags={tags} />
+        {star && <Star className="w-4 h-4" />}
+      </CardFooter>
+    </Card>
   );
 }

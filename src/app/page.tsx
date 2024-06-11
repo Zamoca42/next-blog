@@ -17,12 +17,7 @@ export default async function Index() {
       <main>
         <Container>
           <Intro />
-          <HeroPost
-            title={heroPost.title}
-            date={heroPost.createdAt}
-            slug={heroPost.slug}
-            description={heroPost.description}
-          />
+          <HeroPost date={heroPost.createdAt} {...heroPost} />
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </main>
