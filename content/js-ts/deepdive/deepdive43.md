@@ -1,7 +1,6 @@
 ---
 title: 43. Ajax
-category:
-  - JS & TS
+date: "2023-11-21"
 tag:
   - JavaScript
 ---

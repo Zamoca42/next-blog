@@ -1,7 +1,6 @@
 ---
 title: 10. 객체 리터럴
-category:
-  - JS & TS
+date: "2023-09-28"
 tag:
   - JavaScript
 ---
@@ -30,6 +29,8 @@ tag:
 ![10-3](https://github.com/Zamoca42/blog/assets/96982072/59e3746c-4e49-44b9-9eb5-3a45167f4e8b)
 
 객체의 집합으로 프로그램을 표현하려는 프로그래밍 패러다임을 객체지향 프로그래밍이라 한다.
+
+<!--end-->
 
 ## 2. 객체 리터럴에 의한 객체 생성
 

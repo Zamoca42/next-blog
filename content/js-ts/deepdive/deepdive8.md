@@ -1,7 +1,6 @@
 ---
 title: 8. 제어문
-category:
-  - JS & TS
+date: "2023-09-28"
 tag:
   - JavaScript
 ---
@@ -32,6 +31,8 @@ function sum(a, b) {
   return a + b;
 }
 ```
+
+<!--end-->
 
 ## 2. 조건문
 

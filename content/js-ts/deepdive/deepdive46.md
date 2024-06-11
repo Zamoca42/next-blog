@@ -1,7 +1,6 @@
 ---
 title: 46. 제너레이터와 async/await
-category:
-  - JS & TS
+date: "2023-11-23"
 tag:
   - JavaScript
 ---

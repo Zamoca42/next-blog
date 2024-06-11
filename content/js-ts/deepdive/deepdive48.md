@@ -1,7 +1,6 @@
 ---
 title: 48. 모듈
-category:
-  - JS & TS
+date: "2023-11-26"
 tag:
   - JavaScript
 ---

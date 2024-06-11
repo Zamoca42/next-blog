@@ -1,7 +1,6 @@
 ---
 title: 39. DOM
-category:
-  - JS & TS
+date: "2023-11-05"
 tag:
   - JavaScript
 ---

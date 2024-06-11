@@ -1,7 +1,6 @@
 ---
 title: 41. 타이머
-category:
-  - JS & TS
+date: "2023-11-20"
 tag:
   - JavaScript
 ---

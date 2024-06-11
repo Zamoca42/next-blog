@@ -1,7 +1,6 @@
 ---
 title: 40. 이벤트
-category:
-  - JS & TS
+date: "2023-11-17"
 tag:
   - JavaScript
 ---

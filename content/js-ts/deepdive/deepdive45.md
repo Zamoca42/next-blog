@@ -1,7 +1,6 @@
 ---
 title: 45. 프로미스
-category:
-  - JS & TS
+date: "2023-11-22"
 tag:
   - JavaScript
 ---
