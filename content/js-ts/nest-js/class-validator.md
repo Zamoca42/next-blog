@@ -13,7 +13,7 @@ star: true
 이 부분은 `class-validator` 패키지가 필요하다.
 [`class-validator`][class-validator]는 데코레이터를 기반으로 Dto들의 검증을 담당한다.
 
-<!--end-->
+<!-- end -->
 
 ## class-validator 설치
 

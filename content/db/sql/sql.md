@@ -19,7 +19,7 @@ date: "2023-09-28"
   - MySQL
   - SQLite
 
-<!--end-->
+<!-- end -->
 
 ## SQL 명령의 종류
 

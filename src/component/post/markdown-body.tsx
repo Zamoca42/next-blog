@@ -14,11 +14,7 @@ import remarkUnwrapImages from "remark-unwrap-images";
 import remarkDirectiveRehype from "remark-directive-rehype";
 import remarkDirective from "remark-directive";
 import emoji from "remark-emoji";
-import {
-  customRehypePrism,
-  removeHeadings,
-  remarkStripHtmlComments,
-} from "@/lib/unified-plugin";
+import { customRehypePrism, removeHeadings } from "@/lib/unified-plugin";
 import {
   DirectiveDetails,
   InfoDirective,
@@ -55,7 +51,7 @@ export function MarkdownBody({
           },
         ],
         remarkUnwrapImages,
-        remarkStripHtmlComments,
+        // remarkStripHtmlComments,
         remarkDirective,
         remarkDirectiveRehype,
         ...remarkPlugins,

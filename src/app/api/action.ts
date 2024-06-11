@@ -101,7 +101,7 @@ export const getPostBySlug = async (slug: string): Promise<Post> => {
   const fallbackDate = formatISO(new Date());
   const { data, content, excerpt } = matter(fileContents, {
     excerpt: true,
-    excerpt_separator: "<!--end-->",
+    excerpt_separator: "<!-- end -->",
   });
 
   const gitInfo = readGitInfo();

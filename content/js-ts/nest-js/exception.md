@@ -14,7 +14,7 @@ star: true
 
 ![어디서 많이 본 로직이 보였다.](https://github.com/develop-pix/dump-in-Admin-BE/assets/96982072/ef451050-bdfe-4e59-a4c1-7030c6f181aa)
 
-<!--end-->
+<!-- end -->
 
 TypeORM을 사용하는 프로젝트에서 단건으로 조회할 때 데이터가 없으면 바로 예외처리를 해주는 로직으로 설정하고있었다.
 

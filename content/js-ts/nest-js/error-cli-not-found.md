@@ -12,7 +12,7 @@ star: true
 
 ![Render로 배포시 발생한 not found 오류](https://github.com/develop-pix/dump-in-Admin-BE/assets/96982072/bf72345c-c77e-48b3-a173-41d3a702ca19)
 
-<!--end-->
+<!-- end -->
 
 ## 원인
 

@@ -16,7 +16,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
 
 이 글에서는 이 경고 메시지가 발생하는 이유와 해결 방법에 대해 알아보려고 한다.
 
-<!--end-->
+<!-- end -->
 
 ## Prisma Client 인스턴스 생성
 

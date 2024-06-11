@@ -16,7 +16,7 @@ LIMIT 구로 결과 행을 제한하는 방법에 관해 알아보겠습니다.
 SELECT 열명 FROM 테이블명 LIMIT 행수 [OFFSET 시작행]
 ```
 
-<!--end-->
+<!-- end -->
 
 ### **예제용 테이블: sample33**
 

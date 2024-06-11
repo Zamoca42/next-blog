@@ -15,7 +15,7 @@ date: "2023-12-28"
 
 여러 방법이 있겠지만 처음에는 맛집 목록을 내 위치 기준으로 범위만큼 위도나 경도를 빼거나 더해서 가져왔습니다.
 
-<!--end-->
+<!-- end -->
 
 **restaurant-guide.repository.ts (findRestaurantsInRange) 메서드**
 

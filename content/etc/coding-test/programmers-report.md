@@ -8,7 +8,7 @@ tag:
 
 프로그래머스 [신고 결과 받기][report] 문제입니다
 
-<!--end-->
+<!-- end -->
 
 ```python
 def solution(id_list, report, k):

@@ -15,7 +15,7 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
 
 `main`에 `post`를 합치고 싶다면 `main` 브랜치로 이동
 
-<!--end-->
+<!-- end -->
 
 ```bash
 git checkout main

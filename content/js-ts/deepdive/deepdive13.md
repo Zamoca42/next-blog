@@ -23,7 +23,7 @@ add(2, 5);
 console.log(x, y); // ReferenceError
 ```
 
-<!--end-->
+<!-- end -->
 
 ```js:실행_결과는?
 var x = "global";

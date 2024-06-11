@@ -14,7 +14,7 @@ star: true
 git config --global core.editor "code --wait"
 ```
 
-<!--end-->
+<!-- end -->
 
 **CRLF 설정**
 

@@ -16,7 +16,7 @@ DevContainer는 주로 Visual Studio Code와 같은 통합 개발 환경(IDE)에
 Visual Studio Code의 확장 앱을 통해 구성할 수 있습니다.
 이를 통해 프로젝트를 개발하는 동안 개발 환경을 컨테이너 내에서 실행하고 호스트 시스템과 분리시키는 것이 가능합니다.
 
-<!--end-->
+<!-- end -->
 
 ![VSCode DevContainer 확장 앱](https://github.com/Zamoca42/blog/assets/96982072/5752ba51-596b-4cde-a572-ec0e39f8e8ed)
 

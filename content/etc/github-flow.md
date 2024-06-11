@@ -14,7 +14,7 @@ tag:
 - Release Branch가 명확하게 구분되지 않은 시스템
 - Pull Request 기능을 사용
 
-<!--end-->
+<!-- end -->
 
 ## GitHub-flow의 흐름
 

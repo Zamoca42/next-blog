@@ -25,7 +25,7 @@ app.use(
 );
 ```
 
-<!--end-->
+<!-- end -->
 
 #### with Fastify
 

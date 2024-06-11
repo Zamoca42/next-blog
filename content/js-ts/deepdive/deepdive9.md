@@ -32,7 +32,7 @@ console.log(typeof str, str); //string 10
 console.log(typeof x, x); //number 10
 ```
 
-<!--end-->
+<!-- end -->
 
 ## 2. 암묵적 타입 변환
 
