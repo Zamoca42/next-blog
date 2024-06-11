@@ -23,8 +23,6 @@ const ImageInPost: React.FC<ImageInPostProps> = (props) => {
         src={parsedSrc}
         {...rest}
         quality={80}
-        priority
-        unoptimized
       />
       {alt && <span className="text-sm text-muted-foreground">{paredAlt}</span>}
     </span>
