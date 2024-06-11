@@ -74,6 +74,7 @@ export const NavBar = () => {
                   width={32}
                   height={32}
                   alt="logo"
+                  priority
                 />
                 <span className="hidden md:flex">
                   {blogConfig.name ?? "Blog"}

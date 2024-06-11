@@ -2,7 +2,6 @@
 
 import { blogConfig } from "@/blog.config";
 import { usePathname, useRouter } from "next/navigation";
-import { useSideBar } from "@/component/sidebar-provider";
 import { getAllPosts } from "@/app/api/action";
 import clsx from "clsx";
 import { Fragment } from "react";
@@ -24,7 +23,6 @@ export const PostLink = ({
 }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
-  const { setPath } = useSideBar();
   const { navLink } = blogConfig;
 
   const handleRouter = (path: string) => {
@@ -41,8 +39,6 @@ export const PostLink = ({
       post.slug.split("/").includes(path)
     );
     router.push(`/post/${matchedPosts[0].slug}`);
-
-    setPath(path);
 
     if (toggleMenu) {
       toggleMenu();

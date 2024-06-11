@@ -13,18 +13,20 @@ type Props = {
 };
 
 export const SideBar = ({ toc }: Props) => {
-  const { folders, path, isOpen, setIsOpen } = useSideBar();
+  const { folders, isOpen, setIsOpen } = useSideBar();
   const [elements, setElements] = useState<TreeViewElement[]>([]);
   const pathname = usePathname();
 
   useEffect(() => {
     const fetchFolders = () => {
-      const pathFolders = folders.filter((folder) => folder.path === path);
+      const pathFolders = folders.filter(
+        (folder) => folder.path === pathname.split("/")[2]
+      );
       setElements(pathFolders);
     };
 
     fetchFolders();
-  }, [path, pathname]);
+  }, [folders]);
 
   return (
     <aside className="h-full z-0">
