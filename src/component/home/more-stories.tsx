@@ -1,21 +1,25 @@
 "use client";
 
-import { useState } from "react";
-import { Post } from "@/interface/post";
+import { useEffect, useState } from "react";
 import { PostPreview } from "@/component/post/post-preview";
 import { Pagination } from "@/component/home/generate-pagination";
 import { Button } from "@/component/ui/button";
 import { Badge } from "@/component/ui/badge";
+import { usePostList } from "@/component/post-provider";
+import { Post } from "@/interface/post";
 
-type Props = {
-  posts: Post[];
-};
-
-export function MoreStories({ posts }: Props) {
+export function MoreStories() {
+  const { allPosts } = usePostList();
+  const [posts, setPosts] = useState<Post[]>();
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedFilter, setSelectedFilter] = useState<"all" | "star">("all");
   const postsPerPage = 10;
+  
+  useEffect(() => {
+    if (allPosts.length !== 0) setPosts(allPosts.slice(1));
+  }, [allPosts]);
 
+  if (!posts) return null;
   const starredPost = posts.filter((post) => post.star === true);
   const filteredPosts = selectedFilter === "all" ? posts : starredPost;
 

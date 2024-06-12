@@ -5,7 +5,8 @@ import "@/style/globals.css";
 import { NavBar } from "@/component/layout/nav-bar";
 import { SideBarProvider } from "@/component/sidebar-provider";
 import { ThemeProvider } from "@/component/theme-provider";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import { PostsProvider } from "@/component/post-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -59,10 +60,12 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <SideBarProvider>
-            <NavBar />
-            <div className="max-w-8xl mx-auto">{children}</div>
-          </SideBarProvider>
+          <PostsProvider>
+            <SideBarProvider>
+              <NavBar />
+              <div className="max-w-8xl mx-auto">{children}</div>
+            </SideBarProvider>
+          </PostsProvider>
         </ThemeProvider>
         <Analytics />
       </body>
