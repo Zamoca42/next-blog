@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { Fragment } from "react";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { Button } from "@/component/ui/button";
+import { usePostList } from "@/component/post-provider";
 
 type Props = {
   toggleMenu?: () => void;
@@ -22,6 +23,7 @@ export const PostLink = ({
   notMatchedPathClass = "",
 }: Props) => {
   const pathname = usePathname();
+  const { allPosts: posts } = usePostList();
   const router = useRouter();
   const { navLink } = blogConfig;
 
@@ -34,7 +36,6 @@ export const PostLink = ({
   };
 
   const handlePostRouter = async (path: string) => {
-    const posts = await getAllPosts();
     const matchedPosts = posts.filter((post) =>
       post.slug.split("/").includes(path)
     );
@@ -89,7 +90,7 @@ export const ExternalLinkWithMode = () => {
         <Button
           variant="link"
           size="sm"
-          onClick={() => router.push(githubLink)}
+          onClick={() => window.open(githubLink, "_blank")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +113,7 @@ export const ExternalLinkWithMode = () => {
         <Button
           variant="link"
           size="sm"
-          onClick={() => router.push(linkedinLink)}
+          onClick={() => window.open(linkedinLink, "_blank")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -368,10 +368,6 @@ pre {
 
 .code-line {
   display: block;
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-left: -16px;
-  margin-right: -16px;
   border-left: 4px solid rgba(0, 0, 0, 0); /* Set placeholder for highlight accent border color to transparent */
 }
 
@@ -393,13 +389,13 @@ pre {
 .line-number::before {
   display: inline-block;
   position: absolute;
-  left: 4px;
-  width: 3rem;
+  left: 2px;
+  width: 2.5rem;
   text-align: right;
-  padding-right: 2rem;
-  padding-left: 1rem;
-  margin-right: 16px;
-  margin-left: -8px;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  margin-right: 1rem;
+  margin-left: -0.25rem;
   background: #2d2d2d;
   border-right: 1px solid rgba(156, 163, 175, 0.5);
   color: rgb(156, 163, 175); /* Line number color */

@@ -1,7 +1,8 @@
 "use client";
 
-import { ClassAttributes, HTMLAttributes } from "react";
+import { ClassAttributes, HTMLAttributes, useState } from "react";
 import { ExtraProps } from "react-markdown";
+import { Check, Clipboard } from "lucide-react";
 
 type CodeTitleProps = ClassAttributes<HTMLDivElement> &
   HTMLAttributes<HTMLDivElement> &
@@ -17,13 +18,32 @@ const CodeTitle: React.FC<CodeTitleProps> = (props) => {
     ...rest
   } = props;
   const match = className === "remark-code-container";
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const codeText =
+      event.currentTarget
+        .closest("section")
+        ?.querySelector("pre")
+        ?.querySelector("code")?.textContent ?? "";
+    navigator.clipboard.writeText(codeText).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   return match ? (
     <section className={className} title={title} {...rest}>
-      <div className="flex flex-row items-center justify-between px-4 pt-1">
-        <div></div>
+      <div className="flex flex-row items-center justify-between pt-1">
+        <button className="remark-code-copy-button ml-3" onClick={handleCopyClick}>
+          {copied ? (
+            <Check className="w-4 h-4" />
+          ) : (
+            <Clipboard className="w-4 h-4" />
+          )}
+        </button>
         <div className="remark-code-title">{title}</div>
-        <div className="remark-code-language">{language}</div>
+        <div className="remark-code-language mr-3">{language}</div>
       </div>
       {children}
     </section>
