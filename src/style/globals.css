@@ -13,7 +13,9 @@
   }
   
   .active-link {
-    @apply underline-offset-8 underline decoration-4 decoration-primary;
+    /* @apply underline-offset-8 underline decoration-4 decoration-primary; */
+    @apply border-b-4 border-primary;
+    text-underline-offset: 8px;
   }
   
   .nav-underline {
@@ -113,6 +115,14 @@
   .prose :not(pre) > code::before,
   .prose :not(pre) > code::after {
     content: none;
+  }
+ 
+  summary::-webkit-details-marker { /* Safari */
+    display: none;
+  }
+
+  summary {
+    list-style-type: none;
   }
 
   details summary .icon-wrapper {

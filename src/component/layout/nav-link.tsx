@@ -90,7 +90,7 @@ export const ExternalLinkWithMode = () => {
         <Button
           variant="link"
           size="sm"
-          onClick={() => window.open(githubLink, "_blank")}
+          onClick={() => window.open(githubLink)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -113,7 +113,7 @@ export const ExternalLinkWithMode = () => {
         <Button
           variant="link"
           size="sm"
-          onClick={() => window.open(linkedinLink, "_blank")}
+          onClick={() => window.open(linkedinLink)}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
