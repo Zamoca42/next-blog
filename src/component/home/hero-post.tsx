@@ -43,9 +43,12 @@ export function HeroPost() {
           </div>
         </div>
         <div className="mb-4">
-          {post.description || (
-            <MarkdownBody content={post.excerpt} remarkPlugins={previewPlugins} />
-          )}
+          {(
+            <MarkdownBody
+              content={post.excerpt}
+              remarkPlugins={previewPlugins}
+            />
+          ) || post.description}
         </div>
       </div>
     </section>

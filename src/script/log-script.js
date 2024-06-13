@@ -11,8 +11,8 @@ const gitInfoPath = path.join(process.cwd(), 'public', GIT_HSITORY_FILE_NAME);
 
 /**
  * @typedef {Object} GitDates
- * @property {string} createdAt
- * @property {string} updatedAt
+ * @property {string | null} createdAt
+ * @property {string | null} updatedAt
  */
 
 /**
@@ -25,7 +25,7 @@ async function getGitDates(filePath) {
 
   /**
    * @param {string} command
-   * @returns {Promise<string>}
+   * @returns {Promise<string | null>}
    */
   const gitLogFileDate = async (command) => {
     const outputDate = await new Promise((resolve, reject) => {
@@ -37,6 +37,10 @@ async function getGitDates(filePath) {
         }
       });
     });
+
+    if (!outputDate) {
+      return null;
+    }
 
     return formatISO(new Date(outputDate));
   };
@@ -51,12 +55,8 @@ async function getGitDates(filePath) {
 
 /**
  * @typedef {Object} GitInfo
- * @property {string} createdAt
- * @property {string} updatedAt
- */
-
-/**
- * @returns {Promise<void>}
+ * @property {string | null} createdAt
+ * @property {string | null} updatedAt
  */
 async function saveGitInfo() {
   try {
@@ -66,25 +66,19 @@ async function saveGitInfo() {
 
     /** @type {Record<string, GitInfo>} */
     const gitInfo = {};
-    const stack = [postsDirectory];
     const baseDirectory = process.cwd();
 
-    while (stack.length > 0) {
-      const currentDirectory = stack.pop();
-      if (!currentDirectory) continue;
-      const fileNames = await fs.readdir(currentDirectory);
+    const fileNames = await fs.readdir(postsDirectory, { recursive: true });
 
-      for (const fileName of fileNames) {
-        const filePath = path.join(currentDirectory, fileName);
-        const stat = await fs.stat(filePath);
+    for (const fileName of fileNames) {
+      if (fileName.endsWith(".md")) {
+        const filePath = path.join(postsDirectory, fileName);
+        const {createdAt, updatedAt} = await getGitDates(filePath);
 
-        if (stat.isDirectory()) {
-          stack.push(filePath);
-        } else if (fileName.endsWith(".md")) {
-          const { createdAt, updatedAt } = await getGitDates(filePath);
-          const relativePath = path.relative(baseDirectory, filePath);
-          gitInfo[relativePath] = { createdAt, updatedAt };
-        }
+        if (createdAt === null) continue;
+
+        const relativePath = path.relative(baseDirectory, filePath);
+        gitInfo[relativePath] = { createdAt, updatedAt };
       }
     }
 

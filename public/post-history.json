@@ -5,7 +5,15 @@
   },
   "content/js-ts/next/hot-reload.md": {
     "createdAt": "2024-06-12T20:26:42+09:00",
-    "updatedAt": "2024-06-12T20:26:42+09:00"
+    "updatedAt": "2024-06-14T00:33:33+09:00"
+  },
+  "content/js-ts/next/prisma-token-schema-error.md": {
+    "createdAt": "2024-06-14T00:33:33+09:00",
+    "updatedAt": "2024-06-14T00:33:33+09:00"
+  },
+  "content/js-ts/next/run-script-build-time.md": {
+    "createdAt": "2024-06-14T02:03:58+09:00",
+    "updatedAt": "2024-06-14T02:03:58+09:00"
   },
   "content/js-ts/nest-js/api.md": {
     "createdAt": "2024-06-01T22:52:31+09:00",
