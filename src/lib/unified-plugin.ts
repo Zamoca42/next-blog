@@ -18,21 +18,6 @@ export const removeHeadings: Plugin = () => {
   };
 };
 
-// export const remarkStripHtmlComments: Plugin = () => {
-//   return (tree: Node) => {
-//     visit(tree, "html", (node: Literal, index, parent: Parent | null) => {
-//       if (
-//         parent &&
-//         typeof index === "number" &&
-//         (node.value as string).startsWith("<!--") &&
-//         (node.value as string).endsWith("-->")
-//       ) {
-//         parent.children.splice(index, 1);
-//       }
-//     });
-//   };
-// };
-
 export const generateToc = async (markdown: string) => {
   const toc: TocItem[] = [];
 

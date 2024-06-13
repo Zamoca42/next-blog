@@ -1,5 +1,5 @@
 ---
-title: "[NextJS] HotReload 에러"
+title: "Next.js 14 - HotReload 에러"
 tag:
   - Next.js
   - TypeScript
