@@ -6,7 +6,7 @@ pre[class*=language-] {
   color: #ccc;
   background: 0 0;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  font-size: 1em;
+  font-size: 0.95em;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
@@ -363,7 +363,7 @@ pre {
 .code-highlight {
   float: left; /* 1 */
   min-width: 100%; /* 2 */
-  padding-left: 2rem;
+  padding-left: 1.5rem;
 }
 
 .code-line {
@@ -380,8 +380,7 @@ pre {
 }
 
 .highlight-line {
-  margin-left: px;
-  margin-right: -16px;
+  margin-right: -1em;
   background-color: rgba(55, 65, 81, 0.5); /* Set highlight bg color */
   border-left: 4px solid rgb(59, 130, 246); /* Set highlight accent border color */
 }
@@ -393,7 +392,7 @@ pre {
   width: 2.5rem;
   text-align: right;
   padding-right: 0.5rem;
-  padding-left: 0.5rem;
+  padding-left: 0.25rem;
   margin-right: 1rem;
   margin-left: -0.25rem;
   background: #2d2d2d;

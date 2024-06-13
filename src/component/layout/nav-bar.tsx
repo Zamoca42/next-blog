@@ -7,6 +7,9 @@ import { PostLink, ExternalLinkWithMode } from "@/component/layout/nav-link";
 import { useSideBar } from "@/component/sidebar-provider";
 import { blogConfig } from "@/blog.config";
 import { usePathname } from "next/navigation";
+import { AlignLeft, AlignRight, X } from "lucide-react";
+import clsx from "clsx";
+import { Button } from "@/component/ui/button";
 
 export const NavBar = () => {
   const { isOpen, setIsOpen, isLinkOpen, setIsLinkOpen } = useSideBar();
@@ -45,22 +48,24 @@ export const NavBar = () => {
           <div className="relative flex items-center">
             <div className="md:hidden mr-auto">
               {pathname !== "/" && (
-                <button onClick={() => setIsOpen(!isOpen)}>
-                  <svg
-                    className="w-6 h-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                </button>
+                <Button
+                  variant="link"
+                  size="icon"
+                  onClick={() => setIsOpen(!isOpen)}
+                >
+                  <X
+                    className={clsx(
+                      "transition-all duration-300",
+                      isOpen ? "scale-100 rotate-0" : "scale-0 rotate-180"
+                    )}
+                  />
+                  <AlignLeft
+                    className={clsx(
+                      "absolute transition-all duration-300 disabled:opacity-50",
+                      isOpen ? "scale-0 -rotate-180" : "scale-100 rotate-0"
+                    )}
+                  />
+                </Button>
               )}
             </div>
             <div className="items-center">
@@ -90,22 +95,28 @@ export const NavBar = () => {
               <ExternalLinkWithMode />
             </div>
             <div className="md:hidden ml-auto">
-              <button onClick={toggleMenu} disabled={isOpen}>
-                <svg
-                  className="w-6 h-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
+              <Button
+                variant="link"
+                size="icon"
+                onClick={toggleMenu}
+                disabled={isOpen}
+                className="relative"
+              >
+                <X
+                  className={clsx(
+                    "absolute transition-all duration-300",
+                    isLinkOpen ? "scale-100 rotate-0" : "scale-0 -rotate-180"
+                  )}
+                />
+                <AlignRight
+                  className={clsx(
+                    "absolute transition-all duration-300",
+                    isLinkOpen
+                      ? "scale-0 rotate-180"
+                      : "scale-100 rotate-0"
+                  )}
+                />
+              </Button>
             </div>
           </div>
         </div>

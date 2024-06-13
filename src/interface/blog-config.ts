@@ -1,6 +1,7 @@
 import { Author } from "@/interface/author";
 
 export interface BlogConfig {
+  host: string;
   navLink: {
     name: string;
     path: string;

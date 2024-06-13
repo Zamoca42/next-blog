@@ -2,6 +2,10 @@ import { BlogConfig } from "@/interface/blog-config";
 
 export const blogConfig: BlogConfig = {
   name: "Zamoca Space",
+  host:
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://zamoca.space",
   navLink: [
     { name: "Database", path: "db" },
     { name: "Infra", path: "infra" },
