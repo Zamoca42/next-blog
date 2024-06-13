@@ -46,23 +46,48 @@ export const generateMetadata = async ({
 }: Params): Promise<Metadata> => {
   const postSlug = params.slug.join("/");
   const post = await getPostBySlug(postSlug);
+  const { blog, host, name: applicationName } = blogConfig;
 
   if (!post) {
     return notFound();
   }
 
   const title = `${post.title} | Next.js Blog`;
-  const keywords = !post.tags ? ["Next.js", "blog", "react"] : post.tags;
-  const applicationName = blogConfig.name ?? "Blog";
+  const keywords =
+    post.tags.length === 0 ? ["Next.js", "blog", "react"] : post.tags;
+  const description = post.description || post.excerpt;
 
   return {
     // metadataBase, //favicon
     title,
-    description: post.description || post.excerpt,
-    authors: blogConfig.blog?.author,
+    description,
+    authors: blog.author,
     keywords,
     applicationName,
     generator: "Next.js",
+    openGraph: {
+      title,
+      description,
+      url: `${host}/post${postSlug}`,
+      siteName: applicationName,
+      images: [
+        {
+          url: "/favicon/android-chrome-512x512.png",
+          width: 1200,
+          height: 630,
+          alt: title,
+          type: "image/png",
+        },
+      ],
+      locale: "en-US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/favicon/android-chrome-512x512.png"],
+    },
   };
 };
 
