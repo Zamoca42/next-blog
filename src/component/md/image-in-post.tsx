@@ -18,11 +18,12 @@ const ImageInPost: React.FC<ImageInPostProps> = (props) => {
         width="0"
         height="0"
         sizes="100vw"
-        className="w-full h-auto rounded-xl p-2"
+        className="w-full h-auto rounded-3xl cursor-pointer p-2 hover:shadow-lg hover:bg-card"
         alt={paredAlt}
         src={parsedSrc}
         {...rest}
         quality={80}
+        onClick={() => window.open(src)}
       />
       {alt && <span className="text-sm text-muted-foreground">{paredAlt}</span>}
     </span>

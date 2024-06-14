@@ -58,7 +58,7 @@ export const generateMetadata = async ({
   const description = post.description || post.excerpt;
 
   return {
-    // metadataBase, //favicon
+    metadataBase: new URL(host),
     title,
     description,
     authors: blog.author,

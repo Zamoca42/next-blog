@@ -43,7 +43,7 @@ export const NavBar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 w-full backdrop-blur flex-none transition-colors duration-500 shadow-sm">
+      <nav className="fixed top-0 z-50 w-full backdrop-blur flex-none transition-colors duration-500 shadow-sm">
         <div className="max-w-8xl mx-auto p-4 lg:px-8">
           <div className="relative flex items-center">
             <div className="md:hidden mr-auto">

@@ -19,18 +19,14 @@ export const PostToc = ({ toc }: PostTocProps) => {
       const elements = article.querySelectorAll("h1, h2");
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
+      const middlePosition = scrollPosition + windowHeight / 2;
 
       elements.forEach((element) => {
         const elementTop = element.getBoundingClientRect().top + window.scrollY;
         const elementBottom = elementTop + element.clientHeight;
+        const elementMiddle = (elementTop + elementBottom) / 2;
 
-        if (
-          (elementTop <= scrollPosition + 100 &&
-            elementBottom >= scrollPosition) ||
-          (scrollPosition + windowHeight === documentHeight &&
-            elementBottom >= scrollPosition)
-        ) {
+        if (Math.abs(elementMiddle - middlePosition) < 325) {
           const id = element.getAttribute("id");
           setActiveToc(`#${id}`);
         }

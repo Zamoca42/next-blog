@@ -202,7 +202,7 @@ Git information saved to post-history.json # 명령어가 실행되었다.
    Creating an optimized production build ...
 
   # 나머지는 생략
-  
+
 ○  (Static)   prerendered as static content
 ●  (SSG)      prerendered as static HTML (uses getStaticProps)
 ƒ  (Dynamic)  server-rendered on demand
@@ -225,6 +225,8 @@ Git information saved to post-history.json # 명령어가 실행되었다.
   //...
 }
 ```
+
+![블로그에서도 이상없이 날짜가 출력된다.](https://github.com/Zamoca42/blog/assets/96982072/3c91e0f1-490a-4063-9cd3-9d13ffeafffa)
 
 ## 아쉬운점
 
