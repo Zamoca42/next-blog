@@ -63,7 +63,7 @@ export default function RootLayout({
           <PostsProvider>
             <SideBarProvider>
               <NavBar />
-              <div className="max-w-8xl mx-auto">{children}</div>
+              <div className="max-w-8xl mx-auto my-24">{children}</div>
             </SideBarProvider>
           </PostsProvider>
         </ThemeProvider>

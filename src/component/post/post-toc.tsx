@@ -12,30 +12,37 @@ export const PostToc = ({ toc }: PostTocProps) => {
   const [activeToc, setActiveToc] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => {
-      const article = document.querySelector("article");
-      if (!article) return;
+    const article = document.querySelector("article");
+    if (!article) return;
 
-      const elements = article.querySelectorAll("h1, h2");
-      const scrollPosition = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const middlePosition = scrollPosition + windowHeight / 2;
+    const elements = article.querySelectorAll("h1, h2");
 
-      elements.forEach((element) => {
-        const elementTop = element.getBoundingClientRect().top + window.scrollY;
-        const elementBottom = elementTop + element.clientHeight;
-        const elementMiddle = (elementTop + elementBottom) / 2;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            setActiveToc((prevActiveToc) => {
+              if (prevActiveToc !== `#${id}`) {
+                return `#${id}`;
+              }
+              return prevActiveToc;
+            });
+          }
+        });
+      },
+      {
+        rootMargin: "0% 0% -20% 0%",
+        threshold: 1,
+      }
+    );
 
-        if (Math.abs(elementMiddle - middlePosition) < 325) {
-          const id = element.getAttribute("id");
-          setActiveToc(`#${id}`);
-        }
-      });
-    };
+    elements.forEach((element) => {
+      observer.observe(element);
+    });
 
-    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
   }, []);
 
@@ -44,7 +51,7 @@ export const PostToc = ({ toc }: PostTocProps) => {
   }
 
   return (
-    <ul className="border-s pl-1 ml-2 space-y-2 xl:pl-4 text-muted-foreground">
+    <ul className="border-s pl-1 ml-2 space-y-2 xl:pl-4 text-muted-foreground text-pretty">
       {toc.map((item) => (
         <li
           key={item.href}
@@ -53,7 +60,7 @@ export const PostToc = ({ toc }: PostTocProps) => {
         >
           <Link
             href={item.href}
-            className={`p-1 pr-10 hover:text-primary-foreground w-full ${
+            className={`hover:text-primary-foreground ${
               activeToc === item.href ? "text-primary-foreground" : ""
             }`}
           >
