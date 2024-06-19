@@ -5,11 +5,6 @@ import { MoreStories } from "@/component/home/more-stories";
 import Footer from "@/component/home/footer";
 
 export default function Index() {
-  // const allPosts = await getAllPosts();
-  // const heroPost = posts[0];
-
-  // const morePosts = posts.slice(1);
-
   return (
     <div className="flex flex-col">
       <main>
