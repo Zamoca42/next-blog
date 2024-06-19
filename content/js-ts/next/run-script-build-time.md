@@ -5,6 +5,7 @@ tag:
   - Next.js
   - Node
   - Script
+star: true
 ---
 
 정적 생성기(Static Site Generator)를 이용한 블로그를 만들면서 포스트의 생성일과 수정일을 커밋 날짜를 기준으로 블로그에 보여주려고 했다.
@@ -12,7 +13,7 @@ tag:
 git 명령어를 [node.js의 child_process](https://www.freecodecamp.org/korean/news/node-js-child-processes-everything-you-need-to-know-e69498fe970a/)
 로 실행하면서 개발서버에서는 이상없이 돌아갔으나...
 
-Vercel에 배포 할때는 git 명령어와 `.git` 레포지토리가 포함되지 않기 때문에 사용할 수 없다고 한다.
+Vercel에 배포 할때는 `.git` 레포지토리가 포함되지 않기 때문에 git 명령어를 사용할 수 없다고 한다.
 
 ![vercel command failed](https://github.com/Zamoca42/blog/assets/96982072/4cdbfb40-d459-424a-966b-4794e5b13f90)
 
