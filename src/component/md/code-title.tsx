@@ -32,10 +32,17 @@ const CodeTitle: React.FC<CodeTitleProps> = (props) => {
     });
   };
 
+  const displayLanguage = language?.startsWith("diff-")
+    ? language.split("-")[1]
+    : language;
+
   return match ? (
     <section className={className} title={title} {...rest}>
       <div className="flex flex-row items-center justify-between pt-1">
-        <button className="remark-code-copy-button ml-3" onClick={handleCopyClick}>
+        <button
+          className="remark-code-copy-button ml-3"
+          onClick={handleCopyClick}
+        >
           {copied ? (
             <Check className="w-4 h-4" />
           ) : (
@@ -43,7 +50,7 @@ const CodeTitle: React.FC<CodeTitleProps> = (props) => {
           )}
         </button>
         <div className="remark-code-title">{title}</div>
-        <div className="remark-code-language mr-3">{language}</div>
+        <div className="remark-code-language mr-3">{displayLanguage}</div>
       </div>
       {children}
     </section>

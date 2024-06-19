@@ -26,7 +26,7 @@ js로 스크립트를 작성했고, 시도해본 방법들을 포스트로 정�
 
 ## 작성할 스크립트들
 
-```js:포스트를_탐색
+```js:포스트를_탐색 {12-15, 32-34}
 /**
  * @typedef {Object} GitDates
  * @property {string | null} createdAt
@@ -117,12 +117,12 @@ async function saveGitInfo() {
 
 가장 간단한 방법으로는 package.json에서 build 명령어에 `node` 명령어로 실행시키는 것이다
 
-```json:package.json
+```diff-json:package.json {5}
 {
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "node log-script.js && next build", // 여기서 추가
++   "build": "node log-script.js && next build",
     "start": "next start",
   },
   //...
@@ -137,7 +137,7 @@ async function saveGitInfo() {
 
 다른 방법으로는 next.config.js에서 함수를 불러와 조건부로 실행할 수 있다.
 
-```js:next.config.js
+```js:next.config.js {16}
 // @ts-check
 const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/constants');
 const { saveGitInfo } = require("./src/script/log-script");

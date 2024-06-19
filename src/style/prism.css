@@ -368,15 +368,18 @@ pre {
 
 .code-line {
   display: block;
+  padding-left: 0.5em;
   border-left: 4px solid rgba(0, 0, 0, 0); /* Set placeholder for highlight accent border color to transparent */
 }
 
 .code-line.inserted {
   background-color: rgba(16, 185, 129, 0.2); /* Set inserted line (+) color */
+  border-color: #7ec699;
 }
 
 .code-line.deleted {
   background-color: rgba(239, 68, 68, 0.2); /* Set deleted line (-) color */
+  border-color: #e2777a;
 }
 
 .highlight-line {
