@@ -3,7 +3,7 @@
 const fs = require("fs/promises");
 const path = require("path");
 const { exec } = require("child_process");
-const { formatISO } = require("date-fns");
+const { formatISO, differenceInDays } = require("date-fns");
 const { GIT_HSITORY_FILE_NAME, POST_CONTENT_FOLDER } = require("../lib/constant");
 
 const postsDirectory = path.join(process.cwd(), POST_CONTENT_FOLDER);
@@ -19,7 +19,7 @@ const gitInfoPath = path.join(process.cwd(), 'public', GIT_HSITORY_FILE_NAME);
  * @param {string} filePath
  * @returns {Promise<GitDates>}
  */
-async function getGitDates(filePath) {
+const getGitDates = async (filePath) => {
   const createdAtCommand = `git log --diff-filter=A --follow --format=%aI --reverse -- "${filePath}"`;
   const updatedAtCommand = `git log -1 --format=%aI -- "${filePath}"`;
 
@@ -58,33 +58,39 @@ async function getGitDates(filePath) {
  * @property {string | null} createdAt
  * @property {string | null} updatedAt
  */
-async function saveGitInfo() {
+const saveGitInfo = async () => {
   try {
-    await fs.access(gitInfoPath);
-  } catch {
-    console.log("Git information cannot access.");
-
-    /** @type {Record<string, GitInfo>} */
-    const gitInfo = {};
-    const baseDirectory = process.cwd();
-
-    const fileNames = await fs.readdir(postsDirectory, { recursive: true });
-
-    for (const fileName of fileNames) {
-      if (fileName.endsWith(".md")) {
-        const filePath = path.join(postsDirectory, fileName);
-        const {createdAt, updatedAt} = await getGitDates(filePath);
-
-        if (createdAt === null) continue;
-
-        const relativePath = path.relative(baseDirectory, filePath);
-        gitInfo[relativePath] = { createdAt, updatedAt };
-      }
+    const fileStats = await fs.stat(gitInfoPath);
+    const currentDate = new Date();
+    const lastModifiedDate = new Date(fileStats.mtime);
+    const daysDiff = differenceInDays(currentDate, lastModifiedDate);
+    if (daysDiff < 7) {
+      return;
     }
-
-    fs.writeFile(gitInfoPath, JSON.stringify(gitInfo, null, 2));
-    console.log(`Git information saved to ${GIT_HSITORY_FILE_NAME}`);
+  } catch (error) {
+    if (error instanceof Error && 'code' in error && error.code !== 'ENOENT') {
+      console.error("Error accessing Git information file:", error);
+      return;
+    }
   }
+
+  /** @type {Record<string, GitInfo>} */
+  const gitInfo = {};
+  const baseDirectory = process.cwd();
+  const fileNames = await fs.readdir(postsDirectory, { recursive: true });
+
+  for (const fileName of fileNames) {
+    if (fileName.endsWith(".md")) {
+      const filePath = path.join(postsDirectory, fileName);
+      const { createdAt, updatedAt } = await getGitDates(filePath);
+      if (createdAt === null) continue;
+      const relativePath = path.relative(baseDirectory, filePath);
+      gitInfo[relativePath] = { createdAt, updatedAt };
+    }
+  }
+
+  await fs.writeFile(gitInfoPath, JSON.stringify(gitInfo, null, 2));
+  console.log(`Git information saved to ${GIT_HSITORY_FILE_NAME}`);
 }
 
 module.exports = {
