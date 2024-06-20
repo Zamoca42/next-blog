@@ -1,11 +1,7 @@
 ---
 title: 1. http 기본정리
-category:
-  - Infra.
 tag:
   - Http
-timeline: false
-article: false
 ---
 
 전 세계의 웹브라우저, 서버, 웹 애플리케이션은 모두 HTTP(Hypertext Transfer Protocol)를 통해 대화한다.

@@ -15,7 +15,7 @@ export const PostToc = ({ toc }: PostTocProps) => {
     const article = document.querySelector("article");
     if (!article) return;
 
-    const elements = article.querySelectorAll("h1, h2");
+    const elements = article.querySelectorAll("h2");
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -32,19 +32,30 @@ export const PostToc = ({ toc }: PostTocProps) => {
         });
       },
       {
-        rootMargin: "0% 0% -20% 0%",
-        threshold: 1,
+        rootMargin: "-20% 0% -20% 0%",
+        threshold: 0.3
       }
     );
 
     elements.forEach((element) => {
       observer.observe(element);
     });
-
-    return () => {
-      observer.disconnect();
-    };
   }, []);
+
+  const handleLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(href);
+    if (targetElement) {
+      const offset =
+        targetElement.getBoundingClientRect().top +
+        window.scrollY -
+        window.innerHeight / 1.5;
+      window.scrollTo({ top: offset, behavior: "smooth" });
+    }
+  };
 
   if (toc.length === 0) {
     return null;
@@ -60,6 +71,7 @@ export const PostToc = ({ toc }: PostTocProps) => {
         >
           <Link
             href={item.href}
+            onClick={(e) => handleLinkClick(e, item.href)}
             className={`hover:text-primary-foreground ${
               activeToc === item.href ? "text-primary-foreground" : ""
             }`}

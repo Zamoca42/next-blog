@@ -13,7 +13,7 @@
   },
   "content/js-ts/next/run-script-build-time.md": {
     "createdAt": "2024-06-14T02:03:58+09:00",
-    "updatedAt": "2024-06-14T02:03:58+09:00"
+    "updatedAt": "2024-06-20T02:53:45+09:00"
   },
   "content/js-ts/nest-js/api.md": {
     "createdAt": "2024-06-01T22:52:31+09:00",
@@ -117,23 +117,23 @@
   },
   "content/js-ts/deepdive/deepdive19.md": {
     "createdAt": "2024-06-01T22:52:31+09:00",
-    "updatedAt": "2024-06-12T01:31:44+09:00"
+    "updatedAt": "2024-06-19T23:32:38+09:00"
   },
   "content/js-ts/deepdive/deepdive20.md": {
     "createdAt": "2024-06-01T22:52:31+09:00",
-    "updatedAt": "2024-06-12T00:23:03+09:00"
+    "updatedAt": "2024-06-19T23:32:38+09:00"
   },
   "content/js-ts/deepdive/deepdive21.md": {
     "createdAt": "2024-06-01T22:52:31+09:00",
-    "updatedAt": "2024-06-12T01:23:42+09:00"
+    "updatedAt": "2024-06-19T23:32:38+09:00"
   },
   "content/js-ts/deepdive/deepdive22.md": {
     "createdAt": "2024-06-01T22:52:31+09:00",
-    "updatedAt": "2024-06-12T01:23:42+09:00"
+    "updatedAt": "2024-06-19T23:32:38+09:00"
   },
   "content/js-ts/deepdive/deepdive23.md": {
     "createdAt": "2024-06-01T22:52:31+09:00",
-    "updatedAt": "2024-06-12T00:23:03+09:00"
+    "updatedAt": "2024-06-19T23:32:38+09:00"
   },
   "content/js-ts/deepdive/deepdive24.md": {
     "createdAt": "2024-06-01T22:52:31+09:00",
@@ -266,6 +266,10 @@
   "content/etc/github-flow.md": {
     "createdAt": "2024-06-01T22:52:31+09:00",
     "updatedAt": "2024-06-12T01:31:44+09:00"
+  },
+  "content/etc/markdown.md": {
+    "createdAt": "2024-06-20T00:54:05+09:00",
+    "updatedAt": "2024-06-20T01:49:18+09:00"
   },
   "content/etc/retrospect/2024-1.md": {
     "createdAt": "2024-06-01T22:52:31+09:00",
