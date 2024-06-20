@@ -26,12 +26,22 @@ module.exports = async (phase) => {
         {
           protocol: 'https',
           hostname: 'github.com',
-          port: '',
         },
         {
           protocol: 'https',
           hostname: "user-images.githubusercontent.com",
-          port: '',
+        },
+        {
+          protocol: 'https',
+          hostname: "capsule-render.vercel.app",
+        },
+        {
+          protocol: 'https',
+          hostname: "img.shields.io",
+        },
+        {
+          protocol: 'https',
+          hostname: "github-readme-stats.vercel.app",
         },
       ],
     },
