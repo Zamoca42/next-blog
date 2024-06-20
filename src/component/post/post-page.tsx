@@ -5,6 +5,7 @@ import { useSideBar } from "@/component/sidebar-provider";
 import { Post } from "@/interface/post";
 import DateFormatter from "../ui/date-formatter";
 import { MarkdownBody } from "@/component/post/markdown-body";
+import Giscus from "@/component/post/giscus";
 
 type Props = {
   post: Post;
@@ -38,6 +39,7 @@ export const PostPage = ({ post, content }: Props) => {
               dateString={post.updatedAt}
             />
           </div>
+          <Giscus />
         </article>
       </div>
     </div>
