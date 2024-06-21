@@ -13,7 +13,7 @@ const ImageInPost: React.FC<ImageInPostProps> = (props) => {
   const parsedSrc = src ?? "/asset/blog/dynamic-routing/cover.jpg";
   const paredAlt = alt ?? "image";
   return (
-    <span className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
       <Image
         width="0"
         height="0"
@@ -25,8 +25,12 @@ const ImageInPost: React.FC<ImageInPostProps> = (props) => {
         quality={80}
         onClick={() => window.open(src)}
       />
-      {alt && <span className="text-sm text-muted-foreground">{paredAlt}</span>}
-    </span>
+      {alt && (
+        <span className="text-sm text-muted-foreground text-center truncate w-full">
+          {paredAlt}
+        </span>
+      )}
+    </div>
   );
 };
 
