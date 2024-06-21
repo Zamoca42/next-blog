@@ -31,9 +31,7 @@ git config --global commit.template .gitmessage.txt
 
 :::details{title="커밋 템플릿 예시"}
 
-.gitmessage.txt
-
-```txt
+```txt:.gitmessage.txt
 ################
 # <타입> : <제목> 의 형식으로 제목을 아래 공백줄에 작성
 # 제목은 50자 이내 / 변경사항이 "무엇"인지 명확히 작성 / 끝에 마침표 금지
@@ -108,17 +106,46 @@ git commit --amend #마지막 커밋 수정
 
 **로그 보기**
 
-hash log
-
-```shell
+```shell:hash_log
 git reflog
 ```
 
-커밋 로그
-
-```shell
+```shell:커밋_로그
 git log
 ```
+
+:::info{title="log 사용 예시"}
+
+#### 파일의 최초 커밋 시간 찾기
+
+```shell
+git log --diff-filter=A --follow --format=%aI --reverse -- "public/post-history.json" #(filepath)
+```
+
+- `--diff-filter=A`: 추가(Added) 작업만 필터링. 즉, 파일이 처음 생성된 커밋만 찾기.
+- `--follow`: 파일 이름 변경을 추적.
+- `--format=%aI`: 출력 형식을 ISO 8601 형식의 작성자 날짜로 지정.
+- `--reverse`: 결과를 오래된 순서부터 표시.
+
+```shell:결과
+❯ git log --diff-filter=A --follow --format=%aI --reverse -- "public/post-history.json"
+2024-06-07T01:34:17+09:00
+```
+
+#### 파일의 최근 커밋 시간 찾기
+
+```shell
+git log -1 --format=%aI -- "public/post-history.json" #(filepath)
+```
+
+- `-1`: 가장 최근의 커밋 하나만 표시.
+
+```shell:결과
+❯ git log -1 --format=%aI -- "public/post-history.json"
+2024-06-20T22:24:08+09:00
+```
+
+:::
 
 ## 브랜치
 
