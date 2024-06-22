@@ -7,6 +7,7 @@ import { Fragment } from "react";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { Button } from "@/component/ui/button";
 import { usePostList } from "@/component/post-provider";
+import { DocSearch } from "@docsearch/react";
 import "@docsearch/css";
 
 type Props = {
@@ -135,6 +136,11 @@ export const ExternalLinkWithMode = () => {
         </Button>
       )}
       <ModeToggle />
+      <DocSearch
+        appId="YOUR_APP_ID"
+        indexName="YOUR_INDEX_NAME"
+        apiKey="YOUR_SEARCH_API_KEY"
+      />
     </nav>
   );
 };

@@ -1,0 +1,6 @@
+# Algolia-Crawler-Verif: E5F3DF7A2ECCCA28
+
+userAgent: *
+allow: /
+
+sitemap: https://zamoca.space/sitemap.xml
