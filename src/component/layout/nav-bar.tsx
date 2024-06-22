@@ -10,6 +10,8 @@ import { usePathname } from "next/navigation";
 import { AlignLeft, AlignRight, X } from "lucide-react";
 import clsx from "clsx";
 import { Button } from "@/component/ui/button";
+import { DocSearch } from "@docsearch/react";
+import "@docsearch/css";
 
 export const NavBar = () => {
   const { isOpen, setIsOpen, isLinkOpen, setIsLinkOpen } = useSideBar();
@@ -52,7 +54,7 @@ export const NavBar = () => {
       <nav className="fixed top-0 z-50 w-full backdrop-blur flex-none transition-colors duration-500 shadow-sm">
         <div className="max-w-8xl mx-auto p-4 lg:px-8">
           <div className="relative flex items-center">
-            <div className="md:hidden mr-auto">
+            <div className="md:hidden">
               {pathname !== "/" && (
                 <Button
                   variant="link"
@@ -74,10 +76,10 @@ export const NavBar = () => {
                 </Button>
               )}
             </div>
-            <div className="items-center">
+            <div className="flex-1">
               <Link
                 href="/"
-                className="text-xl font-semibold flex flex-row items-center space-x-4 ml-3"
+                className="text-xl font-semibold flex items-center md:space-x-4"
               >
                 <Image
                   src="/favicon/favicon-32x32.png"
@@ -91,16 +93,25 @@ export const NavBar = () => {
                 </span>
               </Link>
             </div>
-            <div className="hidden md:flex ml-auto">
+            <div className="hidden md:flex flex-1">
               <PostLink
                 matchedPathClass="active-link"
                 notMatchedPathClass="nav-underline"
               />
             </div>
-            <div className="hidden md:flex ml-auto">
-              <ExternalLinkWithMode />
+            <div className="flex items-center">
+              <div className="hidden md:flex">
+                <ExternalLinkWithMode />
+              </div>
+              <div>
+                <DocSearch
+                  appId={process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID!}
+                  apiKey={process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY!}
+                  indexName="zamoca"
+                />
+              </div>
             </div>
-            <div className="md:hidden ml-auto">
+            <div className="md:hidden flex items-center">
               <Button
                 variant="link"
                 size="icon"
