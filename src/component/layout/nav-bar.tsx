@@ -16,6 +16,12 @@ export const NavBar = () => {
   const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname === "/") {
+      setIsOpen(false);
+    }
+  }, [pathname, setIsOpen]);
+
+  useEffect(() => {
     const handleResize = () => {
       const mdMediaQuery = window.matchMedia("(max-width: 768px)");
       const lgMediaQuery = window.matchMedia("(max-width: 1024px)");
@@ -111,9 +117,7 @@ export const NavBar = () => {
                 <AlignRight
                   className={clsx(
                     "absolute transition-all duration-300",
-                    isLinkOpen
-                      ? "scale-0 rotate-180"
-                      : "scale-100 rotate-0"
+                    isLinkOpen ? "scale-0 rotate-180" : "scale-100 rotate-0"
                   )}
                 />
               </Button>

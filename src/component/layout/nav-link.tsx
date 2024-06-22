@@ -2,12 +2,13 @@
 
 import { blogConfig } from "@/blog.config";
 import { usePathname, useRouter } from "next/navigation";
-import { getAllPosts } from "@/app/api/action";
 import clsx from "clsx";
 import { Fragment } from "react";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { Button } from "@/component/ui/button";
 import { usePostList } from "@/component/post-provider";
+import { DocSearch } from "@docsearch/react";
+import "@docsearch/css";
 
 type Props = {
   toggleMenu?: () => void;
@@ -15,6 +16,8 @@ type Props = {
   matchedPathClass?: string;
   notMatchedPathClass?: string;
 };
+
+export const dynamic = "force-dynamic";
 
 export const PostLink = ({
   toggleMenu,
@@ -79,7 +82,6 @@ export const PostLink = ({
 };
 
 export const ExternalLinkWithMode = () => {
-  const router = useRouter();
   const { blog } = blogConfig;
   const githubLink = blog.author.url;
   const linkedinLink = blog.media?.linkedin;
@@ -134,6 +136,11 @@ export const ExternalLinkWithMode = () => {
         </Button>
       )}
       <ModeToggle />
+      <DocSearch
+        appId="YOUR_APP_ID"
+        indexName="YOUR_INDEX_NAME"
+        apiKey="YOUR_SEARCH_API_KEY"
+      />
     </nav>
   );
 };
