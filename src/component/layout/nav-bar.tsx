@@ -54,12 +54,13 @@ export const NavBar = () => {
       <nav className="fixed top-0 z-50 w-full backdrop-blur flex-none transition-colors duration-500 shadow-sm">
         <div className="max-w-8xl mx-auto p-4 lg:px-8">
           <div className="relative flex items-center">
-            <div className="md:hidden">
+            <div className="md:hidden flex-1">
               {pathname !== "/" && (
                 <Button
                   variant="link"
                   size="icon"
                   onClick={() => setIsOpen(!isOpen)}
+                  className="flex-1"
                 >
                   <X
                     className={clsx(
@@ -76,7 +77,7 @@ export const NavBar = () => {
                 </Button>
               )}
             </div>
-            <div className="flex-1">
+            <div className="flex-1 ml-[52px] md:ml-0">
               <Link
                 href="/"
                 className="text-xl font-semibold flex items-center md:space-x-4"
@@ -111,7 +112,7 @@ export const NavBar = () => {
                 />
               </div>
             </div>
-            <div className="md:hidden flex items-center">
+            <div className="md:hidden flex items-center flex-0">
               <Button
                 variant="link"
                 size="icon"
