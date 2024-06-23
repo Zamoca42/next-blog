@@ -6,6 +6,8 @@ const HOME_OG_IMAGE_URL =
 
 const GIT_HSITORY_FILE_NAME = "post-history.json";
 const POST_CONTENT_FOLDER = "content"
+const ALGOLIA_INDEX_NAME = "zamoca-1"
+
 
 module.exports = {
   EXAMPLE_PATH,
@@ -13,4 +15,5 @@ module.exports = {
   HOME_OG_IMAGE_URL,
   GIT_HSITORY_FILE_NAME,
   POST_CONTENT_FOLDER,
+  ALGOLIA_INDEX_NAME,
 }

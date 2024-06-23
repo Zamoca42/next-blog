@@ -1,6 +1,7 @@
 // @ts-check
 const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/constants');
 const { saveGitInfo } = require("./src/script/log-script");
+const { updateAlgoliaIndex } = require("./src/script/algolia-index");
 
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -17,6 +18,10 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = async (phase) => {
   if (phase === PHASE_DEVELOPMENT_SERVER || phase === PHASE_PRODUCTION_BUILD) {
     await saveGitInfo();
+  }
+
+  if (phase === PHASE_PRODUCTION_BUILD) {
+    await updateAlgoliaIndex();
   }
 
   /** @type {NextConfig} */

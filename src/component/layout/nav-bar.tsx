@@ -12,6 +12,7 @@ import clsx from "clsx";
 import { Button } from "@/component/ui/button";
 import { DocSearch } from "@docsearch/react";
 import "@docsearch/css";
+import { ALGOLIA_INDEX_NAME } from "@/lib/constant";
 
 export const NavBar = () => {
   const { isOpen, setIsOpen, isLinkOpen, setIsLinkOpen } = useSideBar();
@@ -108,7 +109,7 @@ export const NavBar = () => {
                 <DocSearch
                   appId={process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID!}
                   apiKey={process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY!}
-                  indexName="zamoca"
+                  indexName={ALGOLIA_INDEX_NAME}
                 />
               </div>
             </div>
