@@ -1,17 +1,16 @@
-"use client";
-
 import Link from "next/link";
 import CoverImage from "@/component/ui/cover-image";
 import DateBox from "@/component/layout/date-box";
 import Tag from "@/component/layout/tag";
 import { Star } from "lucide-react";
 import { MarkdownBody, previewPlugins } from "@/component/post/markdown-body";
-import { usePostList } from "@/component/swr-provider";
+import { Post } from "@/interface/post";
 
-export function HeroPost() {
-  const { posts } = usePostList();
-  const post = posts[0];
+type Params = {
+  post: Post;
+};
 
+export function HeroPost({ post }: Params) {
   if (!post) return null;
 
   return (

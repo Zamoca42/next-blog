@@ -3,10 +3,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/style/globals.css";
 import { NavBar } from "@/component/layout/nav-bar";
-import { SideBarProvider } from "@/component/sidebar-provider";
-import { ThemeProvider } from "@/component/theme-provider";
+import { SideBarProvider } from "@/component/context/sidebar-provider";
+import { ThemeProvider } from "@/component/context/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
-import { SWRProvider } from "@/component/swr-provider";
+import { SWRProvider } from "@/component/context/swr-provider";
+import { AppProvider } from "@/component/context/app-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -59,14 +60,23 @@ export default function RootLayout({
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <SWRProvider>
-            <SideBarProvider>
-              <NavBar />
-              <div className="max-w-8xl mx-auto mt-24">{children}</div>
-            </SideBarProvider>
-          </SWRProvider>
-        </ThemeProvider>
+        <AppProvider
+          contexts={[
+            {
+              component: ThemeProvider,
+              props: {
+                attribute: "class",
+                defaultTheme: "system",
+                enableSystem: true,
+              },
+            },
+            { component: SWRProvider },
+            { component: SideBarProvider },
+          ]}
+        >
+          <NavBar />
+          <div className="max-w-8xl mx-auto mt-24">{children}</div>
+        </AppProvider>
         <Analytics />
       </body>
     </html>

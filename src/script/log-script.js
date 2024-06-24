@@ -4,10 +4,13 @@ const fs = require("fs/promises");
 const path = require("path");
 const { exec } = require("child_process");
 const { formatISO, differenceInDays } = require("date-fns");
-const { GIT_HSITORY_FILE_NAME, POST_CONTENT_FOLDER } = require("../lib/constant");
+const {
+  GIT_HSITORY_FILE_NAME,
+  POST_CONTENT_FOLDER,
+} = require("../lib/constant");
 
 const postsDirectory = path.join(process.cwd(), POST_CONTENT_FOLDER);
-const gitInfoPath = path.join(process.cwd(), 'public', GIT_HSITORY_FILE_NAME);
+const gitInfoPath = path.join(process.cwd(), "public", GIT_HSITORY_FILE_NAME);
 
 /**
  * @typedef {Object} GitDates
@@ -49,15 +52,10 @@ const getGitDates = async (filePath) => {
     gitLogFileDate(createdAtCommand),
     gitLogFileDate(updatedAtCommand),
   ]);
-  
-  return { createdAt, updatedAt };
-}
 
-/**
- * @typedef {Object} GitInfo
- * @property {string | null} createdAt
- * @property {string | null} updatedAt
- */
+  return { createdAt, updatedAt };
+};
+
 const saveGitInfo = async () => {
   try {
     const fileStats = await fs.stat(gitInfoPath);
@@ -68,13 +66,13 @@ const saveGitInfo = async () => {
       return;
     }
   } catch (error) {
-    if (error instanceof Error && 'code' in error && error.code !== 'ENOENT') {
+    if (error instanceof Error && "code" in error && error.code !== "ENOENT") {
       console.error("Error accessing Git information file:", error);
       return;
     }
   }
 
-  /** @type {Record<string, GitInfo>} */
+  /** @type {Record<string, GitDates>} */
   const gitInfo = {};
   const baseDirectory = process.cwd();
   const fileNames = await fs.readdir(postsDirectory, { recursive: true });
@@ -91,7 +89,7 @@ const saveGitInfo = async () => {
 
   await fs.writeFile(gitInfoPath, JSON.stringify(gitInfo, null, 2));
   console.log(`Git information saved to ${GIT_HSITORY_FILE_NAME}`);
-}
+};
 
 module.exports = {
   saveGitInfo,

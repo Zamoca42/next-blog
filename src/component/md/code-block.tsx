@@ -1,5 +1,3 @@
-"use client";
-
 import clsx from "clsx";
 import { ClassAttributes, HTMLAttributes } from "react";
 import { ExtraProps } from "react-markdown";

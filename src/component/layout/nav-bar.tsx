@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
 import { PostLink, ExternalLinkWithMode } from "@/component/layout/nav-link";
-import { useSideBar } from "@/component/sidebar-provider";
+import { useSideBar } from "@/component/context/sidebar-provider";
 import { blogConfig } from "@/blog.config";
 import { usePathname } from "next/navigation";
 import { AlignLeft, AlignRight, X } from "lucide-react";

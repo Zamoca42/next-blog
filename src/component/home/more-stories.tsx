@@ -5,11 +5,13 @@ import { PostPreview } from "@/component/post/post-preview";
 import { Pagination } from "@/component/home/generate-pagination";
 import { Button } from "@/component/ui/button";
 import { Badge } from "@/component/ui/badge";
-import { usePostList } from "@/component/swr-provider";
+import { Post } from "@/interface/post";
 
-export function MoreStories() {
-  const { posts: allPosts } = usePostList();
-  const [_heroPost, ...posts] = allPosts;
+type Params = {
+  previews: Post[];
+};
+
+export function MoreStories({ previews: posts }: Params) {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedFilter, setSelectedFilter] = useState<"all" | "star">("all");
   const postsPerPage = 10;

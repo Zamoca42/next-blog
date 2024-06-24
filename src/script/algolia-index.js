@@ -46,7 +46,7 @@ const createPostRecord = async (filePath) => {
     objectID: `${nanoid()}-https://zamoca.space/post${slug}`,
     url: `https://zamoca.space/post${slug}`,
     hierarchy: {
-      lvl0: "Documentation", //TODO: blog.config navLink
+      lvl0: "Documentation",
       lvl1: data.title,
       lvl2: data.tags || [],
       lvl3: data.description || null,

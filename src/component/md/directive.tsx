@@ -1,5 +1,3 @@
-"use client";
-
 import { ClassAttributes, DetailsHTMLAttributes, ReactNode } from "react";
 import { ChevronDown, ChevronRight, Info } from "lucide-react";
 import { ExtraProps } from "react-markdown";

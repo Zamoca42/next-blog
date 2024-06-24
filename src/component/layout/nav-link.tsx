@@ -7,7 +7,7 @@ import { Fragment } from "react";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { Button } from "@/component/ui/button";
 import { Post } from "@/interface/post";
-import { usePostList } from "@/component/swr-provider";
+import { usePostList } from "@/component/context/swr-provider";
 
 type Props = {
   toggleMenu?: () => void;
