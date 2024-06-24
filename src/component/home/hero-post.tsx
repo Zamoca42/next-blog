@@ -6,17 +6,11 @@ import DateBox from "@/component/layout/date-box";
 import Tag from "@/component/layout/tag";
 import { Star } from "lucide-react";
 import { MarkdownBody, previewPlugins } from "@/component/post/markdown-body";
-import { usePostList } from "@/component/post-provider";
-import { useEffect, useState } from "react";
-import { Post } from "@/interface/post";
+import { usePostList } from "@/component/swr-provider";
 
 export function HeroPost() {
-  const { allPosts } = usePostList();
-  const [post, setPost] = useState<Post>();
-
-  useEffect(() => {
-    setPost(allPosts[0]);
-  }, [allPosts]);
+  const { posts } = usePostList();
+  const post = posts[0];
 
   if (!post) return null;
 
@@ -43,12 +37,7 @@ export function HeroPost() {
           </div>
         </div>
         <div className="mb-4">
-          {
-            <MarkdownBody
-              content={post.excerpt}
-              remarkPlugins={previewPlugins}
-            />
-          }
+          <MarkdownBody content={post.excerpt} remarkPlugins={previewPlugins} />
         </div>
       </div>
     </section>

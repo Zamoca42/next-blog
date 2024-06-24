@@ -1,5 +1,3 @@
-"use client";
-
 import "@/style/prism.css";
 import Markdown, { Components } from "react-markdown";
 import CodeTitle from "@/component/md/code-title";

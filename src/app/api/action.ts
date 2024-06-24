@@ -5,7 +5,7 @@ import { Post } from "@/interface/post";
 import fs from "fs";
 import matter from "gray-matter";
 import { join, relative } from "path";
-import { capitalize, capitalizeAfterHyphen } from "@/lib/util";
+import { capitalizeAfterHyphen } from "@/lib/util";
 import { formatISO, parseISO } from "date-fns";
 import { GIT_HSITORY_FILE_NAME, POST_CONTENT_FOLDER } from "@/lib/constant";
 import { PostHistory } from "@/interface/post-history";

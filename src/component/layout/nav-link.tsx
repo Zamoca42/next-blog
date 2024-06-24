@@ -6,8 +6,8 @@ import clsx from "clsx";
 import { Fragment } from "react";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { Button } from "@/component/ui/button";
-import { usePostList } from "@/component/post-provider";
-
+import { Post } from "@/interface/post";
+import { usePostList } from "@/component/swr-provider";
 
 type Props = {
   toggleMenu?: () => void;
@@ -16,8 +16,6 @@ type Props = {
   notMatchedPathClass?: string;
 };
 
-export const dynamic = "force-dynamic";
-
 export const PostLink = ({
   toggleMenu,
   divider = false,
@@ -25,7 +23,8 @@ export const PostLink = ({
   notMatchedPathClass = "",
 }: Props) => {
   const pathname = usePathname();
-  const { allPosts: posts } = usePostList();
+  const { posts } = usePostList();
+
   const router = useRouter();
   const { navLink } = blogConfig;
 
@@ -38,7 +37,7 @@ export const PostLink = ({
   };
 
   const handlePostRouter = async (path: string) => {
-    const matchedPosts = posts.filter((post) =>
+    const matchedPosts = posts.filter((post: Post) =>
       post.slug.split("/").includes(path)
     );
     router.push(`/post/${matchedPosts[0].slug}`);

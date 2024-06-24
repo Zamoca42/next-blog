@@ -4,10 +4,11 @@ export const typeDefs = /* GraphQL */ `
     createdAt: String!
     updatedAt: String!
     tags: [String!]!
-    category: [String!]!
     slug: String!
     content: String!
     description: String
+    star: Boolean!
+    excerpt: String
   }
 
   type Folder {

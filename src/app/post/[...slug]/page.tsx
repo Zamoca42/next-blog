@@ -33,10 +33,4 @@ export default async function PostDetail({ params }: PostSlugParams) {
   );
 }
 
-type Params = {
-  params: {
-    slug: string[];
-  };
-};
-
 export { generateStaticParams, generateMetadata };

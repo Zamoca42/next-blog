@@ -8,7 +8,7 @@ tag:
 star: true
 ---
 
-정적 생성기(Static Site Generator)를 이용한 블로그를 만들면서 포스트의 생성일과 수정일을 커밋 날짜를 기준으로 블로그에 보여주려고 했다.
+마크다운 컨텐츠를 활용한 블로그를 만들면서 포스트의 생성일과 수정일을 커밋 날짜를 기준으로 블로그에 보여주려고 했다.
 
 git 명령어를 [node.js의 child_process](https://www.freecodecamp.org/korean/news/node-js-child-processes-everything-you-need-to-know-e69498fe970a/)
 로 실행하면서 개발서버에서는 이상없이 돌아갔으나...

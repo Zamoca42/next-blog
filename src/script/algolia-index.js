@@ -24,8 +24,8 @@ const client = algoliasearch(appId, apiKey);
  * @typedef {Object} PostSearchIndex
  * @property {string} objectID
  * @property {string} url
- * @property {{lvl0: string, lvl1: string}} hierarchy
- * @property {'lvl1'} type
+ * @property {{lvl0: string, lvl1: string, lvl2: string, lvl3: string}} hierarchy
+ * @property {string} type
  * @property {string | null} content
  */
 
@@ -46,10 +46,12 @@ const createPostRecord = async (filePath) => {
     objectID: `${nanoid()}-https://zamoca.space/post${slug}`,
     url: `https://zamoca.space/post${slug}`,
     hierarchy: {
-      lvl0: "Documentation",
+      lvl0: "Documentation", //TODO: blog.config navLink
       lvl1: data.title,
+      lvl2: data.tags || [],
+      lvl3: data.description || null,
     },
-    type: 'lvl1',
+    type: 'lvl3',
     content: excerpt || null,
   };
   
