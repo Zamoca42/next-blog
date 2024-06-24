@@ -22,7 +22,7 @@ module.exports = async (phase) => {
 
   if (phase === PHASE_PRODUCTION_BUILD) {
     console.log("url: ",process.env.VERCEL_URL);
-    console.log("env: ",process.env.NODE_ENV);
+    console.log("env: ",process.env.VERCEL_ENV);
     await updateAlgoliaIndex();
   }
 

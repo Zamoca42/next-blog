@@ -4,9 +4,11 @@ import { parse } from "graphql";
 
 const graphQlClient = new GraphQLClient(
   `${
-    process.env.VERCEL_ENV === "production"
-      ? process.env.VERCEL_URL
-      : `http://localhost:3000`
+    process.env.VERCEL_ENV === "development"
+      ? `http://localhost:3000`
+      : process.env.VERCEL_ENV === "preview"
+      ? process.env.VERCEL_BRANCH_URL
+      : process.env.VERCEL_PROJECT_PRODUCTION_URL
   }/api/graphql`,
   {
     method: `GET`,
