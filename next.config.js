@@ -20,7 +20,7 @@ module.exports = async (phase) => {
     await saveGitInfo();
   }
 
-  if (phase === PHASE_PRODUCTION_BUILD) {
+  if (phase === PHASE_PRODUCTION_BUILD && process.env.VERCEL_ENV === "production") {
     await updateAlgoliaIndex();
   }
 

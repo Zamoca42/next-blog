@@ -51,7 +51,7 @@ const createPostRecord = async (filePath) => {
       lvl2: data.tags || [],
       lvl3: data.description || null,
     },
-    type: 'lvl3',
+    type: 'lvl1',
     content: excerpt || null,
   };
   
