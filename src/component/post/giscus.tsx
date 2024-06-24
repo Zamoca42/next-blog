@@ -26,7 +26,7 @@ export default function Giscus() {
     scriptElem.setAttribute("data-mapping", "title");
     scriptElem.setAttribute("data-strict", "0");
     scriptElem.setAttribute("data-reactions-enabled", "1");
-    scriptElem.setAttribute("data-emit-metadata", "1");
+    scriptElem.setAttribute("data-emit-metadata", "0");
     scriptElem.setAttribute("data-input-position", "top");
     scriptElem.setAttribute("data-theme", theme);
     scriptElem.setAttribute("data-lang", "ko");

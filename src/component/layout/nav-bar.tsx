@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
 import { PostLink, ExternalLinkWithMode } from "@/component/layout/nav-link";
-import { useSideBar } from "@/component/sidebar-provider";
+import { useSideBar } from "@/component/context/sidebar-provider";
 import { blogConfig } from "@/blog.config";
 import { usePathname } from "next/navigation";
 import { AlignLeft, AlignRight, X } from "lucide-react";
@@ -12,6 +12,7 @@ import clsx from "clsx";
 import { Button } from "@/component/ui/button";
 import { DocSearch } from "@docsearch/react";
 import "@docsearch/css";
+import { ALGOLIA_INDEX_NAME } from "@/lib/constant";
 
 export const NavBar = () => {
   const { isOpen, setIsOpen, isLinkOpen, setIsLinkOpen } = useSideBar();
@@ -54,12 +55,13 @@ export const NavBar = () => {
       <nav className="fixed top-0 z-50 w-full backdrop-blur flex-none transition-colors duration-500 shadow-sm">
         <div className="max-w-8xl mx-auto p-4 lg:px-8">
           <div className="relative flex items-center">
-            <div className="md:hidden">
+            <div className="md:hidden flex-1">
               {pathname !== "/" && (
                 <Button
                   variant="link"
                   size="icon"
                   onClick={() => setIsOpen(!isOpen)}
+                  className="flex-1"
                 >
                   <X
                     className={clsx(
@@ -76,7 +78,7 @@ export const NavBar = () => {
                 </Button>
               )}
             </div>
-            <div className="flex-1">
+            <div className="flex-1 ml-[52px] md:ml-0">
               <Link
                 href="/"
                 className="text-xl font-semibold flex items-center md:space-x-4"
@@ -107,11 +109,11 @@ export const NavBar = () => {
                 <DocSearch
                   appId={process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID!}
                   apiKey={process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY!}
-                  indexName="zamoca"
+                  indexName={ALGOLIA_INDEX_NAME}
                 />
               </div>
             </div>
-            <div className="md:hidden flex items-center">
+            <div className="md:hidden flex items-center flex-0">
               <Button
                 variant="link"
                 size="icon"

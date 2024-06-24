@@ -10,3 +10,9 @@ export type Post = {
   updatedAt: string;
   star: boolean;
 };
+
+export type PostSlugParams = {
+  params: {
+    slug: string[];
+  };
+};

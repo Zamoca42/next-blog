@@ -1,20 +1,16 @@
 "use client";
 
-import { ContentFolder } from "@/interface/folder";
-import { getAllTreeNode } from "@/app/api/action";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 interface SideBarContextProps {
   isOpen: boolean;
   isLinkOpen: boolean;
-  folders: ContentFolder[];
   setIsOpen: (isOpen: boolean) => void;
   setIsLinkOpen: (isLinkOpen: boolean) => void;
 }
 
 const SideBarContext = createContext<SideBarContextProps>({
   isOpen: true,
-  folders: [],
   isLinkOpen: false,
   setIsOpen: () => {},
   setIsLinkOpen: () => {},
@@ -27,16 +23,6 @@ export const SideBarProvider = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLinkOpen, setIsLinkOpen] = useState(false);
-  const [folders, setFolders] = useState<ContentFolder[]>([]);
-
-  useEffect(() => {
-    const fetchFolders = async () => {
-      const data = await getAllTreeNode();
-      setFolders(data);
-    };
-
-    fetchFolders();
-  }, []);
 
   return (
     <SideBarContext.Provider
@@ -45,7 +31,6 @@ export const SideBarProvider = ({
         isLinkOpen,
         setIsOpen,
         setIsLinkOpen,
-        folders,
       }}
     >
       {children}

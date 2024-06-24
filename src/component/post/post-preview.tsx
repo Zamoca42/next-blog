@@ -30,7 +30,7 @@ export function PostPreview({
     <Card>
       <CardHeader>
         <CardTitle>
-          <Link href={`/post/${slug}`} className="nav-underline">
+          <Link href={`/post${slug}`} className="nav-underline">
             {title}
           </Link>
         </CardTitle>

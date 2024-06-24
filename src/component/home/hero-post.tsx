@@ -1,23 +1,16 @@
-"use client";
-
 import Link from "next/link";
 import CoverImage from "@/component/ui/cover-image";
 import DateBox from "@/component/layout/date-box";
 import Tag from "@/component/layout/tag";
 import { Star } from "lucide-react";
 import { MarkdownBody, previewPlugins } from "@/component/post/markdown-body";
-import { usePostList } from "@/component/post-provider";
-import { useEffect, useState } from "react";
 import { Post } from "@/interface/post";
 
-export function HeroPost() {
-  const { allPosts } = usePostList();
-  const [post, setPost] = useState<Post>();
+type Params = {
+  post: Post;
+};
 
-  useEffect(() => {
-    setPost(allPosts[0]);
-  }, [allPosts]);
-
+export function HeroPost({ post }: Params) {
   if (!post) return null;
 
   return (
@@ -32,7 +25,7 @@ export function HeroPost() {
       <div className="md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
           <h3 className="mb-4 text-2xl lg:text-5xl leading-none font-semibold truncate pb-2">
-            <Link href={`/post/${post.slug}`} className="nav-underline">
+            <Link href={`/post${post.slug}`} className="nav-underline">
               {post.title}
             </Link>
           </h3>
@@ -43,12 +36,7 @@ export function HeroPost() {
           </div>
         </div>
         <div className="mb-4">
-          {
-            <MarkdownBody
-              content={post.excerpt}
-              remarkPlugins={previewPlugins}
-            />
-          }
+          <MarkdownBody content={post.excerpt} remarkPlugins={previewPlugins} />
         </div>
       </div>
     </section>

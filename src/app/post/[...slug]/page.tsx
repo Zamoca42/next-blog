@@ -1,15 +1,13 @@
-import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllPosts, getPostBySlug } from "@/app/api/action";
-import { type Post } from "@/interface/post";
+import { getPostBySlug } from "@/app/api/action";
+import { PostSlugParams } from "@/interface/post";
 import { SideBar } from "@/component/layout/side-bar";
 import { PostPage } from "@/component/post/post-page";
-import { delay } from "@/lib/util";
-import { blogConfig } from "@/blog.config";
 import { PostToc } from "@/component/post/post-toc";
 import { generateToc } from "@/lib/unified-plugin";
+import { generateStaticParams, generateMetadata } from "@/lib/post-meta";
 
-export default async function Post({ params }: Params) {
+export default async function PostDetail({ params }: PostSlugParams) {
   const postSlug = params.slug.join("/");
   const post = await getPostBySlug(postSlug);
 
@@ -17,7 +15,7 @@ export default async function Post({ params }: Params) {
     return notFound();
   }
 
-  const toc = await generateToc(post.content);
+  const toc = generateToc(post.content);
 
   return (
     <>
@@ -35,66 +33,4 @@ export default async function Post({ params }: Params) {
   );
 }
 
-type Params = {
-  params: {
-    slug: string[];
-  };
-};
-
-export const generateMetadata = async ({
-  params,
-}: Params): Promise<Metadata> => {
-  const postSlug = params.slug.join("/");
-  const post = await getPostBySlug(postSlug);
-  const { blog, host, name: applicationName } = blogConfig;
-
-  if (!post) {
-    return notFound();
-  }
-
-  const title = `${post.title} | Next.js Blog`;
-  const keywords =
-    post.tags.length === 0 ? ["Next.js", "blog", "react"] : post.tags;
-  const description = post.description || post.excerpt;
-
-  return {
-    metadataBase: new URL(host),
-    title,
-    description,
-    authors: blog.author,
-    keywords,
-    applicationName,
-    generator: "Next.js",
-    openGraph: {
-      title,
-      description,
-      url: `${host}/post${postSlug}`,
-      siteName: applicationName,
-      images: [
-        {
-          url: "/favicon/android-chrome-512x512.png",
-          width: 1200,
-          height: 630,
-          alt: title,
-          type: "image/png",
-        },
-      ],
-      locale: "en-US",
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: ["/favicon/android-chrome-512x512.png"],
-    },
-  };
-};
-
-export const generateStaticParams = async () => {
-  const posts = await getAllPosts();
-  await delay(2000);
-  return posts.map((post) => ({
-    slug: post.slug.split("/").filter(Boolean),
-  }));
-};
+export { generateStaticParams, generateMetadata };

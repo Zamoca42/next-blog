@@ -1,32 +1,24 @@
 "use client";
 
-import { useSideBar } from "@/component/sidebar-provider";
-import { Tree, TreeViewElement } from "@/component/ui/tree-view-api";
+import { useSideBar } from "@/component/context/sidebar-provider";
+import { Tree } from "@/component/ui/tree-view-api";
 import { TreeItem } from "@/component/layout/tree-item";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
 import { TocItem } from "remark-flexible-toc";
 import { ChevronRight, ChevronLeft } from "lucide-react";
+import { useTreeNode } from "@/component/context/swr-provider";
 
 type Props = {
   toc: TocItem[];
 };
 
 export const SideBar = ({ toc }: Props) => {
-  const { folders, isOpen, setIsOpen } = useSideBar();
-  const [elements, setElements] = useState<TreeViewElement[]>([]);
+  const { isOpen, setIsOpen } = useSideBar();
+  const { folders } = useTreeNode();
   const pathname = usePathname();
-
-  useEffect(() => {
-    const fetchFolders = () => {
-      const pathFolders = folders.filter(
-        (folder) => folder.path === pathname.split("/")[2]
-      );
-      setElements(pathFolders);
-    };
-
-    fetchFolders();
-  }, [folders]);
+  const elements = folders.filter(
+    (folder) => folder.path === pathname.split("/")[2]
+  );
 
   return (
     <aside className="h-full z-0">

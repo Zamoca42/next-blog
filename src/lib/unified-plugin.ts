@@ -1,6 +1,6 @@
 import { visit } from "unist-util-visit";
 import { Plugin } from "unified";
-import { Node, Parent, Literal } from "unist";
+import { Node, Parent } from "unist";
 import { unified } from "unified";
 import remarkToc, { TocItem } from "remark-flexible-toc";
 import { refractor } from "refractor/lib/all.js";
@@ -18,7 +18,7 @@ export const removeHeadings: Plugin = () => {
   };
 };
 
-export const generateToc = async (markdown: string) => {
+export const generateToc = (markdown: string) => {
   const toc: TocItem[] = [];
 
   const processor = unified()
@@ -29,7 +29,7 @@ export const generateToc = async (markdown: string) => {
     .use(remarkParse)
     .use(remarkStringify);
 
-  await processor.process(markdown);
+  processor.processSync(markdown);
 
   return toc;
 };

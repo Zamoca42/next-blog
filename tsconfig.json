@@ -34,7 +34,7 @@
     "**/*.tsx",
     "next.config.js",
     ".next/types/**/*.ts",
-    "dist/types/**/*.ts",
+    "dist/types/**/*.ts", "src/script/log-script.js",
   ],
   "exclude": [
     "node_modules"

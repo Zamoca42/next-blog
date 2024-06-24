@@ -1,7 +1,7 @@
 "use client";
 
 import { PostHeader } from "@/component/post/post-header";
-import { useSideBar } from "@/component/sidebar-provider";
+import { useSideBar } from "@/component/context/sidebar-provider";
 import { Post } from "@/interface/post";
 import DateFormatter from "../ui/date-formatter";
 import { MarkdownBody } from "@/component/post/markdown-body";
