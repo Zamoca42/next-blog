@@ -21,7 +21,7 @@ module.exports = async (phase) => {
   }
 
   if (phase === PHASE_PRODUCTION_BUILD) {
-    console.log("url: ",process.env.NEXT_PUBLIC_PATH_URL);
+    console.log("url: ",process.env.VERCEL_URL);
     console.log("env: ",process.env.NODE_ENV);
     await updateAlgoliaIndex();
   }

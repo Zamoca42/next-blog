@@ -3,7 +3,11 @@ import type { TypedDocumentNode } from "@graphql-typed-document-node/core";
 import { parse } from "graphql";
 
 const graphQlClient = new GraphQLClient(
-  `${process.env.NEXT_PUBLIC_PATH_URL}/api/graphql`,
+  `${
+    process.env.VERCEL_ENV === "production"
+      ? process.env.VERCEL_URL
+      : `http://localhost:3000`
+  }/api/graphql`,
   {
     method: `GET`,
     jsonSerializer: {
