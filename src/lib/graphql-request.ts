@@ -8,7 +8,7 @@ const graphQlClient = new GraphQLClient(
       ? `http://localhost:3000`
       : process.env.VERCEL_ENV === "development"
       ? `https://localhost:3000`
-      : process.env.VERCEL_URL
+      : `https://${process.env.VERCEL_URL}`
   }/api/graphql`,
   {
     method: `GET`,
