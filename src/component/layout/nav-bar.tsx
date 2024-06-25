@@ -105,7 +105,7 @@ export const NavBar = () => {
               <div className="hidden md:flex">
                 <ExternalLinkWithMode />
               </div>
-              <div>
+              <div className="docsearch-wrapper">
                 <DocSearch
                   appId={process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID!}
                   apiKey={process.env.NEXT_PUBLIC_DOCSEARCH_API_KEY!}

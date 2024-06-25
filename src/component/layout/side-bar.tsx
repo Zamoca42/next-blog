@@ -6,7 +6,8 @@ import { TreeItem } from "@/component/layout/tree-item";
 import { usePathname } from "next/navigation";
 import { TocItem } from "remark-flexible-toc";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import { useTreeNode } from "@/component/context/swr-provider";
+import { useBlogContent } from "@/component/context/swr-provider";
+import { sortFoldersAndFiles } from "@/lib/util";
 
 type Props = {
   toc: TocItem[];
@@ -14,11 +15,16 @@ type Props = {
 
 export const SideBar = ({ toc }: Props) => {
   const { isOpen, setIsOpen } = useSideBar();
-  const { folders } = useTreeNode();
+  const { folders, isLoading, isError } = useBlogContent();
   const pathname = usePathname();
-  const elements = folders.filter(
-    (folder) => folder.path === pathname.split("/")[2]
-  );
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Fetch Error!</div>;
+
+  const sortedFolders = folders?.map((folder) => ({
+    ...folder,
+    children: folder.children ? sortFoldersAndFiles(folder.children) : [],
+  }));
 
   return (
     <aside className="h-full z-0">
@@ -37,9 +43,11 @@ export const SideBar = ({ toc }: Props) => {
             indicator={true}
             initialExpendedItems={pathname.split("/").slice(1)}
           >
-            {elements.map((element) => (
-              <TreeItem key={element.id} elements={[element]} toc={toc} />
-            ))}
+            {sortedFolders
+              ?.filter((folder) => folder.path === pathname.split("/")[2])
+              .map((element) => (
+                <TreeItem key={element.id} elements={[element]} toc={toc} />
+              ))}
           </Tree>
         </div>
       </div>

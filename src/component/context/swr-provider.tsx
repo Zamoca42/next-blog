@@ -1,35 +1,70 @@
 "use client";
 
-import { getAllPosts } from "@/app/api/action";
 import { ContentFolder } from "@/interface/folder";
 import { Post } from "@/interface/post";
 import useSWR, { SWRConfig } from "swr";
+import { gql } from "graphql-request";
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
+export const fetcherGql = (query: string) =>
+  fetch(`/api/graphql`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query,
+    }),
+  })
+    .then((r) => r.json())
+    .then((res) => res.data);
 
-export const usePostList = (): {
+export const useBlogContent = (): {
   posts: Post[];
-  isLoading: boolean;
-  isError: boolean;
-} => {
-  const { data, error, isLoading } = useSWR<Post[]>("/api/post");
-
-  return {
-    posts: data || [],
-    isLoading,
-    isError: error,
-  };
-};
-
-export const useTreeNode = (): {
   folders: ContentFolder[];
   isLoading: boolean;
   isError: boolean;
 } => {
-  const { data, error, isLoading } = useSWR<ContentFolder[]>("/api/tree-node");
+  const { data, error, isLoading } = useSWR<{
+    posts: Post[];
+    folders: ContentFolder[];
+  }>(
+    gql`
+      fragment TreeNode on Folder {
+        id
+        name
+        path
+      }
+
+      query {
+        posts {
+          slug
+          createdAt
+          updatedAt
+          tags
+          description
+          star
+          excerpt
+        }
+
+        folders {
+          ...TreeNode
+          children {
+            ...TreeNode
+            children {
+              ...TreeNode
+              children {
+                ...TreeNode
+              }
+            }
+          }
+        }
+      }
+    `
+  );
 
   return {
-    folders: data || [],
+    posts: data?.posts!,
+    folders: data?.folders!,
     isLoading,
     isError: error,
   };
@@ -39,7 +74,7 @@ export const SWRProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <SWRConfig
       value={{
-        fetcher,
+        fetcher: fetcherGql,
         revalidateOnFocus: false,
         revalidateIfStale: false,
         revalidateOnReconnect: false,

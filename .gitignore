@@ -30,6 +30,10 @@ yarn-error.log*
 .env.*
 .env
 
+# cache
+
+.cache
+
 # vercel
 .vercel
 

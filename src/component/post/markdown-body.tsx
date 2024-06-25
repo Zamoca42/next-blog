@@ -49,7 +49,6 @@ export function MarkdownBody({
           },
         ],
         remarkUnwrapImages,
-        // remarkStripHtmlComments,
         remarkDirective,
         remarkDirectiveRehype,
         ...remarkPlugins,

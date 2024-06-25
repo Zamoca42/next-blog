@@ -7,7 +7,7 @@ import { Fragment } from "react";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { Button } from "@/component/ui/button";
 import { Post } from "@/interface/post";
-import { usePostList } from "@/component/context/swr-provider";
+import { useBlogContent } from "@/component/context/swr-provider";
 
 type Props = {
   toggleMenu?: () => void;
@@ -23,7 +23,7 @@ export const PostLink = ({
   notMatchedPathClass = "",
 }: Props) => {
   const pathname = usePathname();
-  const { posts } = usePostList();
+  const { posts, isLoading } = useBlogContent();
 
   const router = useRouter();
   const { navLink } = blogConfig;
@@ -40,6 +40,7 @@ export const PostLink = ({
     const matchedPosts = posts.filter((post: Post) =>
       post.slug.split("/").includes(path)
     );
+
     router.push(`/post/${matchedPosts[0].slug}`);
 
     if (toggleMenu) {
@@ -47,18 +48,26 @@ export const PostLink = ({
     }
   };
 
+  const renderHomeButton = () => (
+    <button
+      className={clsx(
+        pathname === "/" ? matchedPathClass : notMatchedPathClass,
+        divider ? "hover:text-primary-foreground" : "",
+        "ml-2"
+      )}
+      onClick={() => handleRouter("/")}
+    >
+      Home
+    </button>
+  );
+
+  if (isLoading) {
+    return <nav className="space-x-2 space-y-2">{renderHomeButton()}</nav>;
+  }
+
   return (
     <nav className="space-x-2 space-y-2">
-      <button
-        className={clsx(
-          pathname === "/" ? matchedPathClass : notMatchedPathClass,
-          divider ? "hover:text-primary-foreground" : "",
-          "ml-2"
-        )}
-        onClick={() => handleRouter("/")}
-      >
-        Home
-      </button>
+      {renderHomeButton()}
       {navLink.map((folder) => (
         <Fragment key={folder.path}>
           {divider && <hr className="border-gray-200 min-w-72" />}
