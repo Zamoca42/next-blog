@@ -24,7 +24,7 @@ const client = algoliasearch(appId, apiKey);
  * @typedef {Object} PostSearchIndex
  * @property {string} objectID
  * @property {string} url
- * @property {{lvl0: string, lvl1: string, lvl2: string, lvl3: string}} hierarchy
+ * @property {{lvl0: string, lvl1: string, lvl2: string, lvl3: string[]}} hierarchy
  * @property {string} type
  * @property {string | null} content
  */
@@ -48,8 +48,8 @@ const createPostRecord = async (filePath) => {
     hierarchy: {
       lvl0: "Documentation",
       lvl1: data.title,
-      lvl2: data.tags || [],
-      lvl3: data.description || null,
+      lvl2: data.description || null,
+      lvl3: data.tags || [],
     },
     type: 'lvl1',
     content: excerpt || null,

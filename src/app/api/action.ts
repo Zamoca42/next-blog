@@ -1,5 +1,3 @@
-"use server";
-
 import { ContentFolder } from "@/interface/folder";
 import { Post } from "@/interface/post";
 import fs from "fs";
