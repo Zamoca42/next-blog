@@ -1,8 +1,8 @@
 import "@/style/prism.css";
 import Markdown, { Components } from "react-markdown";
-import CodeTitle from "@/component/md/code-title";
-import CodeBlock from "@/component/md/code-block";
-import ImageInPost from "@/component/md/image-in-post";
+import CodeTitle from "@/component/post/md/code-title";
+import CodeBlock from "@/component/post/md/code-block";
+import ImageInPost from "@/component/post/md/image-in-post";
 import { PluggableList } from "unified";
 //markdown-plugin
 import gfm from "remark-gfm";
@@ -17,7 +17,7 @@ import {
   DirectiveDetails,
   InfoDirective,
   DirectiveProps,
-} from "@/component/md/directive";
+} from "@/component/post/md/directive";
 
 type Props = {
   content: string;

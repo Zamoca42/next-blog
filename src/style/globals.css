@@ -13,13 +13,21 @@
   }
   
   .active-link {
-    /* @apply underline-offset-8 underline decoration-4 decoration-primary; */
-    @apply border-b-4 border-primary font-semibold;
-    text-underline-offset: 8px;
+    position: relative;
+  }
+  
+  .active-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; /* 이 값을 조정하여 offset을 변경할 수 있습니다 */
+    left: 0;
+    width: 100%;
+    height: 4px; /* border의 두께 */
+    background-color: hsl(var(--primary)); /* border 색상 */
   }
   .nav-underline {
     position: relative;
-    text-underline-offset: 8px;
+    text-underline-offset: 10px;
   }
   
   .nav-underline::after {
@@ -27,7 +35,7 @@
     content: '';
     position: absolute;
     left: 50%;
-    bottom: -5px;
+    bottom: -4px;
     width: 0;
     height: 4px;
     transition: width 0.3s ease, left 0.3s ease;

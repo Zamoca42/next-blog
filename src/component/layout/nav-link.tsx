@@ -1,19 +1,18 @@
-"use client";
-
 import { blogConfig } from "@/blog.config";
-import { usePathname, useRouter } from "next/navigation";
 import clsx from "clsx";
 import { Fragment } from "react";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { Button } from "@/component/ui/button";
 import { Post } from "@/interface/post";
-import { useBlogContent } from "@/component/context/swr-provider";
+import Link from "next/link";
 
 type Props = {
   toggleMenu?: () => void;
   divider?: boolean;
   matchedPathClass?: string;
   notMatchedPathClass?: string;
+  pathname: string;
+  posts: Post[];
 };
 
 export const PostLink = ({
@@ -21,69 +20,51 @@ export const PostLink = ({
   divider = false,
   matchedPathClass = "text-primary-foreground font-semibold",
   notMatchedPathClass = "",
+  pathname,
+  posts,
 }: Props) => {
-  const pathname = usePathname();
-  const { posts, isLoading } = useBlogContent();
-
-  const router = useRouter();
   const { navLink } = blogConfig;
-
-  const handleRouter = (path: string) => {
-    router.push(path);
-
-    if (toggleMenu) {
-      toggleMenu();
-    }
-  };
-
-  const handlePostRouter = async (path: string) => {
-    const matchedPosts = posts.filter((post: Post) =>
-      post.slug.split("/").includes(path)
-    );
-
-    router.push(`/post/${matchedPosts[0].slug}`);
-
-    if (toggleMenu) {
-      toggleMenu();
-    }
-  };
-
   const renderHomeButton = () => (
-    <button
+    <Link
+      href="/"
       className={clsx(
         pathname === "/" ? matchedPathClass : notMatchedPathClass,
         divider ? "hover:text-primary-foreground" : "",
         "ml-2"
       )}
-      onClick={() => handleRouter("/")}
+      onClick={toggleMenu}
     >
       Home
-    </button>
+    </Link>
   );
-
-  if (isLoading) {
-    return <nav className="space-x-2 space-y-2">{renderHomeButton()}</nav>;
-  }
 
   return (
     <nav className="space-x-2 space-y-2">
       {renderHomeButton()}
-      {navLink.map((folder) => (
-        <Fragment key={folder.path}>
-          {divider && <hr className="border-border min-w-72" />}
-          <button
-            className={clsx(
-              pathname.startsWith(`/post/${folder.path}`)
-                ? matchedPathClass
-                : notMatchedPathClass,
-              divider ? "hover:text-primary-foreground" : ""
-            )}
-            onClick={() => handlePostRouter(folder.path)}
-          >
-            {folder.name}
-          </button>
-        </Fragment>
-      ))}
+      {navLink.map((folder) => {
+        const matchedPost = posts.find((post: Post) =>
+          post.slug.split("/").includes(folder.path)
+        );
+        const href = matchedPost ? `/post/${matchedPost.slug}` : "#";
+
+        return (
+          <Fragment key={folder.path}>
+            {divider && <hr className="border-border min-w-72" />}
+            <Link
+              href={href}
+              className={clsx(
+                pathname.startsWith(`/post/${folder.path}`)
+                  ? matchedPathClass
+                  : notMatchedPathClass,
+                divider ? "hover:text-primary-foreground" : ""
+              )}
+              onClick={toggleMenu}
+            >
+              {folder.name}
+            </Link>
+          </Fragment>
+        );
+      })}
     </nav>
   );
 };

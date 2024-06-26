@@ -46,13 +46,17 @@ export const SideBar = ({ toc }: Props) => {
             {sortedFolders
               ?.filter((folder) => folder.path === pathname.split("/")[2])
               .map((element) => (
-                <TreeItem key={element.id} elements={[element]} toc={toc} />
+                <TreeItem
+                  key={element.id}
+                  elements={[element]}
+                  toc={toc}
+                />
               ))}
           </Tree>
         </div>
       </div>
       <button
-        className={`fixed w-8 min-h-screen z-0 hover:bg-accent/55 hover:text-accent-foreground transition-transform duration-300 
+        className={`fixed top-16 w-6 min-h-screen z-20 hover:bg-accent/55 hover:text-accent-foreground transition-transform duration-300 
           ease-in-out transform hidden md:block lg:hidden ${
             isOpen ? `translate-x-72` : "translate-x-0"
           }`}

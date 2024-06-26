@@ -11,12 +11,14 @@ import { AlignLeft, AlignRight, X } from "lucide-react";
 import clsx from "clsx";
 import { Button } from "@/component/ui/button";
 import { DocSearch } from "@docsearch/react";
-import "@docsearch/css";
 import { ALGOLIA_INDEX_NAME } from "@/lib/constant";
+import { useBlogContent } from "../context/swr-provider";
+import "@docsearch/css";
 
 export const NavBar = () => {
   const { isOpen, setIsOpen, isLinkOpen, setIsLinkOpen } = useSideBar();
   const pathname = usePathname();
+  const { posts, isLoading } = useBlogContent();
 
   useEffect(() => {
     if (pathname === "/") {
@@ -49,6 +51,11 @@ export const NavBar = () => {
   const toggleMenu = () => {
     setIsLinkOpen(!isLinkOpen);
   };
+
+  if (isLoading)
+    return (
+      <nav className="fixed top-0 z-50 w-full backdrop-blur flex-none transition-colors duration-500 shadow-sm"></nav>
+    );
 
   return (
     <>
@@ -99,6 +106,8 @@ export const NavBar = () => {
               <PostLink
                 matchedPathClass="active-link"
                 notMatchedPathClass="nav-underline"
+                pathname={pathname}
+                posts={posts}
               />
             </div>
             <div className="flex items-center">
@@ -145,7 +154,12 @@ export const NavBar = () => {
           }`}
         >
           <div className="flex flex-col justify-center items-center space-y-4 p-4 m-10">
-            <PostLink toggleMenu={toggleMenu} divider />
+            <PostLink
+              toggleMenu={toggleMenu}
+              pathname={pathname}
+              divider
+              posts={posts}
+            />
             <ExternalLinkWithMode />
           </div>
         </aside>
