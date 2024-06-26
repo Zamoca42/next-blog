@@ -62,7 +62,7 @@ const saveGitInfo = async () => {
     const currentDate = new Date();
     const lastModifiedDate = new Date(fileStats.mtime);
     const daysDiff = differenceInDays(currentDate, lastModifiedDate);
-    if (daysDiff < 7) {
+    if (daysDiff < 3) {
       return;
     }
   } catch (error) {
