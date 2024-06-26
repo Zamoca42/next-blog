@@ -14,10 +14,9 @@
   
   .active-link {
     /* @apply underline-offset-8 underline decoration-4 decoration-primary; */
-    @apply border-b-4 border-primary;
+    @apply border-b-4 border-primary font-semibold;
     text-underline-offset: 8px;
   }
-  
   .nav-underline {
     position: relative;
     text-underline-offset: 8px;
@@ -164,7 +163,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 210 0% 50%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 210 40% 95%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -191,7 +190,7 @@
     --docsearch-modal-shadow: 0 3px 8px 0 hsl(var(--foreground) / 30%);
     --docsearch-searchbox-height: 56px;
     --docsearch-searchbox-background: hsl(var(--muted));
-    --docsearch-searchbox-focus-background: hsl(var(--background));
+    --docsearch-searchbox-focus-background: hsl(var(--accent));
     --docsearch-searchbox-shadow: inset 0 0 0 2px hsl(var(--primary-foreground));
     --docsearch-hit-height: 56px;
     --docsearch-hit-color: hsl(var(--foreground));
@@ -221,16 +220,16 @@
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 215.4 16.3% 46.9%;
 
-    --muted: 217.2 32.6% 17.5%;
+    --muted: 0 0% 15%;
     --muted-foreground: 210 0% 45%;
 
-    --accent: 217.2 32.6% 17.5%;
+    --accent: 0 0% 18%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17%;
+    --border: 0 0% 15%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
   }

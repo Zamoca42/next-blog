@@ -70,7 +70,7 @@ export const PostLink = ({
       {renderHomeButton()}
       {navLink.map((folder) => (
         <Fragment key={folder.path}>
-          {divider && <hr className="border-gray-200 min-w-72" />}
+          {divider && <hr className="border-border min-w-72" />}
           <button
             className={clsx(
               pathname.startsWith(`/post/${folder.path}`)
