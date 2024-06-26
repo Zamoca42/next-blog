@@ -73,6 +73,33 @@ slug: home
 
 이러한 라이브러리를 사용하면 Frontmatter를 쉽게 다룰 수 있으며, 정적 사이트 생성기, 블로그 엔진, 또는 콘텐츠 관리 시스템 등에서 유용하게 활용될 수 있다.
 
+## Excerpt
+
+'excerpt'는 gray-matter에서 markdown 컨텐츠의 일부분을 자동으로 추출하는 기능이다.
+
+```js
+const matter = require("gray-matter");
+
+const markdown = `---
+title: 샘플 포스트
+---
+이것은 첫 번째 단락입니다.
+
+이것은 두 번째 단락입니다.
+
+<!-- end -->
+`;
+
+const result1 = matter(markdown, { excerpt: true });
+console.log(result1.excerpt); // "이것은 첫 번째 단락입니다."
+
+const result2 = matter(markdown, {
+  excerpt: true,
+  excerpt_separator: "<!-- end -->",
+});
+console.log(result2.excerpt); // "이것은 첫 번째 단락입니다.\n\n이것은 두 번째 단락입니다."
+```
+
 ## Directive
 
 directive 문법은 remark-directive 플러그인에서 사용되는 특별한 구문으로, 마크다운 문서에 추가적인 기능을 제공한다.
@@ -191,11 +218,11 @@ _italic_
 
 ### 코드 블록(Code Blocks)
 
-````markdown
+```markdown
 ​`언어이름:제목
 코드 내용
 ​`
-````
+```
 
 ### 테이블(Tables)
 

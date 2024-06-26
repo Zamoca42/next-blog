@@ -1,3 +1,5 @@
+"use client";
+
 import { ClassAttributes, ImgHTMLAttributes } from "react";
 import { ExtraProps } from "react-markdown";
 import Image from "next/image";

@@ -36,15 +36,15 @@ export function MoreStories({ previews: posts }: Params) {
       </h2>
       <div className="mb-4 space-x-2">
         <Button
-          variant={selectedFilter === "all" ? "secondary" : "ghost"}
+          variant={selectedFilter === "all" ? "accent" : "ghost"}
           onClick={() => setSelectedFilter("all")}
           className="space-x-2"
         >
-          <span>All </span>
+          <span>All</span>
           <Badge variant="outline">{posts.length - 1}</Badge>
         </Button>
         <Button
-          variant={selectedFilter === "star" ? "secondary" : "ghost"}
+          variant={selectedFilter === "star" ? "accent" : "ghost"}
           onClick={() => {
             setSelectedFilter("star");
             setCurrentPage(1);

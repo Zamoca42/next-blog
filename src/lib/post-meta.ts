@@ -24,7 +24,7 @@ export const generateMetadata = async ({
 
   const { blog, host, name: applicationName } = blogConfig;
 
-  const title = `${post.title} | Next.js Blog`;
+  const title = `${post.title}`;
   const keywords =
     post.tags.length === 0 ? ["Next.js", "blog", "react"] : post.tags;
   const description = post.description || post.excerpt;
