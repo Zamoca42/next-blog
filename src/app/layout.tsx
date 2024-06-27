@@ -75,7 +75,7 @@ export default function RootLayout({
           ]}
         >
           <NavBar />
-          <div className="max-w-8xl mx-auto mt-24">{children}</div>
+          <div className="max-w-8xl mx-auto mt-12">{children}</div>
         </AppProvider>
         <Analytics />
       </body>

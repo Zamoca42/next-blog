@@ -49,7 +49,7 @@ export const PostLink = ({
 
         return (
           <Fragment key={folder.path}>
-            {divider && <hr className="border-border min-w-72" />}
+            {divider && <hr className="border-border min-w-72 py-1" />}
             <Link
               href={href}
               className={clsx(

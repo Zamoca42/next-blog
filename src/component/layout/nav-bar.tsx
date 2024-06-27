@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { PostLink, ExternalLinkWithMode } from "@/component/layout/nav-link";
 import { useSideBar } from "@/component/context/sidebar-provider";
 import { blogConfig } from "@/blog.config";
@@ -19,12 +19,46 @@ export const NavBar = () => {
   const { isOpen, setIsOpen, isLinkOpen, setIsLinkOpen } = useSideBar();
   const pathname = usePathname();
   const { posts, isLoading } = useBlogContent();
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     if (pathname === "/") {
       setIsOpen(false);
     }
   }, [pathname, setIsOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (e.clientY <= 50) {
+        setIsVisible(true);
+      }
+    };
+
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => {
+      if (isMobile) {
+        window.removeEventListener("scroll", handleScroll);
+        window.removeEventListener("mousemove", handleMouseMove);
+      }
+    };
+  }, [lastScrollY]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -37,6 +71,10 @@ export const NavBar = () => {
         document.body.style.overflow = "auto";
       } else {
         document.body.style.overflow = "auto";
+      }
+
+      if (!mdMediaQuery.matches) {
+        setIsVisible(true);
       }
     };
 
@@ -54,13 +92,18 @@ export const NavBar = () => {
 
   if (isLoading)
     return (
-      <nav className="fixed top-0 z-50 w-full backdrop-blur flex-none transition-colors duration-500 shadow-sm"></nav>
+      <nav className="fixed top-0 z-50 w-full backdrop-blur bg-background/80 flex-none transition-colors duration-500 shadow-sm h-[3rem]"></nav>
     );
 
   return (
     <>
-      <nav className="fixed top-0 z-50 w-full backdrop-blur flex-none transition-colors duration-500 shadow-sm">
-        <div className="max-w-8xl mx-auto p-4 lg:px-8">
+      <nav
+        className={clsx(
+          "fixed top-0 z-50 w-full backdrop-blur bg-background/80 flex-none transition-all duration-300 shadow-sm",
+          isVisible ? "translate-y-0" : "-translate-y-full"
+        )}
+      >
+        <div className="max-w-8xl mx-auto py-2 px-4 lg:px-8">
           <div className="relative flex items-center">
             <div className="md:hidden flex-1">
               {pathname !== "/" && (
@@ -149,7 +192,7 @@ export const NavBar = () => {
       </nav>
       {!isOpen && (
         <aside
-          className={`fixed md:hidden top-16 min-h-screen w-full bg-background transition-opacity duration-200 ease-in-out z-10 ${
+          className={`fixed md:hidden top-12 min-h-screen w-full bg-background transition-opacity duration-200 ease-in-out z-10 ${
             isLinkOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >
