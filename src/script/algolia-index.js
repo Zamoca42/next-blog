@@ -3,7 +3,6 @@ import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
 import algoliasearch from "algoliasearch";
-import { nanoid } from "nanoid";
 import { ALGOLIA_INDEX_NAME } from "../lib/constant.js";
 import { getMarkdownFiles, getSlugFromFilePath, postsDirectory } from "../lib/file-util.js";
 
@@ -23,13 +22,15 @@ const client = algoliasearch(appId, apiKey);
  * @property {{lvl0: string, lvl1: string, lvl2: string, lvl3: string[]}} hierarchy
  * @property {string} type
  * @property {string | null} content
+ * @property {string[]} tags
  */
 
 /**
  * @param {string} filePath
+ * @param {number} index
  * @returns {Promise<PostSearchIndex>}
  */
-const createPostRecord = async (filePath) => {
+const createPostRecord = async (filePath, index) => {
   const slug = getSlugFromFilePath(filePath);
   const fileContents = await fs.readFile(filePath, "utf8");
   const { data, excerpt } = matter(fileContents, {
@@ -38,16 +39,17 @@ const createPostRecord = async (filePath) => {
   });
 
   return {
-    objectID: `${nanoid()}-https://zamoca.space/post/${slug}`,
-    url: `https://zamoca.space/post/${slug}`,
+    objectID: `${index}-https://zamoca.space/post${slug}`,
+    url: `https://zamoca.space/post${slug}`,
     hierarchy: {
       lvl0: "Documentation",
       lvl1: data.title,
       lvl2: data.description || null,
-      lvl3: data.tags || [],
+      lvl3: data.tag || []
     },
     type: 'lvl1',
     content: excerpt || null,
+    tags: data.tag
   };
 };
 
@@ -57,11 +59,12 @@ const createPostRecord = async (filePath) => {
 const getAllPosts = async () => {
   const markdownFiles = await getMarkdownFiles(postsDirectory);
   return Promise.all(
-    markdownFiles.map(fileName => {
-    const filePath = path.join(postsDirectory, fileName);
-    return createPostRecord(filePath);
-  }));
-};
+    markdownFiles.map(async (fileName, index) => {
+      const filePath = path.join(postsDirectory, fileName);
+      return await createPostRecord(filePath, index);
+    })
+  );
+}
 
 export const updateAlgoliaIndex = async () => {
   try {

@@ -20,7 +20,7 @@ export default async (phase) => {
     await saveGitInfo();
   }
 
-  if (phase === PHASE_PRODUCTION_BUILD && process.env.VERCEL_ENV === "production") { //
+  if (phase === PHASE_PRODUCTION_BUILD && process.env.VERCEL_ENV === "production") {
     await updateAlgoliaIndex();
   }
 
