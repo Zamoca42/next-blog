@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getPostBySlug } from "@/app/api/action";
+import { getPostBySlug, getSpecificTreeNode } from "@/app/api/action";
 import { PostSlugParams } from "@/interface/post";
 import { SideBar } from "@/component/layout/side-bar";
 import { PostToc } from "@/component/post/post-toc";
@@ -16,7 +16,11 @@ const DynamicGiscus = dynamic(() => import("@/component/post/giscus"), {
 
 export default async function PostDetail({ params }: PostSlugParams) {
   const postSlug = params.slug.join("/");
-  const post = await getPostBySlug(postSlug);
+  const postBranch = params.slug[0];
+  const [post, folders] = await Promise.all([
+    getPostBySlug(postSlug),
+    getSpecificTreeNode(postBranch),
+  ]);
 
   if (!post) {
     return notFound();
@@ -26,7 +30,7 @@ export default async function PostDetail({ params }: PostSlugParams) {
 
   return (
     <>
-      <SideBar toc={toc} />
+      <SideBar toc={toc} folders={folders} />
       <div
         className={`transition-margin duration-200 ease-in-out lg:pl-[19rem] pl-4`}
       >
@@ -52,14 +56,16 @@ export default async function PostDetail({ params }: PostSlugParams) {
           </article>
         </div>
       </div>
-      <aside className="fixed z-20 top-16 bottom-0 right-[max(0px,calc(50%-45rem))] w-[17rem] py-10 overflow-y-auto hidden xl:block">
-        <div className="px-2 py-10 ltr">
-          <h2 className="font-semibold mb-2 text-secondary-foreground">
-            On this page
-          </h2>
-          <PostToc toc={toc} />
-        </div>
-      </aside>
+      {toc.length !== 0 && (
+        <aside className="fixed z-20 top-16 bottom-0 right-[max(0px,calc(50%-45rem))] w-[17rem] py-10 overflow-y-auto hidden xl:block">
+          <div className="px-2 py-10 ltr">
+            <h2 className="font-semibold mb-2 text-secondary-foreground">
+              On this page
+            </h2>
+            <PostToc toc={toc} />
+          </div>
+        </aside>
+      )}
     </>
   );
 }

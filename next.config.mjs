@@ -1,10 +1,10 @@
 // @ts-check
-const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require('next/constants');
-const { saveGitInfo } = require("./src/script/log-script");
-const { updateAlgoliaIndex } = require("./src/script/algolia-index");
+import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } from "next/constants.js";
+import { saveGitInfo } from "./src/script/log-script.js";
+import { updateAlgoliaIndex } from "./src/script/algolia-index.js";
+import bundleAnalyzer from '@next/bundle-analyzer';
 
-
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
+const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })
 
@@ -15,18 +15,19 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
  * @param {string} phase
  * @returns {Promise<NextConfig>}
  */
-module.exports = async (phase) => {
+export default async (phase) => {
   if (phase === PHASE_DEVELOPMENT_SERVER || phase === PHASE_PRODUCTION_BUILD) {
     await saveGitInfo();
   }
 
-  if (phase === PHASE_PRODUCTION_BUILD && process.env.VERCEL_ENV === "production") {
+  if (phase === PHASE_PRODUCTION_BUILD && process.env.VERCEL_ENV === "production") { //
     await updateAlgoliaIndex();
   }
 
   /** @type {NextConfig} */
   const nextConfig = {
     images: {
+      unoptimized: true,
       remotePatterns: [
         {
           protocol: 'https',

@@ -1,29 +1,36 @@
+"use client";
+
 import { blogConfig } from "@/blog.config";
-import clsx from "clsx";
-import { Fragment } from "react";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { Button } from "@/component/ui/button";
 import { Post } from "@/interface/post";
+import clsx from "clsx";
+import { Fragment } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useSideBar } from "@/component/context/sidebar-provider";
 
 type Props = {
-  toggleMenu?: () => void;
   divider?: boolean;
   matchedPathClass?: string;
   notMatchedPathClass?: string;
-  pathname: string;
   posts: Post[];
 };
 
 export const PostLink = ({
-  toggleMenu,
   divider = false,
   matchedPathClass = "text-primary-foreground font-semibold",
   notMatchedPathClass = "",
-  pathname,
   posts,
 }: Props) => {
   const { navLink } = blogConfig;
+  const pathname = usePathname();
+  const { isLinkOpen, setIsLinkOpen } = useSideBar();
+
+  const toggleMenu = () => {
+    setIsLinkOpen(!isLinkOpen);
+  };
+
   const renderHomeButton = () => (
     <Link
       href="/"
@@ -49,7 +56,7 @@ export const PostLink = ({
 
         return (
           <Fragment key={folder.path}>
-            {divider && <hr className="border-border min-w-72" />}
+            {divider && <hr className="border-border min-w-72 py-1" />}
             <Link
               href={href}
               className={clsx(

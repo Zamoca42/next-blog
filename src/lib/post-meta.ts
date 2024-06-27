@@ -3,17 +3,16 @@ import { blogConfig } from "@/blog.config";
 import { delay } from "@/lib/util";
 import { PostSlugParams, Post } from "@/interface/post";
 import { getAllPosts, getPostBySlug } from "@/app/api/action";
+import { notFound } from "next/navigation";
 
 export const generateStaticParams = async () => {
   const posts = await getAllPosts();
 
   await delay(2000);
 
-  const result = posts.map((post: Post) => ({
+  return posts.map((post: Post) => ({
     slug: post.slug.split("/").filter(Boolean),
   }));
-
-  return result;
 };
 
 export const generateMetadata = async ({
@@ -21,6 +20,13 @@ export const generateMetadata = async ({
 }: PostSlugParams): Promise<Metadata> => {
   const postSlug = params.slug.join("/");
   const post = await getPostBySlug(postSlug);
+
+  if (!post) {
+    return {
+      title: "게시물을 찾을 수 없음",
+      description: "요청하신 게시물을 찾을 수 없습니다.",
+    };
+  }
 
   const { blog, host, name: applicationName } = blogConfig;
 
@@ -40,7 +46,7 @@ export const generateMetadata = async ({
     openGraph: {
       title,
       description,
-      url: `${host}/post${postSlug}`,
+      url: `${host}/post/${postSlug}`,
       siteName: applicationName,
       images: [
         {

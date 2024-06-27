@@ -327,7 +327,7 @@ const File = forwardRef<
               "bg-muted": isSelected && isSelectable,
             },
             isSelectable ? "cursor-pointer" : "opacity-50 cursor-not-allowed",
-            pathname === `/post${value}`
+            pathname === `/post/${value}`
               ? "bg-primary/15 text-primary-foreground font-semibold"
               : "hover:bg-muted",
             className
