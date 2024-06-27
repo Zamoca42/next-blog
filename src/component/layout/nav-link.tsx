@@ -37,7 +37,7 @@ export const PostLink = ({
       className={clsx(
         pathname === "/" ? matchedPathClass : notMatchedPathClass,
         divider ? "hover:text-primary-foreground" : "",
-        "ml-2"
+        "ml-2 md:ml-0"
       )}
       onClick={toggleMenu}
     >
@@ -46,7 +46,7 @@ export const PostLink = ({
   );
 
   return (
-    <nav className="space-x-2 space-y-2">
+    <nav className="space-x-2 space-y-1">
       {renderHomeButton()}
       {navLink.map((folder) => {
         const matchedPost = posts.find((post: Post) =>
@@ -86,7 +86,7 @@ export const ExternalLinkWithMode = () => {
       {githubLink && (
         <Button
           variant="link"
-          size="sm"
+          size="icon"
           onClick={() => window.open(githubLink)}
         >
           <svg
@@ -109,7 +109,7 @@ export const ExternalLinkWithMode = () => {
       {linkedinLink && (
         <Button
           variant="link"
-          size="sm"
+          size="icon"
           onClick={() => window.open(linkedinLink)}
         >
           <svg
