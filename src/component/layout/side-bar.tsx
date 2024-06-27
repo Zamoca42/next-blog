@@ -6,20 +6,17 @@ import { TreeItem } from "@/component/layout/tree-item";
 import { usePathname } from "next/navigation";
 import { TocItem } from "remark-flexible-toc";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import { useBlogContent } from "@/component/context/swr-provider";
 import { sortFoldersAndFiles } from "@/lib/util";
+import { ContentFolder } from "@/interface/folder";
 
 type Props = {
   toc: TocItem[];
+  folders: ContentFolder[];
 };
 
-export const SideBar = ({ toc }: Props) => {
+export const SideBar = ({ toc, folders }: Props) => {
   const { isOpen, setIsOpen } = useSideBar();
-  const { folders, isLoading, isError } = useBlogContent();
   const pathname = usePathname();
-
-  if (isLoading) return null;
-  if (isError) return null;
 
   const sortedFolders = folders?.map((folder) => ({
     ...folder,
@@ -43,15 +40,9 @@ export const SideBar = ({ toc }: Props) => {
             indicator={true}
             initialExpendedItems={pathname.split("/").slice(1)}
           >
-            {sortedFolders
-              ?.filter((folder) => folder.path === pathname.split("/")[2])
-              .map((element) => (
-                <TreeItem
-                  key={element.id}
-                  elements={[element]}
-                  toc={toc}
-                />
-              ))}
+            {sortedFolders.map((element) => (
+              <TreeItem key={element.id} elements={[element]} toc={toc} />
+            ))}
           </Tree>
         </div>
       </div>

@@ -32,7 +32,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next.config.js",
+    "next.config.mjs",
     ".next/types/**/*.ts",
     "dist/types/**/*.ts", "src/script/log-script.js",
   ],

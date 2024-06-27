@@ -6,8 +6,11 @@ import { NavBar } from "@/component/layout/nav-bar";
 import { SideBarProvider } from "@/component/context/sidebar-provider";
 import { ThemeProvider } from "@/component/context/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
-import { SWRProvider } from "@/component/context/swr-provider";
 import { AppProvider } from "@/component/context/app-provider";
+import { ExternalLinkWithMode, PostLink } from "@/component/layout/nav-link";
+import { MobileLinkBar } from "@/component/layout/mobile-link-bar";
+import { getAllPosts } from "@/app/api/action";
+import { unstable_cache as nextCache } from "next/cache";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,11 +22,18 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+const getCachedPosts = nextCache(
+  async () => await getAllPosts(),
+  ["posts"],
+  { revalidate: 3600 }
+);
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const posts = await getCachedPosts();
   return (
     <html lang="en">
       <head>
@@ -70,11 +80,20 @@ export default function RootLayout({
                 enableSystem: true,
               },
             },
-            { component: SWRProvider },
             { component: SideBarProvider },
           ]}
         >
-          <NavBar />
+          <NavBar>
+            <PostLink
+              matchedPathClass="active-link"
+              notMatchedPathClass="nav-underline"
+              posts={posts}
+            />
+          </NavBar>
+          <MobileLinkBar>
+            <PostLink divider posts={posts} />
+            <ExternalLinkWithMode />
+          </MobileLinkBar>
           <div className="max-w-8xl mx-auto mt-12">{children}</div>
         </AppProvider>
         <Analytics />

@@ -25,7 +25,7 @@ export function HeroPost({ post }: Params) {
       <div className="md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
           <h3 className="mb-4 text-2xl lg:text-5xl leading-none font-semibold truncate pb-2">
-            <Link href={`/post${post.slug}`} className="nav-underline">
+            <Link href={`/post/${post.slug}`} className="nav-underline">
               {post.title}
             </Link>
           </h3>

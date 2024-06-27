@@ -50,7 +50,7 @@ export const TreeItem = ({ elements, toc }: TreeItemProps) => {
                   {element.name ?? element.path}
                 </Link>
               </File>
-              {pathname === `/post${element.path}` && toc && toc.length > 0 && (
+              {pathname === `/post/${element.path}` && toc && toc.length > 0 && (
                 <div className="ml-2 block xl:hidden">
                   <PostToc toc={toc} />
                 </div>
