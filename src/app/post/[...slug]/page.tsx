@@ -32,10 +32,10 @@ export default async function PostDetail({ params }: PostSlugParams) {
     <>
       <SideBar toc={toc} folders={folders} />
       <div
-        className={`transition-margin duration-200 ease-in-out lg:pl-[19rem] pl-4`}
+        className={`transition-margin duration-200 ease-in-out lg:pl-[19rem] md:pl-4`}
       >
-        <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] pr-4">
-          <article className="my-10 px-2">
+        <div className="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] md:pr-4">
+          <article className="my-10 px-1">
             <PostHeader
               title={post.title}
               date={post.createdAt}

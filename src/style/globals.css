@@ -109,6 +109,12 @@
     @apply bg-muted border-secondary-foreground px-2;
   }
 
+  .prose > p {
+    word-break: keep-all;
+    text-wrap: pretty;
+    margin: 1rem 0;
+  }
+
   :not(pre) > code {
     /* Inline code only */
     @apply bg-muted;
@@ -147,6 +153,10 @@
   
   details[open] summary .icon-wrapper .icon-open {
     display: block;
+  }
+
+  .docsearch-wrapper > button {
+    margin-left: 4px;
   }
 }
 
