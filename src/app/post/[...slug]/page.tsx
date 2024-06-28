@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getPostBySlug, getSpecificTreeNode } from "@/app/api/action";
 import { PostSlugParams } from "@/interface/post";
-import { SideBar } from "@/component/layout/side-bar";
+import { SideBar } from "@/component/layout/sidebar";
 import { PostToc } from "@/component/post/post-toc";
 import { generateToc } from "@/lib/unified-plugin";
 import { generateStaticParams, generateMetadata } from "@/lib/post-meta";

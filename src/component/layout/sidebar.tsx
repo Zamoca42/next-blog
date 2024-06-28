@@ -6,7 +6,6 @@ import { TreeItem } from "@/component/layout/tree-item";
 import { usePathname } from "next/navigation";
 import { TocItem } from "remark-flexible-toc";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import { sortFoldersAndFiles } from "@/lib/util";
 import { ContentFolder } from "@/interface/folder";
 
 type Props = {
@@ -17,11 +16,6 @@ type Props = {
 export const SideBar = ({ toc, folders }: Props) => {
   const { isOpen, setIsOpen } = useSideBar();
   const pathname = usePathname();
-
-  const sortedFolders = folders?.map((folder) => ({
-    ...folder,
-    children: folder.children ? sortFoldersAndFiles(folder.children) : [],
-  }));
 
   return (
     <aside className="h-full z-0">
@@ -40,7 +34,7 @@ export const SideBar = ({ toc, folders }: Props) => {
             indicator={true}
             initialExpendedItems={pathname.split("/").slice(1)}
           >
-            {sortedFolders.map((element) => (
+            {folders.map((element) => (
               <TreeItem key={element.id} elements={[element]} toc={toc} />
             ))}
           </Tree>
