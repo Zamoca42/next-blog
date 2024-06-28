@@ -18,11 +18,6 @@ export const SideBar = ({ toc, folders }: Props) => {
   const { isOpen, setIsOpen } = useSideBar();
   const pathname = usePathname();
 
-  const sortedFolders = folders?.map((folder) => ({
-    ...folder,
-    children: folder.children ? sortFoldersAndFiles(folder.children) : [],
-  }));
-
   return (
     <aside className="h-full z-0">
       <div
@@ -40,7 +35,7 @@ export const SideBar = ({ toc, folders }: Props) => {
             indicator={true}
             initialExpendedItems={pathname.split("/").slice(1)}
           >
-            {sortedFolders.map((element) => (
+            {folders.map((element) => (
               <TreeItem key={element.id} elements={[element]} toc={toc} />
             ))}
           </Tree>

@@ -46,30 +46,31 @@ const getTreeNode = async (
   parentId: string = ""
 ): Promise<ContentFolder[]> => {
   try {
-    const fileNames = await fs.readdir(directory);
+    const dirents = await fs.readdir(directory, { withFileTypes: true });
     const gitInfo = await readGitInfo();
 
-    fileNames.sort((a, b) =>
-      a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
-    );
+    dirents.sort((a, b) => {
+      if (a.isDirectory() && !b.isDirectory()) return -1;
+      if (!a.isDirectory() && b.isDirectory()) return 1;
+      return a.name.localeCompare(b.name, undefined, { numeric: true, sensitivity: "base" });
+    });
 
     const folders: ContentFolder[] = [];
 
-    for (let index = 0; index < fileNames.length; index++) {
-      const fileName = fileNames[index];
-      const filePath = join(directory, fileName);
-      const stat = await fs.stat(filePath);
+    for (let index = 0; index < dirents.length; index++) {
+      const dirent = dirents[index];
+      const filePath = join(directory, dirent.name);
       const id = `${parentId}${index + 1}`;
 
-      if (stat.isDirectory()) {
+      if (dirent.isDirectory()) {
         const children = await getTreeNode(filePath, id);
         folders.push({
           id,
-          path: fileName,
-          name: capitalizeAfterHyphen(fileName),
+          path: dirent.name,
+          name: capitalizeAfterHyphen(dirent.name),
           children,
         });
-      } else if (fileName.endsWith(".md")) {
+      } else if (dirent.name.endsWith(".md")) {
         const relativeFilePath = relative(postsDirectory, filePath);
         const post = await parsePostContent(relativeFilePath, gitInfo);
         folders.push({

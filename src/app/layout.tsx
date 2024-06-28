@@ -9,8 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { AppProvider } from "@/component/context/app-provider";
 import { ExternalLinkWithMode, PostLink } from "@/component/layout/nav-link";
 import { MobileLinkBar } from "@/component/layout/mobile-link-bar";
-import { getAllPosts } from "@/app/api/action";
-import { unstable_cache as nextCache } from "next/cache";
+import { getCachedPosts } from "@/app/api/action";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,12 +20,6 @@ export const metadata: Metadata = {
     images: [HOME_OG_IMAGE_URL],
   },
 };
-
-const getCachedPosts = nextCache(
-  async () => await getAllPosts(),
-  ["posts"],
-  { revalidate: 3600 }
-);
 
 export default async function RootLayout({
   children,
