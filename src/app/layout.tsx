@@ -2,7 +2,7 @@ import { CMS_NAME, HOME_OG_IMAGE_URL } from "@/lib/constant";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/style/globals.css";
-import { NavBar } from "@/component/layout/nav-bar";
+import { NavBar } from "@/component/layout/navbar";
 import { SideBarProvider } from "@/component/context/sidebar-provider";
 import { ThemeProvider } from "@/component/context/theme-provider";
 import { Analytics } from "@vercel/analytics/react";

@@ -6,7 +6,6 @@ import { TreeItem } from "@/component/layout/tree-item";
 import { usePathname } from "next/navigation";
 import { TocItem } from "remark-flexible-toc";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import { sortFoldersAndFiles } from "@/lib/util";
 import { ContentFolder } from "@/interface/folder";
 
 type Props = {
