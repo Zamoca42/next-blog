@@ -1,14 +1,11 @@
 import { Metadata } from "next";
 import { blogConfig } from "@/blog.config";
-import { delay } from "@/lib/util";
 import { PostSlugParams, Post } from "@/interface/post";
 import { getAllPosts, getPostBySlug } from "@/app/api/action";
 import { notFound } from "next/navigation";
 
 export const generateStaticParams = async () => {
   const posts = await getAllPosts();
-
-  await delay(2000);
 
   return posts.map((post: Post) => ({
     slug: post.slug.split("/").filter(Boolean),
@@ -22,10 +19,7 @@ export const generateMetadata = async ({
   const post = await getPostBySlug(postSlug);
 
   if (!post) {
-    return {
-      title: "게시물을 찾을 수 없음",
-      description: "요청하신 게시물을 찾을 수 없습니다.",
-    };
+    notFound();
   }
 
   const { blog, host, name: applicationName } = blogConfig;
