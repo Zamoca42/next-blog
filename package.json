@@ -5,7 +5,6 @@
     "dev": "npx npm-check-updates && next",
     "build": "next build",
     "start": "next start",
-    "vercel:preview": "vercel build && vercel deploy --prebuilt",
     "dep-check": "npx depcheck",
     "dep-update": "ncu -u"
   },
