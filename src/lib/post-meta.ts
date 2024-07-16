@@ -24,7 +24,7 @@ export const generateMetadata = async ({
 
   const { blog, host, name: applicationName } = blogConfig;
 
-  const title = `${post.title}`;
+  const title = post.title;
   const keywords =
     post.tags.length === 0 ? ["Next.js", "blog", "react"] : post.tags;
   const description = post.description || post.excerpt;
@@ -59,6 +59,19 @@ export const generateMetadata = async ({
       title,
       description,
       images: ["/favicon/android-chrome-512x512.png"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      nocache: true,
+      googleBot: {
+        index: true,
+        follow: false,
+        noimageindex: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      }
     },
   };
 };
