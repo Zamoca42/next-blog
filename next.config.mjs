@@ -27,7 +27,6 @@ export default async (phase) => {
   /** @type {NextConfig} */
   const nextConfig = {
     images: {
-      unoptimized: true,
       remotePatterns: [
         {
           protocol: 'https',

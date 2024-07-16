@@ -14,7 +14,7 @@ type Params = {
 export function MoreStories({ previews: posts }: Params) {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedFilter, setSelectedFilter] = useState<"all" | "star">("all");
-  const postsPerPage = 10;
+  const postsPerPage = 5;
 
   if (!posts) return null;
   const starredPost = posts.filter((post) => post.star === true);

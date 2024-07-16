@@ -19,7 +19,7 @@ export function HeroPost({ post }: Params) {
       <div className="mb-8 md:mb-16">
         <CoverImage
           title={post.title}
-          src={"/asset/blog/dynamic-routing/cover.jpg"}
+          src={"/asset/blog/dynamic-routing/cover.webp"}
           slug={post.slug}
         />
       </div>

@@ -9,7 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { AppProvider } from "@/component/context/app-provider";
 import { ExternalLinkWithMode, PostLink } from "@/component/layout/nav-link";
 import { MobileLinkBar } from "@/component/layout/mobile-link-bar";
-import { getCachedPosts } from "@/app/api/action";
+import { getAllPosts } from "@/app/api/action";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,7 +26,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const posts = await getCachedPosts();
+  const posts = await getAllPosts();
   return (
     <html lang="en">
       <head>

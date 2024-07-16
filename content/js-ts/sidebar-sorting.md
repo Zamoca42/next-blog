@@ -15,7 +15,7 @@ tag:
 1. 숫자를 포함한 정렬 방식으로 변경
 2. 폴더를 파일보다 상위에 배치
 
-![자바스크립트 문자열 방식으로 정렬하고 폴더와 파일의 구분이 없다.](https://github.com/Zamoca42/next-blog/assets/96982072/3743a624-545c-48c5-b341-342a722d8a97)
+![자바스크립트 문자열 방식으로 정렬하고 폴더와 파일의 순서에 구분이 없었다.](https://github.com/Zamoca42/next-blog/assets/96982072/3743a624-545c-48c5-b341-342a722d8a97)
 
 <!-- end -->
 
@@ -79,7 +79,7 @@ const getTreeNode = async (
  };
 ```
 
-![console.log를 확인하면 순서대로 정렬이 되었다.](https://github.com/Zamoca42/next-blog/assets/96982072/d6396dcb-c071-4980-aa36-99101671478f)
+![console.log를 확인하면 포스트 순서대로 정렬이 되었다.](https://github.com/Zamoca42/next-blog/assets/96982072/d6396dcb-c071-4980-aa36-99101671478f)
 
 ![사이드바에도 포스트가 순서대로 정렬되었다.](https://github.com/Zamoca42/next-blog/assets/96982072/ae0d6831-fc2f-4268-894e-1815df8362bb)
 
