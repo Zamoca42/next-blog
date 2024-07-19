@@ -15,13 +15,17 @@ const ImageInPost: React.FC<ImageInPostProps> = (props) => {
   return (
     <div className="flex flex-col items-center justify-center">
       <Image
-        width="1440"
-        height="630"
-        className="w-full h-auto rounded-3xl cursor-pointer p-2 hover:shadow-lg hover:bg-card"
         alt={paredAlt}
         src={parsedSrc}
         {...rest}
         onClick={() => window.open(src)}
+        width={1440}
+        height={630}
+        style={{
+          borderRadius: "1rem",
+          cursor: "pointer",
+          transition: "transform 0.3s ease-in-out",
+        }}
         priority
       />
       {alt && (
