@@ -25,7 +25,7 @@ export function ModeToggle() {
   };
 
   return (
-    <Button variant="ghost" size="icon" onClick={handleToggle}>
+    <Button variant="ghost" size="icon" aria-label="theme" onClick={handleToggle}>
       <Sun
         className={clsx(
           `h-[1.2rem] w-[1.2rem] rotate-0 transition dark:-rotate-90 duration-300 dark:scale-0`,

@@ -19,13 +19,10 @@ const ImageInPost: React.FC<ImageInPostProps> = (props) => {
         src={parsedSrc}
         {...rest}
         onClick={() => window.open(src)}
-        width={1440}
-        height={630}
-        style={{
-          borderRadius: "1rem",
-          cursor: "pointer",
-          transition: "transform 0.3s ease-in-out",
-        }}
+        width={0}
+        height={0}
+        sizes="100vw"
+        className="w-full h-auto rounded-xl cursor-pointer hover:shadow-xl"
         priority
       />
       {alt && (

@@ -1,36 +1,26 @@
-"use client";
-
 import { blogConfig } from "@/blog.config";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { Button } from "@/component/ui/button";
-import { Post } from "@/interface/post";
 import clsx from "clsx";
 import { Fragment } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useSideBar } from "@/component/context/sidebar-provider";
 
 type Props = {
   divider?: boolean;
   matchedPathClass?: string;
   notMatchedPathClass?: string;
-  posts: Post[];
+  pathname: string;
+  toggleMenu: () => void;
 };
 
 export const PostLink = ({
   divider = false,
   matchedPathClass = "text-primary-foreground font-semibold",
   notMatchedPathClass = "",
-  posts,
+  pathname,
+  toggleMenu,
 }: Props) => {
   const { navLink } = blogConfig;
-  const pathname = usePathname();
-  const { isLinkOpen, setIsLinkOpen } = useSideBar();
-
-  const toggleMenu = () => {
-    setIsLinkOpen(!isLinkOpen);
-  };
-
   const renderHomeButton = () => (
     <Link
       href="/"
@@ -49,18 +39,14 @@ export const PostLink = ({
     <nav className="space-x-2 space-y-1">
       {renderHomeButton()}
       {navLink.map((folder) => {
-        const matchedPost = posts.find((post: Post) =>
-          post.slug.split("/").includes(folder.path)
-        );
-        const href = matchedPost ? `/post/${matchedPost.slug}` : "#";
-
+        const href = `/post/${folder.path}`;
         return (
           <Fragment key={folder.path}>
             {divider && <hr className="border-border min-w-72 py-1" />}
             <Link
               href={href}
               className={clsx(
-                pathname.startsWith(`/post/${folder.path}`)
+                pathname.startsWith(href)
                   ? matchedPathClass
                   : notMatchedPathClass,
                 divider ? "hover:text-primary-foreground" : ""
@@ -87,6 +73,7 @@ export const ExternalLinkWithMode = () => {
         <Button
           variant="link"
           size="icon"
+          aria-label="github"
           onClick={() => window.open(githubLink)}
         >
           <svg
@@ -110,6 +97,7 @@ export const ExternalLinkWithMode = () => {
         <Button
           variant="link"
           size="icon"
+          aria-label="linkedin"
           onClick={() => window.open(linkedinLink)}
         >
           <svg

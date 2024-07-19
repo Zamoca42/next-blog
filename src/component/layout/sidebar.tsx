@@ -45,6 +45,7 @@ export const SideBar = ({ toc, folders }: Props) => {
           ease-in-out transform hidden md:block lg:hidden ${
             isOpen ? `translate-x-72` : "translate-x-0"
           }`}
+        aria-label="extend"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <ChevronLeft /> : <ChevronRight />}

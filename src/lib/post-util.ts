@@ -10,6 +10,7 @@ import {
   readGitInfo,
   postsDirectory,
 } from "@/lib/file-util";
+import { blogConfig } from "@/blog.config";
 
 export const parsePostContent = async (
   filePath: string,
@@ -68,10 +69,40 @@ export const getAllPosts = async (): Promise<Post[]> => {
 
 export const getPostBySlug = async (slug: string): Promise<Post | null> => {
   try {
-    const gitInfo = await readGitInfo();
-    return parsePostContent(`${slug}.md`, gitInfo);
+    const latestPosts = await getLatestPostsForNavLinks();
+    const segments = slug.split("/");
+    const branch = segments[0];
+
+    if (segments.length === 1 && latestPosts[branch]) {
+      return latestPosts[branch];
+    } else {
+      const gitInfo = await readGitInfo();
+      return parsePostContent(`${slug}.md`, gitInfo);
+    }
   } catch (error) {
     console.error(`Error getting post by slug ${slug}:`, error);
     return null;
   }
+};
+
+export const getLatestPostsForNavLinks = async (): Promise<
+  Record<string, Post>
+> => {
+  const allPosts = await getAllPosts();
+  const latestPosts: Record<string, Post> = {};
+
+  blogConfig.navLink.forEach(({ path }) => {
+    const matchedPosts = allPosts.filter((post) =>
+      post.slug.startsWith(path + "/")
+    );
+    if (matchedPosts.length > 0) {
+      latestPosts[path] = matchedPosts.reduce((latest, current) =>
+        new Date(current.createdAt) > new Date(latest.createdAt)
+          ? current
+          : latest
+      );
+    }
+  });
+
+  return latestPosts;
 };

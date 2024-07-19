@@ -42,6 +42,7 @@ const CodeTitle: React.FC<CodeTitleProps> = (props) => {
         <button
           className="remark-code-copy-button ml-3"
           onClick={handleCopyClick}
+          aria-label="copy"
         >
           {copied ? (
             <Check className="w-4 h-4" />

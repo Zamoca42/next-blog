@@ -15,7 +15,11 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params,
 }: PostSlugParams): Promise<Metadata> => {
-  const postSlug = params.slug.join("/");
+  if (!params.slug || params.slug.length === 0) {
+    notFound();
+  }
+
+  const postSlug = params.slug?.join("/");
   const post = await getPostBySlug(postSlug);
 
   if (!post) {
@@ -68,10 +72,10 @@ export const generateMetadata = async ({
         index: true,
         follow: false,
         noimageindex: true,
-        'max-video-preview': -1,
-        'max-image-preview': 'large',
-        'max-snippet': -1,
-      }
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   };
 };

@@ -15,6 +15,10 @@ const DynamicGiscus = dynamic(() => import("@/component/post/giscus"), {
 });
 
 export default async function PostDetail({ params }: PostSlugParams) {
+  if (!params.slug || params.slug.length === 0) {
+    notFound();
+  }
+
   const postSlug = params.slug.join("/");
   const postBranch = params.slug[0];
   const [post, folders] = await Promise.all([
