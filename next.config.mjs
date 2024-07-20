@@ -27,6 +27,8 @@ export default async (phase) => {
   /** @type {NextConfig} */
   const nextConfig = {
     images: {
+      imageSizes: [32, 48, 64, 96],
+      deviceSizes: [750, 828, 1080, 1200],
       remotePatterns: [
         {
           protocol: 'https',

@@ -15,7 +15,6 @@ import React, {
 import { Button } from "@/component/ui/button";
 import { Post } from "@/interface/post";
 import { ContentFolder } from "@/interface/folder";
-import { usePathname } from "next/navigation";
 
 type TreeViewElement = {
   id: string;
@@ -311,7 +310,6 @@ const File = forwardRef<
   ) => {
     const { direction, selectedId, selectItem } = useTree();
     const isSelected = isSelect ?? selectedId === value;
-    const pathname = usePathname();
 
     return (
       <AccordionPrimitive.Item value={value} className="relative">
@@ -327,9 +325,6 @@ const File = forwardRef<
               "bg-muted": isSelected && isSelectable,
             },
             isSelectable ? "cursor-pointer" : "opacity-50 cursor-not-allowed",
-            pathname === `/post/${value}`
-              ? "bg-primary/15 text-primary-foreground font-semibold"
-              : "hover:bg-muted",
             className
           )}
           onClick={() => selectItem(value)}

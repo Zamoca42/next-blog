@@ -6,9 +6,15 @@ import { Pagination } from "@/component/home/generate-pagination";
 import { Button } from "@/component/ui/button";
 import { Badge } from "@/component/ui/badge";
 import { Post } from "@/interface/post";
+import { capitalize } from "@/lib/util";
 
 type Params = {
   previews: Post[];
+};
+
+type FilterOption = {
+  value: "all" | "star";
+  count: (posts: Post[]) => number;
 };
 
 export function MoreStories({ previews: posts }: Params) {
@@ -17,8 +23,15 @@ export function MoreStories({ previews: posts }: Params) {
   const postsPerPage = 5;
 
   if (!posts) return null;
-  const starredPost = posts.filter((post) => post.star === true);
-  const filteredPosts = selectedFilter === "all" ? posts : starredPost;
+
+  const starredPosts = posts.filter((post) => post.star === true);
+
+  const filterOptions: FilterOption[] = [
+    { value: "all", count: (posts) => posts.length },
+    { value: "star", count: (posts) => starredPosts.length },
+  ];
+
+  const filteredPosts = selectedFilter === "all" ? posts : starredPosts;
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -35,25 +48,21 @@ export function MoreStories({ previews: posts }: Params) {
         More Stories
       </h2>
       <div className="mb-4 space-x-2">
-        <Button
-          variant={selectedFilter === "all" ? "accent" : "ghost"}
-          onClick={() => setSelectedFilter("all")}
-          className="space-x-2"
-        >
-          <span>All</span>
-          <Badge variant="outline">{posts.length - 1}</Badge>
-        </Button>
-        <Button
-          variant={selectedFilter === "star" ? "accent" : "ghost"}
-          onClick={() => {
-            setSelectedFilter("star");
-            setCurrentPage(1);
-          }}
-          className="space-x-2"
-        >
-          <span>Star</span>
-          <Badge variant="outline">{starredPost.length}</Badge>
-        </Button>
+        {filterOptions.map((option) => (
+          <Button
+            key={option.value}
+            variant={selectedFilter === option.value ? "accent" : "ghost"}
+            aria-label={option.value}
+            onClick={() => {
+              setSelectedFilter(option.value);
+              setCurrentPage(1);
+            }}
+            className="space-x-2"
+          >
+            <span>{capitalize(option.value)}</span>
+            <Badge variant="outline">{option.count(posts)}</Badge>
+          </Button>
+        ))}
       </div>
       <div className="grid grid-cols-1 gap-y-8 mb-16 text-pretty">
         {currentPosts.map((post) => (

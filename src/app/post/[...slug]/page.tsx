@@ -15,6 +15,10 @@ const DynamicGiscus = dynamic(() => import("@/component/post/giscus"), {
 });
 
 export default async function PostDetail({ params }: PostSlugParams) {
+  if (!params.slug || params.slug.length === 0) {
+    notFound();
+  }
+
   const postSlug = params.slug.join("/");
   const postBranch = params.slug[0];
   const [post, folders] = await Promise.all([
@@ -30,7 +34,7 @@ export default async function PostDetail({ params }: PostSlugParams) {
 
   return (
     <>
-      <SideBar toc={toc} folders={folders} />
+      <SideBar toc={toc} folders={folders} slug={post.slug} />
       <div
         className={`transition-margin duration-200 ease-in-out lg:pl-[19rem] md:pl-4`}
       >

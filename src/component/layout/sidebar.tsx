@@ -3,7 +3,6 @@
 import { useSideBar } from "@/component/context/sidebar-provider";
 import { Tree } from "@/component/ui/tree-view-api";
 import { TreeItem } from "@/component/layout/tree-item";
-import { usePathname } from "next/navigation";
 import { TocItem } from "remark-flexible-toc";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { ContentFolder } from "@/interface/folder";
@@ -11,11 +10,11 @@ import { ContentFolder } from "@/interface/folder";
 type Props = {
   toc: TocItem[];
   folders: ContentFolder[];
+  slug: string;
 };
 
-export const SideBar = ({ toc, folders }: Props) => {
+export const SideBar = ({ toc, folders, slug }: Props) => {
   const { isOpen, setIsOpen } = useSideBar();
-  const pathname = usePathname();
 
   return (
     <aside className="h-full z-0">
@@ -32,10 +31,15 @@ export const SideBar = ({ toc, folders }: Props) => {
           <Tree
             className="w-full max-h-screen bg-background text-muted-foreground"
             indicator={true}
-            initialExpendedItems={pathname.split("/").slice(1)}
+            initialExpendedItems={slug.split("/")}
           >
             {folders.map((element) => (
-              <TreeItem key={element.id} elements={[element]} toc={toc} />
+              <TreeItem
+                key={element.id}
+                elements={[element]}
+                toc={toc}
+                slug={slug}
+              />
             ))}
           </Tree>
         </div>
@@ -45,6 +49,7 @@ export const SideBar = ({ toc, folders }: Props) => {
           ease-in-out transform hidden md:block lg:hidden ${
             isOpen ? `translate-x-72` : "translate-x-0"
           }`}
+        aria-label="extend"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? <ChevronLeft /> : <ChevronRight />}

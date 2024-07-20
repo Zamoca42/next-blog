@@ -10,6 +10,9 @@ import {
   readGitInfo,
   postsDirectory,
 } from "@/lib/file-util";
+import { blogConfig } from "@/blog.config";
+import { ContentFolder } from "@/interface/folder";
+import { existsSync } from "fs";
 
 export const parsePostContent = async (
   filePath: string,
@@ -68,10 +71,36 @@ export const getAllPosts = async (): Promise<Post[]> => {
 
 export const getPostBySlug = async (slug: string): Promise<Post | null> => {
   try {
-    const gitInfo = await readGitInfo();
-    return parsePostContent(`${slug}.md`, gitInfo);
+    const latestPosts = await getLatestPostsForNavLinks();
+    const segments = slug.split("/");
+    const branch = segments[0];
+
+    if (segments.length === 1 && latestPosts[branch]) {
+      return latestPosts[branch];
+    } else {
+      const filePath = join(postsDirectory, `${slug}.md`);
+
+      if (!existsSync(filePath)) return null;
+
+      const gitInfo = await readGitInfo();
+      return parsePostContent(`${slug}.md`, gitInfo);
+    }
   } catch (error) {
     console.error(`Error getting post by slug ${slug}:`, error);
     return null;
   }
+};
+
+export const getLatestPostsForNavLinks = async (): Promise<
+  Record<ContentFolder["path"], Post | null>
+> => {
+  const allPosts = await getAllPosts();
+  const latestPosts: Record<ContentFolder["path"], Post | null> = {};
+
+  blogConfig.navLink.forEach(({ path }) => {
+    const matchedPosts = allPosts.filter((post) => post.slug.startsWith(path));
+    latestPosts[path] = matchedPosts.length > 0 ? matchedPosts[0] : null;
+  });
+
+  return latestPosts;
 };
