@@ -1,6 +1,6 @@
 // @ts-check
 import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } from "next/constants.js";
-import { saveGitInfo } from "./src/script/log-script.js";
+import { saveGitInfo } from "./src/script/git-post-log.js";
 import { updateAlgoliaIndex } from "./src/script/algolia-index.js";
 import bundleAnalyzer from '@next/bundle-analyzer';
 

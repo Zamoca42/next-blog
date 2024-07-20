@@ -71,20 +71,12 @@ export const getAllPosts = async (): Promise<Post[]> => {
 
 export const getPostBySlug = async (slug: string): Promise<Post | null> => {
   try {
-    const latestPosts = await getLatestPostsForNavLinks();
-    const segments = slug.split("/");
-    const branch = segments[0];
+    const filePath = join("content", `${slug}.md`);
 
-    if (segments.length === 1 && latestPosts[branch]) {
-      return latestPosts[branch];
-    } else {
-      const filePath = join(postsDirectory, `${slug}.md`);
+    if (!existsSync(filePath)) return null;
 
-      if (!existsSync(filePath)) return null;
-
-      const gitInfo = await readGitInfo();
-      return parsePostContent(`${slug}.md`, gitInfo);
-    }
+    const gitInfo = await readGitInfo();
+    return parsePostContent(`${slug}.md`, gitInfo);
   } catch (error) {
     console.error(`Error getting post by slug ${slug}:`, error);
     return null;

@@ -140,10 +140,10 @@ export const NavBar = () => {
                 </span>
               </Link>
             </div>
-            <div className="hidden md:flex flex-1">
+            <div className="hidden md:flex flex-1 mr-[52px] md:mr-0">
               <PostLink
-                matchedPathClass="active-link"
-                notMatchedPathClass="nav-underline"
+                matchedPathStyle="active-link"
+                notMatchedPathStyle="nav-underline"
                 pathname={pathname}
                 toggleMenu={toggleMenu}
               />
