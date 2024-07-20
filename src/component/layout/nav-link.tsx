@@ -42,7 +42,7 @@ export const PostLink = ({
       );
       if (matchingPosts.length > 0) {
         const latestPost = matchingPosts.reduce((a, b) =>
-          new Date(data[a].updatedAt) > new Date(data[b].updatedAt) ? a : b
+          new Date(data[a].createdAt) > new Date(data[b].createdAt) ? a : b
         );
         return latestPost.replace("content/", "").replace(".md", "");
       }

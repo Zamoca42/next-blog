@@ -7,6 +7,7 @@ import { exec as execCallback } from "child_process";
 import { formatISO, differenceInDays } from "date-fns";
 import { gitInfoPath, postsDirectory } from "../lib/file-util.js";
 import { GIT_HSITORY_FILE_NAME } from "../lib/constant.js";
+import matter from "gray-matter";
 
 const exec = promisify(execCallback);
 
@@ -51,7 +52,7 @@ const getGitDates = async (filePath) => {
  * @param {string} filePath
  * @returns {Promise<boolean>}
  */
-const updateGitInfo = async (filePath) => {
+const shouldUpdateGitInfo = async (filePath) => {
   try {
     const fileStats = await fs.stat(filePath);
     const currentDate = new Date();
@@ -71,14 +72,22 @@ const updateGitInfo = async (filePath) => {
  * @returns {Promise<[string, GitDates] | null>}
  */
 const processFile = async (filePath) => {
-  const { createdAt, updatedAt } = await getGitDates(filePath);
-  if (createdAt === null) return null;
+  const { createdAt: gitCreatedAt, updatedAt } = await getGitDates(filePath);
+  if (gitCreatedAt === null) return null;
+
+  const fileContents = await fs.readFile(filePath, "utf8");
+  const { data } = matter(fileContents);
+
+  const frontmatterDate = data.date ? formatISO(new Date(data.date)) : null;
+
+  const createdAt = frontmatterDate || gitCreatedAt;
+
   const relativePath = path.relative(process.cwd(), filePath);
   return [relativePath, { createdAt, updatedAt }];
 };
 
 export const saveGitInfo = async () => {
-  if (!(await updateGitInfo(gitInfoPath))) {
+  if (!(await shouldUpdateGitInfo(gitInfoPath))) {
     return;
   }
 
