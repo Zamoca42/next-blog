@@ -10,8 +10,6 @@ import {
   readGitInfo,
   postsDirectory,
 } from "@/lib/file-util";
-import { blogConfig } from "@/blog.config";
-import { ContentFolder } from "@/interface/folder";
 import { existsSync } from "fs";
 
 export const parsePostContent = async (
