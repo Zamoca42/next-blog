@@ -82,17 +82,3 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
     return null;
   }
 };
-
-export const getLatestPostsForNavLinks = async (): Promise<
-  Record<ContentFolder["path"], Post | null>
-> => {
-  const allPosts = await getAllPosts();
-  const latestPosts: Record<ContentFolder["path"], Post | null> = {};
-
-  blogConfig.navLink.forEach(({ path }) => {
-    const matchedPosts = allPosts.filter((post) => post.slug.startsWith(path));
-    latestPosts[path] = matchedPosts.length > 0 ? matchedPosts[0] : null;
-  });
-
-  return latestPosts;
-};
