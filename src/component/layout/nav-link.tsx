@@ -1,60 +1,108 @@
+"use client";
+
 import { blogConfig } from "@/blog.config";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { Button } from "@/component/ui/button";
 import clsx from "clsx";
 import { Fragment } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Props = {
   divider?: boolean;
-  matchedPathClass?: string;
-  notMatchedPathClass?: string;
+  matchedPathStyle?: string;
+  notMatchedPathStyle?: string;
   pathname: string;
   toggleMenu: () => void;
 };
 
+type PostHistory = {
+  [key: string]: {
+    createdAt: string;
+    updatedAt: string;
+  };
+};
+
 export const PostLink = ({
   divider = false,
-  matchedPathClass = "text-primary-foreground font-semibold",
-  notMatchedPathClass = "",
+  matchedPathStyle = "text-primary-foreground font-semibold",
+  notMatchedPathStyle = "",
   pathname,
   toggleMenu,
 }: Props) => {
   const { navLink } = blogConfig;
+  const router = useRouter();
+
+  const getLatestPost = async (path: string) => {
+    try {
+      const response = await fetch("/post-history.json");
+      const data: PostHistory = await response.json();
+
+      const matchingPosts = Object.keys(data).filter((key) =>
+        key.startsWith(`content/${path}/`)
+      );
+      if (matchingPosts.length > 0) {
+        const latestPost = matchingPosts.reduce((a, b) =>
+          new Date(data[a].updatedAt) > new Date(data[b].updatedAt) ? a : b
+        );
+        return latestPost.replace("content/", "").replace(".md", "");
+      }
+      return null;
+    } catch (error) {
+      console.error("Error fetching post history:", error);
+      return null;
+    }
+  };
+
+  const handleClick = async (path: string) => {
+    const latestPostSlug = await getLatestPost(path);
+    if (latestPostSlug) {
+      router.push(`/post/${latestPostSlug}`);
+    } else {
+      router.push(`/post/${path}`);
+    }
+    toggleMenu();
+  };
+
   const renderHomeButton = () => (
-    <Link
-      href="/"
+    <Button
+      variant="nav"
+      size="link"
+      aria-label="nav-button"
       className={clsx(
-        pathname === "/" ? matchedPathClass : notMatchedPathClass,
+        pathname === "/" ? matchedPathStyle : notMatchedPathStyle,
         divider ? "hover:text-primary-foreground" : "",
         "ml-2 md:ml-0"
       )}
-      onClick={toggleMenu}
+      onClick={() => {
+        router.push("/");
+        toggleMenu();
+      }}
     >
       Home
-    </Link>
+    </Button>
   );
 
   return (
     <nav className="space-x-2 space-y-1">
       {renderHomeButton()}
       {navLink.map((folder) => {
-        const href = `/post/${folder.path}`;
         return (
           <Fragment key={folder.path}>
             {divider && <hr className="border-border min-w-72 py-1" />}
-            <Link
-              href={href}
+            <Button
+              variant="nav"
+              size="link"
+              aria-label="nav-button"
               className={clsx(
-                pathname.startsWith(href)
-                  ? matchedPathClass
-                  : notMatchedPathClass,
+                pathname.startsWith(`/post/${folder.path}`)
+                  ? matchedPathStyle
+                  : notMatchedPathStyle,
                 divider ? "hover:text-primary-foreground" : ""
               )}
-              onClick={toggleMenu}
+              onClick={() => handleClick(folder.path)}
             >
               {folder.name}
-            </Link>
+            </Button>
           </Fragment>
         );
       })}

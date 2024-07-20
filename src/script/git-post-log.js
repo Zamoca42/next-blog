@@ -51,7 +51,7 @@ const getGitDates = async (filePath) => {
  * @param {string} filePath
  * @returns {Promise<boolean>}
  */
-const shouldUpdateGitInfo = async (filePath) => {
+const updateGitInfo = async (filePath) => {
   try {
     const fileStats = await fs.stat(filePath);
     const currentDate = new Date();
@@ -78,7 +78,7 @@ const processFile = async (filePath) => {
 };
 
 export const saveGitInfo = async () => {
-  if (!(await shouldUpdateGitInfo(gitInfoPath))) {
+  if (!(await updateGitInfo(gitInfoPath))) {
     return;
   }
 

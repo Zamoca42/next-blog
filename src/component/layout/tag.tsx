@@ -37,13 +37,12 @@ const Tag = ({ tags }: Props) => {
           <Badge
             key={name}
             variant="outline"
-            className="text-muted-foreground"
           >
             {name}
           </Badge>
         ))}
         {visibleTags.length < tags.length && (
-          <Badge variant="outline" className="text-muted-foreground">
+          <Badge variant="outline">
             +{tags.length - visibleTags.length}
           </Badge>
         )}
