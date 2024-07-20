@@ -11,6 +11,8 @@ import {
   postsDirectory,
 } from "@/lib/file-util";
 import { blogConfig } from "@/blog.config";
+import { ContentFolder } from "@/interface/folder";
+import { existsSync } from "fs";
 
 export const parsePostContent = async (
   filePath: string,
@@ -76,6 +78,10 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
     if (segments.length === 1 && latestPosts[branch]) {
       return latestPosts[branch];
     } else {
+      const filePath = join(postsDirectory, `${slug}.md`);
+
+      if (!existsSync(filePath)) return null;
+
       const gitInfo = await readGitInfo();
       return parsePostContent(`${slug}.md`, gitInfo);
     }
@@ -86,22 +92,14 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
 };
 
 export const getLatestPostsForNavLinks = async (): Promise<
-  Record<string, Post>
+  Record<ContentFolder["path"], Post | null>
 > => {
   const allPosts = await getAllPosts();
-  const latestPosts: Record<string, Post> = {};
+  const latestPosts: Record<ContentFolder["path"], Post | null> = {};
 
   blogConfig.navLink.forEach(({ path }) => {
-    const matchedPosts = allPosts.filter((post) =>
-      post.slug.startsWith(path + "/")
-    );
-    if (matchedPosts.length > 0) {
-      latestPosts[path] = matchedPosts.reduce((latest, current) =>
-        new Date(current.createdAt) > new Date(latest.createdAt)
-          ? current
-          : latest
-      );
-    }
+    const matchedPosts = allPosts.filter((post) => post.slug.startsWith(path));
+    latestPosts[path] = matchedPosts.length > 0 ? matchedPosts[0] : null;
   });
 
   return latestPosts;

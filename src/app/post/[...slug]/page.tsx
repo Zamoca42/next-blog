@@ -34,7 +34,7 @@ export default async function PostDetail({ params }: PostSlugParams) {
 
   return (
     <>
-      <SideBar toc={toc} folders={folders} />
+      <SideBar toc={toc} folders={folders} slug={post.slug} />
       <div
         className={`transition-margin duration-200 ease-in-out lg:pl-[19rem] md:pl-4`}
       >
