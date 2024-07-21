@@ -1,49 +1,15 @@
 import fs from "fs/promises";
 import matter from "gray-matter";
 import { Post } from "@/interface/post";
-import { PostHistory } from "@/interface/post-history";
 import { formatISO, parseISO } from "date-fns";
-import { join, relative } from "path";
+import { join } from "path";
 import {
   getMarkdownFiles,
   getSlugFromFilePath,
   readGitInfo,
   postsDirectory,
 } from "@/lib/file-util";
-import { existsSync } from "fs";
-
-export const parsePostContent = async (
-  filePath: string,
-  gitInfo: Record<string, PostHistory>
-): Promise<Post> => {
-  const fullPath = join(postsDirectory, filePath);
-  const fileContents = await fs.readFile(fullPath, "utf8");
-  const fallbackDate = formatISO(new Date());
-  const { data, content, excerpt } = matter(fileContents, {
-    excerpt: true,
-    excerpt_separator: "<!-- end -->",
-  });
-
-  const relativeFilePath = relative(process.cwd(), fullPath);
-  const postDate = data.date ? formatISO(new Date(data.date)) : undefined;
-  const { createdAt, updatedAt } = gitInfo[relativeFilePath] || {
-    createdAt: fallbackDate,
-    updatedAt: fallbackDate,
-  };
-
-  const slug = getSlugFromFilePath(filePath);
-
-  return {
-    ...data,
-    slug,
-    content,
-    excerpt,
-    createdAt: postDate || createdAt,
-    updatedAt,
-    tags: data.tag ?? [],
-    star: Boolean(data.star),
-  } as Post;
-};
+import { PostHistory } from "@/interface/post-history";
 
 export const getAllPosts = async (): Promise<Post[]> => {
   try {
@@ -53,7 +19,10 @@ export const getAllPosts = async (): Promise<Post[]> => {
     ]);
 
     const posts = await Promise.all(
-      markdownFiles.map((file) => parsePostContent(file, gitInfo))
+      markdownFiles.map(async (file) => {
+        const post = await parsePostContent(file);
+        return applyPostHistory(post, gitInfo);
+      })
     );
 
     return posts.sort((post1, post2) => {
@@ -69,14 +38,50 @@ export const getAllPosts = async (): Promise<Post[]> => {
 
 export const getPostBySlug = async (slug: string): Promise<Post | null> => {
   try {
-    const filePath = join("content", `${slug}.md`);
-
-    if (!existsSync(filePath)) return null;
-
     const gitInfo = await readGitInfo();
-    return parsePostContent(`${slug}.md`, gitInfo);
+    if (!gitInfo[slug]) return null;
+
+    const post = await parsePostContent(`${slug}.md`);
+    return applyPostHistory(post, gitInfo);
   } catch (error) {
     console.error(`Error getting post by slug ${slug}:`, error);
     return null;
   }
+};
+
+export const parsePostContent = async (filePath: string): Promise<Post> => {
+  const fullPath = join(postsDirectory, filePath);
+  const slug = getSlugFromFilePath(filePath);
+  const fileContents = await fs.readFile(fullPath, "utf8");
+
+  const { data, content, excerpt } = matter(fileContents, {
+    excerpt: true,
+    excerpt_separator: "<!-- end -->",
+  });
+
+  return {
+    slug,
+    content,
+    excerpt: excerpt || "",
+    title: String(data.title),
+    description: data.description,
+    createdAt: data.date,
+    updatedAt: data.date,
+    tags: data.tag ?? [],
+    star: Boolean(data.star),
+  };
+};
+
+const applyPostHistory = (
+  post: Post,
+  gitInfo: Record<string, PostHistory>
+): Post => {
+  const fallbackDate = formatISO(new Date());
+  const postHistory = gitInfo[post.slug];
+
+  return {
+    ...post,
+    createdAt: post.createdAt || postHistory.createdAt || fallbackDate,
+    updatedAt: postHistory.updatedAt || fallbackDate,
+  };
 };

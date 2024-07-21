@@ -1,13 +1,13 @@
 export type Post = {
   slug: string;
   title: string;
-  description: string;
-  order: number;
   excerpt: string;
   content: string;
   tags: string[];
   createdAt: string;
   updatedAt: string;
+  description: string;
+  order?: number;
   star: boolean;
 };
 

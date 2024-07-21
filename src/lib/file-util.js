@@ -1,15 +1,15 @@
 //@ts-check
-import { POST_CONTENT_FOLDER, GIT_HSITORY_FILE_NAME } from "./constant.js";
+import { POST_CONTENT_FOLDER, POST_HSITORY_NAME } from "./constant.js";
 import { join } from "path";
 import fs from "fs/promises";
 
 export const postsDirectory = join(process.cwd(), POST_CONTENT_FOLDER);
-export const gitInfoPath = join(process.cwd(), "public", GIT_HSITORY_FILE_NAME);
+export const gitInfoPath = join(process.cwd(), "public", POST_HSITORY_NAME);
 
 /**
  * @typedef {Object} PostHistory
- * @property {string} createdAt
- * @property {string} updatedAt
+ * @property {string | null} createdAt
+ * @property {string | null} updatedAt
  */
 
 /**

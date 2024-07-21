@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import { ContentFolder } from "@/interface/folder";
 import { join, relative } from "path";
 import { capitalizeAfterHyphen } from "@/lib/util";
-import { postsDirectory, readGitInfo } from "@/lib/file-util";
+import { postsDirectory } from "@/lib/file-util";
 import { parsePostContent } from "@/lib/post-util";
 
 export const getSpecificTreeNode = async (
@@ -47,7 +47,6 @@ const getTreeNode = async (
 ): Promise<ContentFolder[]> => {
   try {
     const dirents = await fs.readdir(directory, { withFileTypes: true });
-    const gitInfo = await readGitInfo();
 
     dirents.sort((a, b) => {
       if (a.isDirectory() && !b.isDirectory()) return -1;
@@ -75,7 +74,7 @@ const getTreeNode = async (
         });
       } else if (dirent.name.endsWith(".md")) {
         const relativeFilePath = relative(postsDirectory, filePath);
-        const post = await parsePostContent(relativeFilePath, gitInfo);
+        const post = await parsePostContent(relativeFilePath);
         folders.push({
           id,
           path: post.slug,
