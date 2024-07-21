@@ -3,10 +3,10 @@
 import fs from "fs/promises";
 import path from "path";
 import { promisify } from "util";
-import { exec as execCallback } from "child_process";
+import { exec as execCallback, execSync } from "child_process";
 import { formatISO, differenceInDays } from "date-fns";
-import { gitInfoPath, postsDirectory } from "../lib/file-util.js";
-import { GIT_HSITORY_FILE_NAME } from "../lib/constant.js";
+import { getMarkdownFiles, getSlugFromFilePath, gitInfoPath, postsDirectory } from "../lib/file-util.js";
+import { POST_HSITORY_NAME } from "../lib/constant.js";
 import matter from "gray-matter";
 
 const exec = promisify(execCallback);
@@ -73,7 +73,6 @@ const shouldUpdateGitInfo = async (filePath) => {
  */
 const processFile = async (filePath) => {
   const { createdAt: gitCreatedAt, updatedAt } = await getGitDates(filePath);
-  if (gitCreatedAt === null) return null;
 
   const fileContents = await fs.readFile(filePath, "utf8");
   const { data } = matter(fileContents);
@@ -82,8 +81,8 @@ const processFile = async (filePath) => {
 
   const createdAt = frontmatterDate || gitCreatedAt;
 
-  const relativePath = path.relative(process.cwd(), filePath);
-  return [relativePath, { createdAt, updatedAt }];
+  const slug = getSlugFromFilePath(filePath).replace(/^\//, '');
+  return [slug, { createdAt, updatedAt }];
 };
 
 export const saveGitInfo = async () => {
@@ -101,12 +100,59 @@ export const saveGitInfo = async () => {
       const filePath = path.join(postsDirectory, fileName);
       const result = await processFile(filePath);
       if (result !== null) {
-        const [relativePath, dates] = result;
-        gitInfo[relativePath] = dates;
+        const [slug, dates] = result;
+        gitInfo[slug] = dates;
       }
     }
   }
 
   await fs.writeFile(gitInfoPath, JSON.stringify(gitInfo, null, 2));
-  console.log(`Git information saved to ${GIT_HSITORY_FILE_NAME}\n`);
+  console.log(`Git information saved to ${POST_HSITORY_NAME}\n`);
+
+  await validatePostHistory(gitInfo);
+};
+
+const getGitTrackedSlugs = () => {
+  try {
+    const output = execSync('git ls-files content', { encoding: 'utf-8' });
+    return output.trim().split('\n')
+      .map(file => getSlugFromFilePath(file.replace(/^content\//, '')));
+  } catch (error) {
+    console.error('Error getting git tracked files:', error);
+    return [];
+  }
+};
+
+const getAllMarkdownSlugs = async () => {
+  const allMarkdownFiles = await getMarkdownFiles(postsDirectory);
+  return allMarkdownFiles.map(file => getSlugFromFilePath(file));
+};
+
+/**
+ * @param {Record<string, GitDates>} gitInfo
+ */
+const validatePostHistory = async (gitInfo) => {
+  const allMarkdownSlugs = await getAllMarkdownSlugs();
+  const gitTrackedSlugs = getGitTrackedSlugs();
+  const historySlugs = Object.keys(gitInfo);
+
+  console.log(`Total markdown files: ${allMarkdownSlugs.length}`);
+  console.log(`Git tracked markdown files: ${gitTrackedSlugs.length}`);
+  console.log(`Slugs in post-history.json: ${historySlugs.length} \n`);
+
+  const missingFromHistory = gitTrackedSlugs.filter(slug => !historySlugs.includes(slug));
+  const extraInHistory = historySlugs.filter(slug => !gitTrackedSlugs.includes(slug));
+  const untrackedSlugs = allMarkdownSlugs.filter(slug => !gitTrackedSlugs.includes(slug));
+
+  if (missingFromHistory.length > 0) {
+    console.warn('Slugs missing from post-history.json:', missingFromHistory);
+  }
+
+  if (extraInHistory.length > 0) {
+    console.warn('Extra slugs in post-history.json:', extraInHistory);
+  }
+
+  if (untrackedSlugs.length > 0) {
+    console.warn('Untracked markdown files (slugs):', untrackedSlugs);
+  }
 };

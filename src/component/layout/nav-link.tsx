@@ -6,6 +6,7 @@ import { Button } from "@/component/ui/button";
 import clsx from "clsx";
 import { Fragment } from "react";
 import { useRouter } from "next/navigation";
+import { POST_HSITORY_NAME } from "@/lib/constant";
 
 type Props = {
   divider?: boolean;
@@ -34,17 +35,17 @@ export const PostLink = ({
 
   const getLatestPost = async (path: string) => {
     try {
-      const response = await fetch("/post-history.json");
+      const response = await fetch(`/${POST_HSITORY_NAME}`);
       const data: PostHistory = await response.json();
 
-      const matchingPosts = Object.keys(data).filter((key) =>
-        key.startsWith(`content/${path}/`)
+      const matchingPostSlugs = Object.keys(data).filter((key) =>
+        key.startsWith(path)
       );
-      if (matchingPosts.length > 0) {
-        const latestPost = matchingPosts.reduce((a, b) =>
+      if (matchingPostSlugs.length > 0) {
+        const latestPostSlug = matchingPostSlugs.reduce((a, b) =>
           new Date(data[a].createdAt) > new Date(data[b].createdAt) ? a : b
         );
-        return latestPost.replace("content/", "").replace(".md", "");
+        return latestPostSlug;
       }
       return null;
     } catch (error) {
