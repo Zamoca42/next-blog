@@ -9,7 +9,7 @@ star: true
 NextJS로 프로젝트를 진행하던 중에 [Parallel Routes](https://nextjs.org/docs/app/building-your-application/routing/parallel-routes)
 를 설정해 모달창을 구현하다가 HotReload 에러를 만나게 되었다.
 
-![나와 완전히 같은 에러라 참고링크의 사진을 첨부했다.](https://github.com/Zamoca42/blog/assets/96982072/9df58ab8-0822-4079-8e18-072df747b9fd)
+![내가 겪은 에러와 완전히 같아서 참고링크의 사진을 첨부했다.](https://github.com/Zamoca42/blog/assets/96982072/9df58ab8-0822-4079-8e18-072df747b9fd)
 
 Next로 모달을 구현하게되면 Parallel Routes를 자주 사용하게 될텐데 같은 에러가 생기면 다시 해결하기 위해 기록으로 남겨두려고한다.
 

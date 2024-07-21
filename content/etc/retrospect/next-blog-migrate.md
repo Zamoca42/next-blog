@@ -171,7 +171,7 @@ export const generateStaticParams = async () => {
 
 반대로 generateStaticParams을 삭제하고 빌드를 하면 요청시 렌더링하게 바뀐다.
 
-![맨 아래에 server-rendered on demand를 확인](https://github.com/user-attachments/assets/4e6391bb-e45e-4263-a801-5d6b0c7b6536)
+![정적페이지를 생성하던 /post/[...slug]가 Dynamic으로 변경](https://github.com/user-attachments/assets/4e6391bb-e45e-4263-a801-5d6b0c7b6536)
 
 ### 클라이언트 컴포넌트
 
