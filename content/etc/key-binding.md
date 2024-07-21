@@ -1,6 +1,5 @@
 ---
-title: "반복된 코드 자동입력하기"
-description: "vscode에서 코드 스니펫을 단축키로 등록해보자"
+title: "코드 스니펫을 단축키로 자동입력하기"
 tag:
   - VSCode
 ---
