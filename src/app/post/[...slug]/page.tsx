@@ -4,7 +4,7 @@ import { PostSlugParams } from "@/interface/post";
 import { SideBar } from "@/component/layout/sidebar";
 import { PostToc } from "@/component/post/post-toc";
 import { generateToc } from "@/lib/unified-plugin";
-import { generateStaticParams, generateMetadata } from "@/lib/post-meta";
+import { generateStaticParams, generateMetadata } from "@/lib/post-next-metadata";
 import { MarkdownBody } from "@/component/post/markdown-body";
 import { PostHeader } from "@/component/post/post-header";
 import DateFormatter from "@/component/ui/date-formatter";

@@ -1,14 +1,9 @@
-export type Post = {
-  slug: string;
-  title: string;
-  excerpt: string;
+import { ParsedPost } from "@/lib/meta-util";
+
+export type Post = ParsedPost & {
   content: string;
-  tags: string[];
   createdAt: string;
   updatedAt: string;
-  description: string;
-  order?: number;
-  star: boolean;
 };
 
 export type PostSlugParams = {

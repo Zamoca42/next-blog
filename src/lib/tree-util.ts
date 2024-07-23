@@ -1,9 +1,8 @@
 import fs from "fs/promises";
 import { ContentFolder } from "@/interface/folder";
-import { join, relative } from "path";
+import { join } from "path";
 import { capitalizeAfterHyphen } from "@/lib/util";
-import { postsDirectory } from "@/lib/file-util";
-import { parsePostContent } from "@/lib/post-util";
+import { parsePostContent, postsDirectory } from "@/lib/meta-util";
 
 export const getSpecificTreeNode = async (
   folderName: string
@@ -73,12 +72,10 @@ const getTreeNode = async (
           children,
         });
       } else if (dirent.name.endsWith(".md")) {
-        const relativeFilePath = relative(postsDirectory, filePath);
-        const post = await parsePostContent(relativeFilePath);
+        const post = await parsePostContent(filePath);
         folders.push({
           id,
           path: post.slug,
-          order: post.order,
           name: post.title,
           children: [],
         });
