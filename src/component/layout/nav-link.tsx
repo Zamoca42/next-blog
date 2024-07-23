@@ -1,6 +1,6 @@
 "use client";
 
-import { blogConfig } from "@/blog.config";
+import { blogConfig } from "@/blog-config";
 import { ModeToggle } from "@/component/ui/mode-toggle";
 import { Button } from "@/component/ui/button";
 import clsx from "clsx";
@@ -30,7 +30,7 @@ export const PostLink = ({
   pathname,
   toggleMenu,
 }: Props) => {
-  const { navLink } = blogConfig;
+  const { nav } = blogConfig;
   const router = useRouter();
 
   const getLatestPost = async (path: string) => {
@@ -86,7 +86,7 @@ export const PostLink = ({
   return (
     <nav className="space-x-2 space-y-1">
       {renderHomeButton()}
-      {navLink.map((folder) => {
+      {nav.map((folder) => {
         return (
           <Fragment key={folder.path}>
             {divider && <hr className="border-border min-w-72 py-1" />}
@@ -112,9 +112,9 @@ export const PostLink = ({
 };
 
 export const ExternalLinkWithMode = () => {
-  const { blog } = blogConfig;
-  const githubLink = blog.author.url;
-  const linkedinLink = blog.media?.linkedin;
+  const { media } = blogConfig;
+  const githubLink = media.github;
+  const linkedinLink = media.linkedin;
 
   return (
     <nav className="flex items-center">

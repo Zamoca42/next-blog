@@ -1,6 +1,6 @@
 import { PostTitle } from "@/component/post/post-title";
 import User from "@/component/layout/user";
-import { blogConfig } from "@/blog.config";
+import { blogConfig } from "@/blog-config";
 import DateBox from "@/component/layout/date-box";
 import Tag from "@/component/layout/tag";
 import { Star } from "lucide-react";
@@ -13,7 +13,7 @@ type Props = {
 };
 
 export function PostHeader({ title, date, tags, star }: Props) {
-  const author = blogConfig.blog.author;
+  const author = blogConfig.author;
   return (
     <>
       <PostTitle>{title}</PostTitle>

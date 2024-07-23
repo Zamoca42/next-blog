@@ -7,12 +7,13 @@ import { SideBarProvider } from "@/component/context/sidebar-provider";
 import { ThemeProvider } from "@/component/context/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { AppProvider } from "@/component/context/app-provider";
+import { blogConfig } from "@/blog-config";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `Zamoca Space | Blog with ${CMS_NAME}`,
-  description: `A statically generated blog using Next.js and ${CMS_NAME}.`,
+  title: `${blogConfig.name} | Blog with ${CMS_NAME}`,
+  description: blogConfig.description,
   openGraph: {
     images: [HOME_OG_IMAGE_URL],
   },
@@ -56,7 +57,24 @@ export default async function RootLayout({
           content="/favicon/browserconfig.xml"
         />
         <meta name="theme-color" content="#000" />
-        <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          href="/api/rss"
+          title={`RSS Feed for ${blogConfig.name}`}
+        />
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          href="/api/rss?format=atom"
+          title={`Atom Feed for ${blogConfig.name}`}
+        />
+        <link
+          rel="alternate"
+          type="application/json"
+          href="/api/rss?format=json"
+          title={`JSON Feed for ${blogConfig.name}`}
+        />
       </head>
       <body className={inter.className}>
         <AppProvider
