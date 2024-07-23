@@ -8,7 +8,7 @@ import { promisify } from "util";
 import { exec as execCallback, execSync } from "child_process";
 
 export const postsDirectory = join(process.cwd(), POST_CONTENT_FOLDER);
-export const gitInfoPath = join(process.cwd(), "public", POST_HSITORY_NAME);
+export const postIndexPath = join(process.cwd(), "public", POST_HSITORY_NAME);
 const exec = promisify(execCallback);
 
 /**

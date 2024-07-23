@@ -1,7 +1,7 @@
 // @ts-check
 import algoliasearch from "algoliasearch";
 import { ALGOLIA_INDEX_NAME } from "../lib/constant.js";
-import { gitInfoPath } from "../lib/meta-util.js";
+import { postIndexPath } from "../lib/meta-util.js";
 import { readFileSync } from "fs";
 
 const appId = process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID;
@@ -48,7 +48,7 @@ const createPostRecord = (slug, post, index) => {
 export const updateAlgoliaIndex = async () => {
   try {
     /** @type {Record<string, import("./post-index.js").PostMetadata>} */
-    const postIndex = JSON.parse(readFileSync(gitInfoPath, "utf-8"));
+    const postIndex = JSON.parse(readFileSync(postIndexPath, "utf-8"));
 
     const posts = Object.entries(postIndex).map(([slug, post], index) => 
       createPostRecord(slug, post, index)

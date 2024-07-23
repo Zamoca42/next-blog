@@ -8,7 +8,7 @@ import {
   postsDirectory,
 } from "@/lib/meta-util";
 import gitInfo from "../../public/post-index.json";
-import { PostHistory } from "@/interface/post-history";
+import { PostMetadata } from "@/script/post-index";
 
 export const getAllPosts = async (): Promise<Post[]> => {
   try {
@@ -41,29 +41,6 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
   }
 };
 
-// export const parsePostContent = async (filePath: string): Promise<Post> => {
-//   const fullPath = join(postsDirectory, filePath);
-//   const slug = getSlugFromFilePath(filePath);
-//   const fileContents = await fs.readFile(fullPath, "utf8");
-
-//   const { data, content, excerpt } = matter(fileContents, {
-//     excerpt: true,
-//     excerpt_separator: "<!-- end -->",
-//   });
-
-//   return {
-//     slug,
-//     content,
-//     excerpt: excerpt || "",
-//     title: String(data.title),
-//     description: data.description,
-//     createdAt: data.date,
-//     updatedAt: data.date,
-//     tags: data.tag ?? [],
-//     star: Boolean(data.star),
-//   };
-// };
-
 // parsePostContentJS의 반환 타입을 Post로 변환하는 함수
 const parsePostContent = async (filePath: string): Promise<ParsedPost> => {
   const fullPath = join(postsDirectory, filePath);
@@ -72,9 +49,9 @@ const parsePostContent = async (filePath: string): Promise<ParsedPost> => {
 
 const applyPostHistory = (
   post: ParsedPost,
-  gitInfo: Record<string, PostHistory>
+  postGitInfo: Record<string, PostMetadata>
 ): Post => {
-  const postHistory = gitInfo[post.slug];
+  const postHistory = postGitInfo[post.slug];
   const fallbackDate = formatISO(new Date());
   return {
     ...post,

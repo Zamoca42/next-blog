@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { Fragment } from "react";
 import { useRouter } from "next/navigation";
 import { POST_HSITORY_NAME } from "@/lib/constant";
+import { PostMetadata } from "@/script/post-index";
 
 type Props = {
   divider?: boolean;
@@ -14,13 +15,6 @@ type Props = {
   notMatchedPathStyle?: string;
   pathname: string;
   toggleMenu: () => void;
-};
-
-type PostHistory = {
-  [key: string]: {
-    createdAt: string;
-    updatedAt: string;
-  };
 };
 
 export const PostLink = ({
@@ -36,7 +30,7 @@ export const PostLink = ({
   const getLatestPost = async (path: string) => {
     try {
       const response = await fetch(`/${POST_HSITORY_NAME}`);
-      const data: PostHistory = await response.json();
+      const data: Record<string, PostMetadata> = await response.json();
 
       const matchingPostSlugs = Object.keys(data).filter((key) =>
         key.startsWith(path)

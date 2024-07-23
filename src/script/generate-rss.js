@@ -4,7 +4,7 @@ import { Feed } from "feed";
 import { writeFileSync, readFileSync } from "fs";
 
 import { blogConfig } from "../blog-config.js";
-import { gitInfoPath } from "../lib/meta-util.js";
+import { postIndexPath } from "../lib/meta-util.js";
 
 const master = {
   name: blogConfig.author.name,
@@ -31,13 +31,13 @@ const feed = new Feed({
 
 export const generateRssFeed = async () => {
   /** @type {Record<string, import("./post-index.js").PostMetadata>} */
-  const postIndex = JSON.parse(readFileSync(gitInfoPath, "utf-8"));
+  const postIndex = JSON.parse(readFileSync(postIndexPath, "utf-8"));
 
   Object.entries(postIndex).forEach(([slug, post]) => {
     feed.addItem({
       title: post.title,
       id: slug,
-      link: `${blogConfig.host}${slug}`,
+      link: `${blogConfig.host}/${slug}`,
       description: post.description,
       content: post.excerpt,
       author: [master],

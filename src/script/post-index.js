@@ -7,7 +7,7 @@ import {
   getAllMarkdownSlugs, 
   getGitDates, 
   getGitTrackedSlugs, 
-  gitInfoPath, 
+  postIndexPath, 
   parsePostContent, 
   postsDirectory 
 } from "../lib/meta-util.js";
@@ -58,7 +58,7 @@ const processFile = async (filePath) => {
 };
 
 export const savePostMetadata = async () => {
-  if (!(await shouldUpdateGitInfo(gitInfoPath))) {
+  if (!(await shouldUpdateGitInfo(postIndexPath))) {
     return;
   }
 
@@ -78,7 +78,7 @@ export const savePostMetadata = async () => {
     }
   }
 
-  await fs.writeFile(gitInfoPath, JSON.stringify(postMeta, null, 2));
+  await fs.writeFile(postIndexPath, JSON.stringify(postMeta, null, 2));
   console.log(`Git information saved to ${POST_HSITORY_NAME}\n`);
 
   await validatePosts(postMeta);
@@ -94,21 +94,21 @@ const validatePosts = async (gitInfo) => {
 
   console.log(`Total markdown files: ${allMarkdownSlugs.length}`);
   console.log(`Git tracked markdown files: ${gitTrackedSlugs.length}`);
-  console.log(`Slugs in post-history.json: ${historySlugs.length} \n`);
+  console.log(`Slugs in ${POST_HSITORY_NAME}: ${historySlugs.length} \n`);
 
   const missingFromHistory = gitTrackedSlugs.filter(slug => !historySlugs.includes(slug));
   const extraInHistory = historySlugs.filter(slug => !gitTrackedSlugs.includes(slug));
   const untrackedSlugs = allMarkdownSlugs.filter(slug => !gitTrackedSlugs.includes(slug));
 
   if (missingFromHistory.length > 0) {
-    console.warn('Slugs missing from post-history.json:', missingFromHistory);
+    console.warn(`Slugs missing from ${POST_HSITORY_NAME}:`, missingFromHistory);
   }
 
   if (extraInHistory.length > 0) {
-    console.warn('Extra slugs in post-history.json:', extraInHistory);
+    console.warn(`Extra slugs in ${POST_HSITORY_NAME}:`, extraInHistory);
   }
 
   if (untrackedSlugs.length > 0) {
-    console.warn('Untracked markdown files (slugs):', untrackedSlugs);
+    console.warn(`Untracked markdown files (slugs):`, untrackedSlugs);
   }
 };
