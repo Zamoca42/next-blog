@@ -1,23 +1,18 @@
-import fs from "fs/promises";
-import matter from "gray-matter";
 import { Post } from "@/interface/post";
 import { formatISO, parseISO } from "date-fns";
 import { join } from "path";
 import {
+  ParsedPost,
   getMarkdownFiles,
-  getSlugFromFilePath,
-  readGitInfo,
+  parsePostContent as parsePostContentJS,
   postsDirectory,
-} from "@/lib/file-util";
+} from "@/lib/meta-util";
+import gitInfo from "../../public/post-index.json";
 import { PostHistory } from "@/interface/post-history";
 
 export const getAllPosts = async (): Promise<Post[]> => {
   try {
-    const [markdownFiles, gitInfo] = await Promise.all([
-      getMarkdownFiles(postsDirectory),
-      readGitInfo(),
-    ]);
-
+    const markdownFiles = await getMarkdownFiles(postsDirectory);
     const posts = await Promise.all(
       markdownFiles.map(async (file) => {
         const post = await parsePostContent(file);
@@ -38,9 +33,6 @@ export const getAllPosts = async (): Promise<Post[]> => {
 
 export const getPostBySlug = async (slug: string): Promise<Post | null> => {
   try {
-    const gitInfo = await readGitInfo();
-    if (!gitInfo[slug]) return null;
-
     const post = await parsePostContent(`${slug}.md`);
     return applyPostHistory(post, gitInfo);
   } catch (error) {
@@ -49,39 +41,44 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
   }
 };
 
-export const parsePostContent = async (filePath: string): Promise<Post> => {
+// export const parsePostContent = async (filePath: string): Promise<Post> => {
+//   const fullPath = join(postsDirectory, filePath);
+//   const slug = getSlugFromFilePath(filePath);
+//   const fileContents = await fs.readFile(fullPath, "utf8");
+
+//   const { data, content, excerpt } = matter(fileContents, {
+//     excerpt: true,
+//     excerpt_separator: "<!-- end -->",
+//   });
+
+//   return {
+//     slug,
+//     content,
+//     excerpt: excerpt || "",
+//     title: String(data.title),
+//     description: data.description,
+//     createdAt: data.date,
+//     updatedAt: data.date,
+//     tags: data.tag ?? [],
+//     star: Boolean(data.star),
+//   };
+// };
+
+// parsePostContentJS의 반환 타입을 Post로 변환하는 함수
+const parsePostContent = async (filePath: string): Promise<ParsedPost> => {
   const fullPath = join(postsDirectory, filePath);
-  const slug = getSlugFromFilePath(filePath);
-  const fileContents = await fs.readFile(fullPath, "utf8");
-
-  const { data, content, excerpt } = matter(fileContents, {
-    excerpt: true,
-    excerpt_separator: "<!-- end -->",
-  });
-
-  return {
-    slug,
-    content,
-    excerpt: excerpt || "",
-    title: String(data.title),
-    description: data.description,
-    createdAt: data.date,
-    updatedAt: data.date,
-    tags: data.tag ?? [],
-    star: Boolean(data.star),
-  };
+  return parsePostContentJS(fullPath);
 };
 
 const applyPostHistory = (
-  post: Post,
+  post: ParsedPost,
   gitInfo: Record<string, PostHistory>
 ): Post => {
-  const fallbackDate = formatISO(new Date());
   const postHistory = gitInfo[post.slug];
-
+  const fallbackDate = formatISO(new Date());
   return {
     ...post,
-    createdAt: post.createdAt || postHistory.createdAt || fallbackDate,
-    updatedAt: postHistory.updatedAt || fallbackDate,
+    createdAt: post.createdAt || postHistory?.createdAt || fallbackDate,
+    updatedAt: post.updatedAt || postHistory?.updatedAt || fallbackDate,
   };
 };

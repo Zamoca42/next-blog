@@ -1,10 +1,8 @@
 // @ts-check
-import fs from "fs/promises";
-import path from "path";
-import matter from "gray-matter";
 import algoliasearch from "algoliasearch";
 import { ALGOLIA_INDEX_NAME } from "../lib/constant.js";
-import { getMarkdownFiles, getSlugFromFilePath, postsDirectory } from "../lib/file-util.js";
+import { gitInfoPath } from "../lib/meta-util.js";
+import { readFileSync } from "fs";
 
 const appId = process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID;
 const apiKey = process.env.ALGOLIA_ADMIN_KEY;
@@ -26,49 +24,36 @@ const client = algoliasearch(appId, apiKey);
  */
 
 /**
- * @param {string} filePath
+ * @param {string} slug
+ * @param {import("./post-index.js").PostMetadata} post
  * @param {number} index
- * @returns {Promise<PostSearchIndex>}
+ * @returns {PostSearchIndex}
  */
-const createPostRecord = async (filePath, index) => {
-  const slug = getSlugFromFilePath(filePath);
-  const fileContents = await fs.readFile(filePath, "utf8");
-  const { data, excerpt } = matter(fileContents, {
-    excerpt: true,
-    excerpt_separator: "<!-- end -->",
-  });
-
+const createPostRecord = (slug, post, index) => {
   return {
-    objectID: `${index}-https://zamoca.space/post${slug}`,
-    url: `https://zamoca.space/post${slug}`,
+    objectID: `${index}-https://zamoca.space${slug}`,
+    url: `https://zamoca.space${slug}`,
     hierarchy: {
       lvl0: "Documentation",
-      lvl1: data.title,
-      lvl2: data.description || null,
-      lvl3: data.tag || []
+      lvl1: post.title,
+      lvl2: post.description,
+      lvl3: post.tags || []
     },
     type: 'lvl1',
-    content: excerpt || null,
-    tags: data.tag
+    content: post.excerpt || null,
+    tags: post.tags
   };
 };
 
-/**
- * @returns {Promise<PostSearchIndex[]>}
- */
-const getAllPosts = async () => {
-  const markdownFiles = await getMarkdownFiles(postsDirectory);
-  return Promise.all(
-    markdownFiles.map(async (fileName, index) => {
-      const filePath = path.join(postsDirectory, fileName);
-      return await createPostRecord(filePath, index);
-    })
-  );
-}
-
 export const updateAlgoliaIndex = async () => {
   try {
-    const posts = await getAllPosts();
+    /** @type {Record<string, import("./post-index.js").PostMetadata>} */
+    const postIndex = JSON.parse(readFileSync(gitInfoPath, "utf-8"));
+
+    const posts = Object.entries(postIndex).map(([slug, post], index) => 
+      createPostRecord(slug, post, index)
+    );
+
     const index = client.initIndex(ALGOLIA_INDEX_NAME);
     await index.replaceAllObjects(posts);
     console.log(

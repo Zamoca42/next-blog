@@ -1,5 +1,4 @@
-import { CMS_NAME } from "@/lib/constant";
-import { BlogConfig } from "@/interface/blog-config";
+import { CMS_NAME } from "./lib/constant.js";
 
 /**
  * @typedef {Object} Author
@@ -21,7 +20,7 @@ import { BlogConfig } from "@/interface/blog-config";
  */
 
 /** @type {BlogConfig} */
-export const blogConfig: BlogConfig = {
+export const blogConfig = {
   name: "Zamoca Space",
   host: "https://zamoca.space",
   description: `A statically generated blog using Next.js and ${CMS_NAME}.`,

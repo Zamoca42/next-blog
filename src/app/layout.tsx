@@ -60,19 +60,19 @@ export default async function RootLayout({
         <link
           rel="alternate"
           type="application/rss+xml"
-          href="/api/rss"
+          href="/rss.xml"
           title={`RSS Feed for ${blogConfig.name}`}
         />
         <link
           rel="alternate"
           type="application/atom+xml"
-          href="/api/rss?format=atom"
+          href="/rss-atom.xml"
           title={`Atom Feed for ${blogConfig.name}`}
         />
         <link
           rel="alternate"
           type="application/json"
-          href="/api/rss?format=json"
+          href="/feed.json"
           title={`JSON Feed for ${blogConfig.name}`}
         />
       </head>
