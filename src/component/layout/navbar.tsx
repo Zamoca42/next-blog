@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ExternalLinkWithMode, PostLink } from "@/component/layout/nav-link";
 import { useSideBar } from "@/component/context/sidebar-provider";
-import { blogConfig } from "@/blog.config";
 import { usePathname } from "next/navigation";
 import { AlignLeft, AlignRight, X } from "lucide-react";
 import clsx from "clsx";
@@ -14,6 +13,7 @@ import { DocSearch } from "@docsearch/react";
 import { ALGOLIA_INDEX_NAME } from "@/lib/constant";
 import { MobileLinkBar } from "@/component/layout/mobile-link-bar";
 import "@docsearch/css";
+import { blogConfig } from "@/blog-config";
 
 export const NavBar = () => {
   const { isOpen, setIsOpen, isLinkOpen, setIsLinkOpen } = useSideBar();

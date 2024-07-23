@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { blogConfig } from "@/blog.config";
+import { blogConfig } from "@/blog-config";
 import { PostSlugParams, Post } from "@/interface/post";
 import { getAllPosts, getPostBySlug } from "@/app/api/action";
 import { notFound } from "next/navigation";
@@ -26,7 +26,7 @@ export const generateMetadata = async ({
     notFound();
   }
 
-  const { blog, host, name: applicationName } = blogConfig;
+  const { author, host, name: applicationName } = blogConfig;
 
   const title = post.title;
   const keywords =
@@ -37,7 +37,7 @@ export const generateMetadata = async ({
     metadataBase: new URL(host),
     title,
     description,
-    authors: blog.author,
+    authors: { name: author.name, url: author.url },
     keywords,
     applicationName,
     generator: "Next.js",

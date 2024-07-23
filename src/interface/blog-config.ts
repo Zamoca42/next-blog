@@ -1,23 +1,16 @@
 import { Author } from "@/interface/author";
 
 export interface BlogConfig {
+  name: string;
+  description: string;
   host: string;
-  navLink: {
+  nav: {
     name: string;
     path: string;
   }[];
-  blog: {
-    author: Author;
-    media?: {
-      gitHub: string;
-      email: string;
-      gmail: string;
-      linkedin: string;
-    };
+  author: Author;
+  media: {
+    github: string;
+    linkedin: string;
   };
-  comment?: {
-    provider: string;
-    serverUrl: string;
-  };
-  name: string;
 }
