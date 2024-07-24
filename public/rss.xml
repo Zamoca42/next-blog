@@ -4,7 +4,7 @@
         <title>Zamoca Space</title>
         <link>https://zamoca.space</link>
         <description>A statically generated blog using Next.js and Markdown.</description>
-        <lastBuildDate>Tue, 23 Jul 2024 18:49:13 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 24 Jul 2024 14:41:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>generate-rss</generator>
         <language>ko</language>
@@ -16,7 +16,7 @@
         <copyright>All rights reserved since 2024, 추연규(Zamoca)</copyright>
         <item>
             <title><![CDATA[date-fns로 Date 객체 다루기]]></title>
-            <link>https://zamoca.spacejs-ts/date-fns</link>
+            <link>https://zamoca.space/js-ts/date-fns</link>
             <guid>js-ts/date-fns</guid>
             <pubDate>Tue, 23 Apr 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -39,7 +39,7 @@ date-fns의 startOfDay와 endOfDay 함수를 사용하면 Date 객체 기준
         </item>
         <item>
             <title><![CDATA[Node.js로 디렉토리 트리 탐색하기]]></title>
-            <link>https://zamoca.spacejs-ts/node-readdir</link>
+            <link>https://zamoca.space/js-ts/node-readdir</link>
             <guid>js-ts/node-readdir</guid>
             <pubDate>Thu, 20 Jun 2024 13:24:08 GMT</pubDate>
             <description><![CDATA[fs.readdir의 recursive 옵션으로 모든 마크다운 파일 찾기]]></description>
@@ -79,7 +79,7 @@ export function getPostBySlug(slug: string) {
         </item>
         <item>
             <title><![CDATA[사이드바 정렬 개선하기]]></title>
-            <link>https://zamoca.spacejs-ts/sidebar-sorting</link>
+            <link>https://zamoca.space/js-ts/sidebar-sorting</link>
             <guid>js-ts/sidebar-sorting</guid>
             <pubDate>Fri, 28 Jun 2024 11:44:27 GMT</pubDate>
             <description><![CDATA[폴더, 파일을 문자열 정렬에서 개선해보자]]></description>
@@ -102,7 +102,7 @@ export function getPostBySlug(slug: string) {
         </item>
         <item>
             <title><![CDATA[Blog에 검색 적용하기 - Docsearch]]></title>
-            <link>https://zamoca.spacejs-ts/next/blog-docsearch</link>
+            <link>https://zamoca.space/js-ts/next/blog-docsearch</link>
             <guid>js-ts/next/blog-docsearch</guid>
             <pubDate>Tue, 02 Jul 2024 09:41:22 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -121,7 +121,7 @@ Algolia는 Vuepress나 공식문서 페이지에서 자주 볼 수 있었는데,
         </item>
         <item>
             <title><![CDATA[Next.js 14 - HotReload 에러]]></title>
-            <link>https://zamoca.spacejs-ts/next/hot-reload</link>
+            <link>https://zamoca.space/js-ts/next/hot-reload</link>
             <guid>js-ts/next/hot-reload</guid>
             <pubDate>Wed, 12 Jun 2024 11:26:42 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -139,7 +139,7 @@ Next로 모달을 구현하게되면 Parallel Routes를 자주 사용하게 될�
         </item>
         <item>
             <title><![CDATA[Auth.js v4 - Unknown arg `access_token`... 에러]]></title>
-            <link>https://zamoca.spacejs-ts/next/prisma-token-schema-error</link>
+            <link>https://zamoca.space/js-ts/next/prisma-token-schema-error</link>
             <guid>js-ts/next/prisma-token-schema-error</guid>
             <pubDate>Thu, 13 Jun 2024 15:33:33 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -165,7 +165,7 @@ Unknown arg `access_token` in data.access_token for type AccountUncheckedCreateI
         </item>
         <item>
             <title><![CDATA[Next.js - 빌드 타임에 스크립트를 실행하는 방법]]></title>
-            <link>https://zamoca.spacejs-ts/next/run-script-build-time</link>
+            <link>https://zamoca.space/js-ts/next/run-script-build-time</link>
             <guid>js-ts/next/run-script-build-time</guid>
             <pubDate>Thu, 13 Jun 2024 17:03:58 GMT</pubDate>
             <description><![CDATA[What's the recommended way to run a script at build time?]]></description>
@@ -186,8 +186,25 @@ Vercel에 배포 할때는 `.git` 레포지토리가 포함되지 않기 때문�
             <category>Script</category>
         </item>
         <item>
+            <title><![CDATA[Next.js - SEO와 검색엔진 등록]]></title>
+            <link>https://zamoca.space/js-ts/next/seo</link>
+            <guid>js-ts/next/seo</guid>
+            <pubDate>Wed, 24 Jul 2024 00:00:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+구글과 네이버 같은 검색엔진은 크롤링 봇이 있는데 크롤링 봇이 웹사이트와 웹페이지를 수집하고 등록시켜 검색하는 유저에게 노출한다.
+SEO(Search Engine Optimization)는 검색엔진 크롤링 봇에게 내 웹페이지를 수집하기 쉽도록 개선하는 작업을 말한다.  
+SEO를 직접 제공하는 블로그 서비스를 이용하는 것이 아닌 이상 자동으로 검색엔진에 등록되는일은 없으므로 SEO를 위한 작업이 필요하다.
+
+Next.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리하려고 한다.
+
+]]></content:encoded>
+            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <category>SEO</category>
+            <category>Next.js</category>
+        </item>
+        <item>
             <title><![CDATA[고객정보 API 만들기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/api</link>
+            <link>https://zamoca.space/js-ts/nest-js/api</link>
             <guid>js-ts/nest-js/api</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -212,7 +229,7 @@ Vercel에 배포 할때는 `.git` 레포지토리가 포함되지 않기 때문�
         </item>
         <item>
             <title><![CDATA[응답 객체 직렬화하기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/class-transformer</link>
+            <link>https://zamoca.space/js-ts/nest-js/class-transformer</link>
             <guid>js-ts/nest-js/class-transformer</guid>
             <pubDate>Sat, 23 Dec 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -228,7 +245,7 @@ Vercel에 배포 할때는 `.git` 레포지토리가 포함되지 않기 때문�
         </item>
         <item>
             <title><![CDATA[요청 객체 역직렬화하기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/class-validator</link>
+            <link>https://zamoca.space/js-ts/nest-js/class-validator</link>
             <guid>js-ts/nest-js/class-validator</guid>
             <pubDate>Sat, 23 Dec 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -244,7 +261,7 @@ Vercel에 배포 할때는 `.git` 레포지토리가 포함되지 않기 때문�
         </item>
         <item>
             <title><![CDATA[Custom validation 만들기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/custom-validator</link>
+            <link>https://zamoca.space/js-ts/nest-js/custom-validator</link>
             <guid>js-ts/nest-js/custom-validator</guid>
             <pubDate>Tue, 07 Nov 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -256,7 +273,7 @@ Vercel에 배포 할때는 `.git` 레포지토리가 포함되지 않기 때문�
         </item>
         <item>
             <title><![CDATA[DTO (Data Transfer Object)]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/dto</link>
+            <link>https://zamoca.space/js-ts/nest-js/dto</link>
             <guid>js-ts/nest-js/dto</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -273,7 +290,7 @@ DTO(Data Transfer Object)는 **계층간 데이터 교환**을 하기 위해 사
         </item>
         <item>
             <title><![CDATA[sh 1 nest not found 오류]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/error-cli-not-found</link>
+            <link>https://zamoca.space/js-ts/nest-js/error-cli-not-found</link>
             <guid>js-ts/nest-js/error-cli-not-found</guid>
             <pubDate>Thu, 28 Dec 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -289,7 +306,7 @@ DTO(Data Transfer Object)는 **계층간 데이터 교환**을 하기 위해 사
         </item>
         <item>
             <title><![CDATA[전역으로 예외 처리 적용하기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/error-exception</link>
+            <link>https://zamoca.space/js-ts/nest-js/error-exception</link>
             <guid>js-ts/nest-js/error-exception</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -302,7 +319,7 @@ Nest에는 애플리케이션 전체에서 처리되지 않은 모든 예외를 
         </item>
         <item>
             <title><![CDATA[서비스 레이어에서 예외처리 분리하기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/exception</link>
+            <link>https://zamoca.space/js-ts/nest-js/exception</link>
             <guid>js-ts/nest-js/exception</guid>
             <pubDate>Wed, 03 Jan 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -320,7 +337,7 @@ Nest에는 애플리케이션 전체에서 처리되지 않은 모든 예외를 
         </item>
         <item>
             <title><![CDATA[외부 로거로 효율적으로 모니터링하기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/external-logger</link>
+            <link>https://zamoca.space/js-ts/nest-js/external-logger</link>
             <guid>js-ts/nest-js/external-logger</guid>
             <pubDate>Wed, 27 Dec 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -337,7 +354,7 @@ Nest에는 애플리케이션 전체에서 처리되지 않은 모든 예외를 
         </item>
         <item>
             <title><![CDATA[프로젝트 시작하기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/introduction</link>
+            <link>https://zamoca.space/js-ts/nest-js/introduction</link>
             <guid>js-ts/nest-js/introduction</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -366,7 +383,7 @@ app.use(
         </item>
         <item>
             <title><![CDATA[로그인 구현하기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/login-module</link>
+            <link>https://zamoca.space/js-ts/nest-js/login-module</link>
             <guid>js-ts/nest-js/login-module</guid>
             <pubDate>Thu, 28 Dec 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -380,7 +397,7 @@ React Admin에서 로그인 페이지를 만들고 Nest의 인증 모듈과 연�
         </item>
         <item>
             <title><![CDATA[API 요청 시도 횟수 제한하기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/rate-limit</link>
+            <link>https://zamoca.space/js-ts/nest-js/rate-limit</link>
             <guid>js-ts/nest-js/rate-limit</guid>
             <pubDate>Fri, 15 Dec 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -394,7 +411,7 @@ React Admin에서 로그인 페이지를 만들고 Nest의 인증 모듈과 연�
         </item>
         <item>
             <title><![CDATA[서버 상태 모니터링하기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/server-monitoring</link>
+            <link>https://zamoca.space/js-ts/nest-js/server-monitoring</link>
             <guid>js-ts/nest-js/server-monitoring</guid>
             <pubDate>Sat, 30 Dec 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -408,7 +425,7 @@ Sentry의 기능 중에 크론 모니터링 기능이 있어서 NestJS가 지원
         </item>
         <item>
             <title><![CDATA[세션 쿠키 인증/인가]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/session</link>
+            <link>https://zamoca.space/js-ts/nest-js/session</link>
             <guid>js-ts/nest-js/session</guid>
             <pubDate>Fri, 17 Nov 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -421,7 +438,7 @@ NestJS에서 [express-session][express-session]으로 세션 인증을 구현해
         </item>
         <item>
             <title><![CDATA[스택 트레이스로 에러 추적하기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/stack-trace</link>
+            <link>https://zamoca.space/js-ts/nest-js/stack-trace</link>
             <guid>js-ts/nest-js/stack-trace</guid>
             <pubDate>Sun, 19 Nov 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -445,7 +462,7 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
         </item>
         <item>
             <title><![CDATA[Stub을 이용한 단위 테스트 적용하기]]></title>
-            <link>https://zamoca.spacejs-ts/nest-js/unit-test</link>
+            <link>https://zamoca.space/js-ts/nest-js/unit-test</link>
             <guid>js-ts/nest-js/unit-test</guid>
             <pubDate>Wed, 27 Dec 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -454,7 +471,7 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
         </item>
         <item>
             <title><![CDATA[10. 객체 리터럴]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive10</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive10</link>
             <guid>js-ts/deepdive/deepdive10</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -489,7 +506,7 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
         </item>
         <item>
             <title><![CDATA[11. 원시 값과 객체의 비교]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive11</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive11</link>
             <guid>js-ts/deepdive/deepdive11</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -504,7 +521,7 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
         </item>
         <item>
             <title><![CDATA[12. 함수]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive12</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive12</link>
             <guid>js-ts/deepdive/deepdive12</guid>
             <pubDate>Fri, 29 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -519,7 +536,7 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
         </item>
         <item>
             <title><![CDATA[13. 스코프]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive13</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive13</link>
             <guid>js-ts/deepdive/deepdive13</guid>
             <pubDate>Sat, 30 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -547,7 +564,7 @@ console.log(x, y); // ReferenceError
         </item>
         <item>
             <title><![CDATA[14. 전역 변수의 문제점]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive14</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive14</link>
             <guid>js-ts/deepdive/deepdive14</guid>
             <pubDate>Sat, 30 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -563,7 +580,7 @@ console.log(x, y); // ReferenceError
         </item>
         <item>
             <title><![CDATA[15. let, const 키워드와 블록 레벨 스코프]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive15</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive15</link>
             <guid>js-ts/deepdive/deepdive15</guid>
             <pubDate>Sat, 30 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -578,7 +595,7 @@ var 키워드로 선언된 변수는 다음과 같은 특징이 있다.
         </item>
         <item>
             <title><![CDATA[16. 프로퍼티 어트리뷰트]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive16</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive16</link>
             <guid>js-ts/deepdive/deepdive16</guid>
             <pubDate>Sun, 01 Oct 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -594,7 +611,7 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
         </item>
         <item>
             <title><![CDATA[17. 생성자 함수에 의한 객체 생성]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive17</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive17</link>
             <guid>js-ts/deepdive/deepdive17</guid>
             <pubDate>Tue, 03 Oct 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -606,7 +623,7 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
         </item>
         <item>
             <title><![CDATA[18. 함수와 일급 객체]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive18</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive18</link>
             <guid>js-ts/deepdive/deepdive18</guid>
             <pubDate>Wed, 04 Oct 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -625,7 +642,7 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
         </item>
         <item>
             <title><![CDATA[19. 프로토타입]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive19</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive19</link>
             <guid>js-ts/deepdive/deepdive19</guid>
             <pubDate>Thu, 05 Oct 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -637,7 +654,7 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
         </item>
         <item>
             <title><![CDATA[20. strict mode]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive20</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive20</link>
             <guid>js-ts/deepdive/deepdive20</guid>
             <pubDate>Wed, 11 Oct 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -654,7 +671,7 @@ strict mode는 자바스크립트 언어의 문법을 좀 더 엄격히 적용�
         </item>
         <item>
             <title><![CDATA[21. 빌트인 객체]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive21</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive21</link>
             <guid>js-ts/deepdive/deepdive21</guid>
             <pubDate>Thu, 12 Oct 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -662,7 +679,7 @@ strict mode는 자바스크립트 언어의 문법을 좀 더 엄격히 적용�
         </item>
         <item>
             <title><![CDATA[22. this]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive22</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive22</link>
             <guid>js-ts/deepdive/deepdive22</guid>
             <pubDate>Sat, 14 Oct 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -688,7 +705,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[23. 실행 컨텍스트]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive23</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive23</link>
             <guid>js-ts/deepdive/deepdive23</guid>
             <pubDate>Sun, 15 Oct 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -696,7 +713,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[24. 클로저]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive24</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive24</link>
             <guid>js-ts/deepdive/deepdive24</guid>
             <pubDate>Wed, 18 Oct 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -704,7 +721,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[25. 클래스]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive25</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive25</link>
             <guid>js-ts/deepdive/deepdive25</guid>
             <pubDate>Mon, 23 Oct 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -712,7 +729,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[26. ES6 함수의 추가 기능]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive26</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive26</link>
             <guid>js-ts/deepdive/deepdive26</guid>
             <pubDate>Sun, 29 Oct 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -720,7 +737,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[27. 배열]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive27</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive27</link>
             <guid>js-ts/deepdive/deepdive27</guid>
             <pubDate>Mon, 30 Oct 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -728,7 +745,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[34. 이터러블]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive34</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive34</link>
             <guid>js-ts/deepdive/deepdive34</guid>
             <pubDate>Thu, 09 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -736,7 +753,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[35. 스프레드 문법]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive35</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive35</link>
             <guid>js-ts/deepdive/deepdive35</guid>
             <pubDate>Sun, 12 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -744,7 +761,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[36. 디스트럭처링 할당]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive36</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive36</link>
             <guid>js-ts/deepdive/deepdive36</guid>
             <pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -752,7 +769,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[37. Set과 Map]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive37</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive37</link>
             <guid>js-ts/deepdive/deepdive37</guid>
             <pubDate>Wed, 15 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -760,7 +777,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[38. 브라우저의 렌더링 과정]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive38</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive38</link>
             <guid>js-ts/deepdive/deepdive38</guid>
             <pubDate>Sun, 05 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -768,7 +785,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[39. DOM]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive39</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive39</link>
             <guid>js-ts/deepdive/deepdive39</guid>
             <pubDate>Sun, 05 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -776,7 +793,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[4. 변수]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive4</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive4</link>
             <guid>js-ts/deepdive/deepdive4</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -802,7 +819,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[40. 이벤트]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive40</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive40</link>
             <guid>js-ts/deepdive/deepdive40</guid>
             <pubDate>Fri, 17 Nov 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -823,7 +840,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[41. 타이머]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive41</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive41</link>
             <guid>js-ts/deepdive/deepdive41</guid>
             <pubDate>Mon, 20 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -831,7 +848,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[42. 비동기 프로그래밍]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive42</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive42</link>
             <guid>js-ts/deepdive/deepdive42</guid>
             <pubDate>Mon, 20 Nov 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -848,7 +865,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[43. Ajax]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive43</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive43</link>
             <guid>js-ts/deepdive/deepdive43</guid>
             <pubDate>Tue, 21 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -856,7 +873,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[45. 프로미스]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive45</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive45</link>
             <guid>js-ts/deepdive/deepdive45</guid>
             <pubDate>Wed, 22 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -864,7 +881,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[46. 제너레이터와 async/await]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive46</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive46</link>
             <guid>js-ts/deepdive/deepdive46</guid>
             <pubDate>Thu, 23 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -872,7 +889,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[47. 에러처리]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive47</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive47</link>
             <guid>js-ts/deepdive/deepdive47</guid>
             <pubDate>Sat, 25 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -880,7 +897,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[48. 모듈]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive48</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive48</link>
             <guid>js-ts/deepdive/deepdive48</guid>
             <pubDate>Sun, 26 Nov 2023 00:00:00 GMT</pubDate>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
@@ -888,7 +905,7 @@ console.log(circle.getDiameter()); // 10
         </item>
         <item>
             <title><![CDATA[5. 표현식과 문]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive5</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive5</link>
             <guid>js-ts/deepdive/deepdive5</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -915,7 +932,7 @@ sum변수에 할당되는 것은 10 + 20이 아니라 30이라는 값이다.
         </item>
         <item>
             <title><![CDATA[6. 데이터 타입]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive6</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive6</link>
             <guid>js-ts/deepdive/deepdive6</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -968,7 +985,7 @@ sum변수에 할당되는 것은 10 + 20이 아니라 30이라는 값이다.
         </item>
         <item>
             <title><![CDATA[7. 연산자]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive7</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive7</link>
             <guid>js-ts/deepdive/deepdive7</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1004,7 +1021,7 @@ typeof "Hi"; //-> string
         </item>
         <item>
             <title><![CDATA[8. 제어문]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive8</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive8</link>
             <guid>js-ts/deepdive/deepdive8</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1041,7 +1058,7 @@ function sum(a, b) {
         </item>
         <item>
             <title><![CDATA[9. 타입 변환과 단축 평가]]></title>
-            <link>https://zamoca.spacejs-ts/deepdive/deepdive9</link>
+            <link>https://zamoca.space/js-ts/deepdive/deepdive9</link>
             <guid>js-ts/deepdive/deepdive9</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1078,7 +1095,7 @@ console.log(typeof x, x); //number 10
         </item>
         <item>
             <title><![CDATA[프로메테우스 - 그라파나 in Django]]></title>
-            <link>https://zamoca.spaceinfra/grafana-prometheus-in-django</link>
+            <link>https://zamoca.space/infra/grafana-prometheus-in-django</link>
             <guid>infra/grafana-prometheus-in-django</guid>
             <pubDate>Mon, 12 Feb 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1094,7 +1111,7 @@ Datadog, Sentry와 같이 여러 데이터를 시각화해서 보여주는 앱�
         </item>
         <item>
             <title><![CDATA[우분투에 node & npm 설치]]></title>
-            <link>https://zamoca.spaceinfra/node-install</link>
+            <link>https://zamoca.space/infra/node-install</link>
             <guid>infra/node-install</guid>
             <pubDate>Tue, 05 Mar 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1115,7 +1132,7 @@ git clone으로 레포지토리까지 설정을 한 다음,
         </item>
         <item>
             <title><![CDATA[CI/CD란?]]></title>
-            <link>https://zamoca.spaceinfra/github-actions/ci-cd</link>
+            <link>https://zamoca.space/infra/github-actions/ci-cd</link>
             <guid>infra/github-actions/ci-cd</guid>
             <pubDate>Mon, 12 Feb 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1132,7 +1149,7 @@ CI/CD의 기본 개념은 지속적인 통합, 지속적인 서비스 제공, �
         </item>
         <item>
             <title><![CDATA[EC2에 Django 서버 배포하기]]></title>
-            <link>https://zamoca.spaceinfra/github-actions/ec2-deploy</link>
+            <link>https://zamoca.space/infra/github-actions/ec2-deploy</link>
             <guid>infra/github-actions/ec2-deploy</guid>
             <pubDate>Mon, 12 Feb 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1144,7 +1161,7 @@ CI/CD의 기본 개념은 지속적인 통합, 지속적인 서비스 제공, �
         </item>
         <item>
             <title><![CDATA[GitHub Actions]]></title>
-            <link>https://zamoca.spaceinfra/github-actions/github-actions</link>
+            <link>https://zamoca.space/infra/github-actions/github-actions</link>
             <guid>infra/github-actions/github-actions</guid>
             <pubDate>Mon, 12 Feb 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1162,7 +1179,7 @@ Github Actions에 대해 간단히 설명하면 테스트 및 배포 파이프�
         </item>
         <item>
             <title><![CDATA[S3에 정적 웹페이지 배포하기]]></title>
-            <link>https://zamoca.spaceinfra/github-actions/s3-deploy</link>
+            <link>https://zamoca.space/infra/github-actions/s3-deploy</link>
             <guid>infra/github-actions/s3-deploy</guid>
             <pubDate>Mon, 12 Feb 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1184,7 +1201,7 @@ S3 버킷을 정적 웹사이트로 호스팅하기 위해서는 다음과 같�
         </item>
         <item>
             <title><![CDATA[DevContainer - VSCode(IDE)에서 리눅스 환경으로 개발하고 디버깅하기]]></title>
-            <link>https://zamoca.spaceinfra/docker/dev-container</link>
+            <link>https://zamoca.space/infra/docker/dev-container</link>
             <guid>infra/docker/dev-container</guid>
             <pubDate>Mon, 12 Feb 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1205,7 +1222,7 @@ Visual Studio Code의 확장 앱을 통해 구성할 수 있습니다.
         </item>
         <item>
             <title><![CDATA[Git-flow]]></title>
-            <link>https://zamoca.spaceetc/git-flow</link>
+            <link>https://zamoca.space/etc/git-flow</link>
             <guid>etc/git-flow</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1220,7 +1237,7 @@ git-flow는 브랜치를 5가지 종류로 구분하여 개발하는 전략이�
         </item>
         <item>
             <title><![CDATA[GitHub-flow]]></title>
-            <link>https://zamoca.spaceetc/github-flow</link>
+            <link>https://zamoca.space/etc/github-flow</link>
             <guid>etc/github-flow</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1239,7 +1256,7 @@ git-flow는 브랜치를 5가지 종류로 구분하여 개발하는 전략이�
         </item>
         <item>
             <title><![CDATA[코드 스니펫을 단축키로 자동입력하기]]></title>
-            <link>https://zamoca.spaceetc/key-binding</link>
+            <link>https://zamoca.space/etc/key-binding</link>
             <guid>etc/key-binding</guid>
             <pubDate>Wed, 26 Jun 2024 17:10:04 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1259,7 +1276,7 @@ git-flow는 브랜치를 5가지 종류로 구분하여 개발하는 전략이�
         </item>
         <item>
             <title><![CDATA[Markdownlint - 마크다운 linting 도구]]></title>
-            <link>https://zamoca.spaceetc/markdown-lint</link>
+            <link>https://zamoca.space/etc/markdown-lint</link>
             <guid>etc/markdown-lint</guid>
             <pubDate>Thu, 20 Jun 2024 13:24:08 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1285,7 +1302,7 @@ Markdownlint는 VSCode 확장 프로그램 중 하나로, 마크다운 형식의
         </item>
         <item>
             <title><![CDATA[블로그 마크다운 문법 정리]]></title>
-            <link>https://zamoca.spaceetc/markdown</link>
+            <link>https://zamoca.space/etc/markdown</link>
             <guid>etc/markdown</guid>
             <pubDate>Wed, 19 Jun 2024 15:54:05 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1304,22 +1321,8 @@ Markdownlint는 VSCode 확장 프로그램 중 하나로, 마크다운 형식의
             <category>Markdown</category>
         </item>
         <item>
-            <title><![CDATA[2023년 전체 회고]]></title>
-            <link>https://zamoca.spaceetc/retrospect/2024-1</link>
-            <guid>etc/retrospect/2024-1</guid>
-            <pubDate>Sun, 31 Mar 2024 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[
-2024년 4월이지만 지난 1년을 어떻게 보냈는지 정리해보려고 한다.
-
-2023년의 아쉬운 점을 보강해서 2024년엔 다른 방법으로 도전해야겠다.
-
-]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
-            <category>Retrospect</category>
-        </item>
-        <item>
             <title><![CDATA[블로그 이전 후기]]></title>
-            <link>https://zamoca.spaceetc/retrospect/blog-migrate</link>
+            <link>https://zamoca.space/etc/retrospect/blog-migrate</link>
             <guid>etc/retrospect/blog-migrate</guid>
             <pubDate>Thu, 12 Oct 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1335,7 +1338,7 @@ GitHub의 TIL 리포지토리에 쓴 글들을 백업하는 과정이 있었는�
         </item>
         <item>
             <title><![CDATA[Next.js 블로그로 이전 후기]]></title>
-            <link>https://zamoca.spaceetc/retrospect/next-blog-migrate</link>
+            <link>https://zamoca.space/etc/retrospect/next-blog-migrate</link>
             <guid>etc/retrospect/next-blog-migrate</guid>
             <pubDate>Tue, 16 Jul 2024 17:40:39 GMT</pubDate>
             <description><![CDATA[Vuepress에서 Next.js로 블로그를 이전한 후기입니다.]]></description>
@@ -1352,7 +1355,7 @@ Vuepress를 이용한 블로그를 사용하다가 여러 가지 문제에 부�
         </item>
         <item>
             <title><![CDATA[오후스튜디오 회원 관리 페이지 개발 후기]]></title>
-            <link>https://zamoca.spaceetc/retrospect/ohoo-admin</link>
+            <link>https://zamoca.space/etc/retrospect/ohoo-admin</link>
             <guid>etc/retrospect/ohoo-admin</guid>
             <pubDate>Mon, 02 Oct 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1365,7 +1368,7 @@ Vuepress를 이용한 블로그를 사용하다가 여러 가지 문제에 부�
         </item>
         <item>
             <title><![CDATA[vue-django 블로그 개발 후기]]></title>
-            <link>https://zamoca.spaceetc/retrospect/vue-django-blog</link>
+            <link>https://zamoca.space/etc/retrospect/vue-django-blog</link>
             <guid>etc/retrospect/vue-django-blog</guid>
             <pubDate>Mon, 09 Oct 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1378,7 +1381,7 @@ Vuepress를 이용한 블로그를 사용하다가 여러 가지 문제에 부�
         </item>
         <item>
             <title><![CDATA[자주 사용하는 git 명령어 모음]]></title>
-            <link>https://zamoca.spaceetc/git/cheat-sheet</link>
+            <link>https://zamoca.space/etc/git/cheat-sheet</link>
             <guid>etc/git/cheat-sheet</guid>
             <pubDate>Wed, 03 Apr 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1396,7 +1399,7 @@ git config --global core.editor "code --wait"
         </item>
         <item>
             <title><![CDATA[필요한 디렉터리만 clone하기]]></title>
-            <link>https://zamoca.spaceetc/git/git-sparse-checkout</link>
+            <link>https://zamoca.space/etc/git/git-sparse-checkout</link>
             <guid>etc/git/git-sparse-checkout</guid>
             <pubDate>Tue, 05 Mar 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1416,7 +1419,7 @@ GitHub 레포지토리에서 frontend 디렉터리를 제외한 나머지 파일
         </item>
         <item>
             <title><![CDATA[merge]]></title>
-            <link>https://zamoca.spaceetc/git/merge</link>
+            <link>https://zamoca.space/etc/git/merge</link>
             <guid>etc/git/merge</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1436,7 +1439,7 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
         </item>
         <item>
             <title><![CDATA[백준 2748 - 피보나치 수]]></title>
-            <link>https://zamoca.spaceetc/coding-test/boj-2748</link>
+            <link>https://zamoca.space/etc/coding-test/boj-2748</link>
             <guid>etc/coding-test/boj-2748</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1454,7 +1457,7 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
         </item>
         <item>
             <title><![CDATA[성격유형 검사하기 - Python]]></title>
-            <link>https://zamoca.spaceetc/coding-test/programmers-mbti</link>
+            <link>https://zamoca.space/etc/coding-test/programmers-mbti</link>
             <guid>etc/coding-test/programmers-mbti</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1486,7 +1489,7 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
         </item>
         <item>
             <title><![CDATA[신고 결과 받기 - Python]]></title>
-            <link>https://zamoca.spaceetc/coding-test/programmers-report</link>
+            <link>https://zamoca.space/etc/coding-test/programmers-report</link>
             <guid>etc/coding-test/programmers-report</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1499,7 +1502,7 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
         </item>
         <item>
             <title><![CDATA[DynamoDB 연결하기 with NestJS]]></title>
-            <link>https://zamoca.spacedb/dynamoose</link>
+            <link>https://zamoca.space/db/dynamoose</link>
             <guid>db/dynamoose</guid>
             <pubDate>Thu, 28 Dec 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1516,7 +1519,7 @@ SQL이나 NoSQL 데이터베이스 모두 쉽게 연결할 수 있습니다.
         </item>
         <item>
             <title><![CDATA[Prisma - 인스턴스 경고 해결하기]]></title>
-            <link>https://zamoca.spacedb/prisma-instance</link>
+            <link>https://zamoca.space/db/prisma-instance</link>
             <guid>db/prisma-instance</guid>
             <pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1536,7 +1539,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
         </item>
         <item>
             <title><![CDATA[Prisma - relationMode 에러]]></title>
-            <link>https://zamoca.spacedb/prisma-relation-mode</link>
+            <link>https://zamoca.space/db/prisma-relation-mode</link>
             <guid>db/prisma-relation-mode</guid>
             <pubDate>Wed, 22 May 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1552,7 +1555,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
         </item>
         <item>
             <title><![CDATA[맛집 목록 가져와서 지도에 표시하기]]></title>
-            <link>https://zamoca.spacedb/query-range</link>
+            <link>https://zamoca.space/db/query-range</link>
             <guid>db/query-range</guid>
             <pubDate>Thu, 28 Dec 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1572,7 +1575,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
         </item>
         <item>
             <title><![CDATA[트랜잭션 롤백 해결하기]]></title>
-            <link>https://zamoca.spacedb/transaction-rollback</link>
+            <link>https://zamoca.space/db/transaction-rollback</link>
             <guid>db/transaction-rollback</guid>
             <pubDate>Fri, 29 Dec 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1590,7 +1593,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
         </item>
         <item>
             <title><![CDATA[TypeORM - DISTINCT]]></title>
-            <link>https://zamoca.spacedb/typeorm-distinct</link>
+            <link>https://zamoca.space/db/typeorm-distinct</link>
             <guid>db/typeorm-distinct</guid>
             <pubDate>Fri, 26 Jan 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1610,7 +1613,7 @@ SELECT DISTINCT 쿼리는 왜 생기는지 궁금하여 찾아보다가 나온 �
         </item>
         <item>
             <title><![CDATA[SQL - subquery]]></title>
-            <link>https://zamoca.spacedb/sql/sql-subquery</link>
+            <link>https://zamoca.space/db/sql/sql-subquery</link>
             <guid>db/sql/sql-subquery</guid>
             <pubDate>Fri, 09 Feb 2024 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1625,7 +1628,7 @@ SELECT, INSERT, UPDATE, DELETE 쿼리문에 포함된 쿼리를 말한다.
         </item>
         <item>
             <title><![CDATA[(SQL 첫걸음) 1 ~ 5강]]></title>
-            <link>https://zamoca.spacedb/sql/sql</link>
+            <link>https://zamoca.space/db/sql/sql</link>
             <guid>db/sql/sql</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1649,7 +1652,7 @@ SELECT, INSERT, UPDATE, DELETE 쿼리문에 포함된 쿼리를 말한다.
         </item>
         <item>
             <title><![CDATA[(SQL 첫걸음) 6 ~ 10강]]></title>
-            <link>https://zamoca.spacedb/sql/sql2</link>
+            <link>https://zamoca.space/db/sql/sql2</link>
             <guid>db/sql/sql2</guid>
             <pubDate>Thu, 28 Sep 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[
@@ -1669,7 +1672,7 @@ SELECT 열1, 열2 FROM 테이블명 WHERE 조건식
         </item>
         <item>
             <title><![CDATA[(SQL 첫걸음) 11 ~ 15강]]></title>
-            <link>https://zamoca.spacedb/sql/sql3</link>
+            <link>https://zamoca.space/db/sql/sql3</link>
             <guid>db/sql/sql3</guid>
             <pubDate>Mon, 16 Oct 2023 00:00:00 GMT</pubDate>
             <content:encoded><![CDATA[

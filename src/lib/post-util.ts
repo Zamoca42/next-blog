@@ -7,7 +7,7 @@ import {
   parsePostContent as parsePostContentJS,
   postsDirectory,
 } from "@/lib/meta-util";
-import gitInfo from "../../public/post-index.json";
+import postIndex from "../../public/post-index.json";
 import { PostMetadata } from "@/script/post-index";
 
 export const getAllPosts = async (): Promise<Post[]> => {
@@ -16,7 +16,7 @@ export const getAllPosts = async (): Promise<Post[]> => {
     const posts = await Promise.all(
       markdownFiles.map(async (file) => {
         const post = await parsePostContent(file);
-        return applyPostHistory(post, gitInfo);
+        return applyPostHistory(post, postIndex);
       })
     );
 
@@ -34,7 +34,7 @@ export const getAllPosts = async (): Promise<Post[]> => {
 export const getPostBySlug = async (slug: string): Promise<Post | null> => {
   try {
     const post = await parsePostContent(`${slug}.md`);
-    return applyPostHistory(post, gitInfo);
+    return applyPostHistory(post, postIndex);
   } catch (error) {
     console.error(`Error getting post by slug ${slug}:`, error);
     return null;

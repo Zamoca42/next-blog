@@ -27,7 +27,7 @@ import { POST_HSITORY_NAME } from "../lib/constant.js";
  * @param {string} filePath
  * @returns {Promise<boolean>}
  */
-const shouldUpdateGitInfo = async (filePath) => {
+export const shouldUpdateGitInfo = async (filePath) => {
   try {
     const fileStats = await fs.stat(filePath);
     const currentDate = new Date();
