@@ -31,8 +31,8 @@ const client = algoliasearch(appId, apiKey);
  */
 const createPostRecord = (slug, post, index) => {
   return {
-    objectID: `${index}-https://zamoca.space/${slug}`,
-    url: `https://zamoca.space/${slug}`,
+    objectID: `${index}-https://zamoca.space/post/${slug}`,
+    url: `https://zamoca.space/post/${slug}`,
     hierarchy: {
       lvl0: "Documentation",
       lvl1: post.title,
