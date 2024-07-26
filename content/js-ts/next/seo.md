@@ -360,3 +360,5 @@ export const generateMetadata = async ({
 ![3. 색인 요청으로 크롤링 대기열에 등록](https://github.com/user-attachments/assets/1756c578-ad37-4ff7-bb41-eebf71811bee)
 
 ![하루에 요청 횟수에 제한이 있다.](https://github.com/user-attachments/assets/ef67d613-83b9-471b-aae9-28a26e9c6e38)
+
+![색인 생성이 완료되면 구글에서 검색이 가능하다.](https://github.com/user-attachments/assets/75abc458-27ac-46a6-b13c-1d85b8e5e3b2)
