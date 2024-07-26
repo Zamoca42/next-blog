@@ -10,7 +10,7 @@ import {
   postIndexPath, 
   parsePostContent, 
   postsDirectory 
-} from "../lib/meta-util.js";
+} from "../lib/file-meta.js";
 import { POST_HSITORY_NAME } from "../lib/constant.js";
 
 /**

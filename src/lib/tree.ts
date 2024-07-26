@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import { ContentFolder } from "@/interface/folder";
 import { join } from "path";
 import { capitalizeAfterHyphen } from "@/lib/util";
-import { parsePostContent, postsDirectory } from "@/lib/meta-util";
+import { parsePostContent, postsDirectory } from "@/lib/file-meta";
 
 export const getSpecificTreeNode = async (
   folderName: string

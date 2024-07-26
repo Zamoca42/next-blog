@@ -1,4 +1,4 @@
-import { ParsedPost } from "@/lib/meta-util";
+import { ParsedPost } from "@/lib/file-meta";
 
 export type Post = ParsedPost & {
   content: string;

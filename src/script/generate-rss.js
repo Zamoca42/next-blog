@@ -4,7 +4,7 @@ import { Feed } from "feed";
 import fs from "fs/promises";
 
 import { blogConfig } from "../blog-config.js";
-import { postIndexPath } from "../lib/meta-util.js";
+import { postIndexPath } from "../lib/file-meta.js";
 
 const master = {
   name: blogConfig.author.name,

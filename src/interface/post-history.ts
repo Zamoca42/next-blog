@@ -1,3 +1,3 @@
-import { GitDates } from "@/lib/meta-util";
+import { GitDates } from "@/lib/file-meta";
 
 export type PostGitDate = GitDates;

@@ -4,7 +4,7 @@ import { savePostMetadata, shouldUpdateGitInfo } from "./src/script/post-index.j
 import { updateAlgoliaIndex } from "./src/script/algolia-index.js";
 import { generateRssFeed } from "./src/script/generate-rss.js";
 import bundleAnalyzer from '@next/bundle-analyzer';
-import { postIndexPath } from "./src/lib/meta-util.js";
+import { postIndexPath } from "./src/lib/file-meta.js";
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
@@ -13,6 +13,7 @@ const withBundleAnalyzer = bundleAnalyzer({
 /**
  * @typedef {import('next').NextConfig} NextConfig
  */
+
 /**
  * @param {string} phase
  * @returns {Promise<NextConfig>}

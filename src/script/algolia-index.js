@@ -1,7 +1,7 @@
 // @ts-check
 import algoliasearch from "algoliasearch";
 import { ALGOLIA_INDEX_NAME } from "../lib/constant.js";
-import { postIndexPath } from "../lib/meta-util.js";
+import { postIndexPath } from "../lib/file-meta.js";
 import { readFileSync } from "fs";
 
 const appId = process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID;

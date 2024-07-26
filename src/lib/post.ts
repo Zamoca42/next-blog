@@ -6,7 +6,7 @@ import {
   getMarkdownFiles,
   parsePostContent as parsePostContentJS,
   postsDirectory,
-} from "@/lib/meta-util";
+} from "@/lib/file-meta";
 import postIndex from "../../public/post-index.json";
 import { PostMetadata } from "@/script/post-index";
 
@@ -41,7 +41,6 @@ export const getPostBySlug = async (slug: string): Promise<Post | null> => {
   }
 };
 
-// parsePostContentJS의 반환 타입을 Post로 변환하는 함수
 const parsePostContent = async (filePath: string): Promise<ParsedPost> => {
   const fullPath = join(postsDirectory, filePath);
   return parsePostContentJS(fullPath);
