@@ -23,9 +23,10 @@
 ## Notes
 
 - [블로그 이전 후기](https://zamoca.space/post/etc/retrospect/next-blog-migrate)
+- [빌드 타임에 스크립트를 실행하는 방법](https://zamoca.space/post/js-ts/next/run-script-build-time)
 - [Blog에 검색 적용하기 - Docsearch](https://zamoca.space/post/js-ts/next/blog-docsearch)
 - [코드 스니펫을 단축키로 자동입력하기](https://zamoca.space/post/etc/key-binding)
-- [Next.js - SEO와 검색엔진 등록](https://zamoca.space/post/etc/seo)
+- [SEO와 검색엔진 등록](https://zamoca.space/post/etc/seo)
 
 [Vercel]: https://img.shields.io/badge/Vercel-%23000000?style=for-the-badge&logo=vercel
 [Markdown]: https://img.shields.io/badge/Markdown-%23000000?style=for-the-badge&logo=markdown&logoColor=white
