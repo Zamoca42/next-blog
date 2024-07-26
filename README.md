@@ -1,12 +1,16 @@
-# A statically generated blog example using Next.js, Markdown, and TypeScript
+# Tech Blog v2 using Next.js, Markdown, and TypeScript
 
-This is the existing [blog-starter](https://github.com/vercel/next.js/tree/canary/examples/blog-starter) plus TypeScript.
+> 🌐 https://zamoca.space
 
-This example showcases Next.js's [Static Generation](https://nextjs.org/docs/app/building-your-application/routing/layouts-and-templates) feature using Markdown files as the data source.
+## Features
 
-The blog posts are stored in `/_posts` as Markdown files with front matter support. Adding a new Markdown file in there will create a new blog post.
+- unified.js, gray-matter, react-markdown을 이용한 마크다운 포스트 관리
+- TOC(Table of Contents) 및 사이드바 탐색 구현
+- Docsearch를 이용한 포스트 검색 기능
 
-To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) and [`remark-html`](https://github.com/remarkjs/remark-html) to convert the Markdown files into an HTML string, and then send it down as a prop to the page. The metadata of every post is handled by [`gray-matter`](https://github.com/jonschlinkert/gray-matter) and also sent in props to the page.
+## Technologies
+
+![Next.js][NextJS] ![Vercel][Vercel] ![Markdown][Markdown]
 
 ## Demo
 
@@ -14,50 +18,16 @@ To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) a
 
 ## Deploy your own
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/blog-starter)
-
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/blog-starter&project-name=blog-starter&repository-name=blog-starter)
 
-### Related examples
+## Notes
 
-- [WordPress](/examples/cms-wordpress)
-- [DatoCMS](/examples/cms-datocms)
-- [Sanity](/examples/cms-sanity)
-- [TakeShape](/examples/cms-takeshape)
-- [Prismic](/examples/cms-prismic)
-- [Contentful](/examples/cms-contentful)
-- [Strapi](/examples/cms-strapi)
-- [Agility CMS](/examples/cms-agilitycms)
-- [Cosmic](/examples/cms-cosmic)
-- [ButterCMS](/examples/cms-buttercms)
-- [Storyblok](/examples/cms-storyblok)
-- [GraphCMS](/examples/cms-graphcms)
-- [Kontent](/examples/cms-kontent)
-- [Umbraco Heartcore](/examples/cms-umbraco-heartcore)
-- [Builder.io](/examples/cms-builder-io)
-- [TinaCMS](/examples/cms-tina/)
-- [Enterspeed](/examples/cms-enterspeed)
+- [블로그 이전 후기](https://zamoca.space/post/etc/retrospect/next-blog-migrate)
+- [빌드 타임에 스크립트를 실행하는 방법](https://zamoca.space/post/js-ts/next/run-script-build-time)
+- [Blog에 검색 적용하기 - Docsearch](https://zamoca.space/post/js-ts/next/blog-docsearch)
+- [코드 스니펫을 단축키로 자동입력하기](https://zamoca.space/post/etc/key-binding)
+- [SEO와 검색엔진 등록](https://zamoca.space/post/etc/seo)
 
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example blog-starter blog-starter-app
-```
-
-```bash
-yarn create next-app --example blog-starter blog-starter-app
-```
-
-```bash
-pnpm create next-app --example blog-starter blog-starter-app
-```
-
-Your blog should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-# Notes
-
-`blog-starter` uses [Tailwind CSS](https://tailwindcss.com) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3).
+[Vercel]: https://img.shields.io/badge/Vercel-%23000000?style=for-the-badge&logo=vercel
+[Markdown]: https://img.shields.io/badge/Markdown-%23000000?style=for-the-badge&logo=markdown&logoColor=white
+[NextJS]: https://img.shields.io/badge/Next%2014.2.4-%23000000?style=for-the-badge&logo=nextdotjs&logoColor=white

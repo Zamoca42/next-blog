@@ -1,10 +1,10 @@
 //@ts-check
 
 import { Feed } from "feed";
-import { writeFileSync, readFileSync } from "fs";
+import fs from "fs/promises";
 
 import { blogConfig } from "../blog-config.js";
-import { postIndexPath } from "../lib/meta-util.js";
+import { postIndexPath } from "../lib/file-meta.js";
 
 const master = {
   name: blogConfig.author.name,
@@ -30,8 +30,12 @@ const feed = new Feed({
 });
 
 export const generateRssFeed = async () => {
+  const rssXmlPath = "public/rss.xml";
+  const rssAtomPath = "public/rss-atom.xml";
+  const feedJsonPath = "public/feed.json";
+  
   /** @type {Record<string, import("./post-index.js").PostMetadata>} */
-  const postIndex = JSON.parse(readFileSync(postIndexPath, "utf-8"));
+  const postIndex = JSON.parse(await fs.readFile(postIndexPath, "utf-8"));
 
   Object.entries(postIndex).forEach(([slug, post]) => {
     feed.addItem({
@@ -47,10 +51,11 @@ export const generateRssFeed = async () => {
     });
   });
 
-  // Output: RSS 2.0
-  writeFileSync("public/rss.xml", feed.rss2(), "utf-8");
-  // Output: Atom 1.0
-  writeFileSync("public/rss-atom.xml", feed.atom1(), "utf-8");
-  // Output: JSON Feed 1.0
-  writeFileSync("public/feed.json", feed.json1(), "utf-8");
+  await Promise.all([
+    fs.writeFile(rssXmlPath, feed.rss2(), "utf-8"),
+    fs.writeFile(rssAtomPath, feed.atom1(), "utf-8"),
+    fs.writeFile(feedJsonPath, feed.json1(), "utf-8")
+  ]);
+
+  console.log("RSS feeds generated successfully\n");
 }

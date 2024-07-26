@@ -81,6 +81,17 @@
       "Script"
     ]
   },
+  "js-ts/next/seo": {
+    "excerpt": "\n구글과 네이버 같은 검색엔진은 크롤링 봇이 있는데 크롤링 봇이 웹사이트와 웹페이지를 수집하고 등록시켜 검색하는 유저에게 노출한다.\nSEO(Search Engine Optimization)는 검색엔진 크롤링 봇에게 내 웹페이지를 수집하기 쉽도록 개선하는 작업을 말한다.  \nSEO를 직접 제공하는 블로그 서비스를 이용하는 것이 아닌 이상 자동으로 검색엔진에 등록되는일은 없으므로 SEO를 위한 작업이 필요하다.\n\nNext.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리하려고 한다.\n\n",
+    "title": "Next.js - SEO와 검색엔진 등록",
+    "description": "",
+    "createdAt": "2024-07-24T23:35:40+09:00",
+    "updatedAt": "2024-07-24T23:35:40+09:00",
+    "tags": [
+      "SEO",
+      "Next.js"
+    ]
+  },
   "js-ts/nest-js/api": {
     "excerpt": "\n![회원 정보 검색](https://github.com/Zamoca42/blog/assets/96982072/3cb4e5b5-b460-470e-8c80-f65a1502ed44)\n\n이렇게 클라이언트에서 회원아이디를 입력했을때 회원의 정보를 보여주려고합니다\n\n```json\n{\n  \"id\": \"sdfsdf333\",\n  \"phoneNumber\": \"+821099990001\",\n  \"email\": \"이메일@.com\",\n  \"businessName\": \"회사이름\",\n  \"businessItem\": \"사업\"\n}\n```\n\n",
     "title": "고객정보 API 만들기",
@@ -761,16 +772,6 @@
     "updatedAt": "2024-06-27T02:10:04+09:00",
     "tags": [
       "Markdown"
-    ]
-  },
-  "etc/retrospect/2024-1": {
-    "excerpt": "\n2024년 4월이지만 지난 1년을 어떻게 보냈는지 정리해보려고 한다.\n\n2023년의 아쉬운 점을 보강해서 2024년엔 다른 방법으로 도전해야겠다.\n\n",
-    "title": "2023년 전체 회고",
-    "description": "",
-    "createdAt": "2024-03-31T09:00:00+09:00",
-    "updatedAt": "2024-03-31T09:00:00+09:00",
-    "tags": [
-      "Retrospect"
     ]
   },
   "etc/retrospect/blog-migrate": {

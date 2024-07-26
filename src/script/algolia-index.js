@@ -1,7 +1,7 @@
 // @ts-check
 import algoliasearch from "algoliasearch";
 import { ALGOLIA_INDEX_NAME } from "../lib/constant.js";
-import { postIndexPath } from "../lib/meta-util.js";
+import { postIndexPath } from "../lib/file-meta.js";
 import { readFileSync } from "fs";
 
 const appId = process.env.NEXT_PUBLIC_DOCSEARCH_APP_ID;
@@ -31,8 +31,8 @@ const client = algoliasearch(appId, apiKey);
  */
 const createPostRecord = (slug, post, index) => {
   return {
-    objectID: `${index}-https://zamoca.space${slug}`,
-    url: `https://zamoca.space${slug}`,
+    objectID: `${index}-https://zamoca.space/${slug}`,
+    url: `https://zamoca.space/${slug}`,
     hierarchy: {
       lvl0: "Documentation",
       lvl1: post.title,

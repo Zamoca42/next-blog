@@ -1,9 +1,10 @@
 // @ts-check
 import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } from "next/constants.js";
-import { savePostMetadata } from "./src/script/post-index.js";
+import { savePostMetadata, shouldUpdateGitInfo } from "./src/script/post-index.js";
 import { updateAlgoliaIndex } from "./src/script/algolia-index.js";
 import { generateRssFeed } from "./src/script/generate-rss.js";
 import bundleAnalyzer from '@next/bundle-analyzer';
+import { postIndexPath } from "./src/lib/file-meta.js";
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
@@ -12,14 +13,17 @@ const withBundleAnalyzer = bundleAnalyzer({
 /**
  * @typedef {import('next').NextConfig} NextConfig
  */
+
 /**
  * @param {string} phase
  * @returns {Promise<NextConfig>}
  */
 export default async (phase) => {
   if (phase === PHASE_DEVELOPMENT_SERVER || phase === PHASE_PRODUCTION_BUILD) {
-    await savePostMetadata();
-    await generateRssFeed();
+    if (await shouldUpdateGitInfo(postIndexPath)) {
+      await savePostMetadata();
+      await generateRssFeed();
+    }
   }
 
   if (phase === PHASE_PRODUCTION_BUILD && process.env.VERCEL_ENV === "production") {
