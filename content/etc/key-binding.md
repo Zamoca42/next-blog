@@ -4,7 +4,6 @@ description: "코드 스니펫을 VSCode에 단축키로 등록해 자동입력�
 tag:
   - VSCode
 star: false
-date: "2024-07-26"
 ---
 
 > https://code.visualstudio.com/docs/editor/userdefinedsnippets#_assign-keybindings-to-snippets
