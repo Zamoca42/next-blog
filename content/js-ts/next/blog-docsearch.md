@@ -1,5 +1,5 @@
 ---
-title: "Blog에 검색 적용하기 - Docsearch"
+title: "블로그에 검색 적용하기 - Docsearch"
 tag:
   - Aloglia
   - Next.js

@@ -4,7 +4,7 @@
         <title>Zamoca Space</title>
         <link>https://zamoca.space</link>
         <description>A statically generated blog using Next.js and Markdown.</description>
-        <lastBuildDate>Wed, 24 Jul 2024 14:41:43 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Jul 2024 16:12:43 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>generate-rss</generator>
         <language>ko</language>
@@ -101,7 +101,7 @@ export function getPostBySlug(slug: string) {
             <category>Next.js</category>
         </item>
         <item>
-            <title><![CDATA[Blog에 검색 적용하기 - Docsearch]]></title>
+            <title><![CDATA[블로그에 검색 적용하기 - Docsearch]]></title>
             <link>https://zamoca.space/js-ts/next/blog-docsearch</link>
             <guid>js-ts/next/blog-docsearch</guid>
             <pubDate>Tue, 02 Jul 2024 09:41:22 GMT</pubDate>
@@ -136,6 +136,29 @@ Next로 모달을 구현하게되면 Parallel Routes를 자주 사용하게 될�
             <author>suntail2002@naver.com (추연규(Zamoca))</author>
             <category>Next.js</category>
             <category>TypeScript</category>
+        </item>
+        <item>
+            <title><![CDATA[마크다운 플러그인 세팅]]></title>
+            <link>https://zamoca.space/js-ts/next/markdown-plugin</link>
+            <guid>js-ts/next/markdown-plugin</guid>
+            <pubDate>Fri, 26 Jul 2024 14:11:28 GMT</pubDate>
+            <description><![CDATA[마크다운 플러그인인 remark, rehype와 react-markdown에 대해 알아보자]]></description>
+            <content:encoded><![CDATA[
+정적 블로그를 만들 때 마크다운 파일을 사용하는 경우, 단순히 `<div>` 태그와 `dangerouslySetInnerHTML` 속성으로 정적 콘텐츠를 삽입할 수 있다.  
+하지만 이 방법으로는 추가적인 커스터마이징이 어렵다.  
+이를 해결하기 위해 `next-mdx-remote`와 같은 라이브러리와 `remark` 같은 플러그인을 사용하면 HTML 코드를 원하는 대로 수정할 수 있다.
+
+Next.js 공식 문서에서는 MDX를 이용한 정적 블로그 예시를 제공하고 있다.
+하지만 이미 마크다운 형식으로 포스트를 작성해왔기 때문에 MDX로 변환할 필요성을 느끼지 못했다.
+`next-mdx-remote`에서 옵션으로 `.md` format을 지원하지만  
+설정하는 방법이 직관적이라고 생각이 들지 않아서 [react-markdown](https://github.com/remarkjs/react-markdown)
+을 사용하기로 결정했다.
+
+]]></content:encoded>
+            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <category>Next.js</category>
+            <category>React</category>
+            <category>Markdown</category>
         </item>
         <item>
             <title><![CDATA[Auth.js v4 - Unknown arg `access_token`... 에러]]></title>
@@ -189,7 +212,7 @@ Vercel에 배포 할때는 `.git` 레포지토리가 포함되지 않기 때문�
             <title><![CDATA[Next.js - SEO와 검색엔진 등록]]></title>
             <link>https://zamoca.space/js-ts/next/seo</link>
             <guid>js-ts/next/seo</guid>
-            <pubDate>Wed, 24 Jul 2024 00:00:00 GMT</pubDate>
+            <pubDate>Wed, 24 Jul 2024 14:35:40 GMT</pubDate>
             <content:encoded><![CDATA[
 구글과 네이버 같은 검색엔진은 크롤링 봇이 있는데 크롤링 봇이 웹사이트와 웹페이지를 수집하고 등록시켜 검색하는 유저에게 노출한다.
 SEO(Search Engine Optimization)는 검색엔진 크롤링 봇에게 내 웹페이지를 수집하기 쉽도록 개선하는 작업을 말한다.  
@@ -1255,20 +1278,18 @@ git-flow는 브랜치를 5가지 종류로 구분하여 개발하는 전략이�
             <category>Strategy</category>
         </item>
         <item>
-            <title><![CDATA[코드 스니펫을 단축키로 자동입력하기]]></title>
+            <title><![CDATA[VSCode - 커스텀 스니펫과 키 바인딩]]></title>
             <link>https://zamoca.space/etc/key-binding</link>
             <guid>etc/key-binding</guid>
             <pubDate>Wed, 26 Jun 2024 17:10:04 GMT</pubDate>
+            <description><![CDATA[코드 스니펫을 VSCode에 단축키로 등록해 자동입력하기]]></description>
             <content:encoded><![CDATA[
-마크다운으로 포스트를 수정하다가 미리보기 기능을 위해 마크다운 에서 `<❕-- end -->`를 반복 입력해야하는 일이 생겼다.
-
-매번 복사해서 붙여넣기도 귀찮기도해서 단축키로 만들면 어떨까 했는데 vscode에 알맞는 기능이 있었다.
-
 > https://code.visualstudio.com/docs/editor/userdefinedsnippets#_assign-keybindings-to-snippets
 
-'명령 표시 및 실행'에서 '**바로가기 키 열기(JSON)**'을 열면 keybindings.json이 나온다.
+VSCode에서는 커스텀 스니펫과 키 바인딩 기능을 제공한다.
 
-![>와 바로가기만 입력하면 자동완성이 보인다.](https://github.com/Zamoca42/next-blog/assets/96982072/5c58c4b0-03bb-4a43-bd9d-d381588ea1e4)
+이를 활용하면 자주 사용하는 코드나 텍스트를 단축키나 단축어로 쉽게 입력할 수 있다.
+블로그 포스트를 작성 시 매번 frontmatter나 excerpt 키워드를 복사하여 붙여넣는 번거로움을 줄이기 위해 VSCode의 이 기능을 사용해 보기로 했다.
 
 ]]></content:encoded>
             <author>suntail2002@naver.com (추연규(Zamoca))</author>

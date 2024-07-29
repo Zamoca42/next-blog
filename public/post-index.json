@@ -36,10 +36,10 @@
   },
   "js-ts/next/blog-docsearch": {
     "excerpt": "\n블로그에 검색 기능이 없어서 한글 형태소 지원, 적은 비용, 쉬운 유지보수를 고려한 라이브러리 사용을 고민하다 Typesense와 Aloglia를 알게 되었다.\n\nAlgolia는 Vuepress나 공식문서 페이지에서 자주 볼 수 있었는데,\n한글 형태소 검색이 지원되고 프리티어로 한달에 요청횟수 10k, 지원 문서 수 100만개까지 적용되어서 사용해봤다.\n\n이번 포스트에서는 Next.js에서 문서 검색을 설정한 과정에서 겪은 일들을 정리하려고한다.\n\n",
-    "title": "Blog에 검색 적용하기 - Docsearch",
+    "title": "블로그에 검색 적용하기 - Docsearch",
     "description": "",
     "createdAt": "2024-07-02T18:41:22+09:00",
-    "updatedAt": "2024-07-02T18:41:22+09:00",
+    "updatedAt": "2024-07-26T23:11:28+09:00",
     "tags": [
       "Aloglia",
       "Next.js",
@@ -55,6 +55,18 @@
     "tags": [
       "Next.js",
       "TypeScript"
+    ]
+  },
+  "js-ts/next/markdown-plugin": {
+    "excerpt": "\n정적 블로그를 만들 때 마크다운 파일을 사용하는 경우, 단순히 `<div>` 태그와 `dangerouslySetInnerHTML` 속성으로 정적 콘텐츠를 삽입할 수 있다.  \n하지만 이 방법으로는 추가적인 커스터마이징이 어렵다.  \n이를 해결하기 위해 `next-mdx-remote`와 같은 라이브러리와 `remark` 같은 플러그인을 사용하면 HTML 코드를 원하는 대로 수정할 수 있다.\n\nNext.js 공식 문서에서는 MDX를 이용한 정적 블로그 예시를 제공하고 있다.\n하지만 이미 마크다운 형식으로 포스트를 작성해왔기 때문에 MDX로 변환할 필요성을 느끼지 못했다.\n`next-mdx-remote`에서 옵션으로 `.md` format을 지원하지만  \n설정하는 방법이 직관적이라고 생각이 들지 않아서 [react-markdown](https://github.com/remarkjs/react-markdown)\n을 사용하기로 결정했다.\n\n",
+    "title": "마크다운 플러그인 세팅",
+    "description": "마크다운 플러그인인 remark, rehype와 react-markdown에 대해 알아보자",
+    "createdAt": "2024-07-26T23:11:28+09:00",
+    "updatedAt": "2024-07-26T23:11:28+09:00",
+    "tags": [
+      "Next.js",
+      "React",
+      "Markdown"
     ]
   },
   "js-ts/next/prisma-token-schema-error": {
@@ -86,7 +98,7 @@
     "title": "Next.js - SEO와 검색엔진 등록",
     "description": "",
     "createdAt": "2024-07-24T23:35:40+09:00",
-    "updatedAt": "2024-07-24T23:35:40+09:00",
+    "updatedAt": "2024-07-26T16:54:20+09:00",
     "tags": [
       "SEO",
       "Next.js"
@@ -744,11 +756,11 @@
     ]
   },
   "etc/key-binding": {
-    "excerpt": "\n마크다운으로 포스트를 수정하다가 미리보기 기능을 위해 마크다운 에서 `<❕-- end -->`를 반복 입력해야하는 일이 생겼다.\n\n매번 복사해서 붙여넣기도 귀찮기도해서 단축키로 만들면 어떨까 했는데 vscode에 알맞는 기능이 있었다.\n\n> https://code.visualstudio.com/docs/editor/userdefinedsnippets#_assign-keybindings-to-snippets\n\n'명령 표시 및 실행'에서 '**바로가기 키 열기(JSON)**'을 열면 keybindings.json이 나온다.\n\n![>와 바로가기만 입력하면 자동완성이 보인다.](https://github.com/Zamoca42/next-blog/assets/96982072/5c58c4b0-03bb-4a43-bd9d-d381588ea1e4)\n\n",
-    "title": "코드 스니펫을 단축키로 자동입력하기",
-    "description": "",
+    "excerpt": "\n> https://code.visualstudio.com/docs/editor/userdefinedsnippets#_assign-keybindings-to-snippets\n\nVSCode에서는 커스텀 스니펫과 키 바인딩 기능을 제공한다.\n\n이를 활용하면 자주 사용하는 코드나 텍스트를 단축키나 단축어로 쉽게 입력할 수 있다.\n블로그 포스트를 작성 시 매번 frontmatter나 excerpt 키워드를 복사하여 붙여넣는 번거로움을 줄이기 위해 VSCode의 이 기능을 사용해 보기로 했다.\n\n",
+    "title": "VSCode - 커스텀 스니펫과 키 바인딩",
+    "description": "코드 스니펫을 VSCode에 단축키로 등록해 자동입력하기",
     "createdAt": "2024-06-27T02:10:04+09:00",
-    "updatedAt": "2024-07-21T17:56:21+09:00",
+    "updatedAt": "2024-07-26T23:11:28+09:00",
     "tags": [
       "VSCode"
     ]
