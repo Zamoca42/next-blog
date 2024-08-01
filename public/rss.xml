@@ -4,7 +4,7 @@
         <title>Zamoca Space</title>
         <link>https://zamoca.space</link>
         <description>A statically generated blog using Next.js and Markdown.</description>
-        <lastBuildDate>Mon, 29 Jul 2024 16:12:43 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 01 Aug 2024 09:47:13 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>generate-rss</generator>
         <language>ko</language>
@@ -14,6 +14,22 @@
             <link>https://zamoca.space</link>
         </image>
         <copyright>All rights reserved since 2024, 추연규(Zamoca)</copyright>
+        <item>
+            <title><![CDATA[Auth.js로 알아보는 세션과 JWT 인증 방식의 차이]]></title>
+            <link>https://zamoca.space/js-ts/auth-js</link>
+            <guid>js-ts/auth-js</guid>
+            <pubDate>Thu, 01 Aug 2024 09:44:41 GMT</pubDate>
+            <content:encoded><![CDATA[
+Auth.js를 활용하여 개발하면서 세션(Session)과 JWT(JSON Web Token) 인증 방식에 대해 실제로 경험해 볼 수 있었다.
+두 방식 모두 쿠키를 사용하기에 각 방식의 특징과 사용 경험을 중심으로 정리해 보았다.
+
+]]></content:encoded>
+            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <category>JWT</category>
+            <category>Session</category>
+            <category>Next.js</category>
+            <category>Auth.js</category>
+        </item>
         <item>
             <title><![CDATA[date-fns로 Date 객체 다루기]]></title>
             <link>https://zamoca.space/js-ts/date-fns</link>
@@ -138,20 +154,47 @@ Next로 모달을 구현하게되면 Parallel Routes를 자주 사용하게 될�
             <category>TypeScript</category>
         </item>
         <item>
+            <title><![CDATA[Next.js 14 - Lighthouse로 웹페이지 성능 개선하기]]></title>
+            <link>https://zamoca.space/js-ts/next/lighthouse</link>
+            <guid>js-ts/next/lighthouse</guid>
+            <pubDate>Wed, 31 Jul 2024 13:24:00 GMT</pubDate>
+            <content:encoded><![CDATA[
+Next.js 14 정적 블로그에서 성능 개선을 시도한 경험을 이번 포스트에서 정리하려고 한다.
+처음에는 웹 성능 측정 도구에 대해 잘 몰라 어떤 지표로 성능을 평가해야 할지 막막했다.
+
+## Lighthouse 도구 발견
+
+![초기 성능 진단 결과](https://github.com/user-attachments/assets/dbea020e-29f7-4ff0-9ccb-d1b175dd4716)
+
+웹 성능 최적화에 대해 검색하던 중 Google에서 제공하는 Lighthouse라는 도구를 알게 되었다.
+Lighthouse는 웹페이지의 성능, 접근성, SEO 등 다양한 측면을 분석해주는 강력한 도구였다.
+
+![초기 진단 항목들 중 LCP와 FCP에 영향을 주는 항목이 눈에 띈다.](https://github.com/user-attachments/assets/2bdd2c27-9fe1-448b-a16f-346680ecf0a7)
+
+프로덕션 환경에서 실행 결과, Largest Contentful Paint(LCP)이 눈에 띄는데  
+진단 항목을 살펴보면 이미지가 주된 원인이였다.
+
+]]></content:encoded>
+            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <category>Next.js</category>
+            <category>Lighthouse</category>
+        </item>
+        <item>
             <title><![CDATA[마크다운 플러그인 세팅]]></title>
             <link>https://zamoca.space/js-ts/next/markdown-plugin</link>
             <guid>js-ts/next/markdown-plugin</guid>
             <pubDate>Fri, 26 Jul 2024 14:11:28 GMT</pubDate>
             <description><![CDATA[마크다운 플러그인인 remark, rehype와 react-markdown에 대해 알아보자]]></description>
             <content:encoded><![CDATA[
-정적 블로그를 만들 때 마크다운 파일을 사용하는 경우, 단순히 `<div>` 태그와 `dangerouslySetInnerHTML` 속성으로 정적 콘텐츠를 삽입할 수 있다.  
-하지만 이 방법으로는 추가적인 커스터마이징이 어렵다.  
+정적 블로그를 만들 때 마크다운 파일을 사용하는 경우, 단순히 `<div>` 태그와 `dangerouslySetInnerHTML` 속성으로 정적 콘텐츠를 삽입할 수 있다.
+
+하지만 이 방법으로는 추가적인 커스터마이징이 어렵다.
+
 이를 해결하기 위해 `next-mdx-remote`와 같은 라이브러리와 `remark` 같은 플러그인을 사용하면 HTML 코드를 원하는 대로 수정할 수 있다.
 
 Next.js 공식 문서에서는 MDX를 이용한 정적 블로그 예시를 제공하고 있다.
-하지만 이미 마크다운 형식으로 포스트를 작성해왔기 때문에 MDX로 변환할 필요성을 느끼지 못했다.
-`next-mdx-remote`에서 옵션으로 `.md` format을 지원하지만  
-설정하는 방법이 직관적이라고 생각이 들지 않아서 [react-markdown](https://github.com/remarkjs/react-markdown)
+하지만 이미 마크다운 형식으로 포스트를 작성해왔기 때문에 MDX로 변환할 필요성을 느끼지 못했다. `next-mdx-remote`에서 옵션으로 `.md` format을 지원하지만
+설정하는 방법이 직관적이라는 생각이 들지 않아서 [react-markdown](https://github.com/remarkjs/react-markdown)
 을 사용하기로 결정했다.
 
 ]]></content:encoded>
@@ -1593,24 +1636,6 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
             <category>NestJS</category>
             <category>PostgreSQL</category>
             <category>TypeORM</category>
-        </item>
-        <item>
-            <title><![CDATA[트랜잭션 롤백 해결하기]]></title>
-            <link>https://zamoca.space/db/transaction-rollback</link>
-            <guid>db/transaction-rollback</guid>
-            <pubDate>Fri, 29 Dec 2023 00:00:00 GMT</pubDate>
-            <content:encoded><![CDATA[
-현재 진행중인 프로젝트에서 이벤트를 생성하고 수정하는 기능을 만들려고한다.
-
-생성할때는 문제가 없었지만 이벤트를 수정하려고 할때 1\:N 관계인 이벤트의 이미지와 해시태그를
-수정할 때 pk키를 못찾거나 수정에 실패해서 트랜잭션이 롤백되고 있었다.
-
-]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
-            <category>Database</category>
-            <category>TypeORM</category>
-            <category>ORM</category>
-            <category>NestJS</category>
         </item>
         <item>
             <title><![CDATA[TypeORM - DISTINCT]]></title>
