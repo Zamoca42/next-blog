@@ -1,4 +1,17 @@
 {
+  "js-ts/auth-js": {
+    "excerpt": "\nAuth.js를 활용하여 개발하면서 세션(Session)과 JWT(JSON Web Token) 인증 방식에 대해 실제로 경험해 볼 수 있었다.\n두 방식 모두 쿠키를 사용하기에 각 방식의 특징과 사용 경험을 중심으로 정리해 보았다.\n\n",
+    "title": "Auth.js로 알아보는 세션과 JWT 인증 방식의 차이",
+    "description": "",
+    "createdAt": "2024-08-01T18:44:41+09:00",
+    "updatedAt": "2024-08-01T18:44:41+09:00",
+    "tags": [
+      "JWT",
+      "Session",
+      "Next.js",
+      "Auth.js"
+    ]
+  },
   "js-ts/date-fns": {
     "excerpt": "\nTODO 앱을 직접 만들어보면서 오늘 날짜를 기준으로 완료 여부를 확인할 수 있는 기능을 만들어보기 위해\n\ndate-fns 라이브러리를 사용했다.\n\n## startOfDay, endOfDay\n\ndate-fns의 startOfDay와 endOfDay 함수를 사용하면 Date 객체 기준\n\n날짜의 시작 시간과 완료 시간을 보여주는데\n\n오늘의 범위를 0시부터 23시 59분 기준으로 생각하고 함수를 사용하면 생각과 다른 결과가 나온다.\n\n",
     "title": "date-fns로 Date 객체 다루기",
@@ -57,8 +70,19 @@
       "TypeScript"
     ]
   },
+  "js-ts/next/lighthouse": {
+    "excerpt": "\nNext.js 14 정적 블로그에서 성능 개선을 시도한 경험을 이번 포스트에서 정리하려고 한다.\n처음에는 웹 성능 측정 도구에 대해 잘 몰라 어떤 지표로 성능을 평가해야 할지 막막했다.\n\n## Lighthouse 도구 발견\n\n![초기 성능 진단 결과](https://github.com/user-attachments/assets/dbea020e-29f7-4ff0-9ccb-d1b175dd4716)\n\n웹 성능 최적화에 대해 검색하던 중 Google에서 제공하는 Lighthouse라는 도구를 알게 되었다.\nLighthouse는 웹페이지의 성능, 접근성, SEO 등 다양한 측면을 분석해주는 강력한 도구였다.\n\n![초기 진단 항목들 중 LCP와 FCP에 영향을 주는 항목이 눈에 띈다.](https://github.com/user-attachments/assets/2bdd2c27-9fe1-448b-a16f-346680ecf0a7)\n\n프로덕션 환경에서 실행 결과, Largest Contentful Paint(LCP)이 눈에 띄는데  \n진단 항목을 살펴보면 이미지가 주된 원인이였다.\n\n",
+    "title": "Next.js 14 - Lighthouse로 웹페이지 성능 개선하기",
+    "description": "",
+    "createdAt": "2024-07-31T22:24:00+09:00",
+    "updatedAt": "2024-07-31T22:24:00+09:00",
+    "tags": [
+      "Next.js",
+      "Lighthouse"
+    ]
+  },
   "js-ts/next/markdown-plugin": {
-    "excerpt": "\n정적 블로그를 만들 때 마크다운 파일을 사용하는 경우, 단순히 `<div>` 태그와 `dangerouslySetInnerHTML` 속성으로 정적 콘텐츠를 삽입할 수 있다.  \n하지만 이 방법으로는 추가적인 커스터마이징이 어렵다.  \n이를 해결하기 위해 `next-mdx-remote`와 같은 라이브러리와 `remark` 같은 플러그인을 사용하면 HTML 코드를 원하는 대로 수정할 수 있다.\n\nNext.js 공식 문서에서는 MDX를 이용한 정적 블로그 예시를 제공하고 있다.\n하지만 이미 마크다운 형식으로 포스트를 작성해왔기 때문에 MDX로 변환할 필요성을 느끼지 못했다.\n`next-mdx-remote`에서 옵션으로 `.md` format을 지원하지만  \n설정하는 방법이 직관적이라고 생각이 들지 않아서 [react-markdown](https://github.com/remarkjs/react-markdown)\n을 사용하기로 결정했다.\n\n",
+    "excerpt": "\n정적 블로그를 만들 때 마크다운 파일을 사용하는 경우, 단순히 `<div>` 태그와 `dangerouslySetInnerHTML` 속성으로 정적 콘텐츠를 삽입할 수 있다.\n\n하지만 이 방법으로는 추가적인 커스터마이징이 어렵다.\n\n이를 해결하기 위해 `next-mdx-remote`와 같은 라이브러리와 `remark` 같은 플러그인을 사용하면 HTML 코드를 원하는 대로 수정할 수 있다.\n\nNext.js 공식 문서에서는 MDX를 이용한 정적 블로그 예시를 제공하고 있다.\n하지만 이미 마크다운 형식으로 포스트를 작성해왔기 때문에 MDX로 변환할 필요성을 느끼지 못했다. `next-mdx-remote`에서 옵션으로 `.md` format을 지원하지만\n설정하는 방법이 직관적이라는 생각이 들지 않아서 [react-markdown](https://github.com/remarkjs/react-markdown)\n을 사용하기로 결정했다.\n\n",
     "title": "마크다운 플러그인 세팅",
     "description": "마크다운 플러그인인 remark, rehype와 react-markdown에 대해 알아보자",
     "createdAt": "2024-07-26T23:11:28+09:00",
@@ -935,19 +959,6 @@
       "NestJS",
       "PostgreSQL",
       "TypeORM"
-    ]
-  },
-  "db/transaction-rollback": {
-    "excerpt": "\n현재 진행중인 프로젝트에서 이벤트를 생성하고 수정하는 기능을 만들려고한다.\n\n생성할때는 문제가 없었지만 이벤트를 수정하려고 할때 1\\:N 관계인 이벤트의 이미지와 해시태그를\n수정할 때 pk키를 못찾거나 수정에 실패해서 트랜잭션이 롤백되고 있었다.\n\n",
-    "title": "트랜잭션 롤백 해결하기",
-    "description": "",
-    "createdAt": "2023-12-29T09:00:00+09:00",
-    "updatedAt": "2023-12-29T09:00:00+09:00",
-    "tags": [
-      "Database",
-      "TypeORM",
-      "ORM",
-      "NestJS"
     ]
   },
   "db/typeorm-distinct": {
