@@ -32,11 +32,11 @@ export const blogConfig = {
   ],
   author: {
     name: "추연규(Zamoca)",
-    url: "https://github.com/zamoca42",
-    email: "suntail2002@naver.com",
+    url: "https://choo.ooo/git",
+    email: "yk@choo.ooo",
   },
   media: {
-    github: "https://github.com/zamoca42",
-    linkedin: "https://www.linkedin.com/in/연규-추-951017276",
+    github: "https://choo.ooo/git",
+    linkedin: "https://choo.ooo/linkedin",
   },
 };
