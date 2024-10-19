@@ -1,5 +1,6 @@
 ---
 title: "GitButler - 리눅스 환경에서 실행시 창이 꺼지는 문제 기여 후기"
+star: true
 tag:
   - GitButler
   - Linux
@@ -13,6 +14,8 @@ GitButler를 살펴보다 발견한 이슈는 리눅스 환경에서 최대화�
 링크에서 이슈를 살펴보면 Tauri의 window-state와 관련이 있는거 같긴 했지만 Tauri와 의존된 부분이 많아서 정확히 부분을 찾아야했다.
 
 helpwanted 라벨이 달려있어서 해당 이슈에 기여해보고 싶어졌다.
+
+<!-- end -->
 
 ## 문제 파악
 
@@ -66,5 +69,5 @@ let builder = builder.plugin(tauri_plugin_window_state::Builder::default().build
 > https://github.com/gitbutlerapp/gitbutler/pull/4864
 
 처음에는 버그를 발견하고 해결했다는 사실이 뿌듯했지만 본질적인 문제는 해결되지 않았다는 사실이 마음에 걸렸다.
-이에 대해 Byron이 남긴 코멘트에서 Tauri에서 더 나은 솔루션이 있으면 좋겠다는 의견을 보았고, 
+이에 대한 코멘트에서 Tauri에서 더 나은 솔루션이 있으면 좋겠다는 의견을 보았고, 
 Tauri에서 근본적인 문제를 해결하는 방법을 찾아보기로 결심했다.
