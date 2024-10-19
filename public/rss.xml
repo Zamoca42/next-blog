@@ -4,7 +4,7 @@
         <title>Zamoca Space</title>
         <link>https://zamoca.space</link>
         <description>A statically generated blog using Next.js and Markdown.</description>
-        <lastBuildDate>Thu, 01 Aug 2024 09:47:13 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 19 Oct 2024 10:39:08 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>generate-rss</generator>
         <language>ko</language>
@@ -23,8 +23,15 @@
 Auth.js를 활용하여 개발하면서 세션(Session)과 JWT(JSON Web Token) 인증 방식에 대해 실제로 경험해 볼 수 있었다.
 두 방식 모두 쿠키를 사용하기에 각 방식의 특징과 사용 경험을 중심으로 정리해 보았다.
 
+## Auth.js 소개
+
+> 🌐 https://authjs.dev/getting-started
+
+Auth.js는 인증을 쉽게 구현할 수 있게 해주는 강력한 라이브러리다.  
+Google 로그인과 같은 OAuth나 이메일 인증 로그인을 지원하며, 세션 및 JWT 기반의 인증을 모두 구현할 수 있다.
+
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JWT</category>
             <category>Session</category>
             <category>Next.js</category>
@@ -49,7 +56,7 @@ date-fns의 startOfDay와 endOfDay 함수를 사용하면 Date 객체 기준
 오늘의 범위를 0시부터 23시 59분 기준으로 생각하고 함수를 사용하면 생각과 다른 결과가 나온다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>TypeScript</category>
             <category>JavaScript</category>
         </item>
@@ -88,7 +95,7 @@ export function getPostBySlug(slug: string) {
 하지만 컨텐츠 폴더 내부에 하위 폴더가 존재하면 해당 폴더 내의 파일은 찾지 못하는 문제가 있다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Node.js</category>
             <category>TypeScript</category>
             <category>Next.js</category>
@@ -111,7 +118,7 @@ export function getPostBySlug(slug: string) {
 ![자바스크립트 문자열 방식으로 정렬하고 폴더와 파일의 순서에 구분이 없었다.](https://github.com/Zamoca42/next-blog/assets/96982072/3743a624-545c-48c5-b341-342a722d8a97)
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Node.js</category>
             <category>TypeScript</category>
             <category>Next.js</category>
@@ -130,7 +137,7 @@ Algolia는 Vuepress나 공식문서 페이지에서 자주 볼 수 있었는데,
 이번 포스트에서는 Next.js에서 문서 검색을 설정한 과정에서 겪은 일들을 정리하려고한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Aloglia</category>
             <category>Next.js</category>
             <category>TypeScript</category>
@@ -149,7 +156,7 @@ NextJS로 프로젝트를 진행하던 중에 [Parallel Routes](https://nextjs.o
 Next로 모달을 구현하게되면 Parallel Routes를 자주 사용하게 될텐데 같은 에러가 생기면 다시 해결하기 위해 기록으로 남겨두려고한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Next.js</category>
             <category>TypeScript</category>
         </item>
@@ -175,7 +182,7 @@ Lighthouse는 웹페이지의 성능, 접근성, SEO 등 다양한 측면을 분
 진단 항목을 살펴보면 이미지가 주된 원인이였다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Next.js</category>
             <category>Lighthouse</category>
         </item>
@@ -198,7 +205,7 @@ Next.js 공식 문서에서는 MDX를 이용한 정적 블로그 예시를 제�
 을 사용하기로 결정했다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Next.js</category>
             <category>React</category>
             <category>Markdown</category>
@@ -224,7 +231,7 @@ Unknown arg `access_token` in data.access_token for type AccountUncheckedCreateI
 ```
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Next.js</category>
             <category>Auth.js</category>
             <category>Prisma</category>
@@ -246,7 +253,7 @@ Vercel에 배포 할때는 `.git` 레포지토리가 포함되지 않기 때문�
 ![vercel command failed](https://github.com/Zamoca42/blog/assets/96982072/4cdbfb40-d459-424a-966b-4794e5b13f90)
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Next.js</category>
             <category>Node</category>
             <category>Script</category>
@@ -264,7 +271,7 @@ SEO를 직접 제공하는 블로그 서비스를 이용하는 것이 아닌 이
 Next.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리하려고 한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>SEO</category>
             <category>Next.js</category>
         </item>
@@ -289,7 +296,7 @@ Next.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리
 ```
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>Project</category>
         </item>
@@ -305,7 +312,7 @@ Next.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리
 한 객체가 변경이 발생하면 해당 객체에 의존하는 다른 객체들도 변경해야 하기 때문에 이들의 변경 범위를 최소화 하기 위해 캡슐화를 사용한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>Class-Transformer</category>
         </item>
@@ -321,7 +328,7 @@ Next.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리
 [`class-validator`][class-validator]는 데코레이터를 기반으로 Dto들의 검증을 담당한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>Class-Validator</category>
         </item>
@@ -334,7 +341,7 @@ Next.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리
 위도, 경도에 대한 범위를 넣어서 검증하는 validator를 만들어 보겠습니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
         </item>
         <item>
@@ -351,7 +358,7 @@ DTO(Data Transfer Object)는 **계층간 데이터 교환**을 하기 위해 사
 ![Layered 아키텍쳐](https://github.com/Zamoca42/blog/assets/96982072/9460d59f-2b48-445c-85ca-23f9b7021520)
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
         </item>
         <item>
@@ -366,7 +373,7 @@ DTO(Data Transfer Object)는 **계층간 데이터 교환**을 하기 위해 사
 ![Render로 배포시 발생한 not found 오류](https://github.com/develop-pix/dump-in-Admin-BE/assets/96982072/bf72345c-c77e-48b3-a173-41d3a702ca19)
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>Error</category>
         </item>
@@ -380,7 +387,7 @@ Nest에는 애플리케이션 전체에서 처리되지 않은 모든 예외를 
 애플리케이션 코드에서 예외가 처리되지 않으면 이 계층에서 이를 포착한 다음 사용자에게 응답을 내보냅니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
         </item>
         <item>
@@ -396,7 +403,7 @@ Nest에는 애플리케이션 전체에서 처리되지 않은 모든 예외를 
 ![어디서 많이 본 로직이 보였다.](https://github.com/develop-pix/dump-in-Admin-BE/assets/96982072/ef451050-bdfe-4e59-a4c1-7030c6f181aa)
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>TypeORM</category>
             <category>Error</category>
@@ -413,7 +420,7 @@ Nest에는 애플리케이션 전체에서 처리되지 않은 모든 예외를 
 그래서 예상할 수 있는 예외는 제외하고 심각한 로그를 구분해서 알림을 만드는 것이 필요했다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>Winston</category>
             <category>Sentry</category>
@@ -444,7 +451,7 @@ app.use(
 ```
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
         </item>
         <item>
@@ -458,7 +465,7 @@ React Admin에서 로그인 페이지를 만들고 Nest의 인증 모듈과 연�
 ![로그인 화면](https://github.com/Zamoca42/blog/assets/96982072/9218fafc-bc81-4780-b22b-4274e3f3ec6b)
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
         </item>
         <item>
@@ -471,7 +478,7 @@ React Admin에서 로그인 페이지를 만들고 Nest의 인증 모듈과 연�
 이를 막을 방법에는 세션에 로그인 시도를 기록하는 방법이 있고, 일정 로그인 횟수 이상으로 시도시 ip를 차단하는 방법도 있을 것이다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>Express</category>
         </item>
@@ -485,7 +492,7 @@ React Admin에서 로그인 페이지를 만들고 Nest의 인증 모듈과 연�
 Sentry의 기능 중에 크론 모니터링 기능이 있어서 NestJS가 지원하는 스케쥴러로 주기적으로 서버 상태를 모니터링하려고 했다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>Sentry</category>
         </item>
@@ -498,7 +505,7 @@ Sentry의 기능 중에 크론 모니터링 기능이 있어서 NestJS가 지원
 NestJS에서 [express-session][express-session]으로 세션 인증을 구현해보면서 알게된 점을 정리해보려고 합니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>Express</category>
         </item>
@@ -522,7 +529,7 @@ NestJS에서 [express-session][express-session]으로 세션 인증을 구현해
 NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레이스를 볼 수 있습니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>Winston</category>
         </item>
@@ -531,7 +538,7 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
             <link>https://zamoca.space/js-ts/nest-js/unit-test</link>
             <guid>js-ts/nest-js/unit-test</guid>
             <pubDate>Wed, 27 Dec 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>Test</category>
         </item>
@@ -567,7 +574,7 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
 객체의 집합으로 프로그램을 표현하려는 프로그래밍 패러다임을 객체지향 프로그래밍이라 한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -582,7 +589,7 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
 - **객체 타입**의 값은 변경 가능한 값이며, 변수에 할당될 때 **참조에 의한 전달**로 동작한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -597,7 +604,7 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
 또 다른 자바스크립트의 핵심 개념인 스코프, 실행 컨텍스트, 클로저, 생성자 함수에 의한 객체 생성, 메서드, this, 프로토타입, 모듈화 등이 모두 함수와 깊은 관련이 있다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -625,7 +632,7 @@ console.log(x, y); // ReferenceError
 ```
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -641,7 +648,7 @@ console.log(x, y); // ReferenceError
 이번 장에서는 전역 변수의 문제점과 전역 변수의 사용을 억제할 수 있는 방법을 살펴보자.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -656,7 +663,7 @@ ES5까지 변수를 선언할 수 있는 유일한 방법은 `var` 키워드를 
 var 키워드로 선언된 변수는 다음과 같은 특징이 있다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -672,7 +679,7 @@ var 키워드로 선언된 변수는 다음과 같은 특징이 있다.
 ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이름들이 내부 슬롯과 내부 메서드다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -684,7 +691,7 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
 이번 장에서는 생성자 함수를 사용하여 객체를 생성하는 방식을 살펴보고, 객체 리터럴을 사용하여 객체를 생성하는 방식과의 장단점을 비교해보자.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -703,7 +710,7 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
 4. 함수의 반환값으로 사용할 수 있다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -715,7 +722,7 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
 자바스크립트는 프로토타입을 기반으로 상속을 구현하여 객체 지향 프로그래밍 능력을 지니고 있다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -732,7 +739,7 @@ strict mode는 자바스크립트 언어의 문법을 좀 더 엄격히 적용�
 예를 들어, 선언하지 않은 변수를 참조하면 암묵적으로 전역 변수가 생성되는 현상(암묵적 전역)은 오류를 발생시키는 원인이 될 수 있다. strict mode에서는 이를 에러로 인식한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -740,7 +747,7 @@ strict mode는 자바스크립트 언어의 문법을 좀 더 엄격히 적용�
             <link>https://zamoca.space/js-ts/deepdive/deepdive21</link>
             <guid>js-ts/deepdive/deepdive21</guid>
             <pubDate>Thu, 12 Oct 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -766,7 +773,7 @@ console.log(circle.getDiameter()); // 10
 ```
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -774,7 +781,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive23</link>
             <guid>js-ts/deepdive/deepdive23</guid>
             <pubDate>Sun, 15 Oct 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -782,7 +789,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive24</link>
             <guid>js-ts/deepdive/deepdive24</guid>
             <pubDate>Wed, 18 Oct 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -790,7 +797,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive25</link>
             <guid>js-ts/deepdive/deepdive25</guid>
             <pubDate>Mon, 23 Oct 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -798,7 +805,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive26</link>
             <guid>js-ts/deepdive/deepdive26</guid>
             <pubDate>Sun, 29 Oct 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -806,7 +813,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive27</link>
             <guid>js-ts/deepdive/deepdive27</guid>
             <pubDate>Mon, 30 Oct 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -814,7 +821,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive34</link>
             <guid>js-ts/deepdive/deepdive34</guid>
             <pubDate>Thu, 09 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -822,7 +829,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive35</link>
             <guid>js-ts/deepdive/deepdive35</guid>
             <pubDate>Sun, 12 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -830,7 +837,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive36</link>
             <guid>js-ts/deepdive/deepdive36</guid>
             <pubDate>Mon, 13 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -838,7 +845,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive37</link>
             <guid>js-ts/deepdive/deepdive37</guid>
             <pubDate>Wed, 15 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -846,7 +853,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive38</link>
             <guid>js-ts/deepdive/deepdive38</guid>
             <pubDate>Sun, 05 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -854,7 +861,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive39</link>
             <guid>js-ts/deepdive/deepdive39</guid>
             <pubDate>Sun, 05 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -880,7 +887,7 @@ console.log(circle.getDiameter()); // 10
   - 변수에 저장된 값을 읽어 들이는 것을 **참조**
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -901,7 +908,7 @@ console.log(circle.getDiameter()); // 10
 그리고 특정 버튼 요소에서 클릭 이벤트가 발생하면 이벤트 핸들러를 호출하도록 브라우저에게 위임할 수 있다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -909,7 +916,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive41</link>
             <guid>js-ts/deepdive/deepdive41</guid>
             <pubDate>Mon, 20 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -926,7 +933,7 @@ console.log(circle.getDiameter()); // 10
 처리에 시간이 걸리는 태스크를 실행하는 경우 블로킹이 발생한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -934,7 +941,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive43</link>
             <guid>js-ts/deepdive/deepdive43</guid>
             <pubDate>Tue, 21 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -942,7 +949,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive45</link>
             <guid>js-ts/deepdive/deepdive45</guid>
             <pubDate>Wed, 22 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -950,7 +957,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive46</link>
             <guid>js-ts/deepdive/deepdive46</guid>
             <pubDate>Thu, 23 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -958,7 +965,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive47</link>
             <guid>js-ts/deepdive/deepdive47</guid>
             <pubDate>Sat, 25 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -966,7 +973,7 @@ console.log(circle.getDiameter()); // 10
             <link>https://zamoca.space/js-ts/deepdive/deepdive48</link>
             <guid>js-ts/deepdive/deepdive48</guid>
             <pubDate>Sun, 26 Nov 2023 00:00:00 GMT</pubDate>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -993,7 +1000,7 @@ var sum = 10 + 20;
 sum변수에 할당되는 것은 10 + 20이 아니라 30이라는 값이다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -1046,7 +1053,7 @@ sum변수에 할당되는 것은 10 + 20이 아니라 30이라는 값이다.
 </table>
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -1082,7 +1089,7 @@ typeof "Hi"; //-> string
 연산자는 값으로 평가된 피연산자를 연산해 새로운 값을 만든다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -1119,7 +1126,7 @@ function sum(a, b) {
 ```
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -1156,7 +1163,7 @@ console.log(typeof x, x); //number 10
 ```
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>JavaScript</category>
         </item>
         <item>
@@ -1172,7 +1179,7 @@ Datadog, Sentry와 같이 여러 데이터를 시각화해서 보여주는 앱�
 나는 프로젝트를 해오면서 모니터링 도구를 사용해본 적 없기 때문에 그라파나와 프로메테우스를 포토부스 프로젝트의 첫 모니터링 도구로 설정해보게 되었다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Monitoring</category>
         </item>
         <item>
@@ -1190,7 +1197,7 @@ git clone으로 레포지토리까지 설정을 한 다음,
 초기 설정한 볼륨을 이미지(AMI)로 만들어서 자동으로 생성된 인스턴스에 초기설정이 필요없게 만들려고 한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Node</category>
             <category>NPM</category>
             <category>EC2</category>
@@ -1209,7 +1216,7 @@ CI/CD (Continuous Integration/Continuous Delivery)는 새로운 코드 통합으
 CI/CD의 기본 개념은 지속적인 통합, 지속적인 서비스 제공, 지속적인 배포입니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>CI</category>
             <category>CD</category>
         </item>
@@ -1222,7 +1229,7 @@ CI/CD의 기본 개념은 지속적인 통합, 지속적인 서비스 제공, �
 이번 글에서는 GitHub Actions에서 AWS CodeDeploy에 전달하고 EC2에 Django 서버를 배포하는 것까지 진행해보겠습니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>CD</category>
         </item>
         <item>
@@ -1239,7 +1246,7 @@ Github Actions에 대해 간단히 설명하면 테스트 및 배포 파이프�
 이번에는 GitHub Actions를 사용해서 AWS EC2에는 서버를 배포하고 S3에는 정적 웹페이지에 배포를 자동화 해보겠습니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>CI</category>
             <category>CD</category>
         </item>
@@ -1262,7 +1269,7 @@ S3 버킷을 정적 웹사이트로 호스팅하기 위해서는 다음과 같�
 이렇게 버킷을 설정하는 방법을 알아보고 GitHub Actions에서 배포 설정을 자동화 해보겠습니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>CD</category>
         </item>
         <item>
@@ -1282,7 +1289,7 @@ Visual Studio Code의 확장 앱을 통해 구성할 수 있습니다.
 이를 통해 프로젝트를 개발하는 동안 개발 환경을 컨테이너 내에서 실행하고 호스트 시스템과 분리시키는 것이 가능합니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Docker</category>
             <category>Debug</category>
         </item>
@@ -1297,7 +1304,7 @@ Visual Studio Code의 확장 앱을 통해 구성할 수 있습니다.
 git-flow는 브랜치를 5가지 종류로 구분하여 개발하는 전략이다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Git</category>
             <category>Strategy</category>
         </item>
@@ -1316,7 +1323,7 @@ git-flow는 브랜치를 5가지 종류로 구분하여 개발하는 전략이�
 - Pull Request 기능을 사용
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Git</category>
             <category>Strategy</category>
         </item>
@@ -1335,7 +1342,7 @@ VSCode에서는 커스텀 스니펫과 키 바인딩 기능을 제공한다.
 블로그 포스트를 작성 시 매번 frontmatter나 excerpt 키워드를 복사하여 붙여넣는 번거로움을 줄이기 위해 VSCode의 이 기능을 사용해 보기로 했다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>VSCode</category>
         </item>
         <item>
@@ -1360,7 +1367,7 @@ Markdownlint는 VSCode 확장 프로그램 중 하나로, 마크다운 형식의
 ```
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Markdown</category>
             <category>VSCode</category>
         </item>
@@ -1381,7 +1388,7 @@ Markdownlint는 VSCode 확장 프로그램 중 하나로, 마크다운 형식의
 마크다운을 사용하면 **간단한 문법**으로 서식이 있는 문서를 작성할 수 있다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Markdown</category>
         </item>
         <item>
@@ -1397,7 +1404,7 @@ GitHub의 TIL 리포지토리에 쓴 글들을 백업하는 과정이 있었는�
 블로그를 바꾸게된 과정과 생각을 이번 글에서 정리해보겠습니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Retrospect</category>
         </item>
         <item>
@@ -1414,7 +1421,7 @@ Vuepress를 이용한 블로그를 사용하다가 여러 가지 문제에 부�
 이번 포스트에서는 Next.js로 블로그를 이전하기까지 과정을 정리하고 공유해보려고 한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Retrospect</category>
         </item>
         <item>
@@ -1427,7 +1434,7 @@ Vuepress를 이용한 블로그를 사용하다가 여러 가지 문제에 부�
 제안해주셔서 회원 정보, 요금제 정보를 불러오는 페이지를 만들어봤습니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Retrospect</category>
         </item>
         <item>
@@ -1440,7 +1447,7 @@ Vuepress를 이용한 블로그를 사용하다가 여러 가지 문제에 부�
 마침 인프런에서 vue-django 블로그 만들기가 눈에 들어왔고 만들어서 기술블로그로 사용할 생각으로 AWS에 배포까지 계획했습니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Retrospect</category>
         </item>
         <item>
@@ -1458,7 +1465,7 @@ git config --global core.editor "code --wait"
 ```
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Git</category>
         </item>
         <item>
@@ -1478,7 +1485,7 @@ git config --global core.editor "code --wait"
 GitHub 레포지토리에서 frontend 디렉터리를 제외한 나머지 파일 및 디렉터리를 clone해서 가져오려면 어떻게 해야할까?
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Git</category>
         </item>
         <item>
@@ -1498,7 +1505,7 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
 `main`에 `post`를 합치고 싶다면 `main` 브랜치로 이동
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Git</category>
         </item>
         <item>
@@ -1515,7 +1522,7 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
 이를 점화식으로 나타내면 $F_n = F_{n-1} + F_{n-2}$ 이고 $n = 17$ 일 때 까지 피보나치 수를 써보면 다음과 같습니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Codingtest</category>
             <category>Boj</category>
         </item>
@@ -1547,7 +1554,7 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
 |  매우 동의  |             어피치형 3점              |
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Codingtest</category>
             <category>Programmers</category>
         </item>
@@ -1560,7 +1567,7 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
 프로그래머스 [신고 결과 받기][report] 문제입니다
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Codingtest</category>
             <category>Programmers</category>
         </item>
@@ -1576,7 +1583,7 @@ SQL이나 NoSQL 데이터베이스 모두 쉽게 연결할 수 있습니다.
 이번 주제에서는 AWS의 대표적인 NoSQL 기반 데이터베이스인 DynamoDB를 Dynamoose를 이용해서 연결해보겠습니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>DynamoDB</category>
             <category>Dynamoose</category>
@@ -1596,7 +1603,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
 이 글에서는 이 경고 메시지가 발생하는 이유와 해결 방법에 대해 알아보려고 한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Prisma</category>
             <category>MySQL</category>
             <category>PlanetScale</category>
@@ -1612,7 +1619,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
 ![VT10001 외래키 제약 에러 발생](https://github.com/Zamoca42/blog/assets/96982072/e0429b8d-12e9-45c8-9625-6d22189d91c1)
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Prisma</category>
             <category>MySQL</category>
             <category>PlanetScale</category>
@@ -1632,7 +1639,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
 여러 방법이 있겠지만 처음에는 맛집 목록을 내 위치 기준으로 범위만큼 위도나 경도를 빼거나 더해서 가져왔습니다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>NestJS</category>
             <category>PostgreSQL</category>
             <category>TypeORM</category>
@@ -1651,7 +1658,7 @@ TypeORM을 사용해서 개발하다보면 페이지네이션 처리를 해야�
 SELECT DISTINCT 쿼리는 왜 생기는지 궁금하여 찾아보다가 나온 정보들을 이번 포스트에서 정리하려고한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>Database</category>
             <category>TypeORM</category>
             <category>ORM</category>
@@ -1669,7 +1676,7 @@ SELECT DISTINCT 쿼리는 왜 생기는지 궁금하여 찾아보다가 나온 �
 SELECT, INSERT, UPDATE, DELETE 쿼리문에 포함된 쿼리를 말한다.
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>SQL</category>
         </item>
         <item>
@@ -1693,7 +1700,7 @@ SELECT, INSERT, UPDATE, DELETE 쿼리문에 포함된 쿼리를 말한다.
   - SQLite
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>SQL</category>
         </item>
         <item>
@@ -1713,7 +1720,7 @@ SELECT 열1, 열2 FROM 테이블명 WHERE 조건식
 ```
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>SQL</category>
         </item>
         <item>
@@ -1733,7 +1740,7 @@ SELECT 열명 FROM 테이블명 LIMIT 행수 [OFFSET 시작행]
 ```
 
 ]]></content:encoded>
-            <author>suntail2002@naver.com (추연규(Zamoca))</author>
+            <author>yk@choo.ooo (추연규(Zamoca))</author>
             <category>SQL</category>
         </item>
     </channel>

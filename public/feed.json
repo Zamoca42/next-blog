@@ -12,7 +12,7 @@
     "items": [
         {
             "id": "js-ts/auth-js",
-            "content_html": "\nAuth.js를 활용하여 개발하면서 세션(Session)과 JWT(JSON Web Token) 인증 방식에 대해 실제로 경험해 볼 수 있었다.\n두 방식 모두 쿠키를 사용하기에 각 방식의 특징과 사용 경험을 중심으로 정리해 보았다.\n\n",
+            "content_html": "\nAuth.js를 활용하여 개발하면서 세션(Session)과 JWT(JSON Web Token) 인증 방식에 대해 실제로 경험해 볼 수 있었다.\n두 방식 모두 쿠키를 사용하기에 각 방식의 특징과 사용 경험을 중심으로 정리해 보았다.\n\n## Auth.js 소개\n\n> 🌐 https://authjs.dev/getting-started\n\nAuth.js는 인증을 쉽게 구현할 수 있게 해주는 강력한 라이브러리다.  \nGoogle 로그인과 같은 OAuth나 이메일 인증 로그인을 지원하며, 세션 및 JWT 기반의 인증을 모두 구현할 수 있다.\n\n",
             "url": "https://zamoca.space/js-ts/auth-js",
             "title": "Auth.js로 알아보는 세션과 JWT 인증 방식의 차이",
             "date_modified": "2024-08-01T09:44:41.000Z",

@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zamoca.space</id>
     <title>Zamoca Space</title>
-    <updated>2024-08-01T09:47:13.770Z</updated>
+    <updated>2024-10-19T10:39:08.207Z</updated>
     <generator>generate-rss</generator>
     <author>
         <name>추연규(Zamoca)</name>
-        <email>suntail2002@naver.com</email>
+        <email>yk@choo.ooo</email>
         <uri>https://zamoca.space</uri>
     </author>
     <link rel="alternate" href="https://zamoca.space"/>
@@ -24,10 +24,17 @@
 Auth.js를 활용하여 개발하면서 세션(Session)과 JWT(JSON Web Token) 인증 방식에 대해 실제로 경험해 볼 수 있었다.
 두 방식 모두 쿠키를 사용하기에 각 방식의 특징과 사용 경험을 중심으로 정리해 보았다.
 
+## Auth.js 소개
+
+> 🌐 https://authjs.dev/getting-started
+
+Auth.js는 인증을 쉽게 구현할 수 있게 해주는 강력한 라이브러리다.  
+Google 로그인과 같은 OAuth나 이메일 인증 로그인을 지원하며, 세션 및 JWT 기반의 인증을 모두 구현할 수 있다.
+
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JWT"/>
@@ -36,7 +43,7 @@ Auth.js를 활용하여 개발하면서 세션(Session)과 JWT(JSON Web Token) �
         <category label="Auth.js"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -61,14 +68,14 @@ date-fns의 startOfDay와 endOfDay 함수를 사용하면 Date 객체 기준
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="TypeScript"/>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -109,7 +116,7 @@ export function getPostBySlug(slug: string) {
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Node.js"/>
@@ -117,7 +124,7 @@ export function getPostBySlug(slug: string) {
         <category label="Next.js"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -141,7 +148,7 @@ export function getPostBySlug(slug: string) {
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Node.js"/>
@@ -149,7 +156,7 @@ export function getPostBySlug(slug: string) {
         <category label="Next.js"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -169,7 +176,7 @@ Algolia는 Vuepress나 공식문서 페이지에서 자주 볼 수 있었는데,
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Aloglia"/>
@@ -177,7 +184,7 @@ Algolia는 Vuepress나 공식문서 페이지에서 자주 볼 수 있었는데,
         <category label="TypeScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -197,14 +204,14 @@ Next로 모달을 구현하게되면 Parallel Routes를 자주 사용하게 될�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Next.js"/>
         <category label="TypeScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -232,14 +239,14 @@ Lighthouse는 웹페이지의 성능, 접근성, SEO 등 다양한 측면을 분
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Next.js"/>
         <category label="Lighthouse"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -264,7 +271,7 @@ Next.js 공식 문서에서는 MDX를 이용한 정적 블로그 예시를 제�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Next.js"/>
@@ -272,7 +279,7 @@ Next.js 공식 문서에서는 MDX를 이용한 정적 블로그 예시를 제�
         <category label="Markdown"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -299,7 +306,7 @@ Unknown arg `access_token` in data.access_token for type AccountUncheckedCreateI
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Next.js"/>
@@ -307,7 +314,7 @@ Unknown arg `access_token` in data.access_token for type AccountUncheckedCreateI
         <category label="Prisma"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -330,7 +337,7 @@ Vercel에 배포 할때는 `.git` 레포지토리가 포함되지 않기 때문�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Next.js"/>
@@ -338,7 +345,7 @@ Vercel에 배포 할때는 `.git` 레포지토리가 포함되지 않기 때문�
         <category label="Script"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -357,14 +364,14 @@ Next.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="SEO"/>
         <category label="Next.js"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -391,14 +398,14 @@ Next.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <category label="Project"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -416,14 +423,14 @@ Next.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <category label="Class-Transformer"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -441,14 +448,14 @@ Next.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <category label="Class-Validator"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -463,13 +470,13 @@ Next.js 14버전의 App router를 기준으로 진행한 SEO 작업들을 정리
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -489,13 +496,13 @@ DTO(Data Transfer Object)는 **계층간 데이터 교환**을 하기 위해 사
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -513,14 +520,14 @@ DTO(Data Transfer Object)는 **계층간 데이터 교환**을 하기 위해 사
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <category label="Error"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -536,13 +543,13 @@ Nest에는 애플리케이션 전체에서 처리되지 않은 모든 예외를 
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -561,7 +568,7 @@ Nest에는 애플리케이션 전체에서 처리되지 않은 모든 예외를 
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
@@ -569,7 +576,7 @@ Nest에는 애플리케이션 전체에서 처리되지 않은 모든 예외를 
         <category label="Error"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -587,7 +594,7 @@ Nest에는 애플리케이션 전체에서 처리되지 않은 모든 예외를 
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
@@ -595,7 +602,7 @@ Nest에는 애플리케이션 전체에서 처리되지 않은 모든 예외를 
         <category label="Sentry"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -627,13 +634,13 @@ app.use(
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -650,13 +657,13 @@ React Admin에서 로그인 페이지를 만들고 Nest의 인증 모듈과 연�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -672,14 +679,14 @@ React Admin에서 로그인 페이지를 만들고 Nest의 인증 모듈과 연�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <category label="Express"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -695,14 +702,14 @@ Sentry의 기능 중에 크론 모니터링 기능이 있어서 NestJS가 지원
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <category label="Sentry"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -717,14 +724,14 @@ NestJS에서 [express-session][express-session]으로 세션 인증을 구현해
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <category label="Express"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -750,14 +757,14 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <category label="Winston"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -768,14 +775,14 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
         <updated>2023-12-27T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
         <category label="Test"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -813,13 +820,13 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -837,13 +844,13 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -861,13 +868,13 @@ NestJS에서는 Error 객체에 stack 프로퍼티를 사용해서 스택 트레
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -898,13 +905,13 @@ console.log(x, y); // ReferenceError
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -923,13 +930,13 @@ console.log(x, y); // ReferenceError
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -947,13 +954,13 @@ var 키워드로 선언된 변수는 다음과 같은 특징이 있다.
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -972,13 +979,13 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -993,13 +1000,13 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1021,13 +1028,13 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1042,13 +1049,13 @@ ECMAScript 사양에 등장하는 이중 대괄호(`[[...]]`)으로 감싼 이�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1068,13 +1075,13 @@ strict mode는 자바스크립트 언어의 문법을 좀 더 엄격히 적용�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1085,13 +1092,13 @@ strict mode는 자바스크립트 언어의 문법을 좀 더 엄격히 적용�
         <updated>2023-10-12T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1120,13 +1127,13 @@ console.log(circle.getDiameter()); // 10
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1137,13 +1144,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-10-15T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1154,13 +1161,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-10-18T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1171,13 +1178,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-10-23T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1188,13 +1195,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-10-29T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1205,13 +1212,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-10-30T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1222,13 +1229,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-09T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1239,13 +1246,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-12T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1256,13 +1263,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-13T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1273,13 +1280,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-15T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1290,13 +1297,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-05T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1307,13 +1314,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-05T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1342,13 +1349,13 @@ console.log(circle.getDiameter()); // 10
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1372,13 +1379,13 @@ console.log(circle.getDiameter()); // 10
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1389,13 +1396,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-20T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1415,13 +1422,13 @@ console.log(circle.getDiameter()); // 10
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1432,13 +1439,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-21T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1449,13 +1456,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-22T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1466,13 +1473,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-23T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1483,13 +1490,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-25T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1500,13 +1507,13 @@ console.log(circle.getDiameter()); // 10
         <updated>2023-11-26T00:00:00.000Z</updated>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1536,13 +1543,13 @@ sum변수에 할당되는 것은 10 + 20이 아니라 30이라는 값이다.
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1598,13 +1605,13 @@ sum변수에 할당되는 것은 10 + 20이 아니라 30이라는 값이다.
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1643,13 +1650,13 @@ typeof "Hi"; //-> string
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1689,13 +1696,13 @@ function sum(a, b) {
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1735,13 +1742,13 @@ console.log(typeof x, x); //number 10
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="JavaScript"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1760,13 +1767,13 @@ Datadog, Sentry와 같이 여러 데이터를 시각화해서 보여주는 앱�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Monitoring"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1787,7 +1794,7 @@ git clone으로 레포지토리까지 설정을 한 다음,
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Node"/>
@@ -1796,7 +1803,7 @@ git clone으로 레포지토리까지 설정을 한 다음,
         <category label="Linux"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1815,14 +1822,14 @@ CI/CD의 기본 개념은 지속적인 통합, 지속적인 서비스 제공, �
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="CI"/>
         <category label="CD"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1837,13 +1844,13 @@ CI/CD의 기본 개념은 지속적인 통합, 지속적인 서비스 제공, �
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="CD"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1863,14 +1870,14 @@ Github Actions에 대해 간단히 설명하면 테스트 및 배포 파이프�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="CI"/>
         <category label="CD"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1895,13 +1902,13 @@ S3 버킷을 정적 웹사이트로 호스팅하기 위해서는 다음과 같�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="CD"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1924,14 +1931,14 @@ Visual Studio Code의 확장 앱을 통해 구성할 수 있습니다.
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Docker"/>
         <category label="Debug"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1948,14 +1955,14 @@ git-flow는 브랜치를 5가지 종류로 구분하여 개발하는 전략이�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Git"/>
         <category label="Strategy"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -1976,14 +1983,14 @@ git-flow는 브랜치를 5가지 종류로 구분하여 개발하는 전략이�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Git"/>
         <category label="Strategy"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2004,13 +2011,13 @@ VSCode에서는 커스텀 스니펫과 키 바인딩 기능을 제공한다.
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="VSCode"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2038,14 +2045,14 @@ Markdownlint는 VSCode 확장 프로그램 중 하나로, 마크다운 형식의
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Markdown"/>
         <category label="VSCode"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2068,13 +2075,13 @@ Markdownlint는 VSCode 확장 프로그램 중 하나로, 마크다운 형식의
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Markdown"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2093,13 +2100,13 @@ GitHub의 TIL 리포지토리에 쓴 글들을 백업하는 과정이 있었는�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Retrospect"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2119,13 +2126,13 @@ Vuepress를 이용한 블로그를 사용하다가 여러 가지 문제에 부�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Retrospect"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2141,13 +2148,13 @@ Vuepress를 이용한 블로그를 사용하다가 여러 가지 문제에 부�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Retrospect"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2163,13 +2170,13 @@ Vuepress를 이용한 블로그를 사용하다가 여러 가지 문제에 부�
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Retrospect"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2190,13 +2197,13 @@ git config --global core.editor "code --wait"
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Git"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2219,13 +2226,13 @@ GitHub 레포지토리에서 frontend 디렉터리를 제외한 나머지 파일
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Git"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2248,13 +2255,13 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Git"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2274,14 +2281,14 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Codingtest"/>
         <category label="Boj"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2315,14 +2322,14 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Codingtest"/>
         <category label="Programmers"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2337,14 +2344,14 @@ git에서 브랜치와 다른 브랜치를 합치는 명령어가 `merge`
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Codingtest"/>
         <category label="Programmers"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2362,7 +2369,7 @@ SQL이나 NoSQL 데이터베이스 모두 쉽게 연결할 수 있습니다.
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
@@ -2370,7 +2377,7 @@ SQL이나 NoSQL 데이터베이스 모두 쉽게 연결할 수 있습니다.
         <category label="Dynamoose"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2391,7 +2398,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Prisma"/>
@@ -2399,7 +2406,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
         <category label="PlanetScale"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2416,7 +2423,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Prisma"/>
@@ -2424,7 +2431,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
         <category label="PlanetScale"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2445,7 +2452,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="NestJS"/>
@@ -2453,7 +2460,7 @@ warn(prisma-client) There are already 10 instances of Prisma Client actively run
         <category label="TypeORM"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2473,7 +2480,7 @@ SELECT DISTINCT 쿼리는 왜 생기는지 궁금하여 찾아보다가 나온 �
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="Database"/>
@@ -2482,7 +2489,7 @@ SELECT DISTINCT 쿼리는 왜 생기는지 궁금하여 찾아보다가 나온 �
         <category label="NestJS"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2500,13 +2507,13 @@ SELECT, INSERT, UPDATE, DELETE 쿼리문에 포함된 쿼리를 말한다.
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="SQL"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2533,13 +2540,13 @@ SELECT, INSERT, UPDATE, DELETE 쿼리문에 포함된 쿼리를 말한다.
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="SQL"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2562,13 +2569,13 @@ SELECT 열1, 열2 FROM 테이블명 WHERE 조건식
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="SQL"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
@@ -2591,13 +2598,13 @@ SELECT 열명 FROM 테이블명 LIMIT 행수 [OFFSET 시작행]
 ]]></content>
         <author>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </author>
         <category label="SQL"/>
         <contributor>
             <name>추연규(Zamoca)</name>
-            <email>suntail2002@naver.com</email>
+            <email>yk@choo.ooo</email>
             <uri>https://zamoca.space</uri>
         </contributor>
     </entry>
