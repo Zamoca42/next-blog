@@ -2,7 +2,7 @@
 
 import fs from "fs/promises";
 import path from "path";
-import { differenceInDays, formatISO } from "date-fns";
+import { formatISO } from "date-fns";
 import { 
   getAllMarkdownSlugs, 
   getGitDates, 
@@ -24,15 +24,11 @@ import { POST_HSITORY_NAME } from "../lib/constant.js";
  */
 
 /**
- * @param {string} filePath
  * @returns {Promise<boolean>}
  */
-export const shouldUpdateGitInfo = async (filePath) => {
+export const shouldUpdateGitInfo = async () => {
   try {
-    const fileStats = await fs.stat(filePath);
-    const currentDate = new Date();
-    const lastModifiedDate = new Date(fileStats.mtime);
-    return differenceInDays(currentDate, lastModifiedDate) >= 3;
+    return true;
   } catch (error) {
     if (error instanceof Error && "code" in error && error.code === "ENOENT") {
       return true;
@@ -58,10 +54,6 @@ const processFile = async (filePath) => {
 };
 
 export const savePostMetadata = async () => {
-  if (!(await shouldUpdateGitInfo(postIndexPath))) {
-    return;
-  }
-
   const fileNames = await fs.readdir(postsDirectory, { recursive: true });
 
   /** @type {Record<string, PostMetadata>} */

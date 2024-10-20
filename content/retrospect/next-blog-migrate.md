@@ -3,6 +3,7 @@ title: Next.js 블로그로 이전 후기
 description: Vuepress에서 Next.js로 블로그를 이전한 후기입니다.
 tag:
   - Retrospect
+date: "2024-07-20"
 ---
 
 Vuepress를 이용한 블로그를 사용하다가 여러 가지 문제에 부딪히게 되었다.

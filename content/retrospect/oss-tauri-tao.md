@@ -5,6 +5,7 @@ tag:
   - Tauri
   - Linux
   - Open-Source
+date: "2024-10-19"
 ---
 
 > [이전 포스트](https://zamoca.space/etc/retrospect/oss-gitbutler-linux-window)에서 이어지는 내용입니다.  

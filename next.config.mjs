@@ -4,7 +4,6 @@ import { savePostMetadata, shouldUpdateGitInfo } from "./src/script/post-index.j
 import { updateAlgoliaIndex } from "./src/script/algolia-index.js";
 import { generateRssFeed } from "./src/script/generate-rss.js";
 import bundleAnalyzer from '@next/bundle-analyzer';
-import { postIndexPath } from "./src/lib/file-meta.js";
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
@@ -20,10 +19,8 @@ const withBundleAnalyzer = bundleAnalyzer({
  */
 export default async (phase) => {
   if (phase === PHASE_DEVELOPMENT_SERVER || phase === PHASE_PRODUCTION_BUILD) {
-    if (await shouldUpdateGitInfo(postIndexPath)) {
       await savePostMetadata();
       await generateRssFeed();
-    }
   }
 
   if (phase === PHASE_PRODUCTION_BUILD && process.env.VERCEL_ENV === "production") {

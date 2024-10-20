@@ -5,6 +5,7 @@ tag:
   - Git
   - Open-Source
 star: true
+date: "2024-10-20"
 ---
 
 > 관련 이슈 1: https://github.com/gitbutlerapp/gitbutler/issues/2752  
