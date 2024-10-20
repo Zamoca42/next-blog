@@ -6,6 +6,7 @@ tag:
   - Next.js
   - Auth.js
 star: true
+date: "2024-08-01"
 ---
 
 Auth.js를 활용하여 개발하면서 세션(Session)과 JWT(JSON Web Token) 인증 방식에 대해 실제로 경험해 볼 수 있었다.

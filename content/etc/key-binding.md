@@ -1,6 +1,7 @@
 ---
 title: "VSCode - 커스텀 스니펫과 키 바인딩"
 description: "코드 스니펫을 VSCode에 단축키로 등록해 자동입력하기"
+date: "2024-06-26"
 tag:
   - VSCode
 star: false

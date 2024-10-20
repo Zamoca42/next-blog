@@ -5,6 +5,7 @@ tag:
   - Next.js
   - TypeScript
 star: true
+date: "2024-07-02"
 ---
 
 블로그에 검색 기능이 없어서 한글 형태소 지원, 적은 비용, 쉬운 유지보수를 고려한 라이브러리 사용을 고민하다 Typesense와 Aloglia를 알게 되었다.

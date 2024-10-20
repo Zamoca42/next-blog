@@ -4,6 +4,7 @@ tag:
   - Next.js
   - Lighthouse
 star: false
+date: "2024-07-31"
 ---
 
 Next.js 14 정적 블로그에서 성능 개선을 시도한 경험을 이번 포스트에서 정리하려고 한다.

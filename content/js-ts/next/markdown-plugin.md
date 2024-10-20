@@ -6,6 +6,7 @@ tag:
   - React
   - Markdown
 star: false
+date: "2024-07-26"
 ---
 
 정적 블로그를 만들 때 마크다운 파일을 사용하는 경우, 단순히 `<div>` 태그와 `dangerouslySetInnerHTML` 속성으로 정적 콘텐츠를 삽입할 수 있다.

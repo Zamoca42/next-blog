@@ -4,6 +4,7 @@ tag:
   - Next.js
   - Auth.js
   - Prisma
+date: "2024-06-13"
 ---
 
 Auth.js는 NextJS 친화적으로 설계된 오픈소스 인증 라이브러리다.
