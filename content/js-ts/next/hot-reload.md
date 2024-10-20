@@ -4,6 +4,7 @@ tag:
   - Next.js
   - TypeScript
 star: true
+date: "2024-06-12"
 ---
 
 NextJS로 프로젝트를 진행하던 중에 [Parallel Routes](https://nextjs.org/docs/app/building-your-application/routing/parallel-routes)

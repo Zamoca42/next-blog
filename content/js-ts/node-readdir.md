@@ -5,6 +5,7 @@ tag:
   - Node.js
   - TypeScript
   - Next.js
+date: "2024-06-20"
 ---
 
 Next.js 블로그 스타터를 시작하면 마크다운 포스트를 가져오는 로직은 `fs.readFileSync()`를 사용하여 컨텐츠 폴더 아래의 파일만 탐색하게 된다.
