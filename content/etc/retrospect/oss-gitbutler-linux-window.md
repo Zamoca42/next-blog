@@ -45,7 +45,7 @@ Gdk-Message: Error 71 (Protocol error) dispatching to Wayland display.
 
 ## 해결 방법
 
-결론적으로는 최대화된 상태를 저장하는 부분을 수정하면 된다.
+결론을 말하자면 최대화된 상태를 저장하는 부분을 수정하면 된다.
 하지만 최대화된 윈도우 상태를 저장하는 부분은 GitButler에서는 Tauri의 window-state 플러그인에서 관리하고 있었다.
 
 ```rust
@@ -53,11 +53,12 @@ Gdk-Message: Error 71 (Protocol error) dispatching to Wayland display.
 ```
 
 즉, 전체 버그는 Tauri의 window-state 플러그인에서 발생하는 버그라는 것을 알 수 있었다.
-실제로 해당 버그는 다른 앱에서도 발생하는 것을 확인할 수 있었다.
+
+실제로 해당 버그는 해당 플러그인을 사용하는 다른 앱에서도 발생하는 것을 Tauri의 이슈에서 확인할 수 있었다.
 
 > https://github.com/tauri-apps/tauri/issues/10702
 
-일단은 문제를 플러그인을 리눅스에서는 제외하고 테스트하면 프로토콜 에러는 발생하지 않았다.
+일단은 문제가 발생하는 플러그인을 리눅스에서는 제외하고 테스트하면 프로토콜 에러는 발생하지 않았다.
 
 ```rust
 #[cfg(not(target_os = "linux"))]
@@ -69,5 +70,5 @@ let builder = builder.plugin(tauri_plugin_window_state::Builder::default().build
 > https://github.com/gitbutlerapp/gitbutler/pull/4864
 
 처음에는 버그를 발견하고 해결했다는 사실이 뿌듯했지만 본질적인 문제는 해결되지 않았다는 사실이 마음에 걸렸다.
-이에 대한 코멘트에서 Tauri에서 더 나은 솔루션이 있으면 좋겠다는 의견을 보았고, 
+이에 대한 코멘트에서도 Tauri에서 더 나은 솔루션이 있으면 좋겠다는 의견을 보았고, 
 Tauri에서 근본적인 문제를 해결하는 방법을 찾아보기로 결심했다.
