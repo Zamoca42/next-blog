@@ -5,6 +5,7 @@ tag:
   - GitButler
   - Linux
   - Open-Source
+date: "2024-10-19"
 ---
 
 > 해당 이슈: https://github.com/gitbutlerapp/gitbutler/issues/4039

@@ -6,6 +6,7 @@ tag:
   - Architecture
   - Rust
   - Svelte
+date: "2024-10-18"
 ---
 
 > https://news.hada.io/topic?id=16281

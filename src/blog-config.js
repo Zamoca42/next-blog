@@ -25,8 +25,7 @@ export const blogConfig = {
   host: "https://zamoca.space",
   description: `A statically generated blog using Next.js and ${CMS_NAME}.`,
   nav: [
-    { name: "Database", path: "db" },
-    { name: "Infra", path: "infra" },
+    { name: "Review", path: "retrospect" },
     { name: "Javascript", path: "js-ts" },
     { name: "etc.", path: "etc" },
   ],
