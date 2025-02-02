@@ -29,6 +29,18 @@
       "Retrospect"
     ]
   },
+  "retrospect/oss-contribution": {
+    "excerpt": "",
+    "title": "내가 오픈소스에 기여하게된 이유와 2025년 목표",
+    "description": "",
+    "createdAt": "2025-02-02T09:00:00+09:00",
+    "updatedAt": "2025-02-02T09:00:00+09:00",
+    "tags": [
+      "Open-Source",
+      "Career",
+      "Growth"
+    ]
+  },
   "retrospect/oss-gitbutler-binary": {
     "excerpt": "\n> 관련 이슈 1: https://github.com/gitbutlerapp/gitbutler/issues/2752  \n> 관련 이슈 2: https://github.com/gitbutlerapp/gitbutler/issues/3093\n\n이번 후기는 GitButler에서 바이너리 파일(이미지, 폰트파일 등)을 미리보기 기능을 구현한 것에 대한 후기이다.\n\n![UI에서 미리보기 없이 Binary content not shown을 출력한다](https://github.com/user-attachments/assets/bc6269bd-14c0-4874-afc5-526d8ca82dfa)\n\n관련 이슈를 살펴보면 바이너리 파일을 미리보기 기능을 구현하는 것에 대한 이슈가 있었다.  \nUI에서 이미지는 미리보기 기능, 이미지 외의 파일에 대한 사이즈 정보를 보여주는 기능을 구현하는 것이 목표였다.\n\n",
     "title": "GitButler - 파일 미리보기 기여 후기",
