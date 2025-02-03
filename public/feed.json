@@ -11,6 +11,21 @@
     },
     "items": [
         {
+            "id": "retrospect/aflow",
+            "content_html": "\nAflow는 기존의 레포지토리 트리 ASCII 변환 프로젝트를 확장하여, AI를 활용해 파일/폴더 구조를 분석하고 아키텍처 다이어그램으로 변환하는 프로젝트다.  \n오픈소스에 기여하면서 코드를 열어보기 전에 어떤 구조인지 이해가 안되면 어떤 기능을 하는 코드인지 이해하기 어려웠던 적이 많았다.\nREADME나 기술문서에 친절하게 아키텍쳐가 보여주는 경우도 있지만 없는 경우가 더 많았고, Claude에 트리 구조를 넣으면 생소한 프로젝트라도 맥락을 빠르게 이해할 수 있었기 때문에 자주 사용하게 되었다.\n\n![Tauri 프로젝트 기술문서에 나와있는 아키텍쳐 예시](https://github.com/user-attachments/assets/6c74b6fa-b4e5-4d63-8478-e313cfa52b74)\n\nClaude는 Anthropic이 개발한 AI 모델로, 아티팩트 기능을 통해 Mermaid.js를 사용해 레포지토리 트리 구조를 넣으면 다이어그램으로 보여주는 기능이 있었다.\n하지만 Mermaid 문법을 보여줄 때 3번 중 1번은 오류가 발생하고 매번 트리구조를 복사해서 붙여넣기를 해야하는 불편함도 있었다.\n이 기능을 확장해서 GitHub의 레포지토리 트리를 매번 복사/붙여넣기할 필요없이 다이어그램으로 보여주는 자동화 도구를 만들고 싶었다.\n\n그래서 3가지 중점을 두고 프로젝트를 계획했다.\n\n1. 트리 구조를 복사해서 매번 붙여넣기를 하지 않도록 자동화\n2. 일관성 있는 Mermaid 문법으로 출력\n3. GitHub에서 비공개 레포지토리도 가져와 다이어그램으로 출력\n\n",
+            "url": "https://zamoca.space/retrospect/aflow",
+            "title": "Aflow 프로젝트 회고",
+            "summary": "Aflow 프로젝트 회고입니다.",
+            "date_modified": "2025-02-03T00:00:00.000Z",
+            "author": {
+                "name": "추연규(Zamoca)",
+                "url": "https://zamoca.space"
+            },
+            "tags": [
+                "Retrospect"
+            ]
+        },
+        {
             "id": "retrospect/blog-migrate",
             "content_html": "\n처음 vue-django를 이용해서 기술 블로그를 사용하면서 옵시디언으로 글을 작성해서 블로그에 업로드하고\nGitHub의 TIL 리포지토리에 쓴 글들을 백업하는 과정이 있었는데 업로드 과정이 비효율적이라는 생각이 들었습니다.\n점점 공부한 내용을 기록하고 업로드하는 과정이 즐겁지 않아서 업로드 기간이 늘어나고 점점 글을 쓰지 않게 되었습니다.\n그래서 업로드 기간이 늘어난 것에 대해 고민을 하다가 vue-django 블로그를 정리하고 GitHub Pages로 블로그를 변경했습니다.\n블로그를 바꾸게된 과정과 생각을 이번 글에서 정리해보겠습니다.\n\n",
             "url": "https://zamoca.space/retrospect/blog-migrate",
@@ -55,7 +70,7 @@
         },
         {
             "id": "retrospect/oss-contribution",
-            "content_html": "",
+            "content_html": "\n2024년은 개발자로서 성장을 경험한 해였다. 특히 오픈소스 기여를 통해 많은 것을 배웠고 자신감도 얻을 수 있었다. 이 글에서는 내가 오픈소스에 기여하게 된 계기와 그 과정에서 얻은 것들, 그리고 이를 바탕으로 한 2025년 목표를 공유하고자 한다.\n\n",
             "url": "https://zamoca.space/retrospect/oss-contribution",
             "title": "내가 오픈소스에 기여하게된 이유와 2025년 목표",
             "date_modified": "2025-02-02T00:00:00.000Z",
@@ -1498,6 +1513,21 @@
             ]
         },
         {
+            "id": "retrospect/aflow",
+            "content_html": "\nAflow는 기존의 레포지토리 트리 ASCII 변환 프로젝트를 확장하여, AI를 활용해 파일/폴더 구조를 분석하고 아키텍처 다이어그램으로 변환하는 프로젝트다.  \n오픈소스에 기여하면서 코드를 열어보기 전에 어떤 구조인지 이해가 안되면 어떤 기능을 하는 코드인지 이해하기 어려웠던 적이 많았다.\nREADME나 기술문서에 친절하게 아키텍쳐가 보여주는 경우도 있지만 없는 경우가 더 많았고, Claude에 트리 구조를 넣으면 생소한 프로젝트라도 맥락을 빠르게 이해할 수 있었기 때문에 자주 사용하게 되었다.\n\n![Tauri 프로젝트 기술문서에 나와있는 아키텍쳐 예시](https://github.com/user-attachments/assets/6c74b6fa-b4e5-4d63-8478-e313cfa52b74)\n\nClaude는 Anthropic이 개발한 AI 모델로, 아티팩트 기능을 통해 Mermaid.js를 사용해 레포지토리 트리 구조를 넣으면 다이어그램으로 보여주는 기능이 있었다.\n하지만 Mermaid 문법을 보여줄 때 3번 중 1번은 오류가 발생하고 매번 트리구조를 복사해서 붙여넣기를 해야하는 불편함도 있었다.\n이 기능을 확장해서 GitHub의 레포지토리 트리를 매번 복사/붙여넣기할 필요없이 다이어그램으로 보여주는 자동화 도구를 만들고 싶었다.\n\n그래서 3가지 중점을 두고 프로젝트를 계획했다.\n\n1. 트리 구조를 복사해서 매번 붙여넣기를 하지 않도록 자동화\n2. 일관성 있는 Mermaid 문법으로 출력\n3. GitHub에서 비공개 레포지토리도 가져와 다이어그램으로 출력\n\n",
+            "url": "https://zamoca.space/retrospect/aflow",
+            "title": "Aflow 프로젝트 회고",
+            "summary": "Aflow 프로젝트 회고입니다.",
+            "date_modified": "2025-02-03T00:00:00.000Z",
+            "author": {
+                "name": "추연규(Zamoca)",
+                "url": "https://zamoca.space"
+            },
+            "tags": [
+                "Retrospect"
+            ]
+        },
+        {
             "id": "retrospect/blog-migrate",
             "content_html": "\n처음 vue-django를 이용해서 기술 블로그를 사용하면서 옵시디언으로 글을 작성해서 블로그에 업로드하고\nGitHub의 TIL 리포지토리에 쓴 글들을 백업하는 과정이 있었는데 업로드 과정이 비효율적이라는 생각이 들었습니다.\n점점 공부한 내용을 기록하고 업로드하는 과정이 즐겁지 않아서 업로드 기간이 늘어나고 점점 글을 쓰지 않게 되었습니다.\n그래서 업로드 기간이 늘어난 것에 대해 고민을 하다가 vue-django 블로그를 정리하고 GitHub Pages로 블로그를 변경했습니다.\n블로그를 바꾸게된 과정과 생각을 이번 글에서 정리해보겠습니다.\n\n",
             "url": "https://zamoca.space/retrospect/blog-migrate",
@@ -1542,7 +1572,7 @@
         },
         {
             "id": "retrospect/oss-contribution",
-            "content_html": "",
+            "content_html": "\n2024년은 개발자로서 성장을 경험한 해였다. 특히 오픈소스 기여를 통해 많은 것을 배웠고 자신감도 얻을 수 있었다. 이 글에서는 내가 오픈소스에 기여하게 된 계기와 그 과정에서 얻은 것들, 그리고 이를 바탕으로 한 2025년 목표를 공유하고자 한다.\n\n",
             "url": "https://zamoca.space/retrospect/oss-contribution",
             "title": "내가 오픈소스에 기여하게된 이유와 2025년 목표",
             "date_modified": "2025-02-02T00:00:00.000Z",
@@ -2985,6 +3015,21 @@
             ]
         },
         {
+            "id": "retrospect/aflow",
+            "content_html": "\nAflow는 기존의 레포지토리 트리 ASCII 변환 프로젝트를 확장하여, AI를 활용해 파일/폴더 구조를 분석하고 아키텍처 다이어그램으로 변환하는 프로젝트다.  \n오픈소스에 기여하면서 코드를 열어보기 전에 어떤 구조인지 이해가 안되면 어떤 기능을 하는 코드인지 이해하기 어려웠던 적이 많았다.\nREADME나 기술문서에 친절하게 아키텍쳐가 보여주는 경우도 있지만 없는 경우가 더 많았고, Claude에 트리 구조를 넣으면 생소한 프로젝트라도 맥락을 빠르게 이해할 수 있었기 때문에 자주 사용하게 되었다.\n\n![Tauri 프로젝트 기술문서에 나와있는 아키텍쳐 예시](https://github.com/user-attachments/assets/6c74b6fa-b4e5-4d63-8478-e313cfa52b74)\n\nClaude는 Anthropic이 개발한 AI 모델로, 아티팩트 기능을 통해 Mermaid.js를 사용해 레포지토리 트리 구조를 넣으면 다이어그램으로 보여주는 기능이 있었다.\n하지만 Mermaid 문법을 보여줄 때 3번 중 1번은 오류가 발생하고 매번 트리구조를 복사해서 붙여넣기를 해야하는 불편함도 있었다.\n이 기능을 확장해서 GitHub의 레포지토리 트리를 매번 복사/붙여넣기할 필요없이 다이어그램으로 보여주는 자동화 도구를 만들고 싶었다.\n\n그래서 3가지 중점을 두고 프로젝트를 계획했다.\n\n1. 트리 구조를 복사해서 매번 붙여넣기를 하지 않도록 자동화\n2. 일관성 있는 Mermaid 문법으로 출력\n3. GitHub에서 비공개 레포지토리도 가져와 다이어그램으로 출력\n\n",
+            "url": "https://zamoca.space/retrospect/aflow",
+            "title": "Aflow 프로젝트 회고",
+            "summary": "Aflow 프로젝트 회고입니다.",
+            "date_modified": "2025-02-03T00:00:00.000Z",
+            "author": {
+                "name": "추연규(Zamoca)",
+                "url": "https://zamoca.space"
+            },
+            "tags": [
+                "Retrospect"
+            ]
+        },
+        {
             "id": "retrospect/blog-migrate",
             "content_html": "\n처음 vue-django를 이용해서 기술 블로그를 사용하면서 옵시디언으로 글을 작성해서 블로그에 업로드하고\nGitHub의 TIL 리포지토리에 쓴 글들을 백업하는 과정이 있었는데 업로드 과정이 비효율적이라는 생각이 들었습니다.\n점점 공부한 내용을 기록하고 업로드하는 과정이 즐겁지 않아서 업로드 기간이 늘어나고 점점 글을 쓰지 않게 되었습니다.\n그래서 업로드 기간이 늘어난 것에 대해 고민을 하다가 vue-django 블로그를 정리하고 GitHub Pages로 블로그를 변경했습니다.\n블로그를 바꾸게된 과정과 생각을 이번 글에서 정리해보겠습니다.\n\n",
             "url": "https://zamoca.space/retrospect/blog-migrate",
@@ -3029,7 +3074,7 @@
         },
         {
             "id": "retrospect/oss-contribution",
-            "content_html": "",
+            "content_html": "\n2024년은 개발자로서 성장을 경험한 해였다. 특히 오픈소스 기여를 통해 많은 것을 배웠고 자신감도 얻을 수 있었다. 이 글에서는 내가 오픈소스에 기여하게 된 계기와 그 과정에서 얻은 것들, 그리고 이를 바탕으로 한 2025년 목표를 공유하고자 한다.\n\n",
             "url": "https://zamoca.space/retrospect/oss-contribution",
             "title": "내가 오픈소스에 기여하게된 이유와 2025년 목표",
             "date_modified": "2025-02-02T00:00:00.000Z",
