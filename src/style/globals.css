@@ -97,6 +97,7 @@
   .prose h2 {
     border-bottom-width: 1px;
     padding-bottom: 4px;
+    padding-top: 12px;
     margin-bottom: 12px;
   }
 

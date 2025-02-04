@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://zamoca.space</id>
     <title>Zamoca Space</title>
-    <updated>2025-02-03T12:26:33.356Z</updated>
+    <updated>2025-02-04T08:37:58.538Z</updated>
     <generator>generate-rss</generator>
     <author>
         <name>추연규(Zamoca)</name>
@@ -20,7 +20,7 @@
         <id>retrospect/aflow</id>
         <link href="https://zamoca.space/retrospect/aflow"/>
         <updated>2025-02-03T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Aflow 프로젝트 회고입니다.]]></summary>
+        <summary type="html"><![CDATA[2024년 12월부터 2025년 1월까지 진행된 Aflow 프로젝트 회고입니다.]]></summary>
         <content type="html"><![CDATA[
 Aflow는 기존의 레포지토리 트리 ASCII 변환 프로젝트를 확장하여, AI를 활용해 파일/폴더 구조를 분석하고 아키텍처 다이어그램으로 변환하는 프로젝트다.  
 오픈소스에 기여하면서 코드를 열어보기 전에 어떤 구조인지 이해가 안되면 어떤 기능을 하는 코드인지 이해하기 어려웠던 적이 많았다.
@@ -2802,7 +2802,7 @@ SELECT 열명 FROM 테이블명 LIMIT 행수 [OFFSET 시작행]
         <id>retrospect/aflow</id>
         <link href="https://zamoca.space/retrospect/aflow"/>
         <updated>2025-02-03T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Aflow 프로젝트 회고입니다.]]></summary>
+        <summary type="html"><![CDATA[2024년 12월부터 2025년 1월까지 진행된 Aflow 프로젝트 회고입니다.]]></summary>
         <content type="html"><![CDATA[
 Aflow는 기존의 레포지토리 트리 ASCII 변환 프로젝트를 확장하여, AI를 활용해 파일/폴더 구조를 분석하고 아키텍처 다이어그램으로 변환하는 프로젝트다.  
 오픈소스에 기여하면서 코드를 열어보기 전에 어떤 구조인지 이해가 안되면 어떤 기능을 하는 코드인지 이해하기 어려웠던 적이 많았다.
@@ -5584,7 +5584,7 @@ SELECT 열명 FROM 테이블명 LIMIT 행수 [OFFSET 시작행]
         <id>retrospect/aflow</id>
         <link href="https://zamoca.space/retrospect/aflow"/>
         <updated>2025-02-03T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Aflow 프로젝트 회고입니다.]]></summary>
+        <summary type="html"><![CDATA[2024년 12월부터 2025년 1월까지 진행된 Aflow 프로젝트 회고입니다.]]></summary>
         <content type="html"><![CDATA[
 Aflow는 기존의 레포지토리 트리 ASCII 변환 프로젝트를 확장하여, AI를 활용해 파일/폴더 구조를 분석하고 아키텍처 다이어그램으로 변환하는 프로젝트다.  
 오픈소스에 기여하면서 코드를 열어보기 전에 어떤 구조인지 이해가 안되면 어떤 기능을 하는 코드인지 이해하기 어려웠던 적이 많았다.

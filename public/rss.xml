@@ -4,7 +4,7 @@
         <title>Zamoca Space</title>
         <link>https://zamoca.space</link>
         <description>A statically generated blog using Next.js and Markdown.</description>
-        <lastBuildDate>Mon, 03 Feb 2025 12:26:33 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 04 Feb 2025 08:37:58 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>generate-rss</generator>
         <language>ko</language>
@@ -19,7 +19,7 @@
             <link>https://zamoca.space/retrospect/aflow</link>
             <guid>retrospect/aflow</guid>
             <pubDate>Mon, 03 Feb 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Aflow 프로젝트 회고입니다.]]></description>
+            <description><![CDATA[2024년 12월부터 2025년 1월까지 진행된 Aflow 프로젝트 회고입니다.]]></description>
             <content:encoded><![CDATA[
 Aflow는 기존의 레포지토리 트리 ASCII 변환 프로젝트를 확장하여, AI를 활용해 파일/폴더 구조를 분석하고 아키텍처 다이어그램으로 변환하는 프로젝트다.  
 오픈소스에 기여하면서 코드를 열어보기 전에 어떤 구조인지 이해가 안되면 어떤 기능을 하는 코드인지 이해하기 어려웠던 적이 많았다.
@@ -1883,7 +1883,7 @@ SELECT 열명 FROM 테이블명 LIMIT 행수 [OFFSET 시작행]
             <link>https://zamoca.space/retrospect/aflow</link>
             <guid>retrospect/aflow</guid>
             <pubDate>Mon, 03 Feb 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Aflow 프로젝트 회고입니다.]]></description>
+            <description><![CDATA[2024년 12월부터 2025년 1월까지 진행된 Aflow 프로젝트 회고입니다.]]></description>
             <content:encoded><![CDATA[
 Aflow는 기존의 레포지토리 트리 ASCII 변환 프로젝트를 확장하여, AI를 활용해 파일/폴더 구조를 분석하고 아키텍처 다이어그램으로 변환하는 프로젝트다.  
 오픈소스에 기여하면서 코드를 열어보기 전에 어떤 구조인지 이해가 안되면 어떤 기능을 하는 코드인지 이해하기 어려웠던 적이 많았다.
@@ -3747,7 +3747,7 @@ SELECT 열명 FROM 테이블명 LIMIT 행수 [OFFSET 시작행]
             <link>https://zamoca.space/retrospect/aflow</link>
             <guid>retrospect/aflow</guid>
             <pubDate>Mon, 03 Feb 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Aflow 프로젝트 회고입니다.]]></description>
+            <description><![CDATA[2024년 12월부터 2025년 1월까지 진행된 Aflow 프로젝트 회고입니다.]]></description>
             <content:encoded><![CDATA[
 Aflow는 기존의 레포지토리 트리 ASCII 변환 프로젝트를 확장하여, AI를 활용해 파일/폴더 구조를 분석하고 아키텍처 다이어그램으로 변환하는 프로젝트다.  
 오픈소스에 기여하면서 코드를 열어보기 전에 어떤 구조인지 이해가 안되면 어떤 기능을 하는 코드인지 이해하기 어려웠던 적이 많았다.
