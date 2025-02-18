@@ -26,15 +26,16 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "next.config.mjs",
+    "next.config.ts",
     ".next/types/**/*.ts",
-    "dist/types/**/*.ts", 
+    "dist/types/**/*.ts",
     "src/blog-config.js"
   ],
   "exclude": [
