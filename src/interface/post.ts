@@ -7,7 +7,5 @@ export type Post = ParsedPost & {
 };
 
 export type PostSlugParams = {
-  params: {
-    slug: string[];
-  };
+  params: Promise<{ slug: string[] }>;
 };

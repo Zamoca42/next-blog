@@ -15,11 +15,14 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params,
 }: PostSlugParams): Promise<Metadata> => {
-  if (!params.slug || params.slug.length === 0) {
+  const resolvedParams = await params;
+  const { slug } = resolvedParams;
+
+  if (!slug || slug.length === 0) {
     notFound();
   }
 
-  const postSlug = params.slug?.join("/");
+  const postSlug = slug.join("/");
   const post = await getPostBySlug(postSlug);
 
   if (!post) {

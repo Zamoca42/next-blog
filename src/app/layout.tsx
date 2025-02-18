@@ -9,7 +9,11 @@ import { Analytics } from "@vercel/analytics/react";
 import { AppProvider } from "@/component/context/app-provider";
 import { blogConfig } from "@/blog-config";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: `${blogConfig.name} | Blog with ${CMS_NAME}`,
@@ -57,24 +61,6 @@ export default async function RootLayout({
           content="/favicon/browserconfig.xml"
         />
         <meta name="theme-color" content="#000" />
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          href="/rss.xml"
-          title={`RSS Feed for ${blogConfig.name}`}
-        />
-        <link
-          rel="alternate"
-          type="application/atom+xml"
-          href="/rss-atom.xml"
-          title={`Atom Feed for ${blogConfig.name}`}
-        />
-        <link
-          rel="alternate"
-          type="application/json"
-          href="/feed.json"
-          title={`JSON Feed for ${blogConfig.name}`}
-        />
       </head>
       <body className={inter.className}>
         <AppProvider
