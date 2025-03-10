@@ -38,7 +38,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "autoprefixer": "^10.4.19",
+    "autoprefixer": "^10.4.21",
     "gray-matter": "^4.0.3",
     "postcss": "^8",
     "refractor": "^4.8.1",
