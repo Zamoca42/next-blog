@@ -69,7 +69,19 @@ export const parsePostContent = async (filePath) => {
     excerpt_separator: "<!-- end -->",
   });
 
-  const frontmatterDate = data.date ? formatISO(new Date(data.date)) : null;
+  let frontmatterDate = null;
+  if (data.date) {
+    try {
+      const date = new Date(data.date);
+      if (!isNaN(date.getTime())) {
+        frontmatterDate = formatISO(date);
+      } else {
+        console.warn(`Invalid frontmatter date for ${slug}: ${data.date}`);
+      }
+    } catch (error) {
+      console.warn(`Error parsing frontmatter date for ${slug}: ${data.date}`, error);
+    }
+  }
 
   return {
     slug,
@@ -108,7 +120,22 @@ const gitLogFileDate = async (command) => {
   try {
     const { stdout } = await exec(command);
     const outputDate = stdout.trim();
-    return outputDate ? formatISO(new Date(outputDate)) : null;
+    
+    if (!outputDate) {
+      return null;
+    }
+    
+    try {
+      const date = new Date(outputDate);
+      if (isNaN(date.getTime())) {
+        console.warn(`Invalid date format: ${outputDate}`);
+        return null;
+      }
+      return formatISO(date);
+    } catch (dateError) {
+      console.warn(`Error parsing date: ${outputDate}`, dateError);
+      return null;
+    }
   } catch (error) {
     console.error(`Error executing git command: ${command}`, error);
     return null;
