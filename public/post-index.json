@@ -19,6 +19,17 @@
       "Retrospect"
     ]
   },
+  "retrospect/garmin-fit-bot": {
+    "excerpt": "",
+    "title": "가민 핏봇(GarminFitBot) 개발 후기",
+    "description": "",
+    "createdAt": "2025-04-02T09:00:00+09:00",
+    "updatedAt": "2025-04-02T09:00:00+09:00",
+    "tags": [
+      "GarminFitBot",
+      "Project"
+    ]
+  },
   "retrospect/next-blog-migrate": {
     "excerpt": "\nVuepress를 이용한 블로그를 사용하다가 여러 가지 문제에 부딪히게 되었다.\n처음에는 블로그에 최적화된 레이아웃과 마크다운을 사용하는 것이 편했으나,\n의존성 충돌이 빈번하게 일어나고 제한적인 플러그인과 트러블 슈팅에 대한 정보가 부족해 한계를 느껴 Next.js로 변경을 고려하게 되었다.\n\n이번 포스트에서는 Next.js로 블로그를 이전하기까지 과정을 정리하고 공유해보려고 한다.\n\n",
     "title": "Next.js 블로그로 이전 후기",

@@ -1,5 +1,5 @@
 ---
-title: "가민 핏봇(Garmin FitBot) 개발 후기"
+title: "가민 핏봇(GarminFitBot) 개발 후기"
 tag:
   - GarminFitBot
   - Project
@@ -8,8 +8,8 @@ date: "2025-04-02"
 ---
 
 <div style="display: flex; gap: 1rem; justify-content: center;">
-  <img src="https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/frontend/src/lib/images/screenshots/chatbot-analysis-health.png" alt="AI 분석 요청" width="45%"/>
-  <img src="https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/frontend/src/lib/images/screenshots/result-analysis-health.png" alt="AI 분석 결과" width="45%"/>
+  <img src="https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/frontend/src/lib/images/screenshots/chatbot-collect-fit-data.png" alt="데이터 수집 데모" width="45%"/>
+  <img src="https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/frontend/src/lib/images/screenshots/result-collect-fit-data.png" alt="데이터 수집 결과" width="45%"/>
 </div>
 
 최근 '가민 핏봇(Garmin FitBot)' 프로젝트를 진행하면서 겪었던 고민과 문제들, 그리고 그 과정에서의 경험을 공유하고자 합니다.
@@ -18,7 +18,7 @@ date: "2025-04-02"
 
 Garmin 스마트워치를 사용하며 다양한 건강 데이터를 수집할 수 있었지만, 아쉬움이 있었습니다.
 
-![Garmin Connect에서 보여주는 수면 요약](https://github.com/user-attachments/assets/4c4b522b-0dfc-4441-83a6-ae93eeedce48)
+![Garmin Connect에서 보여주는 수면 요약](https://github.com/user-attachments/assets/965e5577-fcb6-4515-b8a2-db3e34bb21ea)
 
 "내 건강 데이터를 AI가 종합 분석해서 알려준다면 얼마나 좋을까?"
 
@@ -122,7 +122,9 @@ Garmin Connect 데이터를 AI로 분석하면서 생긴 가장 큰 문제는 �
 
 이러한 문제들을 해결하기 위해 ReAct 방식에서 벗어나 AI 시스템을 명확한 단계로 나누어 설계했습니다.
 
-![Plan + 실행 + 분석 + 보고서로 나눈 패턴](https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/backend/agent_graph.png)
+<div>
+  <img src="https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/backend/agent_graph.png" alt="Plan + 실행 + 분석 + 보고서로 나눈 패턴" height="25%"/>
+<div/>
 
 - 사용자 질문 분석 계획 단계 (어떤 데이터가 필요한지 판단)
 - 필요한 데이터만 선택적으로 조회하는 단계
