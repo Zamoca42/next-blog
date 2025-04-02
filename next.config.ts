@@ -22,37 +22,46 @@ export default async (phase: string): Promise<NextConfig> => {
     images: {
       imageSizes: [32, 48, 64, 96],
       deviceSizes: [750, 828, 1080, 1200],
+      dangerouslyAllowSVG: true,
+      contentDispositionType: 'attachment',
+      contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+      unoptimized: true,
       remotePatterns: [
         {
           protocol: 'https',
           hostname: 'github.com',
-          port: '',
-          search: '',
+          pathname: '/**',
         },
         {
           protocol: 'https',
-          hostname: "user-images.githubusercontent.com",
-          port: '',
-          search: '',
+          hostname: 'user-images.githubusercontent.com',
+          pathname: '/**',
         },
         {
           protocol: 'https',
-          hostname: "capsule-render.vercel.app",
-          port: '',
-          search: '',
+          hostname: 'capsule-render.vercel.app',
+          pathname: '/**',
         },
         {
           protocol: 'https',
-          hostname: "img.shields.io",
-          port: '',
-          search: '',
+          hostname: 'img.shields.io',
+          pathname: '/**',
         },
         {
           protocol: 'https',
-          hostname: "github-readme-stats.vercel.app",
-          port: '',
-          search: '',
+          hostname: 'github-readme-stats.vercel.app',
+          pathname: '/**',
         },
+        {
+          protocol: 'https',
+          hostname: 'mermaid.ink',
+          pathname: '/**',
+        },
+        {
+          protocol: 'https',
+          hostname: 'raw.githubusercontent.com',
+          pathname: '/**',
+        }
       ],
     },
   };

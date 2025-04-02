@@ -11,25 +11,28 @@ type ImageInPostProps = ClassAttributes<HTMLImageElement> &
 const ImageInPost: React.FC<ImageInPostProps> = (props) => {
   const { node, alt, width, height, src, ...rest } = props;
   const parsedSrc = src ?? "/asset/blog/dynamic-routing/cover.jpg";
-  const paredAlt = alt ?? "image";
+  const parsedAlt = alt ?? "image";
+
   return (
-    <div className="flex flex-col items-center justify-center">
-      <Image
-        alt={paredAlt}
-        src={parsedSrc}
-        {...rest}
-        onClick={() => window.open(src)}
-        width={0}
-        height={0}
-        sizes="100vw"
-        className="w-full h-auto rounded-xl cursor-pointer hover:shadow-xl"
-        priority
-      />
-      {alt && (
-        <span className="text-sm text-muted-foreground text-center truncate w-full">
-          {paredAlt}
-        </span>
-      )}
+    <div className="flex flex-col items-center justify-center my-4">
+      <div className="relative w-full">
+        <Image
+          alt={parsedAlt}
+          src={parsedSrc}
+          {...rest}
+          onClick={() => window.open(src)}
+          width={0}
+          height={0}
+          sizes="100vw"
+          className="w-full h-auto max-h-[50vh] object-contain rounded-xl cursor-pointer hover:shadow-xl transition-shadow"
+          priority
+        />
+        {alt && (
+          <span className="text-sm text-muted-foreground text-center mt-2 block truncate w-full">
+            {parsedAlt}
+          </span>
+        )}
+      </div>
     </div>
   );
 };
