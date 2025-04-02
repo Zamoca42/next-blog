@@ -8,6 +8,7 @@ import { PluggableList } from "unified";
 import gfm from "remark-gfm";
 import remarkCodeTitles from "remark-flexible-code-titles";
 import rehypeSlug from "rehype-slug";
+import rehypeRaw from "rehype-raw";
 import remarkUnwrapImages from "remark-unwrap-images";
 import remarkDirectiveRehype from "remark-directive-rehype";
 import remarkDirective from "remark-directive";
@@ -34,7 +35,6 @@ export function MarkdownBody({
 }: Props) {
   return (
     <Markdown
-      skipHtml
       remarkPlugins={[
         gfm,
         emoji,
@@ -54,6 +54,7 @@ export function MarkdownBody({
         ...remarkPlugins,
       ]}
       rehypePlugins={[
+        rehypeRaw,
         [
           customRehypePrism,
           {
