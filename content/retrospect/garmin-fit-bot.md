@@ -8,8 +8,8 @@ date: "2025-04-02"
 ---
 
 <div style="display: flex; gap: 1rem; justify-content: center;">
-  <img src="https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/frontend/src/lib/images/screenshots/chatbot-collect-fit-data.png" alt="데이터 수집 데모" width="45%"/>
-  <img src="https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/frontend/src/lib/images/screenshots/result-collect-fit-data.png" alt="데이터 수집 결과" width="45%"/>
+  <img src="https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/frontend/src/lib/images/screenshots/chatbot-analysis-health.png" alt="AI 분석 요청" width="45%"/>
+  <img src="https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/frontend/src/lib/images/screenshots/result-analysis-health.png" alt="AI 분석 결과" width="45%"/>
 </div>
 
 최근 '가민 핏봇(Garmin FitBot)' 프로젝트를 진행하면서 겪었던 고민과 문제들, 그리고 그 과정에서의 경험을 공유하고자 합니다.
@@ -133,7 +133,7 @@ Garmin Connect 데이터를 AI로 분석하면서 생긴 가장 큰 문제는 �
 
 각 단계마다 특화된 프롬프트와 역할을 부여하고, 단계 간 전환을 조건으로 제어했습니다.  
 이러한 방식으로 AI가 한 번에 처리해야 하는 데이터 양을 줄이고, 필요한 데이터에만 집중할 수 있게 했습니다.  
-결과적으로 사용자에게 더 관련성 높은 답변을 제공할 수 있었습니다.
+그리고 langgraph의 상태를 활용하면서 여러 사이클을 순환해도 필요한 데이터를 누락 없이 최종 보고서 노드에 전달할 수 있다는게 장점이였습니다.  
 
 ## 서버 안정성과 확장성
 
@@ -169,15 +169,19 @@ Garmin Connect 데이터를 AI로 분석하면서 생긴 가장 큰 문제는 �
 - **UX**: 카카오톡 챗봇 시나리오 설계
 - **프로젝트 관리**: 주별 목표 설정 및 개발 일정 관리
 
-전체 시스템을 설계하고 구현하는 과정은 쉽지 않았지만, 이를 통해 서비스의 모든 측면을 넓은 관점에서 보게되었을 때 빠르게 문제를 해결할 수 있었습니다.
-앞으로도 사용자 피드백을 수렴하며 더 발전시켜 나갈 계획입니다.
+전체 시스템을 설계하고 구현하는 과정은 쉽지 않았지만, 이를 통해 서비스의 모든 측면을 넓은 관점에서 보게되었을 때 빠르게 문제를 해결할 수 있었습니다.  
+그리고 한 가지 흥미로운 점은 이 서비스를 개발하는 과정에서 저 자신의 습관도 개선되었다는 것입니다.  
+프로젝트 기간 동안 데이터 분석을 위해 스마트워치를 지속적으로 착용하게 되었고, 자연스럽게 러닝, 걷기, 사이클링과 같은 활동을 더 열심히 하게 되었습니다.  
 
-이 프로젝트를 통해 배운 가장 큰 교훈은, 기술 자체보다 그 기술이 사용자에게 어떤 가치를 제공할 수 있는지를 항상 고민해야 한다는 것입니다.
-데이터는 그저 숫자가 아니라, 사용자의 삶을 개선할 수 있는 가능성을 담고 있으니까요.
+이 프로젝트를 통해 배운 가장 큰 교훈은, 기술 자체보다 그 기술이 사용자에게 어떤 가치를 제공할 수 있는지를 항상 고민해야 한다는 것입니다.  
+데이터는 그저 숫자가 아니라, 사용자의 삶을 개선할 수 있는 가능성을 담고 있으니까요.  
+가민 핏봇을 사용하는 모든 분들도 저처럼 건강에 더 관심을 갖고, 더 활동적인 삶을 살아가는 계기가 되었으면 합니다.  
+기술이 단순히 데이터를 보여주는 것을 넘어, 실제로 더 건강한 삶으로 이끄는 동기부여가 될 수 있다고 믿습니다.  
 
 ---
 
 서비스 링크:
 
+- [레포지토리](https://github.com/zamoca42/GarminFitBot)
 - [웹사이트](https://garmin-fit-bot.vercel.app/)
 - [카카오톡 채널](https://pf.kakao.com/_GVxmnn)
