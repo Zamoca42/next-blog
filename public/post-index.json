@@ -19,8 +19,19 @@
       "Retrospect"
     ]
   },
-  "retrospect/garmin-fit-bot": {
+  "retrospect/fit-bot-ec2-instance-error": {
     "excerpt": "",
+    "title": "예상치 못한 서버 다운, 그리고 메모리 부족 장애 대응기",
+    "description": "",
+    "createdAt": "2025-04-09T09:00:00+09:00",
+    "updatedAt": "2025-04-09T09:00:00+09:00",
+    "tags": [
+      "GarminFitBot",
+      "Project"
+    ]
+  },
+  "retrospect/garmin-fit-bot": {
+    "excerpt": "\n<div style=\"display: flex; gap: 1rem; justify-content: center;\">\n  <img src=\"https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/frontend/src/lib/images/screenshots/chatbot-analysis-health.png\" alt=\"AI 분석 요청\" width=\"45%\"/>\n  <img src=\"https://raw.githubusercontent.com/zamoca42/GarminFitBot/main/frontend/src/lib/images/screenshots/result-analysis-health.png\" alt=\"AI 분석 결과\" width=\"45%\"/>\n</div>\n\n최근 '가민 핏봇(Garmin FitBot)' 프로젝트를 진행하면서 겪었던 고민과 문제들, 그리고 그 과정에서의 경험을 공유하고자 합니다.\n\n",
     "title": "가민 핏봇(GarminFitBot) 개발 후기",
     "description": "",
     "createdAt": "2025-04-02T09:00:00+09:00",
