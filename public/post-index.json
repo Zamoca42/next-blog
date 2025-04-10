@@ -85,26 +85,14 @@
       "Open-Source"
     ]
   },
-  "retrospect/oss-gitbutler-linux-window": {
-    "excerpt": "\n> 해당 이슈: https://github.com/gitbutlerapp/gitbutler/issues/4039\n\nGitButler를 살펴보다 발견한 이슈는 리눅스 환경에서 최대화를 시도하면 창이 자동으로 꺼지는 문제였다.\n\n링크에서 이슈를 살펴보면 Tauri의 window-state와 관련이 있는거 같긴 했지만 Tauri와 의존된 부분이 많아서 정확히 부분을 찾아야했다.\n\nhelpwanted 라벨이 달려있어서 해당 이슈에 기여해보고 싶어졌다.\n\n",
-    "title": "GitButler - 리눅스 환경에서 실행시 창이 꺼지는 문제 기여 후기",
-    "description": "",
-    "createdAt": "2024-10-19T09:00:00+09:00",
-    "updatedAt": "2024-10-19T09:00:00+09:00",
-    "tags": [
-      "GitButler",
-      "Linux",
-      "Open-Source"
-    ]
-  },
-  "retrospect/oss-tauri-tao": {
-    "excerpt": "\n> [이전 포스트](https://zamoca.space/etc/retrospect/oss-gitbutler-linux-window)에서 이어지는 내용입니다.  \n> 해당 이슈: https://github.com/tauri-apps/tao/issues/977\n\n처음에는 linux에서 `Error 71 (Protocol error) dispatching to Wayland display.`가 발생하는 이유는\nTauri의 window-state 플러그인의 자체적인 문제라고 생각했다.\n\n그래서 Tauri의 플러그인 레포지토리에 [이슈](https://github.com/tauri-apps/plugins-workspace/issues/1779)를 남겼지만\n창이 최대화시에 발생하는 문제라면 Tauri의 업스트림 중 하나인 Tao에서 발생하는 문제라고 답변을 들을 수 있었다.\n\n![타우리의 아키텍쳐](https://github.com/user-attachments/assets/cc83e09a-0ad6-4da6-9e25-bd812079a2ec)\n\nTao는 Tauri에서 창을 생성하고 관리하는 라이브러리이다.\n\n그래서 이슈를 Tao에서 다시 작성한 후에 Discord에 메인테이너에게 기여를 해도되는지 문의를 했고\n메인테이너에게 자유롭게 기여를 해도된다는 답변을 받았다.\n\n",
-    "title": "Tauri - 리눅스 환경에서 실행시 창이 꺼지는 문제 기여 후기 2",
+  "retrospect/oss-gitbutler-tauri-linux-window": {
+    "excerpt": "",
+    "title": "리눅스 환경 GitButler 앱 최대화 버그 분석과 해결 과정",
     "description": "",
     "createdAt": "2024-10-20T09:00:00+09:00",
     "updatedAt": "2024-10-20T09:00:00+09:00",
     "tags": [
-      "Tauri",
+      "GitButler",
       "Linux",
       "Open-Source"
     ]
