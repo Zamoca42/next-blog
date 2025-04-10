@@ -20,7 +20,7 @@
     ]
   },
   "retrospect/fit-bot-ec2-instance-error": {
-    "excerpt": "",
+    "excerpt": "\n카카오톡 챗봇 서비스 **GarminFitBot**을 운영하면서, 어느 날 사용자로부터 \"서버 오류\" 메시지를 받았습니다. 확인해보니 서비스는 실제로 멈춰 있었고, AWS 콘솔에 \"인스턴스 연결성 검사 실패\" 경고가 떠 있었습니다.\n\n![EC2 인스턴스의 연결성 검사 실패 메세지](/images/ec2-instance-error.png)\n\n이번 글에서는 그때 겪었던 **메모리 부족 장애의 원인과 대응 과정**, 그리고 이후 **시스템을 개선하기 위해 시도한 내용들**을 정리해보았습니다.\n\n",
     "title": "예상치 못한 서버 다운, 그리고 메모리 부족 장애 대응기",
     "description": "",
     "createdAt": "2025-04-09T09:00:00+09:00",
@@ -86,7 +86,7 @@
     ]
   },
   "retrospect/oss-gitbutler-tauri-linux-window": {
-    "excerpt": "",
+    "excerpt": "\n## 들어가며\n\n우연히 WSL 환경에서 GitButler를 실행하던 중 앱을 최대화하는 순간 종료되는 현상을 발견했습니다. 이 문제는 단순한 앱 버그가 아닌 Tauri 프레임워크 자체의 문제였고, 수많은 앱에 영향을 미치는 이슈였습니다.  \n이 글에서는 문제 발견부터 해결까지의 과정과 겪었던 어려움들을 공유하고자 합니다.  \n\n",
     "title": "리눅스 환경 GitButler 앱 최대화 버그 분석과 해결 과정",
     "description": "",
     "createdAt": "2024-10-20T09:00:00+09:00",

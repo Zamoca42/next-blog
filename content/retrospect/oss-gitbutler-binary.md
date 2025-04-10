@@ -4,7 +4,6 @@ tag:
   - GitButler
   - Git
   - Open-Source
-star: true
 date: "2024-10-21"
 ---
 
