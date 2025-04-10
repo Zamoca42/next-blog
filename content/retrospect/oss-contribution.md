@@ -1,6 +1,5 @@
 ---
 title: "내가 오픈소스에 기여하게된 이유와 2025년 목표"
-star: true
 tag:
   - Open-Source
   - Career
